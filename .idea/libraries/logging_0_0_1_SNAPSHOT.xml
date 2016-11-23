@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="logging-0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../enterprise-web-app/logging/target/logging-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
