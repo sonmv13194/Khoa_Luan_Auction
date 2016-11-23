@@ -65,6 +65,13 @@
         <processorPath useClasspath="true" />
         <module name="configuration" />
       </profile>
+      <profile default="false" name="Annotation profile for order" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="order" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="category" target="1.8" />
@@ -72,6 +79,7 @@
       <module name="core" target="1.8" />
       <module name="java-training-shop" target="1.8" />
       <module name="logging" target="1.8" />
+      <module name="order" target="1.8" />
       <module name="product" target="1.8" />
       <module name="security" target="1.8" />
       <module name="user" target="1.8" />

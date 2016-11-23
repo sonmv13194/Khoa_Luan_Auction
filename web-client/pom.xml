@@ -22,11 +22,6 @@
         </dependency>
         <dependency>
             <groupId>com.java.training</groupId>
-            <artifactId>category</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.java.training</groupId>
             <artifactId>product</artifactId>
             <version>${project.version}</version>
         </dependency>
