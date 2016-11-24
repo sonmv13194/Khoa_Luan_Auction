@@ -6,78 +6,280 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
                    http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <changeSet author="caoky (generated)" id="1477582307969-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
-        <createTable tableName="User">
-            <column name="id" type="VARCHAR(36)">
+    <changeSet author="Administrator (generated)" id="1479976628685-1">
+        <createTable tableName="category">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="category_name" type="VARCHAR(100)"/>
+            <column name="created" type="date">
                 <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update_by" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-2">
+        <createTable tableName="order_detail">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_detail_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="note" type="VARCHAR(200)"/>
+            <column name="quantity" type="INT"/>
+            <column name="order_status" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-3">
+        <createTable tableName="order_history">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_name" type="VARCHAR(250)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="order_id" type="INT"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-4">
+        <createTable tableName="product">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_name" type="VARCHAR(200)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="category_id" type="INT"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-5">
+        <createTable tableName="product_detail">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_detail_code" type="VARCHAR(100)"/>
+            <column name="product_detail_status" type="INT"/>
+            <column name="product_detail_price" type="FLOAT(12)"/>
+            <column name="product_detail_quantity" type="INT"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="supplyer" type="VARCHAR(250)"/>
+            <column name="product_parent_id" type="INT"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-6">
+        <createTable tableName="product_images">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="url" type="MEDIUMTEXT"/>
+            <column name="product_detail_id" type="INT"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-7">
+        <createTable tableName="role">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_name" type="VARCHAR(45)"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-8">
+        <createTable tableName="role_user">
+            <column name="user_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-9">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
             </column>
             <column name="username" type="VARCHAR(45)"/>
-            <column name="password" type="VARCHAR(255)"/>
-            <column name="first_name" type="VARCHAR(100)"/>
-            <column name="last_name" type="VARCHAR(100)"/>
-            <column name="middle_name" type="VARCHAR(100)"/>
-            <column name="gender" type="ENUM('FEMALE', 'MALE', 'OTHER')"/>
-            <column name="country_code" type="VARCHAR(3)"/>
-            <column name="day_of_birth" type="datetime"/>
-            <column name="email" type="VARCHAR(255)"/>
-            <column name="email2" type="VARCHAR(255)"/>
-            <column name="email3" type="VARCHAR(255)"/>
-            <column name="phone_code" type="VARCHAR(6)"/>
-            <column name="phone_number" type="VARCHAR(15)"/>
-            <column name="phone_number2" type="VARCHAR(15)"/>
-            <column name="phone_number3" type="VARCHAR(15)"/>
-            <column defaultValueNumeric="0" name="enabled" type="BIT(1)">
+            <column name="password" type="VARCHAR(45)"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="phone" type="VARCHAR(45)"/>
+            <column name="birthday" type="date"/>
+            <column name="address" type="VARCHAR(200)"/>
+            <column name="created" type="date">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueNumeric="1" name="credentials_non_expired" type="BIT(1)">
+            <column name="last_updated" type="date">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueNumeric="1" name="account_non_expired" type="BIT(1)">
+            <column name="created_by" type="VARCHAR(250)">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueNumeric="1" name="account_non_locked" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created_by" type="VARCHAR(45)"/>
-            <column name="created" type="datetime"/>
-            <column name="last_updated" type="datetime"/>
-            <column name="last_updated_by" type="VARCHAR(45)"/>
-            <column name="versionNo" type="INT"/>
-            <column defaultValueNumeric="0" name="deleted" type="BIT(1)">
+            <column name="last_updated_by" type="VARCHAR(250)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="caoky (generated)" id="1477582307969-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
-        <createTable tableName="password_history">
-            <column name="id" type="VARCHAR(36)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="failed_login_attempts" type="INT"/>
-            <column name="last_password_changed" type="datetime"/>
-            <column name="last_password_failed" type="datetime"/>
-            <column name="old_passwords" type="LONGBLOB"/>
-            <column name="size" type="INT"/>
-            <column name="created_by" type="VARCHAR(255)"/>
-            <column name="created" type="datetime"/>
-            <column defaultValueNumeric="0" name="deleted" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_updated" type="datetime"/>
-            <column name="last_updated_by" type="VARCHAR(255)"/>
-            <column name="versionNo" type="INT"/>
-        </createTable>
+    <changeSet author="Administrator (generated)" id="1479976628685-10">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="order_detail"/>
     </changeSet>
-    <changeSet author="caoky (generated)" id="1477582307969-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
-        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="User"/>
+    <changeSet author="Administrator (generated)" id="1479976628685-11">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="order_history"/>
     </changeSet>
-    <changeSet author="caoky (generated)" id="1477582307969-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
-        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="password_history"/>
+    <changeSet author="Administrator (generated)" id="1479976628685-12">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="product_detail"/>
     </changeSet>
-    <changeSet author="caoky (generated)" id="1477582307969-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
-        <addForeignKeyConstraint baseColumnNames="id" baseTableName="password_history"
-                                 constraintName="fk_userhistory_user" deferrable="false" initiallyDeferred="false"
-                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
-                                 referencedTableName="User"/>
+    <changeSet author="Administrator (generated)" id="1479976628685-13">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="role"/>
     </changeSet>
-</databaseChangeLog>
+    <changeSet author="Administrator (generated)" id="1479976628685-14">
+        <addPrimaryKey columnNames="user_id, role_id" constraintName="PRIMARY" tableName="role_user"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-15">
+        <createIndex indexName="order_history_order_detail_idx" tableName="order_history">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-16">
+        <createIndex indexName="order_product_detail_idx" tableName="order_detail">
+            <column name="product_detail_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-17">
+        <createIndex indexName="order_user_idx" tableName="order_detail">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-18">
+        <createIndex indexName="product_category_idx" tableName="product">
+            <column name="category_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-19">
+        <createIndex indexName="product_detail_product_parent_idx" tableName="product_detail">
+            <column name="product_parent_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-20">
+        <createIndex indexName="product_images_product_detail_idx" tableName="product_images">
+            <column name="product_detail_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-21">
+        <createIndex indexName="role_user_role_idx" tableName="role_user">
+            <column name="role_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-22">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="order_history" constraintName="order_history_order_detail" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="order_detail"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-23">
+        <addForeignKeyConstraint baseColumnNames="product_detail_id" baseTableName="order_detail" constraintName="order_product_detail" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_detail"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-24">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="order_detail" constraintName="order_user" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-25">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product" constraintName="product_category" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="category"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-26">
+        <addForeignKeyConstraint baseColumnNames="product_parent_id" baseTableName="product_detail" constraintName="product_detail_product_parent" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-27">
+        <addForeignKeyConstraint baseColumnNames="product_detail_id" baseTableName="product_images" constraintName="product_images_product_detail" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_detail"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-28">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_user" constraintName="role_user_role" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1479976628685-29">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="role_user" constraintName="role_user_user" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+
+    <changeSet author="Administrator (generated)" id="1479977472151-1">
+        <dropColumn columnName="huy" tableName="category"/>
+    </changeSet>
+
+
+        </databaseChangeLog>
