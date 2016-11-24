@@ -25,7 +25,7 @@
         </property>
     </bean>
     <!-- temporary add datasource for test -->
-   <jee:jndi-lookup id="dataSource" jndi-name="jdbc/java-training-shop-dev"/>
+   <jee:jndi-lookup id="dataSource" jndi-name="jdbc/java-training-shop-dev_db"/>
     <!--<bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${driver}"/>
