@@ -25,13 +25,13 @@
         </property>
     </bean>
     <!-- temporary add datasource for test -->
-    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/java_training_shop_db"/>
+   <jee:jndi-lookup id="dataSource" jndi-name="jdbc/java-training-shop-dev"/>
     <!--<bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/java-training-shop-dev"/>
-        <property name="username" value="root"/>
-        <property name="password" value=""/>
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
     </bean>-->
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

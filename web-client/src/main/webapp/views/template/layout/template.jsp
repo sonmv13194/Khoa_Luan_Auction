@@ -6,14 +6,14 @@
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link href="<c:url value="/resources/images/logo/favicon.ico"/>" rel="shortcut icon" type="image/x-icon">
+	<link href="<c:url value="/resource/images/logo/favicon.ico"/>" rel="shortcut icon" type="image/x-icon">
 	<title><tiles:getAsString name="title" /></title>
-	<link href="<c:url value="/resources/css/header.css" />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
-	<link href="<c:url value="/resources/font-awesome-4.5.0/css/font-awesome.css" />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/font-awesome-4.6.3/css/font-awesome.min.css" />" rel="stylesheet">
- 	<link href="<c:url value="/resources/css/home-body.css" />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/profile.css" />" rel="stylesheet">
+	<link href="<c:url value="/resource/css/header.css" />" rel="stylesheet">
+	<link href="<c:url value="/resource/css/bootstrap.css" />" rel="stylesheet">
+	<link href="<c:url value="/resource/font-awesome-4.5.0/css/font-awesome.css" />" rel="stylesheet">
+	<link href="<c:url value="/resource/css/font-awesome-4.6.3/css/font-awesome.min.css" />" rel="stylesheet">
+ 	<link href="<c:url value="/resource/css/home-body.css" />" rel="stylesheet">
+	<link href="<c:url value="/resource/css/profile.css" />" rel="stylesheet">
 
 	<title>Instrument</title>
 	</head>
