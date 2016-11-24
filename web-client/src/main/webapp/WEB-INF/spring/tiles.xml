@@ -27,7 +27,7 @@
 	
 	<!-- ContactUs Page -->
 	<definition name="contactusPage" extends="definition">
-		<put-attribute name="body" value="/view/user/contact.jsp" />
+		<put-attribute name="body" value="/views/user/contact.jsp" />
 	</definition>
 
 
