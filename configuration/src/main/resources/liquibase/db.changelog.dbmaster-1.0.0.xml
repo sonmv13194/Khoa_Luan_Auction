@@ -6,9 +6,9 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
                    http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <changeSet author="Administrator (generated)" id="1479979202621-1">
+    <changeSet author="Administrator (generated)" id="1479979202621-2">
         <addColumn tableName="category">
-            <column name="Huy Vu Le" type="INT(10)">
+            <column name="Nhat" type="INT(10)">
                 <constraints nullable="false"/>
             </column>
         </addColumn>

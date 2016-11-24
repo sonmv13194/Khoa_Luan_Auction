@@ -32,7 +32,22 @@
                 <version>3.5.0</version>
                 <executions>
                     <execution>
-                        <id>liquibase-db</id>
+                        <id>liquibase-db-update</id>
+                        <configuration>
+                            <propertyFile>${project.basedir}/target/classes/liquibase/database.properties
+                            </propertyFile>
+                            <changeLogFile>${project.basedir}/target/classes/liquibase/db.changelog-dbmaster.xml
+                            </changeLogFile>
+
+                            <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                        </configuration>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>liquibase-db-update-test</id>
                         <configuration>
                             <propertyFile>${project.basedir}/target/classes/liquibase/liquibase.properties
                             </propertyFile>
