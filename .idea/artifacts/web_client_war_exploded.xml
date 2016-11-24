@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="web-client:war exploded">
-    <output-path>$PROJECT_DIR$/web-client/target/web-client-0.0.1-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/web-client/target/web-client</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -23,6 +23,9 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.9" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.39" />
+          <element id="archive" name="configuration-0.0.1-SNAPSHOT.jar">
+            <element id="module-output" name="configuration" />
+          </element>
           <element id="archive" name="product-0.0.1-SNAPSHOT.jar">
             <element id="module-output" name="product" />
           </element>
@@ -36,6 +39,18 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-api:3.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-request-api:1.0.6" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-core:3.0.5" />
+          <element id="library" level="project" name="Maven: commons-digester:commons-digester:2.1" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.2" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-servlet:3.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-request-servlet:1.0.6" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-jsp:3.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-template:3.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-autotag-core-runtime:1.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.tiles:tiles-request-jsp:1.0.6" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.9" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" />
@@ -68,7 +83,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/web-client/target/web-client-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/web-client/target/web-client/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="web-client/web/Web" />
     </root>

@@ -58,19 +58,26 @@
         <processorPath useClasspath="true" />
         <module name="user" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="configuration" />
-      </profile>
       <profile default="false" name="Annotation profile for order" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="order" />
+      </profile>
+      <profile default="false" name="Annotation profile for category" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="category" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="configuration" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -83,7 +90,7 @@
       <module name="product" target="1.8" />
       <module name="security" target="1.8" />
       <module name="user" target="1.8" />
-      <module name="web-client" target="1.6" />
+      <module name="web-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
