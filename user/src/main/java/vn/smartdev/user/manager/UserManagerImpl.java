@@ -1,15 +1,12 @@
-package com.java.training.user.manager;
+package vn.smartdev.user.manager;
 
-import com.java.training.user.dao.entity.PasswordHistory;
-import com.java.training.user.dao.entity.User;
-import com.java.training.user.dao.repository.UserRepository;
-import com.java.training.user.exception.UserAlreadyExistsException;
-import com.java.training.user.exception.UserNotFoundException;
+import vn.smartdev.user.dao.entity.PasswordHistory;
+import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.dao.repository.UserRepository;
+import vn.smartdev.user.exception.UserAlreadyExistsException;
+import vn.smartdev.user.exception.UserNotFoundException;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;

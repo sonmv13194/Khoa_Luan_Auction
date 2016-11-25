@@ -1,4 +1,4 @@
-package com.java.training.user.exception;
+package vn.smartdev.user.exception;
 
 public class UserNotFoundException extends Exception {
     public UserNotFoundException() {

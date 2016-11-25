@@ -1,4 +1,4 @@
-package com.java.training.user.dao.entity;
+package vn.smartdev.user.dao.entity;
 
 import com.java.training.core.jpa.auditing.AbstractAuditableEntity;
 

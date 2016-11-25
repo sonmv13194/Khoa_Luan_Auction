@@ -1,4 +1,4 @@
-package com.java.training.user.dao.entity;
+package vn.smartdev.user.dao.entity;
 
 import java.util.ArrayList;
 import java.util.Date;

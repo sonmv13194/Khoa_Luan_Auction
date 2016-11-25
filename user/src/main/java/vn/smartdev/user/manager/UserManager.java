@@ -1,8 +1,8 @@
-package com.java.training.user.manager;
+package vn.smartdev.user.manager;
 
-import com.java.training.user.dao.entity.User;
-import com.java.training.user.exception.UserAlreadyExistsException;
-import com.java.training.user.exception.UserNotFoundException;
+import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.exception.UserAlreadyExistsException;
+import vn.smartdev.user.exception.UserNotFoundException;
 
 public interface UserManager {
 

@@ -1,8 +1,7 @@
-import com.java.training.user.dao.entity.User;
-import com.java.training.user.dao.repository.UserRepository;
-import com.java.training.user.exception.UserAlreadyExistsException;
-import com.java.training.user.exception.UserNotFoundException;
-import com.java.training.user.manager.UserManager;
+import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.exception.UserAlreadyExistsException;
+import vn.smartdev.user.exception.UserNotFoundException;
+import vn.smartdev.user.manager.UserManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

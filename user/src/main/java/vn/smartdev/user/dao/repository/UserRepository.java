@@ -1,7 +1,7 @@
-package com.java.training.user.dao.repository;
+package vn.smartdev.user.dao.repository;
 
 import com.java.training.core.jpa.repository.AuditingRepository;
-import com.java.training.user.dao.entity.User;
+import vn.smartdev.user.dao.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
