@@ -10,13 +10,13 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.java.training" />
+    <context:component-scan base-package="vn.smartdev" />
     <context:property-placeholder location="classpath:liquibase/database.properties"
                                   order="0" ignore-unresolvable="true" />
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="vn.smartdev.user.dao"/>
+        <property name="packagesToScan" value="vn.smartdev.user.dao, vn.smartdev.role.dao"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="generateDdl" value="false"></property>
@@ -38,7 +38,7 @@
         <property name="username" value="${username}"/>
         <property name="password" value="${password}"/>
     </bean>
-
+    <jpa:repositories base-package="vn.smartdev.user.dao.repository , vn.smartdev.role.dao.repository"/>
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>

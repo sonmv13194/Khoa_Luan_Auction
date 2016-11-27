@@ -3,6 +3,7 @@ package vn.smartdev.user.manager;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,10 +16,11 @@ import vn.smartdev.user.exception.UserNotFoundException;
 import java.util.Calendar;
 import java.util.List;
 
-@Component
+@Service
 public class UserManagerImpl implements UserManager {
     @Autowired
     private UserRepository userRepository;
+
     @Override
     public User findUserByUsername(String username) throws UserNotFoundException {
         User user = userRepository.findByUsername(username);

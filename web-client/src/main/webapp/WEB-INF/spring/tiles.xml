@@ -15,12 +15,18 @@
 	</definition> -->
 	 <!-- Home Page -->
 	<definition name="homePage" extends="definition">
-		<put-attribute name="title" value="Home Page" /> 
+		<put-attribute name="title" value="Home Page" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
 		<put-attribute name="body" value="/resource/view/user/home.jsp" />
+		<put-attribute name="footer" value="" />
 	</definition>
 	<definition name="loginPage" extends="definition">
-		<put-attribute name="title" value="Home Page" />
+		<put-attribute name="title" value="Login Page" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="menu" value="" />
 		<put-attribute name="body" value="/resource/view/user/login.jsp" />
+        <put-attribute name="footer" value="" />
 	</definition>
 
 	<!--Admin Page-->
