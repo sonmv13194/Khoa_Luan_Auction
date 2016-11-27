@@ -1,16 +1,16 @@
 package vn.smartdev.user.manager;
 
-import vn.smartdev.user.dao.entity.PasswordHistory;
-import vn.smartdev.user.dao.entity.User;
-import vn.smartdev.user.dao.repository.UserRepository;
-import vn.smartdev.user.exception.UserAlreadyExistsException;
-import vn.smartdev.user.exception.UserNotFoundException;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import vn.smartdev.user.dao.entity.PasswordHistory;
+import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.dao.repository.UserRepository;
+import vn.smartdev.user.exception.UserAlreadyExistsException;
+import vn.smartdev.user.exception.UserNotFoundException;
 
 import java.util.Calendar;
 import java.util.List;

@@ -4,31 +4,34 @@
 <tiles-definitions>
 
 	<!-- Base Define -->
-	<definition name="definition" template="/views/template/layout/template.jsp">
-		<put-attribute name="header" value="/views/template/layout/header.jsp" />
-		<put-attribute name="menu" value="/views/template/layout/menu.jsp" />
+	<definition name="definition" template="/resource/view/template/layout/template.jsp">
+		<put-attribute name="header" value="/resource/view/template/layout/header.jsp" />
+		<put-attribute name="menu" value="/resource/view/template/layout/menu.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/views/template/layout/footer.jsp" />
+		<put-attribute name="footer" value="/resource/view/template/layout/footer.jsp" />
 	</definition>
-	
 	<!-- <definition name="definitionHome"  extends="definition">
 		<put-attribute name="header" value="/view/template/layout/headerHome.jsp" />		
 	</definition> -->
 	 <!-- Home Page -->
-	<definition name="home" extends="definition">
+	<definition name="homePage" extends="definition">
 		<put-attribute name="title" value="Home Page" /> 
-		<put-attribute name="body" value="/views/user/home.jsp" />
+		<put-attribute name="body" value="/resource/view/user/home.jsp" />
 	</definition>
-	
-	 
-	<definition name="about" extends="definition">
-		<put-attribute name="body" value="/views/user/about.jsp" />
-	</definition>
-	
-	<!-- ContactUs Page -->
-	<definition name="contactusPage" extends="definition">
-		<put-attribute name="body" value="/views/user/contact.jsp" />
+	<definition name="loginPage" extends="definition">
+		<put-attribute name="title" value="Home Page" />
+		<put-attribute name="body" value="/resource/view/user/login.jsp" />
 	</definition>
 
+	<!--Admin Page-->
+	<definition name="definitionAdmin" template="/resource/view/admin/template/template.jsp">
+		<put-attribute name="header" value="/resource/view/admin/template/header.jsp" />
+		<put-attribute name="sidebar" value="/resource/view/admin/template/sidebar.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/resource/view/admin/template/footer.jsp" />
+	</definition>
+	<definition name="adminPage" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/admin.jsp" />
+	</definition>
 
 </tiles-definitions>  

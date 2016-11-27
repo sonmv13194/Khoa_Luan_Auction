@@ -1,6 +1,6 @@
 package vn.smartdev.user.dao.entity;
 
-import com.java.training.core.jpa.auditing.AbstractAuditableEntity;
+import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 import java.util.Date;
 import java.util.UUID;
@@ -17,8 +17,6 @@ public class User extends AbstractAuditableEntity<String> {
     public enum Gender {
         OTHER, MALE, FEMALE
     }
-
-
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private PasswordHistory passwordHistory;
     @Column(name = "username")

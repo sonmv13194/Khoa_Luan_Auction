@@ -1,7 +1,7 @@
 package core.util.otp;
 
-import com.java.training.core.util.otp.OTPGenerationException;
-import com.java.training.core.util.otp.OTPGeneratorUtil;
+import vn.smartdev.core.util.otp.OTPGenerationException;
+import vn.smartdev.core.util.otp.OTPGeneratorUtil;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;

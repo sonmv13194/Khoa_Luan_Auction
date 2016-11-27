@@ -133,7 +133,6 @@
         </plugins>
     </build>
     <modules>
-        <module>user</module>
         <module>web-client</module>
         <module>security</module>
         <module>logging</module>
@@ -142,5 +141,7 @@
         <module>core</module>
         <module>product</module>
         <module>configuration</module>
+        <module>role</module>
+        <module>user</module>
     </modules>
 </project>

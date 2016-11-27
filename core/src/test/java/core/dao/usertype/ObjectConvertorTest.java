@@ -1,6 +1,6 @@
 package core.dao.usertype;
 
-import com.java.training.core.usertype.ObjectConvertor;
+import vn.smartdev.core.usertype.ObjectConvertor;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package core.dao.usertype;
 
 
-import com.java.training.core.usertype.Blob2List;
+import vn.smartdev.core.usertype.Blob2List;
 
 public class Blob2ListTest {
 

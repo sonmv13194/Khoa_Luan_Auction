@@ -1,9 +1,9 @@
 package vn.smartdev.user.dao.repository;
 
-import com.java.training.core.jpa.repository.AuditingRepository;
-import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.core.jpa.repository.AuditingRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import vn.smartdev.user.dao.entity.User;
 
 public interface UserRepository extends AuditingRepository<User, String> {
 

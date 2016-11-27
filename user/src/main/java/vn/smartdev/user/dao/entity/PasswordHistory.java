@@ -12,11 +12,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.java.training.core.usertype.Blob2List;
+import vn.smartdev.core.usertype.Blob2List;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
-import com.java.training.core.jpa.auditing.AbstractAuditableEntity;
+import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 @Entity
 @Table(name = "password_history")
