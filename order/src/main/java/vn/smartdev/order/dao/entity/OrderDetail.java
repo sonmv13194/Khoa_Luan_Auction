@@ -2,7 +2,6 @@ package vn.smartdev.order.dao.entity;
 
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 import vn.smartdev.product.dao.entity.ProductDetail;
-import vn.smartdev.user.dao.entity.User;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -28,14 +27,14 @@ public class OrderDetail extends AbstractAuditableEntity<String> implements Seri
 
 	private int quantity;
 
+	//bi-directional many-to-one association to Order
+	@ManyToOne
+	private Order order;
+
 	//bi-directional many-to-one association to ProductDetail
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="product_detail_id")
 	private ProductDetail productDetail;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne(fetch=FetchType.LAZY)
-	private User user;
 
 	//bi-directional many-to-one association to OrderHistory
 	@OneToMany(mappedBy="orderDetail")
@@ -69,20 +68,20 @@ public class OrderDetail extends AbstractAuditableEntity<String> implements Seri
 		this.quantity = quantity;
 	}
 
+	public Order getOrder() {
+		return this.order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
 	public ProductDetail getProductDetail() {
 		return this.productDetail;
 	}
 
 	public void setProductDetail(ProductDetail productDetail) {
 		this.productDetail = productDetail;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public List<OrderHistory> getOrderHistories() {

@@ -10,6 +10,5 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, String> {
     User findByUsername(String username);
     int countByUsernameOrEmailOrPhoneAndIdNotIn(String username, String email, String phone, String id);
-    List<User> findAllNotDeleted();
     User findByIdAndDeletedIsFalse(String userId);
 }

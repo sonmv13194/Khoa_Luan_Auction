@@ -12,7 +12,7 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="vn.smartdev" />
-    <context:property-placeholder location="classpath:liquibase/database.properties"
+    <context:property-placeholder location="classpath:database.properties"
                                   order="0" ignore-unresolvable="true" />
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -20,7 +20,7 @@
         <property name="packagesToScan" value="vn.smartdev"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <!--<property name="generateDdl" value="false"></property>-->
+                <property name="generateDdl" value="false"></property>
                 <property name="showSql" value="true"/>
             </bean>
         </property>
@@ -35,10 +35,10 @@
    <!--<jee:jndi-lookup id="dataSource" jndi-name="jdbc/java-training-shop-dev_db"/>-->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${driver}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${username}"/>
-        <property name="password" value="${password}"/>
+        <property name="driverClassName" value="${database.driver}"/>
+        <property name="url" value="${database.url}"/>
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
     </bean>
     <jpa:repositories base-package="vn.smartdev.user.dao.repository"/>
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

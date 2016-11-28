@@ -31,7 +31,6 @@ public class UserManagerImpl implements UserManager {
     @Override
     public User findUserById(String userId) throws UserNotFoundException {
         User user = userRepository.findByIdAndDeletedIsFalse(userId);
-        List<User> users = userRepository.findAllNotDeleted();
         if (user == null) {
             throw new UserNotFoundException("Cannot find user by id: " + userId);
         }
