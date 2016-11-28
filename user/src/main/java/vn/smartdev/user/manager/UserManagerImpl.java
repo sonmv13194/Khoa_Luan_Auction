@@ -2,12 +2,10 @@ package vn.smartdev.user.manager;
 
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import vn.smartdev.user.dao.entity.PasswordHistory;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
@@ -46,9 +44,9 @@ public class UserManagerImpl implements UserManager {
         if (userExists(user)) {
             throw new UserAlreadyExistsException();
         }
-        PasswordHistory passwordHistory = user.getPasswordHistory();
+        /*PasswordHistory passwordHistory = user.getPasswordHistory();
         passwordHistory.addPassword(user.getPassword());
-        passwordHistory.setLastPasswordChanged(Calendar.getInstance().getTime());
+        passwordHistory.setLastPasswordChanged(Calendar.getInstance().getTime());*/
         user.setEnabled(false);
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
@@ -78,7 +76,7 @@ public class UserManagerImpl implements UserManager {
         return userRepository.save(user);
     }
 
-    @Override
+    /*@Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public User changePassword(String userId, String newPassword) throws UserNotFoundException {
         User user = findUserById(userId);
@@ -87,5 +85,5 @@ public class UserManagerImpl implements UserManager {
         passwordHistory.setLastPasswordChanged(Calendar.getInstance().getTime());
         user.setPassword(newPassword);
         return userRepository.save(user);
-    }
+    }*/
 }

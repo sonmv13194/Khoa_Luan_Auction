@@ -18,19 +18,6 @@ import java.util.UUID;
 public class Role extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Temporal(TemporalType.DATE)
-	private Date created;
-
-	@Column(name="created_by")
-	private String createdBy;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="last_updated")
-	private Date lastUpdated;
-
-	@Column(name="last_updated_by")
-	private String lastUpdatedBy;
-
 	@Column(name="role_name")
 	private String roleName;
 
@@ -49,38 +36,6 @@ public class Role extends AbstractAuditableEntity<String> implements Serializabl
 
 	public Role() {
 		setId(UUID.randomUUID().toString());
-	}
-
-	public Date getCreated() {
-		return this.created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Date getLastUpdated() {
-		return this.lastUpdated;
-	}
-
-	public void setLastUpdated(Date lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getLastUpdatedBy() {
-		return this.lastUpdatedBy;
-	}
-
-	public void setLastUpdatedBy(String lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
 	}
 
 	public String getRoleName() {

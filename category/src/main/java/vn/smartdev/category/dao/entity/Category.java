@@ -21,21 +21,6 @@ public class Category extends AbstractAuditableEntity<String> implements Seriali
 	@Column(name="category_name")
 	private String categoryName;
 
-	@Temporal(TemporalType.DATE)
-	private Date created;
-
-	@Column(name="created_by")
-	private String createdBy;
-
-	@Column(name="last_update_by")
-	private String lastUpdateBy;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="last_updated")
-	private Date lastUpdated;
-
-	private int nhat;
-
 	/*//bi-directional many-to-one association to Product
 	@OneToMany(mappedBy="category")
 	private List<Product> products;*/
@@ -50,46 +35,6 @@ public class Category extends AbstractAuditableEntity<String> implements Seriali
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
-	}
-
-	public Date getCreated() {
-		return this.created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public String getLastUpdateBy() {
-		return this.lastUpdateBy;
-	}
-
-	public void setLastUpdateBy(String lastUpdateBy) {
-		this.lastUpdateBy = lastUpdateBy;
-	}
-
-	public Date getLastUpdated() {
-		return this.lastUpdated;
-	}
-
-	public void setLastUpdated(Date lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public int getNhat() {
-		return this.nhat;
-	}
-
-	public void setNhat(int nhat) {
-		this.nhat = nhat;
 	}
 
 	/*public List<Product> getProducts() {

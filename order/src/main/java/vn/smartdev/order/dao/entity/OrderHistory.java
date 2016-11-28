@@ -18,22 +18,6 @@ import java.util.UUID;
 public class OrderHistory extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Temporal(TemporalType.DATE)
-	private Date created;
-
-	@Column(name="created_by")
-	private String createdBy;
-
-	@Lob
-	private String description;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="last_updated")
-	private Date lastUpdated;
-
-	@Column(name="last_updated_by")
-	private String lastUpdatedBy;
-
 	@Column(name="status_name")
 	private String statusName;
 
@@ -44,46 +28,6 @@ public class OrderHistory extends AbstractAuditableEntity<String> implements Ser
 
 	public OrderHistory() {
 		setId(UUID.randomUUID().toString());
-	}
-
-	public Date getCreated() {
-		return this.created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Date getLastUpdated() {
-		return this.lastUpdated;
-	}
-
-	public void setLastUpdated(Date lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getLastUpdatedBy() {
-		return this.lastUpdatedBy;
-	}
-
-	public void setLastUpdatedBy(String lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
 	}
 
 	public String getStatusName() {

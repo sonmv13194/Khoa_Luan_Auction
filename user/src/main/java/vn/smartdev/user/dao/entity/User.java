@@ -25,20 +25,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 
-	@Temporal(TemporalType.DATE)
-	private Date created;
-
-	@Column(name="created_by")
-	private String createdBy;
-
 	private String email;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="last_updated")
-	private Date lastUpdated;
-
-	@Column(name="last_updated_by")
-	private String lastUpdatedBy;
 
 	private String password;
 
@@ -54,7 +41,6 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 
 	private boolean credentialsNonExpired;
 
-	private PasswordHistory passwordHistory;
 	/*//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="user")
 	private List<OrderDetail> orderDetails;*/
@@ -83,44 +69,12 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 		this.birthday = birthday;
 	}
 
-	public Date getCreated() {
-		return this.created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
 	public String getEmail() {
 		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public Date getLastUpdated() {
-		return this.lastUpdated;
-	}
-
-	public void setLastUpdated(Date lastUpdated) {
-		this.lastUpdated = lastUpdated;
-	}
-
-	public String getLastUpdatedBy() {
-		return this.lastUpdatedBy;
-	}
-
-	public void setLastUpdatedBy(String lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
 	}
 
 	public String getPassword() {
@@ -175,14 +129,6 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
-	}
-
-	public PasswordHistory getPasswordHistory() {
-		return passwordHistory;
-	}
-
-	public void setPasswordHistory(PasswordHistory passwordHistory) {
-		this.passwordHistory = passwordHistory;
 	}
 
 	public void setAccountNonExpired(boolean accountNonExpired) {

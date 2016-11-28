@@ -12,5 +12,5 @@ public interface UserManager {
     User createUser(User user) throws UserAlreadyExistsException;
     User enableUser(User user) throws UserNotFoundException;
     User updateUser(User user) throws UserNotFoundException, UserAlreadyExistsException;
-    User changePassword(String userId, String newPassword) throws UserNotFoundException;
+    /*User changePassword(String userId, String newPassword) throws UserNotFoundException;*/
 }
