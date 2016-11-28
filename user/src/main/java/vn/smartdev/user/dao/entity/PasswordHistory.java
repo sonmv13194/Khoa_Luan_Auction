@@ -1,5 +1,6 @@
 package vn.smartdev.user.dao.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import vn.smartdev.core.usertype.Blob2List;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
@@ -20,10 +20,7 @@ import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 @Entity
 @Table(name = "password_history")
-@TypeDef(typeClass = Blob2List.class, name = "serializedList")
-public class PasswordHistory extends AbstractAuditableEntity<String> {
-
-
+public class PasswordHistory extends AbstractAuditableEntity<String> implements Serializable {
     private static final long serialVersionUID = 5690492304821834950L;
     @OneToOne()
     @JoinColumn( name = "id",insertable = false, updatable = false)
@@ -68,7 +65,6 @@ public class PasswordHistory extends AbstractAuditableEntity<String> {
             this.oldPasswords.remove(0);
         }
     }
-
 
     public User getUser() {
         return user;

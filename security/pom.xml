@@ -23,11 +23,6 @@
         </dependency>
         <dependency>
             <groupId>com.java.training</groupId>
-            <artifactId>role</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.java.training</groupId>
             <artifactId>user</artifactId>
             <version>${project.version}</version>
         </dependency>

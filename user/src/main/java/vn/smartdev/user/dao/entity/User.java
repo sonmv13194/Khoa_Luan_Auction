@@ -1,267 +1,203 @@
 package vn.smartdev.user.dao.entity;
 
+import org.springframework.data.jpa.domain.AbstractAuditable;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
+import vn.smartdev.user.dao.entity.Role;
 
+import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.*;
 
+/**
+ * The persistent class for the user database table.
+ * 
+ */
 @Entity
-@Table(name = "user")
-public class User extends AbstractAuditableEntity<String> {
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+public class User extends AbstractAuditableEntity<String> implements Serializable {
+	private static final long serialVersionUID = 1L;
 
+	private String address;
 
-    private static final long serialVersionUID = 5600408164912924646L;
+	@Temporal(TemporalType.DATE)
+	private Date birthday;
 
-    public enum Gender {
-        OTHER, MALE, FEMALE
-    }
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-    private PasswordHistory passwordHistory;
-    @Column(name = "username")
-    private String username;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "middle_name")
-    private String middleName;
-    @Column(name = "last_name")
-    private String lastName;
-    @Column(name = "day_of_birth")
-    private Date dayOfBirth;
-    @Enumerated(EnumType.STRING)
-    private Gender gender = Gender.OTHER;
-    @Column(name = "phone_number")
-    private String phoneNumber;
-    @Column(name = "phone_number2")
-    private String phoneNumber2;
-    @Column(name = "phone_number3")
-    private String phoneNumber3;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "email2")
-    private String email2;
-    @Column(name = "email3")
-    private String email3;
-    @Column(name = "country_code")
-    private String countryCode;
-    @Column(name = "phone_code")
-    private String phoneCode;
-    private String languageCode;
+	@Temporal(TemporalType.DATE)
+	private Date created;
 
-    @Column(name = "account_non_locked")
-    private boolean accountNonLocked = true;
-    private boolean enabled = false;
-    @Column(name = "credentials_non_expired")
-    private boolean credentialsNonExpired = true;
-    @Column(name = "account_non_expired")
-    private boolean accountNonExpired = true;
+	@Column(name="created_by")
+	private String createdBy;
 
+	private String email;
 
-    public User() {
-        this.setId(UUID.randomUUID().toString());
-        passwordHistory = new PasswordHistory();
-        passwordHistory.setId(this.getId());
-    }
+	@Temporal(TemporalType.DATE)
+	@Column(name="last_updated")
+	private Date lastUpdated;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + getId() + '\'' +
-                ", passwordHistory=" + passwordHistory +
-                ", username='" + username + '\'' +
-                ", password='******'" +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dayOfBirth=" + dayOfBirth +
-                ", gender=" + gender +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", phoneNumber2='" + phoneNumber2 + '\'' +
-                ", phoneNumber3='" + phoneNumber3 + '\'' +
-                ", email='" + email + '\'' +
-                ", email2='" + email2 + '\'' +
-                ", email3='" + email3 + '\'' +
-                ", countryCode='" + countryCode + '\'' +
-                ", phoneCode='" + phoneCode + '\'' +
-                ", accountNonLocked=" + accountNonLocked +
-                ", enabled=" + enabled +
-                ", credentialsNonExpired=" + credentialsNonExpired +
-                ", accountNonExpired=" + accountNonExpired +
-                ", auditing=" + super.toString() +
-                '}';
-    }
+	@Column(name="last_updated_by")
+	private String lastUpdatedBy;
 
+	private String password;
 
-    public PasswordHistory getPasswordHistory() {
-        return passwordHistory;
-    }
+	private String phone;
 
-    public void setPasswordHistory(PasswordHistory passwordHistory) {
-        this.passwordHistory = passwordHistory;
-    }
+	private String username;
+	
+	private boolean enabled;
 
-    public String getUsername() {
-        return username;
-    }
+	private boolean accountNonExpired;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	private boolean accountNonLocked;
 
-    public String getPassword() {
-        return password;
-    }
+	private boolean credentialsNonExpired;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	private PasswordHistory passwordHistory;
+	/*//bi-directional many-to-one association to OrderDetail
+	@OneToMany(mappedBy="user")
+	private List<OrderDetail> orderDetails;*/
 
-    public String getFirstName() {
-        return firstName;
-    }
+	//bi-directional many-to-many association to Role
+	@ManyToMany(mappedBy="users")
+	private List<Role> roles;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public User() {
+		setId(UUID.randomUUID().toString());
+	}
 
-    public String getMiddleName() {
-        return middleName;
-    }
+	public String getAddress() {
+		return this.address;
+	}
 
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public Date getBirthday() {
+		return this.birthday;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
 
-    public Date getDayOfBirth() {
-        return dayOfBirth;
-    }
+	public Date getCreated() {
+		return this.created;
+	}
 
-    public void setDayOfBirth(Date dayOfBirth) {
-        this.dayOfBirth = dayOfBirth;
-    }
+	public void setCreated(Date created) {
+		this.created = created;
+	}
 
-    public Gender getGender() {
-        return gender;
-    }
+	public String getCreatedBy() {
+		return this.createdBy;
+	}
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+	public String getEmail() {
+		return this.email;
+	}
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getPhoneNumber2() {
-        return phoneNumber2;
-    }
+	public Date getLastUpdated() {
+		return this.lastUpdated;
+	}
 
-    public void setPhoneNumber2(String phoneNumber2) {
-        this.phoneNumber2 = phoneNumber2;
-    }
+	public void setLastUpdated(Date lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
 
-    public String getPhoneNumber3() {
-        return phoneNumber3;
-    }
+	public String getLastUpdatedBy() {
+		return this.lastUpdatedBy;
+	}
 
-    public void setPhoneNumber3(String phoneNumber3) {
-        this.phoneNumber3 = phoneNumber3;
-    }
+	public void setLastUpdatedBy(String lastUpdatedBy) {
+		this.lastUpdatedBy = lastUpdatedBy;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getPassword() {
+		return this.password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getEmail2() {
-        return email2;
-    }
+	public String getPhone() {
+		return this.phone;
+	}
 
-    public void setEmail2(String email2) {
-        this.email2 = email2;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public String getEmail3() {
-        return email3;
-    }
+	public String getUsername() {
+		return this.username;
+	}
 
-    public void setEmail3(String email3) {
-        this.email3 = email3;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getCountryCode() {
-        return countryCode;
-    }
+	/*public List<OrderDetail> getOrderDetails() {
+		return this.orderDetails;
+	}
 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
 
-    public String getPhoneCode() {
-        return phoneCode;
-    }
+	public OrderDetail addOrderDetail(OrderDetail orderDetail) {
+		getOrderDetails().add(orderDetail);
+		orderDetail.setUser(this);
 
-    public void setPhoneCode(String phoneCode) {
-        this.phoneCode = phoneCode;
-    }
+		return orderDetail;
+	}
 
-    public String getLanguageCode() {
-        return languageCode;
-    }
+	public OrderDetail removeOrderDetail(OrderDetail orderDetail) {
+		getOrderDetails().remove(orderDetail);
+		orderDetail.setUser(null);
 
-    public void setLanguageCode(String languageCode) {
-        this.languageCode = languageCode;
-    }
+		return orderDetail;
+	}*/
 
-    public boolean isAccountNonLocked() {
-        return accountNonLocked;
-    }
+	public List<Role> getRoles() {
+		return this.roles;
+	}
 
-    public void setAccountNonLocked(boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
-    }
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+	public PasswordHistory getPasswordHistory() {
+		return passwordHistory;
+	}
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+	public void setPasswordHistory(PasswordHistory passwordHistory) {
+		this.passwordHistory = passwordHistory;
+	}
 
-    public boolean isCredentialsNonExpired() {
-        return credentialsNonExpired;
-    }
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
 
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-        this.credentialsNonExpired = credentialsNonExpired;
-    }
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 
-    public boolean isAccountNonExpired() {
-        return accountNonExpired;
-    }
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
 
-    public void setAccountNonExpired(boolean accountNonExpired) {
-        this.accountNonExpired = accountNonExpired;
-    }
-
-
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
 }

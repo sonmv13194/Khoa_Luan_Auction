@@ -12,10 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
-import vn.smartdev.role.dao.entity.Role;
-import vn.smartdev.role.manager.RoleManager;
+import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.exception.UserNotFoundException;
+import vn.smartdev.user.manager.RoleManager;
 import vn.smartdev.user.manager.UserManager;
 
 public class UserServiceImpl implements UserDetailsService {
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserDetailsService {
 		List<Role> roles = roleManager.getAll();
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
 		for (Role role : roles ) {
-			grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+			grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
 		}
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 				grantedAuthorities);

@@ -68,5 +68,6 @@
     <orderEntry type="library" name="Maven: org.powermock:powermock-reflect:1.6.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.easytesting:fest-assert:1.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.easytesting:fest-util:1.1.6" level="project" />
+    <orderEntry type="module" module-name="order" />
   </component>
 </module>

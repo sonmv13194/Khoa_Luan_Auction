@@ -7,4 +7,5 @@
 	<import resource="jpa-infrastructure.xml"/>
 	<import resource="dispatcher-servlet.xml"/>
 	<import resource="classpath:user-applicationContext.xml"/>
+	<import resource="classpath:product-applicationContext.xml"/>
 </beans>

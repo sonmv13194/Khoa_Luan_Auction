@@ -1,1 +1,0 @@
-package vn.smartdev.role.manager;import vn.smartdev.role.dao.entity.Role;import java.util.List;/** * Created by Nguyen on 27/11/2016. */public interface RoleManager {    List<Role> getAll();}

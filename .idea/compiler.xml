@@ -12,7 +12,6 @@
         <module name="logging" />
         <module name="order" />
         <module name="product" />
-        <module name="role" />
         <module name="security" />
         <module name="user" />
         <module name="web-client" />

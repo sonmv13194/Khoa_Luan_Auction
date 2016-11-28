@@ -10,9 +10,9 @@
 
 
     <context:annotation-config/>
-    <context:component-scan base-package="vn.smartdev.user"/>
+    <context:component-scan base-package="vn.smartdev"/>
 
-    <jpa:repositories base-package="vn.smartdev.user.dao.repository" ></jpa:repositories>
-    <jpa:auditing ></jpa:auditing>
+    <jpa:repositories base-package="vn.smartdev.user.dao.repository"/>
+    <jpa:auditing/>
 
 </beans>

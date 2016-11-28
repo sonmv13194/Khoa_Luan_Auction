@@ -18,6 +18,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/role/pom.xml" />
         <option value="$PROJECT_DIR$/user/pom.xml" />
       </set>
     </option>
