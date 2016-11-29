@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserDetailsService {
 		ModelMap model = new ModelMap();
 		model.addAttribute("user",user);
 		List<Role> roles = roleManager.getAll();
-		Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
+		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 		for (Role role : roles ) {
 			grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
 		}

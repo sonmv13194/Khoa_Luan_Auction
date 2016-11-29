@@ -48,7 +48,7 @@
                     <execution>
                         <id>liquibase-db-update</id>
                         <configuration>
-                            <propertyFile>${project.basedir}/target/classes/database.properties
+                            <propertyFile>${project.basedir}/target/classes/database/database.properties
                             </propertyFile>
                             <changeLogFile>${project.basedir}/target/classes/liquibase/db.changelog-dbmaster.xml
                             </changeLogFile>
@@ -73,14 +73,14 @@
             </activation>
             <build>
                 <filters>
-                    <filter>profiles/environment.db.properties</filter>
+                    <filter>profiles/database.properties</filter>
                 </filters>
                 <resources>
                     <resource>
                         <directory>src/main/resources</directory>
                         <filtering>true</filtering>
                         <includes>
-                            <include>**/*.properties</include>
+                            <include>database/database.properties</include>
                             <include>**/*.xml</include>
                         </includes>
                     </resource>
@@ -88,7 +88,7 @@
                         <directory>src/main/resources</directory>
                         <filtering>false</filtering>
                         <excludes>
-                            <exclude>**/*.properties</exclude>
+                            <exclude>database/database.properties</exclude>
                             <exclude>**/*.xml</exclude>
                         </excludes>
                     </resource>

@@ -21,6 +21,8 @@ public class Role extends AbstractAuditableEntity<String> implements Serializabl
 	@Column(name="role_name")
 	private String roleName;
 
+	private boolean deleted;
+
 	//bi-directional many-to-many association to User
 	@ManyToMany
 	@JoinTable(
@@ -42,7 +44,15 @@ public class Role extends AbstractAuditableEntity<String> implements Serializabl
 		return this.roleName;
 	}
 
-	public void setRoleName(String roleName) {
+    public boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
 
