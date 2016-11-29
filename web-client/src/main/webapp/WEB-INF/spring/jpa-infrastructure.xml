@@ -35,10 +35,10 @@
     <!--<jee:jndi-lookup id="dataSource" jndi-name="jdbc/java-training-shop-dev_db"/>-->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${driverDB}"/>
-        <property name="url" value="${urlDB}"/>
-        <property name="username" value="${usernameDB}"/>
-        <property name="password" value="${passwordDB}"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/instrument_main"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
     </bean>
     <jpa:repositories base-package="vn.smartdev.user.dao.repository"/>
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

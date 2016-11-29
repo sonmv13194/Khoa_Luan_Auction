@@ -48,7 +48,7 @@
                     <execution>
                         <id>liquibase-db-update</id>
                         <configuration>
-                            <propertyFile>${project.basedir}/target/classes/database/database.properties
+                            <propertyFile>${project.basedir}/target/classes/database.properties
                             </propertyFile>
                             <changeLogFile>${project.basedir}/target/classes/liquibase/db.changelog-dbmaster.xml
                             </changeLogFile>
@@ -67,30 +67,22 @@
 
     <profiles>
         <profile>
-            <id>db</id>
+            <id>database</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <filters>
-                    <filter>profiles/database.properties</filter>
+                    <filter>profiles/environment.database.properties</filter>
                 </filters>
                 <resources>
                     <resource>
                         <directory>src/main/resources</directory>
                         <filtering>true</filtering>
                         <includes>
-                            <include>database/database.properties</include>
+                            <include>database.properties</include>
                             <include>**/*.xml</include>
                         </includes>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <filtering>false</filtering>
-                        <excludes>
-                            <exclude>database/database.properties</exclude>
-                            <exclude>**/*.xml</exclude>
-                        </excludes>
                     </resource>
                 </resources>
             </build>
@@ -109,17 +101,9 @@
                         <directory>src/main/resources</directory>
                         <filtering>true</filtering>
                         <includes>
-                            <include>**/*.properties</include>
+                            <include>**/liquibase.properties</include>
                             <include>**/*.xml</include>
                         </includes>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <filtering>false</filtering>
-                        <excludes>
-                            <exclude>**/*.properties</exclude>
-                            <exclude>**/*.xml</exclude>
-                        </excludes>
                     </resource>
                 </resources>
             </build>
@@ -183,5 +167,4 @@
             </build>
         </profile>
     </profiles>
-
 </project>
