@@ -21,6 +21,9 @@ public class Category extends AbstractAuditableEntity<String> implements Seriali
 	@Column(name="category_name")
 	private String categoryName;
 
+	public Category(String categoryName) {
+		this.categoryName = categoryName;
+	}
 	/*//bi-directional many-to-one association to Product
 	@OneToMany(mappedBy="category")
 	private List<Product> products;*/
