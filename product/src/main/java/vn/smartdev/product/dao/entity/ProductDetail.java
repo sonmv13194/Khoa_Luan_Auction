@@ -35,6 +35,17 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 	private int productDetailStatus;
 
 	private String supplyer;
+	//contrustor
+
+	public ProductDetail(String description, String productDetailCode, float productDetailPrice, int productDetailQuantity, int productDetailStatus,String supplyer) {
+		this.description = description;
+//		this.productDetailCode = productDetailCode;
+		this.productDetailPrice = productDetailPrice;
+		this.productDetailQuantity = productDetailQuantity;
+		this.productDetailStatus = productDetailStatus;
+		this.supplyer = supplyer;
+	}
+
 
 	/*//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="productDetail")
