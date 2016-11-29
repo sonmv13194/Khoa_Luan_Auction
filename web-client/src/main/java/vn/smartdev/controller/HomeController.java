@@ -1,4 +1,4 @@
-package vn.smartdev;
+package vn.smartdev.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
