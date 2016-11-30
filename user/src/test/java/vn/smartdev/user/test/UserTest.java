@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.*;
 import static org.mockito.Mockito.verify;
 import org.mockito.runners.MockitoJUnitRunner;
-import sun.invoke.empty.Empty;
+
 import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.dao.repository.UserRepository;
