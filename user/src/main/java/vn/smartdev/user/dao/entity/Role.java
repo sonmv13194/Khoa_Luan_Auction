@@ -23,6 +23,10 @@ public class Role extends AbstractAuditableEntity<String> implements Serializabl
 
 	private boolean deleted;
 
+	public Role(String roleName) {
+		this.roleName = roleName;
+	}
+
 	//bi-directional many-to-many association to User
 	@ManyToMany
 	@JoinTable(
@@ -30,6 +34,7 @@ public class Role extends AbstractAuditableEntity<String> implements Serializabl
 		, joinColumns={
 			@JoinColumn(name="role_id")
 			}
+
 		, inverseJoinColumns={
 			@JoinColumn(name="user_id")
 			}

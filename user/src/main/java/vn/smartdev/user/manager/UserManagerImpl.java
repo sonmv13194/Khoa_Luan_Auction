@@ -53,7 +53,7 @@ public class UserManagerImpl implements UserManager {
         return userRepository.save(user);
     }
 
-    private boolean userExists(User user) {
+    public boolean userExists(User user) {
         return userRepository.countByUsernameOrEmailOrPhoneAndIdNotIn(user.getUsername(),
                 user.getEmail(), user.getPhone(), user.getId()) > 0;
     }
