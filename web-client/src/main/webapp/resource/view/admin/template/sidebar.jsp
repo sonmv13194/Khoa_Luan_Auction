@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!--sidebar start-->
-<aside>
 	<div id="sidebar" class="nav-collapse ">
 		<!-- sidebar menu start-->
 		<ul class="sidebar-menu" id="nav-accordion">
@@ -9,8 +8,8 @@
 					<i class="icon-th"></i> <span>Data Tables</span>
 			</a>
 				<ul class="sub">
-					<li class="active"><a href="${contextPath }/admin/user">User</a></li>
-					<li><a href="${contextPath }/admin/product">Product</a></li>
+					<li class="active"><a href="${contextPath }/admin/viewUser">User</a></li>
+					<li><a href="${contextPath }/admin/viewProduct">ProductView</a></li>
 					<li><a href="${contextPath }/admin/category">Category</a></li>
 					<li><a href="${contextPath }/admin/parent">Parent</a></li>
 					<li><a href="${contextPath }/admin/invoice">Invoice</a></li>
@@ -31,5 +30,4 @@
 		</ul>
 		<!-- sidebar menu end-->
 	</div>
-</aside>
 <!--sidebar end-->

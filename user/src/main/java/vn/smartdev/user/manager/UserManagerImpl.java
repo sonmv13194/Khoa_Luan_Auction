@@ -75,6 +75,11 @@ public class UserManagerImpl implements UserManager {
         return userRepository.save(user);
     }
 
+    @Override
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
+
     /*@Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public User changePassword(String userId, String newPassword) throws UserNotFoundException {

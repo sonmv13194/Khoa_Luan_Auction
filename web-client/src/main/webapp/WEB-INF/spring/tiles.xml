@@ -40,4 +40,8 @@
 		<put-attribute name="body" value="/resource/view/admin/view/admin.jsp" />
 	</definition>
 
-</tiles-definitions>  
+	<definition name="viewUserPage" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewUser.jsp" />
+	</definition>
+
+</tiles-definitions>
