@@ -37,6 +37,7 @@ public class UserManagerImpl implements UserManager {
         return user;
     }
 
+
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public User createUser(User user) throws UserAlreadyExistsException {

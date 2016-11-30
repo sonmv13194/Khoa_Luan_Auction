@@ -16,5 +16,6 @@ public interface UserManager {
     User updateUser(User user) throws UserNotFoundException, UserAlreadyExistsException;
     List<User> findAllUsers();
 
+
     /*User changePassword(String userId, String newPassword) throws UserNotFoundException;*/
 }

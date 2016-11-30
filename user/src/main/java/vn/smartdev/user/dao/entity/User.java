@@ -58,6 +58,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	/*public User(String address, Date birthday, String email, String password, String phone, String huy, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, Role admin) {
 		setId(UUID.randomUUID().toString());
 	}
+
 */
 	public String getAddress() {
 		return this.address;
