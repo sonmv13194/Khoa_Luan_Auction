@@ -10,9 +10,10 @@ import java.util.UUID;
 
 /**
  * The persistent class for the order database table.
- * 
+ *
  */
 @Entity
+@Table(name="order")
 @NamedQuery(name="Order.findAll", query="SELECT o FROM Order o")
 public class Order extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +28,7 @@ public class Order extends AbstractAuditableEntity<String> implements Serializab
 
 	private String firstName;
 
-	private String lasttName;
+	private String lastName;
 
 	private String city;
 
@@ -83,12 +84,12 @@ public class Order extends AbstractAuditableEntity<String> implements Serializab
 		this.firstName = firstName;
 	}
 
-	public String getLasttName() {
-		return lasttName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLasttName(String lasttName) {
-		this.lasttName = lasttName;
+	public void setLasttName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getCity() {

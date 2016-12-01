@@ -12,7 +12,7 @@ import java.util.UUID;
 
 /**
  * The persistent class for the order_detail database table.
- * 
+ *
  */
 @Entity
 @Table(name="order_detail")
@@ -28,17 +28,14 @@ public class OrderDetail extends AbstractAuditableEntity<String> implements Seri
 	private int quantity;
 
 	//bi-directional many-to-one association to Order
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="order_id")
 	private Order order;
 
 	//bi-directional many-to-one association to ProductDetail
 	@ManyToOne
 	@JoinColumn(name="product_detail_id")
 	private ProductDetail productDetail;
-
-	//bi-directional many-to-one association to OrderHistory
-	@OneToMany(mappedBy="orderDetail")
-	private List<OrderHistory> orderHistories;
 
 	public OrderDetail() {
 		setId(UUID.randomUUID().toString());
@@ -82,28 +79,6 @@ public class OrderDetail extends AbstractAuditableEntity<String> implements Seri
 
 	public void setProductDetail(ProductDetail productDetail) {
 		this.productDetail = productDetail;
-	}
-
-	public List<OrderHistory> getOrderHistories() {
-		return this.orderHistories;
-	}
-
-	public void setOrderHistories(List<OrderHistory> orderHistories) {
-		this.orderHistories = orderHistories;
-	}
-
-	public OrderHistory addOrderHistory(OrderHistory orderHistory) {
-		getOrderHistories().add(orderHistory);
-		orderHistory.setOrderDetail(this);
-
-		return orderHistory;
-	}
-
-	public OrderHistory removeOrderHistory(OrderHistory orderHistory) {
-		getOrderHistories().remove(orderHistory);
-		orderHistory.setOrderDetail(null);
-
-		return orderHistory;
 	}
 
 }
