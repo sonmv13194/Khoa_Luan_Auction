@@ -31,6 +31,10 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 
 	private String phone;
 
+	public User(String username) {
+		this.username = username;
+	}
+
 	private String username;
 
 	@Column(name = "enabled")
@@ -42,6 +46,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	@Column(name = "credentials_non_expired")
 	private boolean credentialsNonExpired;
 
+
 	/*//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="user")
 	private List<OrderDetail> orderDetails;*/
@@ -50,16 +55,40 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	@ManyToMany(mappedBy="users")
 	private List<Role> roles;
 
-	public User() {
+	/*public User(String address, Date birthday, String email, String password, String phone, String huy, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, Role admin) {
 		setId(UUID.randomUUID().toString());
 	}
 
+*/
 	public String getAddress() {
 		return this.address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public User() {
+	}
+
+	public User(String address, Date birthday, String email, String password, String phone, String huy, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, Role admin) {
+		setId(UUID.randomUUID().toString());
+	}
+
+	public User(String address, Date birthday, String email, String password, String phone,
+				String username, boolean enabled, boolean accountNonExpired, boolean accountNonLocked,
+				boolean credentialsNonExpired, List<Role> roles) {
+		this.address = address;
+		this.birthday = birthday;
+		this.email = email;
+		this.password = password;
+		this.phone = phone;
+		this.username = username;
+		this.enabled = enabled;
+		this.accountNonExpired = accountNonExpired;
+		this.accountNonLocked = accountNonLocked;
+		this.credentialsNonExpired = credentialsNonExpired;
+		this.roles = roles;
 	}
 
 	public Date getBirthday() {
@@ -101,28 +130,6 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-	/*public List<OrderDetail> getOrderDetails() {
-		return this.orderDetails;
-	}
-
-	public void setOrderDetails(List<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
-	}
-
-	public OrderDetail addOrderDetail(OrderDetail orderDetail) {
-		getOrderDetails().add(orderDetail);
-		orderDetail.setUser(this);
-
-		return orderDetail;
-	}
-
-	public OrderDetail removeOrderDetail(OrderDetail orderDetail) {
-		getOrderDetails().remove(orderDetail);
-		orderDetail.setUser(null);
-
-		return orderDetail;
-	}*/
 
 	public List<Role> getRoles() {
 		return this.roles;

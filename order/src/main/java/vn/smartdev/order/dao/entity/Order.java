@@ -25,9 +25,19 @@ public class Order extends AbstractAuditableEntity<String> implements Serializab
 
 	private String username;
 
+	private String firstName;
+
+	private String lasttName;
+
+	private String city;
+
 	//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="order")
 	private List<OrderDetail> orderDetails;
+
+	public Order(String username) {
+		this.username = username;
+	}
 
 	public Order() {
 		setId(UUID.randomUUID().toString());
@@ -63,6 +73,30 @@ public class Order extends AbstractAuditableEntity<String> implements Serializab
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLasttName() {
+		return lasttName;
+	}
+
+	public void setLasttName(String lasttName) {
+		this.lasttName = lasttName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public List<OrderDetail> getOrderDetails() {

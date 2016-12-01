@@ -8,9 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <name>logging</name>
     <artifactId>logging</artifactId>
-
+    <url>http://github.com/minhtoan5495</url>
     <dependencies>
         <dependency>
             <groupId>com.java.training</groupId>

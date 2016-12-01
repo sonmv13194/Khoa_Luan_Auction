@@ -1,0 +1,1 @@
+package vn.smartdev.order.dao.repository;import org.springframework.data.jpa.repository.JpaRepository;import vn.smartdev.order.dao.entity.OrderDetail;/** * Created by Nguyen on 30/11/2016. */public interface OrderDetailRepository extends JpaRepository<OrderDetail, String> {}

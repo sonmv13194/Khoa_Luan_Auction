@@ -37,6 +37,7 @@ public class UserManagerImpl implements UserManager {
         return user;
     }
 
+
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public User createUser(User user) throws UserAlreadyExistsException {
@@ -53,7 +54,7 @@ public class UserManagerImpl implements UserManager {
         return userRepository.save(user);
     }
 
-    private boolean userExists(User user) {
+    public boolean userExists(User user) {
         return userRepository.countByUsernameOrEmailOrPhoneAndIdNotIn(user.getUsername(),
                 user.getEmail(), user.getPhone(), user.getId()) > 0;
     }
@@ -73,6 +74,11 @@ public class UserManagerImpl implements UserManager {
                             + user.getPhone() + " and/or username: " + user.getUsername());
         }
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
     }
 
     /*@Override
