@@ -23,6 +23,38 @@ public class Product extends AbstractAuditableEntity<String> implements Serializ
 	@Column(name="product_name")
 	private String productName;
 
+	@Column(name="description")
+	private String description;
+
+	@Column(name="category_id",insertable = false,updatable = false)
+	private String category_id;
+
+	public Product(String productName, String description, String category_id) {
+		this.productName = productName;
+		this.description = description;
+		this.category_id = category_id;
+	}
+
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
+	}
+
 	//bi-directional many-to-one association to Category
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Category category;
@@ -30,6 +62,13 @@ public class Product extends AbstractAuditableEntity<String> implements Serializ
 	//bi-directional many-to-one association to ProductDetail
 	@OneToMany(mappedBy="product")
 	private List<ProductDetail> productDetails;
+
+	//contruster
+
+	public Product(String productName, Category category, List<ProductDetail> productDetails) {
+		this.productName = productName;
+		this.productDetails = productDetails;
+	}
 
 	public Product() {
 		setId(UUID.randomUUID().toString());
