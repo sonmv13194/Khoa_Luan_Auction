@@ -15,6 +15,7 @@ public interface UserManager {
     User enableUser(User user) throws UserNotFoundException;
     User updateUser(User user) throws UserNotFoundException, UserAlreadyExistsException;
     List<User> findAllUsers();
+    void deleteUser(User user) throws UserNotFoundException;
 
 
     /*User changePassword(String userId, String newPassword) throws UserNotFoundException;*/

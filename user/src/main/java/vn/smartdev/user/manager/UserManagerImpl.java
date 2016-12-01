@@ -81,6 +81,18 @@ public class UserManagerImpl implements UserManager {
         return userRepository.findAll();
     }
 
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
+    public void deleteUser(User user) throws UserNotFoundException {
+        if(!userExists(user)){
+            throw new UserNotFoundException("User not exists");
+        }
+        userRepository.delete(user);
+    }
+
+
+
     /*@Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public User changePassword(String userId, String newPassword) throws UserNotFoundException {
