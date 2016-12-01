@@ -44,4 +44,7 @@
 		<put-attribute name="body" value="/resource/view/admin/view/viewUser.jsp" />
 	</definition>
 
+	<definition name="category" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/adminCategory.jsp" />
+	</definition>
 </tiles-definitions>

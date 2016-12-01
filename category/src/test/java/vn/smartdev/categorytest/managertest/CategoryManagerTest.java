@@ -10,7 +10,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.dao.repository.CategoryRepository;
-import vn.smartdev.category.manager.servicesImpl.CategoryServicesImpl;
+import vn.smartdev.category.manager.CategoryServicesImpl;
 import vn.smartdev.categorytest.handlingemulatordata.HandlingEmulatorData;
 
 import java.util.List;
@@ -73,10 +73,10 @@ public class CategoryManagerTest extends HandlingEmulatorData{
     {
         //implement emulator data and deleteCategory()
         ArgumentCaptor<String> categoryNameStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        categoryServices.deleteCategory("category_3");
 
+        categoryServices.deleteCategory("category_3");
         Mockito.verify(categoryRepository, Mockito.times(1)).delete(categoryNameStringArgumentCaptor.capture());
-        String categoryName = categoryNameStringArgumentCaptor.getValue();
+               String categoryName = categoryNameStringArgumentCaptor.getValue();
 
         Assertions.assertThat(categoryName).isEqualTo("category_3");
     }
