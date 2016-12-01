@@ -1,4 +1,4 @@
-package com.github.duychuongvn.logging.dao.entity;
+package vn.smartdev.logging.dao.entity;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 

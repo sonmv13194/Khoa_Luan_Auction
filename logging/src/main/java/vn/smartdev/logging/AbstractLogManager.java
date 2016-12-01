@@ -1,10 +1,10 @@
-package com.github.duychuongvn.logging;
+package vn.smartdev.logging;
 
-import com.github.duychuongvn.logging.dao.entity.LogDetails;
-import com.github.duychuongvn.logging.dao.entity.LogLevel;
-import com.github.duychuongvn.logging.dao.entity.LogRecord;
-import com.github.duychuongvn.logging.dao.repository.LogDetailsRepository;
-import com.github.duychuongvn.logging.dao.repository.LogRecordRepository;
+import vn.smartdev.logging.dao.entity.LogDetails;
+import vn.smartdev.logging.dao.entity.LogLevel;
+import vn.smartdev.logging.dao.entity.LogRecord;
+import vn.smartdev.logging.dao.repository.LogDetailsRepository;
+import vn.smartdev.logging.dao.repository.LogRecordRepository;
 
 import java.util.List;
 

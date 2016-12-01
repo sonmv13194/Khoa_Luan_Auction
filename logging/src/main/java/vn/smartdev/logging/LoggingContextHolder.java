@@ -1,7 +1,7 @@
-package com.github.duychuongvn.logging;
+package vn.smartdev.logging;
 
-import com.github.duychuongvn.logging.dao.entity.LogDetails;
-import com.github.duychuongvn.logging.dao.entity.LogLevel;
+import vn.smartdev.logging.dao.entity.LogDetails;
+import vn.smartdev.logging.dao.entity.LogLevel;
 
 public class LoggingContextHolder {
     private static ThreadLocal<LogCache> logCacheThreadLocal = new InheritableThreadLocal<>();

@@ -1,9 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <changeSet author="Nguyen (generated)" id="1480323972499-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Nguyen (generated)" id="1480394301342-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="category">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -28,7 +25,7 @@
             <column name="versionNo" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="order">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -39,7 +36,7 @@
             <column name="address" type="VARCHAR(45)"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="order_detail">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -69,7 +66,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="order_history">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -91,7 +88,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="product">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -117,7 +114,7 @@
             <column name="versionNo" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-6" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-6" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="product_detail">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -147,7 +144,7 @@
             <column name="versionNo" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-7" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-7" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="product_images">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -172,31 +169,20 @@
             <column name="versionNo" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-8" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-8" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="role">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
             </column>
             <column name="role_name" type="VARCHAR(45)"/>
-            <column name="created" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_updated" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created_by" type="VARCHAR(250)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_updated_by" type="VARCHAR(250)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="deleted" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="versionNo" type="INT"/>
+            <column name="created" type="date"/>
+            <column name="last_updated" type="date"/>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column defaultValueNumeric="1" name="versionNo" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-9" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-9" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="role_user">
             <column name="user_id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -206,7 +192,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-10" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-10" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createTable tableName="user">
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -217,138 +203,110 @@
             <column name="phone" type="VARCHAR(45)"/>
             <column name="birthday" type="date"/>
             <column name="address" type="VARCHAR(200)"/>
-            <column name="created" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_updated" type="date">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created_by" type="VARCHAR(250)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_updated_by" type="VARCHAR(250)">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueNumeric="0" name="enabled" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueNumeric="1" name="credentials_non_expired" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueNumeric="1" name="account_non_expired" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueNumeric="1" name="account_non_locked" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="deleted" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="versionNo" type="INT"/>
-            <column name="accountNonExpired" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="accountNonLocked" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="credentialsNonExpired" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
+            <column name="created" type="date"/>
+            <column name="last_updated" type="date"/>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column defaultValueNumeric="0" name="enabled" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="account_non_expired" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="account_non_locked" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="versionNo" type="INT"/>
+            <column defaultValueNumeric="1" name="credentials_non_expired" type="BIT(1)"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="category"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-12" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-12" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="order"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-13" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-13" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="order_detail"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-14" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-14" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="order_history"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="product"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-16" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-16" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="product_detail"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-17" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-17" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="product_images"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-18" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-18" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="role"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-19" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-19" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="user_id, role_id" constraintName="PRIMARY" tableName="role_user"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-20" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-20" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="user"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-21" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-21" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addUniqueConstraint columnNames="email" constraintName="email_UNIQUE" tableName="user"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-22" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-22" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addUniqueConstraint columnNames="username" constraintName="username_UNIQUE" tableName="user"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-23" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-23" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createIndex indexName="fk_orderdetail_order_idx" tableName="order_detail">
             <column name="order_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-24" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-24" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createIndex indexName="fk_orderdetail_productdetail_idx" tableName="order_detail">
             <column name="product_detail_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-25" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-25" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createIndex indexName="fk_orderhistory_orderdetail_idx" tableName="order_history">
             <column name="order_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-26" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-26" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createIndex indexName="fk_productimage_productdetail_idx" tableName="product_images">
             <column name="product_detail_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-27" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-27" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createIndex indexName="fk_role_idx" tableName="role_user">
             <column name="role_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-28" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-28" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createIndex indexName="product_category_idx" tableName="product">
             <column name="category_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-29" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-29" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <createIndex indexName="product_detail_product_parent_idx" tableName="product_detail">
             <column name="product_parent_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-30" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-30" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_user" constraintName="FK4sxfh9qoye96gyu5vjbfp53e4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-31" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-31" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="role_user" constraintName="FK959de75d868p2l5b2wilh9rkg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-32" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-32" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product" constraintName="FKexqqeaksnmmku5py194ywp140" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="category"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-33" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-33" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="product_detail_id" baseTableName="product_images" constraintName="FKoof4vsh31deithuin7svib6vo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_detail"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-34" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-34" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="product_parent_id" baseTableName="product_detail" constraintName="FKpl341cb2v4yc9fxctejr1p8og" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-35" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-35" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="order_detail" constraintName="fk_orderdetail_order" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="order"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-36" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-36" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="product_detail_id" baseTableName="order_detail" constraintName="fk_orderdetail_productdetail" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product_detail"/>
     </changeSet>
-    <changeSet author="Nguyen (generated)" id="1480323972499-37" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    <changeSet author="Nguyen (generated)" id="1480394301342-37" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="order_history" constraintName="fk_orderhistory_orderdetail" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="order_detail"/>
     </changeSet>
 </databaseChangeLog>

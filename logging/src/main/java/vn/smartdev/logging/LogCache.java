@@ -1,7 +1,7 @@
-package com.github.duychuongvn.logging;
+package vn.smartdev.logging;
 
-import com.github.duychuongvn.logging.dao.entity.LogDetails;
-import com.github.duychuongvn.logging.dao.entity.LogRecord;
+import vn.smartdev.logging.dao.entity.LogDetails;
+import vn.smartdev.logging.dao.entity.LogRecord;
 
 import java.util.ArrayList;
 import java.util.List;

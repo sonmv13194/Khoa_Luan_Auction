@@ -1,6 +1,6 @@
-package com.github.duychuongvn.logging.dao.repository;
+package vn.smartdev.logging.dao.repository;
 
-import com.github.duychuongvn.logging.dao.entity.LogRecord;
+import vn.smartdev.logging.dao.entity.LogRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LogRecordRepository extends JpaRepository<LogRecord, String> {

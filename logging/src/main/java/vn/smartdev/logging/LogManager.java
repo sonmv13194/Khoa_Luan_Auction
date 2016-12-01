@@ -1,4 +1,4 @@
-package com.github.duychuongvn.logging;
+package vn.smartdev.logging;
 
 public interface LogManager {
 
