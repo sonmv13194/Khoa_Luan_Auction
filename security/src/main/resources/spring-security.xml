@@ -12,7 +12,7 @@
 	<context:annotation-config/>
 	<context:component-scan base-package="vn.smartdev.userService"/>
 	<http use-expressions="true" auto-config="false">
-		<csrf disabled="true"/>
+		<csrf disabled="false"/>
 		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 		<form-login login-page="/login" username-parameter="username" password-parameter="password"
 		 	login-processing-url="/j_spring_security_check"
