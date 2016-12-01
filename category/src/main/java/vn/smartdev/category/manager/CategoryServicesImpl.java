@@ -1,18 +1,18 @@
-package vn.smartdev.category.manager.servicesImpl;
+package vn.smartdev.category.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.dao.repository.CategoryRepository;
-import vn.smartdev.category.manager.services.CategoryServices;
+import vn.smartdev.category.manager.CategoryServices;
+
 
 import java.util.List;
 
-/**
- * Created by Nhat on 28/11/2016.
- */
+@Service
 public class CategoryServicesImpl implements CategoryServices{
     @Autowired
-    private CategoryRepository categoryRepository;
+    CategoryRepository categoryRepository;
 
     @Override
     public List<Category> getListCategory() {

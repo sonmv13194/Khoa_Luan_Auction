@@ -3,6 +3,7 @@
 
 # KDE directory preferences
 .directory
+.configuration
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
@@ -71,3 +72,4 @@ buildNumber.properties
 .project
 .settings/
 .springBeans
+
