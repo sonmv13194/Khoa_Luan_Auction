@@ -24,7 +24,7 @@
 			<li><a href="google_maps.html"> <i class="icon-map-marker"></i>
 					<span>Google Maps </span>
 			</a></li>
-			<li><a href="login.html"> <i class="icon-user"></i> <span>Login
+			<li><a href="//login"> <i class="icon-user"></i> <span>Login
 						Page</span>
 			</a></li>
 		</ul>
