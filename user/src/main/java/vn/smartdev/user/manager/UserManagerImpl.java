@@ -41,12 +41,11 @@ public class UserManagerImpl implements UserManager {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public User createUser(User user) throws UserAlreadyExistsException {
-        if (userExists(user)) {
-            throw new UserAlreadyExistsException();
-        }
-        /*PasswordHistory passwordHistory = user.getPasswordHistory();
-        passwordHistory.addPassword(user.getPassword());
-        passwordHistory.setLastPasswordChanged(Calendar.getInstance().getTime());*/
+//        if (userExists(user)) {
+//            throw new UserAlreadyExistsException();
+//        }
+
+
         user.setEnabled(false);
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
@@ -67,12 +66,12 @@ public class UserManagerImpl implements UserManager {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public User updateUser(User user) throws UserNotFoundException, UserAlreadyExistsException {
-        if (userExists(user)) {
-            throw new UserAlreadyExistsException(
-                    "User already exists with email id: " + user.getEmail()
-                            + " and/or phone number: "
-                            + user.getPhone() + " and/or username: " + user.getUsername());
-        }
+//        if (userExists(user)) {
+//            throw new UserAlreadyExistsException(
+//                    "User already exists with email id: " + user.getEmail()
+//                            + " and/or phone number: "
+//                            + user.getPhone() + " and/or username: " + user.getUsername());
+//        }
         return userRepository.save(user);
     }
 
@@ -85,9 +84,9 @@ public class UserManagerImpl implements UserManager {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public void deleteUser(User user) throws UserNotFoundException {
-        if(!userExists(user)){
-            throw new UserNotFoundException("User not exists");
-        }
+//        if(!userExists(user)){
+//            throw new UserNotFoundException("User not exists");
+//        }
         userRepository.delete(user);
     }
 

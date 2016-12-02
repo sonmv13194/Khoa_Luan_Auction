@@ -51,6 +51,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 
 	//bi-directional many-to-many association to Role
 	@ManyToMany(mappedBy="users")
+
 	private List<Role> roles;
 
 	public String getAddress() {
@@ -62,6 +63,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	}
 
 	public User() {
+		setId(UUID.randomUUID().toString());
 	}
 
 	public User(String address, Date birthday, String email, String password, String phone, String huy, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, Role admin) {
@@ -69,19 +71,14 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	}
 
 	public User(String address, Date birthday, String email, String password, String phone,
-				String username, boolean enabled, boolean accountNonExpired, boolean accountNonLocked,
-				boolean credentialsNonExpired, List<Role> roles) {
+				String username) {
 		this.address = address;
 		this.birthday = birthday;
 		this.email = email;
 		this.password = password;
 		this.phone = phone;
 		this.username = username;
-		this.enabled = enabled;
-		this.accountNonExpired = accountNonExpired;
-		this.accountNonLocked = accountNonLocked;
-		this.credentialsNonExpired = credentialsNonExpired;
-		this.roles = roles;
+		setId(UUID.randomUUID().toString());
 	}
 
 	public Date getBirthday() {

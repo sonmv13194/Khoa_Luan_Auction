@@ -14,7 +14,7 @@
                     <div class="clearfix">
                         <div class="btn-group">
                             <button id="editable-sample_new" class="btn green"  >
-                                <a href="${contextPath }/admin/createUser">Add New </a><i class="icon-plus"></i>
+                                <%--<a href="${contextPath }/admin/createUser">Add New </a><i class="icon-plus"></i>--%>
                             </button>
                         </div>
                         <div class="btn-group pull-right">
@@ -28,6 +28,7 @@
                         </div>
                     </div>
                     <div class="space15"></div>
+                    <%--<c:if test="${!empty listUser}" >--%>
                     <table class="table table-striped table-hover table-bordered" id="editable-sample">
                         <thead>
                         <tr>
@@ -44,7 +45,7 @@
                             <th>Delete</th>
                         </tr>
                         </thead>
-                        <c:forEach items="${listUsers}" var="user">
+                        <c:forEach items="${listUser}" var="user">
                         <tbody>
                         <tr class="">
                             <td>${user.id}</td>
@@ -55,14 +56,21 @@
                             <td>${user.address}</td>
                             <td>${user.createBy}</td>
                             <td>${user.lastUpdated}</td>
-                            <td>${user.created}</td>
-                            <td><a class="edit" href="/admin/editUser/${user.id}" onclick="">Edit</a></td>
-                            <td><a class="delete" href="/admin/editUser/${user.id}">Delete</a></td>
+                            <td>${user.createBy}</td>
+                            <td><a class="edit" href="/admin/editUser/${user.id}">Edit</a></td>
+                            <%--onclick="javascript:deleteUser(${user.id}--%>
+                            <td>
+                                <a class="delete"
+                                   href="${contextPath }/admin/deleteUser?id=${user.id}">
+                                   Delete
+                                </a>
+                            </td>
                         </tr>
 
                         </tbody>
                         </c:forEach>
                     </table>
+                    <%--</c:if>--%>
                 </div>
             </div>
         </section>
@@ -75,19 +83,15 @@
                     <div class="panel-body">
                         <div class="form">
 
-                            <c:url var="action" value="/admin/createUser"></c:url>
-
-                            <form:form method="post" action="${action}" commandName="user"
-                                       class="cmxform form-horizontal tasi-form" id="signupForm">
-
-                                <c:if test="${!empty user.username}">
+                            <form  class="cmxform form-horizontal tasi-form" id="signupForm" method="POST" action="/admin/createUser">
+                                <%--<c:if test="${!empty user.username}">--%>
                                 <div class="form-group ">
                                     <label for="username" class="control-label col-lg-2">Username</label>
                                     <div class="col-lg-10">
                                         <input class="form-control " id="username" name="username" type="text" />
                                     </div>
                                 </div>
-                                </c:if>
+                                <%--</c:if>--%>
 
                                 <div class="form-group ">
                                     <label for="password" class="control-label col-lg-2">Password</label>
@@ -95,29 +99,25 @@
                                         <input class="form-control " id="password" name="password" type="password" />
                                     </div>
                                 </div>
+
                                 <div class="form-group ">
                                     <label for="confirm_password" class="control-label col-lg-2">Confirm Password</label>
                                     <div class="col-lg-10">
                                         <input class="form-control " id="confirm_password" name="confirm_password" type="password" />
                                     </div>
                                 </div>
+
                                 <div class="form-group ">
                                     <label for="email" class="control-label col-lg-2">Email</label>
                                     <div class="col-lg-10">
                                         <input class="form-control " id="email" name="email" type="email" />
                                     </div>
                                 </div>
-                                <div class="form-group ">
-                                    <label for="phone" class="control-label col-lg-2">Email</label>
-                                    <div class="col-lg-10">
-                                        <input class="form-control " id="phone" name="phone"/>
-                                    </div>
-                                </div>
 
                                 <div class="form-group ">
                                     <label for="birthday" class="control-label col-lg-2">Birthday</label>
                                     <div class="col-lg-10">
-                                        <input class="form-control " id="birthday" name="birthday"/>
+                                        <input class="form-control " id="birthday" name="birthday" type="date"/>
                                     </div>
                                 </div>
 
@@ -127,6 +127,19 @@
                                         <input class="form-control " id="address" name="address"/>
                                     </div>
                                 </div>
+                                <div class="form-group ">
+                                    <label for="address" class="control-label col-lg-2">Phone</label>
+                                    <div class="col-lg-10">
+                                        <input class="form-control " id="phone" name="phone"/>
+                                    </div>
+                                </div>
+
+                                    <div class="form-group ">
+                                        <label for="address" class="control-label col-lg-2">ROLE</label>
+                                    <c:forEach items="${listRole}" var="role">
+                                        <label class="radio-inline"><input type="radio" value="${role.roleName}" name="optradio">${role.roleName}</label>
+                                    </c:forEach>
+                                    </div>
 
 
                                 <div class="form-group">
@@ -135,7 +148,8 @@
                                         <button class="btn btn-default" type="button">Cancel</button>
                                     </div>
                                 </div>
-                            </form:form>
+                            </form>
+
                         </div>
                     </div>
                 </section>

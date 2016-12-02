@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!--header start-->
+<!DOCTYPE html>
 <header class="header white-bg">
 	<div class="sidebar-toggle-box">
 		<div data-original-title="Toggle Navigation" data-placement="right"
@@ -28,5 +29,15 @@
 			<!-- user login dropdown end -->
 		</ul>
 	</div>
+	<script>
+		function deleteUser(id){
+		    if(confirm("Do you want to delete this user ?")){
+		        var url = '/admin/deleteUser?id='+id;
+		        window.location.href = url;
+
+			}
+		}
+
+	</script>
 </header>
 <!--header end-->
