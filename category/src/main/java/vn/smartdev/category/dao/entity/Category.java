@@ -4,8 +4,6 @@ import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 
@@ -24,9 +22,6 @@ public class Category extends AbstractAuditableEntity<String> implements Seriali
 	public Category(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	/*//bi-directional many-to-one association to Product
-	@OneToMany(mappedBy="category")
-	private List<Product> products;*/
 
 	public Category() {
 		setId(UUID.randomUUID().toString());
@@ -40,26 +35,16 @@ public class Category extends AbstractAuditableEntity<String> implements Seriali
 		this.categoryName = categoryName;
 	}
 
-	/*public List<Product> getProducts() {
-		return this.products;
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getClass().getName() + "-");
+		sb.append("  id=" + getId());
+		sb.append("  id=" + getCategoryName());
+		sb.append("  lastUpdated=" + getLastUpdated());
+		sb.append("  lastUpdateBy=" + getLastUpdatedBy());
+		sb.append("  created=" + getCreated());
+		sb.append("  createdBy=" + getCreateBy());
+		return sb.toString();
 	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
-
-	public Product addProduct(Product product) {
-		getProducts().add(product);
-		product.setCategory(this);
-
-		return product;
-	}
-
-	public Product removeProduct(Product product) {
-		getProducts().remove(product);
-		product.setCategory(null);
-
-		return product;
-	}*/
-
 }

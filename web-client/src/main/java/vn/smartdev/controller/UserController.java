@@ -41,14 +41,13 @@ public class UserController {
     public String getAllUsers(Model model) {
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
-
         List<Role> roles = roleManager.getAll();
         model.addAttribute("listRole", roles);
         return "viewUserPage";
     }
 
-    @RequestMapping(value = "/editUser/{uid}")
-    public String updateUser(@PathVariable("uid") String uid, Model model){
+    @RequestMapping(value = "/editUser")
+    public String editUser(@RequestParam("id") String uid, Model model){
 
         User user = null;
         try {
@@ -56,17 +55,11 @@ public class UserController {
         } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
-        model.addAttribute("user", user);
-
-        try {
-            userManager.updateUser(user);
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
-        } catch (UserAlreadyExistsException e) {
-            e.printStackTrace();
-        }
         List<User> users = userManager.findAllUsers();
-        model.addAttribute("listUsers",users);
+        model.addAttribute("listUser",users);
+        model.addAttribute("user", user);
+        List<Role> roles = roleManager.getAll();
+        model.addAttribute("listRole", roles);
         return "viewUserPage";
     }
 
@@ -77,7 +70,7 @@ public class UserController {
         } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
-        return "redirect:/admin/viewUser";
+        return "redirect:viewUser";
     }
 
     @RequestMapping(value = "/createUser", method = RequestMethod.POST)
@@ -90,21 +83,16 @@ public class UserController {
         String address  = request.getParameter("address");
         String phone  = request.getParameter("phone");
         String role  = request.getParameter("optradio");
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-
-
+        SimpleDateFormat formatter = new SimpleDateFormat(birthday);
             Date birthdayFormat = formatter.parse(birthday);
             User user = new User(address, birthdayFormat ,email,password,phone,username);
-
-
             List<Role> roles = new ArrayList<>();
             roles.add(roleManager.findRoleByName(role));
             user.setRoles(roles);
             System.out.print("User name : "+username+" Pass : "+password+" Email  : "+email+" Birthay : "+birthday
             +" address: "+address+ " Role: "+role);
-
             userManager.createUser(user);
-        return "redirect:/admin/viewUser";
+        return "redirect:viewUser";
     }
 
 }

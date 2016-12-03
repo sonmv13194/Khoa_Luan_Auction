@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="space15"></div>
-    <table class="table table-striped table-hover table-bordered" id="editable-sample">
+    <table class="table table-striped table-hover table-binvoiceed" id="editable-sample">
       <thead>
       <tr>
         <th>Username</th>
@@ -63,7 +63,7 @@
   </form>
 
 
-  <table border="1">
+  <table binvoice="1">
     <th>No</th>
     <th>Name</th>
     <c:forEach var="category" items="${categoryList}" varStatus="index">
@@ -82,54 +82,55 @@
 --%>
 
 
-  <section id="main-content">
+<section id="main-content">
     <section class="wrapper">
-      <!-- page start-->
+        <!-- page start-->
         <header class="panel-heading">
-          Category Table
+            Category Table
         </header>
         <div class="panel-body">
-          <form action="/admin/saveCategory" method="post">
-          <div class="adv-table editable-table ">
-            <div class="clearfix">
-              <tr>
-                <td>Name:</td>
-                <td><input name="categoryName"/></td>
-              </tr>
-              <div class="btn-group">
-                <button id="editable-sample_new" class="btn green"><input type="submit" value="Add new">
-                 <i class="icon-plus"></i>
-                </button>
-              </div>
+            <form action="/admin/saveCategory" method="post">
+                <div class="adv-table editable-table ">
+                    <div class="clearfix">
+                        <tr>
+                            <td>Name:</td>
+                            <td><input name="categoryName"/></td>
+                        </tr>
+                        <div class="btn-group">
+                            <button id="editable-sample_new" class="btn green"><input type="submit" value="Add new">
+                                <i class="icon-plus"></i>
+                            </button>
+                        </div>
 
-            </div>
-            <div class="space15"></div>
-            <table class="table table-striped table-hover table-bordered" id="editable-sample">
-              <thead>
-              <tr>
-                <th>No</th>
-                <th>Category Name</th>
-                <th>Delete</th>
-              </tr>
-              </thead>
-              <tbody>
-              <c:forEach var="category" items="${categoryList}" varStatus="index">
-              <tr class="">
-                <td>${index.index + 1}</td>
-                <td>${category.categoryName}</td>
-                <td><a class="delete" href="deleteCategory?id=${category.id}">Delete</a></td>
-              </tr>
-              </c:forEach>
-              </tbody>
-            </table>
-          </div>
+                    </div>
+                    <div class="space15"></div>
+                    <table class="table table-striped table-hover table-binvoiceed" id="editable-sample">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Category Name</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="category" items="${categoryList}" varStatus="index">
+                            <tr class="">
+                                <td>${index.index + 1}</td>
+                                <td>${category.categoryName}</td>
+                                <td><a class="delete" href="deleteCategory?id=${category.id}">Delete</a></td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </form>
         </div>
 
-      </section>
-      <!-- page end-->
     </section>
-  </section>
+    <!-- page end-->
+</section>
+</section>
 
 </div>
 

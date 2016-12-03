@@ -12,5 +12,8 @@ public interface ProductServices {
     public Product getProduct(String id);
     public void saveProduct(Product product);
     public void deleteProduct(String id);
+//    public List<Product> viewListProduct(List<Product> getListProduct);
+    public void deleteObjectProduct(Product product);
+    public Product createProduct(String productName, String description, String categoryId);
 
 }

@@ -98,48 +98,48 @@ a [class*=" icon-"] {
 .icon-dark {
   color: #333333;
 }
-.icon-border {
-  border: solid 1px #eeeeee;
+.icon-binvoice {
+  binvoice: solid 1px #eeeeee;
   padding: .2em .25em .15em;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-binvoice-radius: 3px;
+  -moz-binvoice-radius: 3px;
+  binvoice-radius: 3px;
 }
 .icon-2x {
   font-size: 2em;
 }
-.icon-2x.icon-border {
-  border-width: 2px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+.icon-2x.icon-binvoice {
+  binvoice-width: 2px;
+  -webkit-binvoice-radius: 4px;
+  -moz-binvoice-radius: 4px;
+  binvoice-radius: 4px;
 }
 .icon-3x {
   font-size: 3em;
 }
-.icon-3x.icon-border {
-  border-width: 3px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+.icon-3x.icon-binvoice {
+  binvoice-width: 3px;
+  -webkit-binvoice-radius: 5px;
+  -moz-binvoice-radius: 5px;
+  binvoice-radius: 5px;
 }
 .icon-4x {
   font-size: 4em;
 }
-.icon-4x.icon-border {
-  border-width: 4px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+.icon-4x.icon-binvoice {
+  binvoice-width: 4px;
+  -webkit-binvoice-radius: 6px;
+  -moz-binvoice-radius: 6px;
+  binvoice-radius: 6px;
 }
 .icon-5x {
   font-size: 5em;
 }
-.icon-5x.icon-border {
-  border-width: 5px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
+.icon-5x.icon-binvoice {
+  binvoice-width: 5px;
+  -webkit-binvoice-radius: 7px;
+  -moz-binvoice-radius: 7px;
+  binvoice-radius: 7px;
 }
 .pull-right {
   float: right;
@@ -915,7 +915,7 @@ a .icon-flip-vertical:before {
 .icon-sign-blank:before {
   content: "\f0c8";
 }
-.icon-reorder:before {
+.icon-reinvoice:before {
   content: "\f0c9";
 }
 .icon-list-ul:before {
@@ -1357,10 +1357,10 @@ a .icon-flip-vertical:before {
 .icon-sort-by-attributes-alt:before {
   content: "\f161";
 }
-.icon-sort-by-order:before {
+.icon-sort-by-invoice:before {
   content: "\f162";
 }
-.icon-sort-by-order-alt:before {
+.icon-sort-by-invoice-alt:before {
   content: "\f163";
 }
 .icon-thumbs-up:before {

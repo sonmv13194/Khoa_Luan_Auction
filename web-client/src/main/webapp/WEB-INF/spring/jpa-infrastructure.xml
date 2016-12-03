@@ -13,13 +13,11 @@
     http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="vn.smartdev"/>
-    <context:property-placeholder location="classpath:database.properties"
-                                  order="0" ignore-unresolvable="true"/>
+    <context:component-scan base-package="vn.smartdev.*.dao"/>
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="vn.smartdev"/>
+        <property name="packagesToScan" value="vn.smartdev.*.dao.entity"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="generateDdl" value="false"></property>
@@ -36,13 +34,13 @@
     </bean>
     <!-- temporary add datasource for test -->
     <jee:jndi-lookup id="dataSource" jndi-name="jdbc/java-training-shop-dev_db"/>
-    <!--<bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/instrument_main"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-    </bean>-->
+    <!--<bean id="dataSourceTestAuditing"-->
+          <!--class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/instrument_main"/>-->
+        <!--<property name="username" value="root"/>-->
+        <!--<property name="password" value="root"/>-->
+    <!--</bean>-->
     <jpa:repositories base-package="vn.smartdev.user.dao.repository"/>
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>

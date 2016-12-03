@@ -101,9 +101,9 @@
         width: 0;
         height: 0;
         top:48px;
-        border-bottom: 15px solid #282e36;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
+        binvoice-bottom: 15px solid #282e36;
+        binvoice-left: 15px solid transparent;
+        binvoice-right: 15px solid transparent;
     }
 
 
@@ -148,7 +148,7 @@
     }
 
     .fc-button {
-        border: none !important;
+        binvoice: none !important;
         margin-right: 2px;
     }
 
@@ -159,7 +159,7 @@
     .fc-button .fc-button-inner {
         margin: 0px !important;
         padding: 2px !important;
-        border: none !important;
+        binvoice: none !important;
         margin-right: 2px !important;
         background-color: #fafafa !important;
         background-image: -moz-linear-gradient(top, #fafafa, #efefef) !important;
@@ -171,11 +171,11 @@
         -webkit-box-shadow: 0 1px 0px rgba(255, 255, 255, .8) !important;
         -moz-box-shadow: 0 1px 0px rgba(255, 255, 255, .8) !important;
         box-shadow: 0 1px 0px rgba(255, 255, 255, .8) !important;
-        -webkit-border-radius: 3px !important;
-        -moz-border-radius: 3px !important;
-        border-radius: 3px !important;
+        -webkit-binvoice-radius: 3px !important;
+        -moz-binvoice-radius: 3px !important;
+        binvoice-radius: 3px !important;
         color: #646464 !important;
-        border: 1px solid #ddd !important;
+        binvoice: 1px solid #ddd !important;
         text-shadow: 0 1px 0px rgba(255, 255, 255, .6) !important;
         text-align: center;
     }
@@ -232,7 +232,7 @@
 
     /*--horizontal menu--*/
     .full-width .navbar-toggle {
-        border: 1px solid #eaeaea;
+        binvoice: 1px solid #eaeaea;
     }
     .full-width .navbar-toggle .icon-bar {
         background: #c7c7c7;
@@ -326,7 +326,7 @@
      }
     /*--horizontal menu--*/
     .full-width .navbar-toggle {
-        border: 1px solid #eaeaea;
+        binvoice: 1px solid #eaeaea;
     }
     .full-width .navbar-toggle .icon-bar {
         background: #c7c7c7;

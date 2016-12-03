@@ -48,15 +48,30 @@
         <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
         <!-- Test Artifacts -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -86,7 +101,10 @@
             <version>1.4</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <!--<resources>-->
@@ -125,22 +143,22 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <!--<compilerArgument>-Xlint:all</compilerArgument>-->
-                    <!--<showWarnings>true</showWarnings>-->
-                    <!--<showDeprecation>true</showDeprecation>-->
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
         </plugins>
     </build>
     <modules>
-        <module>web-client</module>
+        <module>configuration</module>
+        <module>core</module>
+        <module>category</module>
+        <module>invoice</module>
+        <module>product</module>
+        <module>user</module>
         <module>security</module>
         <module>logging</module>
-        <module>category</module>
-        <module>order</module>
-        <module>core</module>
-        <module>product</module>
-        <module>configuration</module>
-        <module>user</module>
+        <module>web-client</module>
     </modules>
 </project>

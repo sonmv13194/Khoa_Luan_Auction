@@ -55,7 +55,7 @@
 
         <dependency>
             <groupId>com.java.training</groupId>
-            <artifactId>order</artifactId>
+            <artifactId>invoice</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -165,6 +165,11 @@
             <version>1</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>2.2.4</version>
+        </dependency>
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>

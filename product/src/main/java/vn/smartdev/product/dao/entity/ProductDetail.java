@@ -22,17 +22,18 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 	@Lob
 	private String description;
 
-	@Column(name="product_detail_code")
+	@Column(name="code")
 	private String productDetailCode;
 
-	@Column(name="product_detail_price")
+	@Column(name="price")
 	private float productDetailPrice;
 
-	@Column(name="product_detail_quantity")
+	@Column(name="quantity")
 	private int productDetailQuantity;
 
-	@Column(name="product_detail_status")
+	@Column(name="status")
 	private int productDetailStatus;
+	//contrustor
 
 	private String supplyer;
 	//contrustor
@@ -52,8 +53,8 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 	private List<OrderDetail> orderDetails;*/
 
 	//bi-directional many-to-one association to Product
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="product_parent_id")
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="product_id")
 	private Product product;
 
 	//bi-directional many-to-one association to ProductImage

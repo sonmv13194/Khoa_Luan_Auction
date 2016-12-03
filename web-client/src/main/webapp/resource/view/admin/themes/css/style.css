@@ -4614,11 +4614,6 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     background: #5b6e84;
     color: #fff;
     padding: 10px 0;
-    bottom: 0;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	margin-bottom: 0;
 }
 
 .go-top {

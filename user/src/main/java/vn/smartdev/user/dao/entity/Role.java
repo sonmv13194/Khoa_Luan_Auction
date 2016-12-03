@@ -14,6 +14,7 @@ import java.util.UUID;
  * 
  */
 @Entity
+@Table(name = "role")
 @NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
 public class Role extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
