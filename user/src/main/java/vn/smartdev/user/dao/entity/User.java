@@ -49,8 +49,6 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 
 
 
-	//bi-directional many-to-many association to Role
-	@ManyToMany(mappedBy="users")
 
 	private List<Role> roles;
 
@@ -121,6 +119,18 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 		this.username = username;
 	}
 
+	//bi-directional many-to-many association to Role
+	@ManyToMany
+	@JoinTable(
+			name="role_user"
+			, joinColumns={
+			@JoinColumn(name="role_id")
+	}
+
+			, inverseJoinColumns={
+			@JoinColumn(name="user_id")
+	}
+	)
 	public List<Role> getRoles() {
 		return this.roles;
 	}
