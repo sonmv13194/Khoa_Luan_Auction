@@ -2,22 +2,31 @@ package vn.smartdev.user.manager;
 
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.dao.repository.RoleRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.exception.UserNotFoundException;
 
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
 public class UserManagerImpl implements UserManager {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public User findUserByUsername(String username) throws UserNotFoundException {
@@ -45,7 +54,8 @@ public class UserManagerImpl implements UserManager {
 //            throw new UserAlreadyExistsException();
 //        }
 
-
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRoles(user.getRoles());
         user.setEnabled(false);
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
