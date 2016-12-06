@@ -46,8 +46,8 @@ public class UserController {
         return "viewUserPage";
     }
 
-    @RequestMapping(value = "/editUser")
-    public String editUser(@RequestParam("id") String uid, Model model){
+    @RequestMapping(value = "/editUser", method = RequestMethod.GET)
+    public String editUserGet(@RequestParam("id") String uid, Model model){
 
         User user = null;
         try {
@@ -55,13 +55,21 @@ public class UserController {
         } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
+        //List<User> users = userManager.findAllUsers();
+        //model.addAttribute("listUser",users);
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
-        List<Role> roles = roleManager.getAll();
-        model.addAttribute("listRole", roles);
+        //List<Role> roles = roleManager.getAll();
+        //model.addAttribute("listRole", roles);
         return "viewUserPage";
     }
+
+//    @RequestMapping(value = "/editUser", method = RequestMethod.POST)
+//    public String editUserPost(HttpServletRequest request) throws ParseException, UserAlreadyExistsException, RoleNotFoundException {
+//        String id = request.getParameter("id");
+//
+//    }
 
     @RequestMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam("id") String id, Model model){
@@ -82,13 +90,14 @@ public class UserController {
         String birthday = request.getParameter("birthday");
         String address  = request.getParameter("address");
         String phone  = request.getParameter("phone");
-        String role  = request.getParameter("optradio");
+
         SimpleDateFormat formatter = new SimpleDateFormat(birthday);
             Date birthdayFormat = formatter.parse(birthday);
             User user = new User(address, birthdayFormat ,email,password,phone,username);
-            List<Role> roles = new ArrayList<>();
-            roles.add(roleManager.findRoleByName(role));
-            user.setRoles(roles);
+           // String role ="ROLE_USER";
+            List<Role> role = new ArrayList<>();
+
+            user.setRoles((List<Role>) new Role("ROLE_USER"));
             System.out.print("User name : "+username+" Pass : "+password+" Email  : "+email+" Birthay : "+birthday
             +" address: "+address+ " Role: "+role);
             userManager.createUser(user);

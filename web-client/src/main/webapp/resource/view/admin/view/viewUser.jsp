@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="space15"></div>
-                    <%--<c:if test="${!empty listUser}" >--%>
+
                     <table class="table table-striped table-hover table-bordered" id="editable-sample">
                         <thead>
                         <tr>
@@ -66,43 +66,33 @@
                             </tbody>
                         </c:forEach>
                     </table>
-                    <%--</c:if>--%>
+
                 </div>
             </div>
         </section>
-        <c:if test="${user == null}">
+
+
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Add User
+                            Edit User
                         </header>
                         <div class="panel-body">
                             <div class="form">
                                 <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
-                                      action="/admin/createUser">
-                                        <%--<c:if test="${!empty user.username}">--%>
+                                      action="/admin/editUser">
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Username</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="username" name="username" type="text"/>
+                                            <input class="form-control" id="username" name="username" type="text" value="${user.username}"/>
                                         </div>
                                     </div>
-                                        <%--</c:if>--%>
 
                                     <div class="form-group ">
                                         <label for="password" class="control-label col-lg-2">Password</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="password" name="password" type="password"/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="confirm_password" class="control-label col-lg-2">Confirm
-                                            Password</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" id="confirm_password" name="confirm_password"
-                                                   type="password"/>
                                         </div>
                                     </div>
 
@@ -135,10 +125,10 @@
 
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">ROLE</label>
-                                        <c:forEach items="${listRole}" var="role">
+
                                             <label class="radio-inline"><input type="radio" value="${role.roleName}"
                                                                                name="optradio">${role.roleName}</label>
-                                        </c:forEach>
+
                                     </div>
 
 
@@ -156,91 +146,8 @@
                     </section>
                 </div>
             </div>
-        </c:if>
-        <c:if test="${user != null}">
-            <div class="row">
-                <div class="col-lg-12">
-                    <section class="panel">
-                        <header class="panel-heading">
-                            Edit User
-                        </header>
-                        <div class="panel-body">
-                            <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" id="updateForm" method="POST"
-                                      action="/admin/createUser">
-                                    <div class="form-group ">
-                                        <label for="username" class="control-label col-lg-2">Username</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" value="${user.username}"
-                                                   id="usernameEdit"
-                                                   name="username" type="text" disabled/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="password" class="control-label col-lg-2">Password</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " value="${user.password}" id="passwordEdit"
-                                                   name="password" type="password"/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="email" class="control-label col-lg-2">Email</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" value="${user.email}" id="emailEdit"
-                                                   name="email" type="email" disabled/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="birthday" class="control-label col-lg-2">Birthday</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" value="${user.birthday}" id="birthdayEdit"
-                                                   name="birthday" type="date"/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="address" class="control-label col-lg-2">Address</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" value="${user.address}" id="addressEdit"
-                                                   name="address"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="address" class="control-label col-lg-2">Phone</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" value="${user.phone}" id="phoneEdit"
-                                                   name="phone"/>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label for="address" class="control-label col-lg-2">ROLE</label>
-                                        <c:forEach items="${listRole}" var="role">
-                                            <label class="radio-inline"><input type="radio" value="${role.roleName}"
-                                                                               name="optradio">${role.roleName}
-                                            </label>
-                                        </c:forEach>
-                                    </div>
 
 
-                                    <div class="form-group">
-                                        <div class="col-lg-offset-2 col-lg-10">
-                                            <button class="btn btn-danger" type="submit">Save</button>
-                                            <button class="btn btn-default" type="button">Cancel</button>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                </form>
-
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </c:if>
-        </div>
         <!-- page end-->
     </section>
 </section>

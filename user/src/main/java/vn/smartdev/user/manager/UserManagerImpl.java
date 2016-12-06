@@ -13,9 +13,12 @@ import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.exception.UserNotFoundException;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
+import  java.util.Date;
 
 @Service
 public class UserManagerImpl implements UserManager {
@@ -83,6 +86,23 @@ public class UserManagerImpl implements UserManager {
 //                            + user.getPhone() + " and/or username: " + user.getUsername());
 //        }
         return userRepository.save(user);
+    }
+
+    @Override
+    public void save(User user) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        Date birhthday =  simpleDateFormat.parse(user.getBirthday().toString());
+
+        user.setUsername(user.getUsername());
+        user.setAddress(user.getPhone());
+        user.setPhone(user.getPhone());
+        user.setBirthday(birhthday);
+        user.setAddress(user.getAddress());
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRoles(user.getRoles());
+
+        userRepository.save(user);
     }
 
     @Override

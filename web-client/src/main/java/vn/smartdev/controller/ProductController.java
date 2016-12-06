@@ -92,7 +92,7 @@ public class ProductController {
         String productName = request.getParameter("productName");
         String description = request.getParameter("description");
         String categoryId = request.getParameter("categoryId");
-//        String nameImage = file.getOriginalFilename();
+//      String nameImage = file.getOriginalFilename();
 
         //data ProductDetail
         float priceProduct = Float.parseFloat(request.getParameter("priceProduct"));

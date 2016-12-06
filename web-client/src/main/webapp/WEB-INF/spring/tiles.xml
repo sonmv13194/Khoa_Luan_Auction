@@ -29,6 +29,14 @@
         <put-attribute name="footer" value="" />
 	</definition>
 
+	<definition name="registration" extends="definition">
+		<put-attribute name="title" value="Registration Page" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/resource/view/user/registration.jsp" />
+		<put-attribute name="footer" value="" />
+	</definition>
+
 	<!--Admin Page-->
 	<definition name="definitionAdmin" template="/resource/view/admin/template/template.jsp">
 		<put-attribute name="header" value="/resource/view/admin/template/header.jsp" />
