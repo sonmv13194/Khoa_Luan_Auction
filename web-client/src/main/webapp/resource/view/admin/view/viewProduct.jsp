@@ -13,33 +13,39 @@
               <thead>
               <tr>
                 <th>Id</th>
+                <th>Image</th>
                 <th>Name</th>
                 <th class="hidden-phone">Description</th>
                 <th class="hidden-phone">Category_Id</th>
-                <th></th>
+                <th hidden="hidden"></th>
+                <th hidden="hidden"></th>
+                <th hidden="hidden"></th>
+                <th hidden="hidden"></th>
+                <th hidden="hidden"></th>
+                <th hidden="hidden"></th>
               </tr>
               </thead>
               <tbody>
               <c:forEach var="product" items="${listProducts}">
+
                 <tr class="gradeX">
                   <td>${product.id}</td>
+                  <td><img src="${contextPath}/resource/images/${product.getProductDetails().get(0).getProductImages().get(0).getUrl()}" style="width:50px;height:50px"></td>
                   <td>${product.productName}</td>
                   <td class="hidden-phone">${product.description}</td>
-                  <td class="center hidden-phone">${product.category.categoryName}</td>
-                  <td class="center hidden-phone"><a href='<c:url value="/admin/updateProduct"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-primary">Update</button></a> <a href='<c:url value="/admin/deleteProduct"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-danger">Delete</button></a></td>
+                  <td class="center hidden-phone">${product.getCategory().getCategoryName()}</td>
+                  <td class="center hidden-phone"><a href='<c:url value="/admin/createProduct"><c:param name="checkCreate" value="productDetailNew"/><c:param name="productId" value="${product.id}"/><c:param name="productName" value="${product.productName}" /></c:url>'><button class="btn btn-success">Create</button> </a><a href='<c:url value="/admin/updateProduct"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-primary">Update</button></a> <a href='<c:url value="/admin/deleteProduct"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-danger">Delete</button></a></td>
+                  <td hidden="hidden">${product.getProductDetails().get(0).getProductDetailStatus()}</td>
+                  <td hidden="hidden">${product.getProductDetails().get(0).getProductDetailPrice()}</td>
+                  <td hidden="hidden">${product.getProductDetails().get(0).getProductDetailQuantity()}</td>
+                  <td hidden="hidden">${product.getProductDetails().get(0).getSupplyer()}</td>
+                  <td hidden="hidden">${product.getProductDetails().get(0).getProductImages().get(0).getUrl()}</td>
                 </tr>
               </c:forEach>
-              <%--<tr class="gradeC">--%>
-              <%--<td>Tasman</td>--%>
-              <%--<td>Internet Explorer 5.1</td>--%>
-              <%--<td class="hidden-phone">Mac OS 7.6-9</td>--%>
-              <%--<td class="center hidden-phone">1</td>--%>
-              <%--<td class="center hidden-phone">C</td>--%>
-              <%--</tr>--%>
               </tbody>
             </table>
           </div>
-          <a href="/admin/createProduct"><button class="btn btn-success">Create New Product</button></a>
+          <a href='<c:url value="/admin/createProduct"><c:param name="checkCreate" value="productNew"></c:param><c:param name="productId" value=""/><c:param name="productName" value=""/> </c:url>'><button class="btn btn-success">Create New Product</button></a>
         </div>
       </section>
       <!-- page end-->

@@ -11,7 +11,6 @@
 					<li class="active"><a href="${contextPath }/admin/viewUser">User</a></li>
 					<li><a href="${contextPath }/admin/viewProduct">ProductView</a></li>
 					<li><a href="${contextPath }/admin/category">Category</a></li>
-					<li><a href="${contextPath }/admin/parent">Parent</a></li>
 					<li><a href="${contextPath }/admin/invoice">Invoice</a></li>
 				</ul></li>
 			<li class="sub-menu"><a href="javascript:;"> <i

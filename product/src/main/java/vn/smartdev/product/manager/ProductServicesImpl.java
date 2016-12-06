@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.dao.repository.CategoryRepository;
 import vn.smartdev.product.dao.entity.Product;
+import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.dao.repository.ProductRepository;
 
 import java.util.ArrayList;
@@ -42,17 +43,6 @@ public class ProductServicesImpl implements ProductServices{
         productRepository.delete(id);
     }
 
-//    @Override
-//    public List<Product> viewListProduct(List<Product> getListProduct) {
-//        List<Product> listProduct = new ArrayList<Product>();
-//        for(int i = 0 ; i < getListProduct.size() ; i++)
-//        {
-//            Product product = new Product(getListProduct.get(i).getProductName(),getListProduct.get(i).getDescription(),getListProduct.get(i).getCategory().getCategoryName());
-//            listProduct.add(product);
-//        }
-//        return listProduct;
-//    }
-
     @Override
     public void deleteObjectProduct(Product product) {
         productRepository.delete(product);
@@ -60,13 +50,26 @@ public class ProductServicesImpl implements ProductServices{
 
 
     @Override
-    public Product createProduct(String productName, String description, String categoryId) {
+    public Product createProduct(String categoryId,ProductModel productModel) {
         Category category = categoryRepository.findOne(categoryId);
         Product product = new Product();
-        product.setProductName(productName);
-        product.setDescription(description);
+        product.setProductName(productModel.getProductName());
+        product.setDescription(productModel.getDescription());
+        //tam thoi chua fix dc loi~ nay
 //        product.setCategory(category);
+        return product;
+    }
 
+    @Override
+    public Product createProductDetail(String categoryId, String checkProductId,ProductModel productModel) {
+
+        Category category = categoryRepository.findOne(categoryId);
+        Product product = new Product();
+        product.setId(checkProductId);
+        product.setProductName(productModel.getProductName());
+        product.setDescription(productModel.getDescription());
+        //tam thoi chua fix dc loi~ nay
+//        product.setCategory(category);
         return product;
     }
 }

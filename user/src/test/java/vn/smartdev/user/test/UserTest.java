@@ -56,7 +56,7 @@ public class UserTest {
 
     }
 
-    @Test
+    /*@Test
     public void shouldReturnTrueWhenCreateUser() throws UserAlreadyExistsException {
         User user;
         user = new User("Da nang", new Date(2000-12-12) ,"huyhaohoa@gmail."
@@ -66,7 +66,7 @@ public class UserTest {
         User expected =user;
         Mockito.when(userRepository.save(user)).thenReturn(user);
         Assertions.assertThat(userManager.createUser(user)).isEqualTo(user);
-    }
+    }*/
 
     @Test
     public void shouldReturnTrueWhenUpdateUser() throws UserAlreadyExistsException, UserNotFoundException {

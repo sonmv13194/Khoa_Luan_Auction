@@ -1,6 +1,8 @@
 package vn.smartdev.product.manager;
 
+import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.product.dao.entity.Product;
+import vn.smartdev.product.dao.model.ProductModel;
 
 import java.util.List;
 
@@ -12,8 +14,8 @@ public interface ProductServices {
     public Product getProduct(String id);
     public void saveProduct(Product product);
     public void deleteProduct(String id);
-//    public List<Product> viewListProduct(List<Product> getListProduct);
     public void deleteObjectProduct(Product product);
-    public Product createProduct(String productName, String description, String categoryId);
+    public Product createProduct(String categoryId, ProductModel productModel);
+    public Product createProductDetail(String categoryId, String checkProductId, ProductModel productModel);
 
 }

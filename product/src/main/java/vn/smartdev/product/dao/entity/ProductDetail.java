@@ -22,31 +22,29 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 	@Lob
 	private String description;
 
-	@Column(name="code")
+	@Column(name="product_detail_code")
 	private String productDetailCode;
 
-	@Column(name="price")
+	@Column(name="product_detail_price")
 	private float productDetailPrice;
 
-	@Column(name="quantity")
+	@Column(name="product_detail_quantity")
 	private int productDetailQuantity;
 
-	@Column(name="status")
+	@Column(name="product_detail_status")
 	private int productDetailStatus;
 	//contrustor
 
 	private String supplyer;
 	//contrustor
 
-	public ProductDetail(String description, String productDetailCode, float productDetailPrice, int productDetailQuantity, int productDetailStatus,String supplyer) {
+	public ProductDetail(String description, float productDetailPrice, int productDetailQuantity, int productDetailStatus,String supplyer) {
 		this.description = description;
-//		this.productDetailCode = productDetailCode;
 		this.productDetailPrice = productDetailPrice;
 		this.productDetailQuantity = productDetailQuantity;
 		this.productDetailStatus = productDetailStatus;
 		this.supplyer = supplyer;
 	}
-
 
 	/*//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="productDetail")
@@ -54,11 +52,11 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 
 	//bi-directional many-to-one association to Product
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="product_id")
+	@JoinColumn(name="product_parent_id")
 	private Product product;
 
 	//bi-directional many-to-one association to ProductImage
-	@OneToMany(mappedBy="productDetail")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="productDetail")
 	private List<ProductImage> productImages;
 
 	public ProductDetail() {

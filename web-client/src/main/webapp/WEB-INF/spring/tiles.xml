@@ -45,7 +45,7 @@
 	</definition>
 
 	<definition name="category" extends="definitionAdmin">
-		<put-attribute name="body" value="/resource/view/admin/view/adminCategory.jsp" />
+		<put-attribute name="body" value="/resource/view/admin/view/viewCategory.jsp" />
 	</definition>
 
 	<definition name="viewProduct" extends="definitionAdmin">
@@ -58,9 +58,9 @@
 		<put-attribute name="body" value="/resource/view/admin/view/updateProduct.jsp"/>
 	</definition>
 	<definition name="adminInvoicePage" extends="definitionAdmin">
-		<put-attribute name="body" value="/resource/view/admin/view/adminInvoice.jsp"/>
+		<put-attribute name="body" value="/resource/view/admin/view/viewInvoice.jsp"/>
 	</definition>
 	<definition name="adminInvoiceDetailPage" extends="definitionAdmin">
-		<put-attribute name="body" value="/resource/view/admin/view/adminInvoiceDetail.jsp"/>
+		<put-attribute name="body" value="/resource/view/admin/view/viewInvoiceDetail.jsp"/>
 	</definition>
 </tiles-definitions>

@@ -22,9 +22,13 @@ public class ProductImage extends AbstractAuditableEntity<String> implements Ser
 	private String url;
 
 	//bi-directional many-to-one association to ProductDetail
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="product_detail_id")
 	private ProductDetail productDetail;
+
+	public ProductImage(String url) {
+		this.url = url;
+	}
 
 	public ProductImage() {
 		setId(UUID.randomUUID().toString());

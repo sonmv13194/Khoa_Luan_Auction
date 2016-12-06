@@ -1,10 +1,12 @@
 package vn.smartdev.product.dao.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -19,18 +21,34 @@ import java.util.UUID;
 public class Product extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-
 	@Column(name="product_name")
 	private String productName;
 
 	@Column(name="description")
 	private String description;
 
+	//	bi-directional many-to-one association to Category
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinColumn(name="category_id",insertable = false,updatable = false)
+	private Category category;
 
+	//bi-directional many-to-one association to ProductDetail
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="product",cascade = CascadeType.ALL)
+	private List<ProductDetail> productDetails;
+
+	public Product() {
+		setId(UUID.randomUUID().toString());
+	}
 
 	public Product(String productName, String description) {
 		this.productName = productName;
 		this.description = description;
+	}
+	//contruster
+
+	public Product(String productName, Category category, List<ProductDetail> productDetails) {
+		this.productName = productName;
+		this.productDetails = productDetails;
 	}
 
 	public static long getSerialVersionUID() {
@@ -44,32 +62,6 @@ public class Product extends AbstractAuditableEntity<String> implements Serializ
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-//	bi-directional many-to-one association to Category
-	@ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
-	@JoinColumn(name="category_id",insertable = false,updatable = false)
-    private Category category;
-//	@ManyToOne
-//	@JoinColumn(name = "category_id")
-
-
-
-
-	//bi-directional many-to-one association to ProductDetail
-	@OneToMany(mappedBy="product",cascade = CascadeType.ALL)
-	private List<ProductDetail> productDetails;
-
-	//contruster
-
-	public Product(String productName, Category category, List<ProductDetail> productDetails) {
-		this.productName = productName;
-		this.productDetails = productDetails;
-	}
-
-	public Product() {
-		setId(UUID.randomUUID().toString());
-	}
-
 
 	public String getProductName() {
 		return this.productName;

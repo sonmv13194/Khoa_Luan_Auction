@@ -29,7 +29,7 @@ public class Role extends AbstractAuditableEntity<String> implements Serializabl
 	}
 
 	//bi-directional many-to-many association to User
-
+	@ManyToMany(mappedBy = "roles")
 	private List<User> users;
 
 	public Role() {
@@ -52,7 +52,7 @@ public class Role extends AbstractAuditableEntity<String> implements Serializabl
 		this.roleName = roleName;
 	}
 
-	@ManyToMany(mappedBy = "roles")
+
 	public List<User> getUsers() {
 		return this.users;
 	}

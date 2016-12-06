@@ -46,10 +46,18 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	@Column(name = "credentials_non_expired")
 	private boolean credentialsNonExpired;
 
+	//bi-directional many-to-many association to Role
+	@ManyToMany
+	@JoinTable(
+			name="role_user"
+			, joinColumns={
+			@JoinColumn(name="role_id")
+	}
 
-
-
-
+			, inverseJoinColumns={
+			@JoinColumn(name="user_id")
+	}
+	)
 	private List<Role> roles;
 
 	public String getAddress() {
@@ -119,18 +127,6 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 		this.username = username;
 	}
 
-	//bi-directional many-to-many association to Role
-	@ManyToMany
-	@JoinTable(
-			name="role_user"
-			, joinColumns={
-			@JoinColumn(name="role_id")
-	}
-
-			, inverseJoinColumns={
-			@JoinColumn(name="user_id")
-	}
-	)
 	public List<Role> getRoles() {
 		return this.roles;
 	}

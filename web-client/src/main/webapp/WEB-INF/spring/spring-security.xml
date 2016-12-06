@@ -26,7 +26,7 @@
     </http>
 	<authentication-manager>
 		<authentication-provider user-service-ref="userServiceImpl">
-			<password-encoder ref="encoder"></password-encoder>
+			<password-encoder ref="encoder"/>
 		</authentication-provider> 
 	</authentication-manager>
 
@@ -34,6 +34,6 @@
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 		<beans:constructor-arg name="strength" value="11"/>
 	</beans:bean>
-	<beans:bean id="userServiceImpl" class="vn.smartdev.user.userService.UserServiceImpl" autowire="byType"></beans:bean>
+	<beans:bean id="userServiceImpl" class="vn.smartdev.user.userService.UserServiceImpl" autowire="byType"/>
 
 </beans:beans>

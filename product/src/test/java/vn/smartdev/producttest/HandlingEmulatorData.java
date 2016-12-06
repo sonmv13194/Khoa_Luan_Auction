@@ -22,7 +22,8 @@ package vn.smartdev.producttest;//package vn.smartdev.producttest;
 //        List<Category> listCategory = new ArrayList<Category>();
 //        for(int i = 0 ; i < number ; i++)
 //        {
-//            Category category = new Category("category_"+i);
+//            Category category = new Category();
+//            category.setCategoryName("category_"+i);
 //            listCategory.add(category);
 //        }
 //        return listCategory;
@@ -40,7 +41,8 @@ package vn.smartdev.producttest;//package vn.smartdev.producttest;
 //            {
 //                for(int j = 0 ; j < number ; j++)
 //                {
-//                    Product product = new Product("name_"+j,"description_"+j,listCategory.get(i).getCategoryName());
+//                    Product product = new Product("name_"+j,"description_"+j);
+////                    product.setCategory(listCategory.get(i));
 //                    createProductMap.put("productMap_"+j,product);
 //                }
 //            }
@@ -61,33 +63,33 @@ package vn.smartdev.producttest;//package vn.smartdev.producttest;
 //    //2.Emulator Product And ProductDetail
 //
 //    //initialized productMap()
-//    protected Map<String,ProductDetail> productDetailMap = new HashMap<String,ProductDetail>();
-//
-//    protected Map<String,ProductDetail> createProductDetailMap(int number,List<Category> listCategory)
-//    {
-//        Map<String,ProductDetail> createProductDetailMap = new HashMap<String,ProductDetail>();
-//
-//        for(int i = 0 ; i < listCategory.size() ; i++)
-//        {
-//            for(int j = 1 ;  j <= number ; j++)
-//            {
-//                Product product = new Product("name_"+j,"description_"+j,listCategory.get(i).getCategoryName());
-//                ProductDetail productDetail = new ProductDetail("description_"+j,"productDetailCode_"+j,j*10,j,1,"supplyer_"+j);
-//                createProductDetailMap.put("productDetailMap_"+j,productDetail);
-//            }
-//        }
-//        return createProductDetailMap;
-//    }
+////    protected Map<String,ProductDetail> productDetailMap = new HashMap<String,ProductDetail>();
+////
+////    protected Map<String,ProductDetail> createProductDetailMap(int number,List<Category> listCategory)
+////    {
+////        Map<String,ProductDetail> createProductDetailMap = new HashMap<String,ProductDetail>();
+////
+////        for(int i = 0 ; i < listCategory.size() ; i++)
+////        {
+////            for(int j = 1 ;  j <= number ; j++)
+////            {
+////                Product product = new Product("name_"+j,"description_"+j,listCategory.get(i).getCategoryName());
+////                ProductDetail productDetail = new ProductDetail("description_"+j,"productDetailCode_"+j,j*10,j,1,"supplyer_"+j);
+////                createProductDetailMap.put("productDetailMap_"+j,productDetail);
+////            }
+////        }
+////        return createProductDetailMap;
+////    }
 //
 //    //initialized listProductDetail
-//    protected List<ProductDetail> listProductDetail(Map<String,ProductDetail> productDetailMap)
-//    {
-//        List<ProductDetail> listProductDetail = new ArrayList<>();
-//        for(int i = 0 ; i < productDetailMap.size() ; i++)
-//        {
-//            listProductDetail.add(productDetailMap.get("productDetailMap_"+i));
-//        }
-//        return listProductDetail;
-//    }
+////    protected List<ProductDetail> listProductDetail(Map<String,ProductDetail> productDetailMap)
+////    {
+////        List<ProductDetail> listProductDetail = new ArrayList<>();
+////        for(int i = 0 ; i < productDetailMap.size() ; i++)
+////        {
+////            listProductDetail.add(productDetailMap.get("productDetailMap_"+i));
+////        }
+////        return listProductDetail;
+////    }
 //
 //}
