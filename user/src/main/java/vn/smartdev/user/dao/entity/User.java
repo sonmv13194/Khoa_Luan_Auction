@@ -22,8 +22,9 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 
 	private String address;
 
-	@Temporal(TemporalType.DATE)
-	private Date birthday;
+	//@Temporal(TemporalType.DATE)
+	private String birthday;
+
 
 	private String email;
 
@@ -47,15 +48,15 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	private boolean credentialsNonExpired;
 
 	//bi-directional many-to-many association to Role
-	@ManyToMany
+	@ManyToMany()
 	@JoinTable(
 			name="role_user"
 			, joinColumns={
-			@JoinColumn(name="role_id")
+			@JoinColumn(name="user_id")
 	}
 
 			, inverseJoinColumns={
-			@JoinColumn(name="user_id")
+			@JoinColumn(name="role_id")
 	}
 	)
 	private List<Role> roles;
@@ -76,7 +77,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 		setId(UUID.randomUUID().toString());
 	}
 
-	public User(String address, Date birthday, String email, String password, String phone,
+	public User(String address, String birthday, String email, String password, String phone,
 				String username) {
 		this.address = address;
 		this.birthday = birthday;
@@ -87,11 +88,11 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 		setId(UUID.randomUUID().toString());
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return this.birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 

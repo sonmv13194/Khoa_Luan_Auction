@@ -81,7 +81,13 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
-                                      action="/admin/editUser">
+                                      commandName="user" action="/admin/editUser">
+                                    <div class="form-group ">
+                                        <label for="username" class="control-label col-lg-2">ID</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="id" name="id" type="text" value="${user.id}"/>
+                                        </div>
+                                    </div>
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Username</label>
                                         <div class="col-lg-10">
@@ -92,43 +98,43 @@
                                     <div class="form-group ">
                                         <label for="password" class="control-label col-lg-2">Password</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="password" name="password" type="password"/>
+                                            <input class="form-control" id="password" name="password" type="password" value="${user.password}"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="email" class="control-label col-lg-2">Email</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="email" name="email" type="email"/>
+                                            <input class="form-control" id="email" name="email" type="email" value="${user.email}"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="birthday" class="control-label col-lg-2">Birthday</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="birthday" name="birthday" type="date"/>
+                                            <input class="form-control" id="birthday" name="birthday" type="date" value="${user.birthday}"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Address</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="address" name="address"/>
+                                            <input class="form-control" id="address" name="address" value="${user.address}"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Phone</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="phone" name="phone"/>
+                                            <input class="form-control" id="phone" name="phone" value="${user.phone}"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">ROLE</label>
-
-                                            <label class="radio-inline"><input type="radio" value="${role.roleName}"
-                                                                               name="optradio">${role.roleName}</label>
-
+                                        <c:forEach items="${listRole}" var="role">
+                                            <label class="radio-inline">
+                                                <input type="radio" value="${role.roleName}" name="optradio">${role.roleName}</label>
+                                        </c:forEach>
                                     </div>
 
 

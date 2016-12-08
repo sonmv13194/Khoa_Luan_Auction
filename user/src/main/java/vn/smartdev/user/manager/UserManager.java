@@ -12,10 +12,11 @@ public interface UserManager {
 
     User findUserByUsername(String username) throws UserNotFoundException;
     User findUserById(String userId) throws UserNotFoundException;
-    User createUser(User user) throws UserAlreadyExistsException;
+   // User createUser(User user) throws UserAlreadyExistsException;
     User enableUser(User user) throws UserNotFoundException;
     User updateUser(User user) throws UserNotFoundException, UserAlreadyExistsException;
-    void save(User user) throws ParseException;
+    void save(User user);
+    void saveForEdit(User user);
     List<User> findAllUsers();
     void deleteUser(User user) throws UserNotFoundException;
 

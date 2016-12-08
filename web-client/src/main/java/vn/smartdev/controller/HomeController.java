@@ -1,6 +1,7 @@
 package vn.smartdev.controller;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.Locale;
 
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.manager.UserManager;
+
+import javax.management.relation.RoleNotFoundException;
 
 /**
  * Handles requests for the application home page.
@@ -57,7 +60,8 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate );
 
-		return "registration";
+
+		return "loginPage";
 	}
 
 //	@RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -86,5 +90,20 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 
 		return "adminPage";
+	}
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	public String viewRegistration(Model model){
+		User userForm = new User();
+		model.addAttribute("userForm", userForm);
+
+		return "registration";
+	}
+
+	@RequestMapping(value = "/registration", method = RequestMethod.POST)
+	public String createUser(@ModelAttribute("userForm") User user, Model model) throws ParseException, UserAlreadyExistsException, RoleNotFoundException {
+
+		userManager.save(user);
+
+		return "redirect:/";
 	}
 }

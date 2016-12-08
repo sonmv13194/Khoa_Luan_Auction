@@ -49,27 +49,34 @@ public class UserController {
     @RequestMapping(value = "/editUser", method = RequestMethod.GET)
     public String editUserGet(@RequestParam("id") String uid, Model model){
 
-        User user = null;
+        User user = new User();
         try {
             user = userManager.findUserById(uid);
         } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
-        //List<User> users = userManager.findAllUsers();
-        //model.addAttribute("listUser",users);
+
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
-        //List<Role> roles = roleManager.getAll();
-        //model.addAttribute("listRole", roles);
+        List<Role> roles = roleManager.getAll();
+        model.addAttribute("listRole", roles);
         return "viewUserPage";
     }
 
-//    @RequestMapping(value = "/editUser", method = RequestMethod.POST)
-//    public String editUserPost(HttpServletRequest request) throws ParseException, UserAlreadyExistsException, RoleNotFoundException {
-//        String id = request.getParameter("id");
-//
-//    }
+    @RequestMapping(value = "/editUser", method = RequestMethod.POST)
+    public String editUserPost(@ModelAttribute("user") User user, Model model) throws ParseException {
+
+        userManager.saveForEdit(user);
+
+        List<User> users = userManager.findAllUsers();
+        model.addAttribute("listUser",users);
+        model.addAttribute("user", user);
+        List<Role> roles = roleManager.getAll();
+        model.addAttribute("listRole", roles);
+        return "viewUserPage";
+    }
+
 
     @RequestMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam("id") String id, Model model){
@@ -80,29 +87,5 @@ public class UserController {
         }
         return "redirect:viewUser";
     }
-
-    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
-    public String createUser(HttpServletRequest request) throws ParseException, UserAlreadyExistsException, RoleNotFoundException {
-
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String email    = request.getParameter("email");
-        String birthday = request.getParameter("birthday");
-        String address  = request.getParameter("address");
-        String phone  = request.getParameter("phone");
-
-        SimpleDateFormat formatter = new SimpleDateFormat(birthday);
-            Date birthdayFormat = formatter.parse(birthday);
-            User user = new User(address, birthdayFormat ,email,password,phone,username);
-           // String role ="ROLE_USER";
-            List<Role> role = new ArrayList<>();
-
-            user.setRoles((List<Role>) new Role("ROLE_USER"));
-            System.out.print("User name : "+username+" Pass : "+password+" Email  : "+email+" Birthay : "+birthday
-            +" address: "+address+ " Role: "+role);
-            userManager.createUser(user);
-        return "redirect:viewUser";
-    }
-
 }
 

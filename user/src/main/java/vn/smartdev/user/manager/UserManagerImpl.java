@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.dao.repository.RoleRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
@@ -15,10 +16,7 @@ import vn.smartdev.user.exception.UserNotFoundException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.List;
-import  java.util.Date;
+import java.util.*;
 
 @Service
 public class UserManagerImpl implements UserManager {
@@ -50,21 +48,6 @@ public class UserManagerImpl implements UserManager {
     }
 
 
-    @Override
-    @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
-    public User createUser(User user) throws UserAlreadyExistsException {
-//        if (userExists(user)) {
-//            throw new UserAlreadyExistsException();
-//        }
-
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(user.getRoles());
-        user.setEnabled(false);
-        user.setAccountNonExpired(true);
-        user.setAccountNonLocked(true);
-        user.setCredentialsNonExpired(true);
-        return userRepository.save(user);
-    }
 
     public boolean userExists(User user) {
         return userRepository.countByUsernameOrEmailOrPhoneAndIdNotIn(user.getUsername(),
@@ -89,20 +72,39 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public void save(User user) throws ParseException {
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
-        Date birhthday =  simpleDateFormat.parse(user.getBirthday().toString());
-
-        user.setUsername(user.getUsername());
-        user.setAddress(user.getPhone());
-        user.setPhone(user.getPhone());
-        user.setBirthday(birhthday);
-        user.setAddress(user.getAddress());
+    @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
+    public void save(User user){
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(user.getRoles());
+
+        Role role = roleRepository.findByRoleName("ROLE_USER");
+        List<Role> roles = new ArrayList<>();
+        roles.add(role);
+        user.setRoles(roles);
+        user.setEnabled(false);
+        user.setAccountNonExpired(true);
+        user.setAccountNonLocked(true);
+        user.setCredentialsNonExpired(true);
 
         userRepository.save(user);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
+    public void saveForEdit(User user) {
+       User userCurrent = userRepository.findOne(user.getId());
+       userCurrent.setUsername(user.getUsername());
+       userCurrent.setPassword(user.getPassword());
+       userCurrent.setEmail(user.getEmail());
+       userCurrent.setPhone(user.getPhone());
+       userCurrent.setBirthday(user.getBirthday());
+       userCurrent.setAddress(user.getAddress());
+//        Role role = roleRepository.findByRoleName(user.getRoles().toString());
+//        List<Role> roles = new ArrayList<>();
+//        roles.add(role);
+//       userCurrent.setRoles(roles);
+
+
+        userRepository.save(userCurrent);
     }
 
     @Override
