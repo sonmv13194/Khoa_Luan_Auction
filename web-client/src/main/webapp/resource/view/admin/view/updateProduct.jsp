@@ -41,7 +41,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="email" class="control-label col-lg-2">supplyer</label>
+                  <label for="email" class="control-label col-lg-2">Supplyer</label>
                   <div class="col-lg-6">
                     <form:input class=" form-control" id="email" type="text" required="required" value="${productDetail.supplyer}" path="supplyer"/>
                   </div>
@@ -52,6 +52,9 @@
                     <button class="btn btn-default" type="button">Cancel</button>
                   </div>
                 </div>
+                <input type="hidden"
+                       name="${_csrf.parameterName}"
+                       value="${_csrf.token}"/>
               </form:form>
             </div>
           </div>

@@ -12,7 +12,7 @@
           </header>
           <div class="panel-body">
             <div class="form">
-              <form:form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST" enctype="multipart/form-data" action="/admin/createProductPost" >
+              <form:form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST" enctype="multipart/form-data" action="/admin/createProductPost?${_csrf.parameterName}=${_csrf.token}" >
                 <div class="form-group ">
                   <label for="firstname" class="control-label col-lg-2">Product Name</label>
                   <div class="col-lg-6">
@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <div class="form-group ">
-                  <label for="email" class="control-label col-lg-2" >supplyer</label>
+                  <label for="email" class="control-label col-lg-2" >Supplyer</label>
                   <div class="col-lg-6">
                     <form:input class=" form-control" id="email" type="text" required="required" path="supplyer"/>
                   </div>
@@ -94,7 +94,7 @@
             </header>
             <div class="panel-body">
               <div class="form">
-                <form:form class="cmxform form-horizontal tasi-form" id="signupForm1" method="POST" enctype="multipart/form-data" action="/admin/createProductDetailPost" >
+                <form:form class="cmxform form-horizontal tasi-form" id="signupForm1" method="POST" enctype="multipart/form-data" action="/admin/createProductDetailPost?${_csrf.parameterName}=${_csrf.token}" >
                   <div class="form-group ">
                     <label for="firstname" class="control-label col-lg-2">Product Id</label>
                     <div class="col-lg-6">
@@ -141,7 +141,7 @@
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="email" class="control-label col-lg-2" >supplyer</label>
+                    <label for="email" class="control-label col-lg-2" >Supplyer</label>
                     <div class="col-lg-6">
                       <form:input class=" form-control" id="email1" type="text" required="required" path="supplyer"/>
                     </div>
