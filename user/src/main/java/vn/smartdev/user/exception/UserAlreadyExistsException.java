@@ -1,5 +1,7 @@
 package vn.smartdev.user.exception;
 
+import java.io.Serializable;
+
 public class UserAlreadyExistsException extends Exception {
 
     public UserAlreadyExistsException() {

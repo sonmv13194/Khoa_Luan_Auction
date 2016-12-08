@@ -17,5 +17,4 @@
     </bean>
     <jpa:repositories base-package="vn.smartdev.user.dao.repository"/>
     <jpa:auditing/>
-
 </beans>
