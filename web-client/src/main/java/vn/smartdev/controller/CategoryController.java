@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/admin", method = RequestMethod.GET)
-public class AdminCategory {
+public class CategoryController {
 
     @Autowired
     private CategoryServices categoryServices;
@@ -31,15 +31,7 @@ public class AdminCategory {
             System.out.println(category.getId());
         }
         model.addAttribute("categoryList", categoryList);
-        return "category";
-    }
-
-    @RequestMapping(value = "/newCategory", method = RequestMethod.GET)
-    public String newCategory(Model model)
-    {
-        Category category = new Category();
-        model.addAttribute("category", category);
-
+        model.addAttribute("category",new Category());
         return "category";
     }
 

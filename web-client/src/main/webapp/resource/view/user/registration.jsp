@@ -15,11 +15,6 @@
     <div class="container">
         <div class="sign-in-page">
             <div class="row">
-                <!-- Sign-in -->
-
-
-                <!-- Sign-in -->
-
                 <!-- create a new account -->
                 <div class="col-md-6 col-sm-6 create-new-account">
                     <h4 class="checkout-subtitle">Create a new account</h4>
@@ -57,10 +52,7 @@
                         <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     </form:form>
-
-
                 </div>
-
                 <!-- create a new account -->
             </div><!-- /.row -->
         </div><!-- /.sigin-in-->

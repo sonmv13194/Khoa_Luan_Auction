@@ -8,130 +8,68 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<%--<div class="panel-body">
-  <div class="adv-table editable-table ">
-    <div class="clearfix">
-      <div class="btn-group">
-        <button id="editable-sample_new" class="btn green">
-          Add New <i class="icon-plus"></i>
-        </button>
-      </div>
-    </div>
-    <div class="space15"></div>
-    <table class="table table-striped table-hover table-binvoiceed" id="editable-sample">
-      <thead>
-      <tr>
-        <th>Username</th>
-        <th>Full Name</th>
-        <th>Points</th>
-        <th>Notes</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr class="">
-        <td>Admin</td>
-        <td> Flat Lab</td>
-        <td>462</td>
-        <td class="center">new user</td>
-        <td><a class="edit" href="javascript:;">Edit</a></td>
-        <td><a class="delete" href="javascript:;">Delete</a></td>
-      </tr>
-
-      </tbody>
-    </table>
-  </div>
-</div>--%>
-<%--
-<div align="center">
-  <h1>Category List</h1>
-  <h3><a>New Category</a></h3>
-  <form action="/admin/saveCategory" method="post">
-    <table>
-
-      <tr>
-        <td>Name:</td>
-        <td><input name="categoryName"/></td>
-      </tr>
-
-      <tr>
-        <td colspan="2" align="center"><input type="submit" value="Save"></td>
-      </tr>
-    </table>
-  </form>
-
-
-  <table binvoice="1">
-    <th>No</th>
-    <th>Name</th>
-    <c:forEach var="category" items="${categoryList}" varStatus="index">
-      <tr>
-        <td>${index.index + 1}</td>
-        <td>${category.categoryName}</td>
-        <td>
-          <a href="deleteCategory?id=${category.id}">Delete</a>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-
-        </td>
-
-      </tr>
-    </c:forEach>
-  </table>
---%>
-
-
-<section id="main-content">
-    <section class="wrapper">
-        <!-- page start-->
-        <header class="panel-heading">
-            Category Table
-        </header>
-        <div class="panel-body">
-            <form action="/admin/saveCategory" method="post">
-                <div class="adv-table editable-table ">
-                    <div class="clearfix">
-                        <tr>
-                            <td>Name:</td>
-                            <td><input name="categoryName"/></td>
-                        </tr>
-                        <div class="btn-group">
-                            <button id="editable-sample_new" class="btn green"><input type="submit" value="Add new">
-                                <i class="icon-plus"></i>
-                            </button>
-                        </div>
-
-                    </div>
-                    <div class="space15"></div>
-                    <table class="table table-striped table-hover table-binvoiceed" id="editable-sample">
-                        <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Category Name</th>
-                            <th>Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="category" items="${categoryList}" varStatus="index">
-                            <tr class="">
-                                <td>${index.index + 1}</td>
-                                <td>${category.categoryName}</td>
-                                <td><a class="delete" href="deleteCategory?id=${category.id}">Delete</a></td>
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <!-- page start-->
+            <section class="panel">
+                <header class="panel-heading"> Category</header>
+                <div class="panel-body">
+                    <div class="adv-table">
+                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered"
+                               id="hidden-table-info">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Category Name</th>
+                                <th>Delete</th>
                             </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="category" items="${categoryList}" varStatus="index">
+                                <tr class="gradeX">
+                                    <td>${index.index + 1}</td>
+                                    <td>${category.categoryName}</td>
+                                    <td><a class="delete" href="deleteCategory?id=${category.id}">Delete</a></td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </div>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            </form>
-        </div>
+            </section>
+            <!-- page end-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            New Category
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
+                                      commandName="category" action="/admin/saveCategory">
+                                    <div class="form-group ">
+                                        <label class="control-label col-lg-2">ID</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="categoryName" name="categoryName" type="text"
+                                                   placeholder="Category Name"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-danger" type="submit">Save</button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                </form>
 
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
     </section>
-    <!-- page end-->
 </section>
-</section>
-
-</div>
-
-

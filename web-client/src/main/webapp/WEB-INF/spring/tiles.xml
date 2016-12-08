@@ -38,9 +38,6 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/resource/view/admin/template/footer.jsp" />
 	</definition>
-	<definition name="adminPage" extends="definitionAdmin">
-		<put-attribute name="body" value="/resource/view/admin/view/admin.jsp" />
-	</definition>
 	<definition name="viewUserPage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewUser.jsp" />
 	</definition>

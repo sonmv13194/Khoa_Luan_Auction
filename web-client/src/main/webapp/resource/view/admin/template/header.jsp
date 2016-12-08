@@ -17,8 +17,8 @@
             <!-- user login dropdown start-->
             <li class="dropdown">
                 <a data-toggle="dropdown"
-                   class="dropdown-toggle" href="#"> <img alt=""
-                                                          src="${contextPath}/resource/view/admin/themes/img/avatar1_small.jpg">
+                   class="dropdown-toggle" href="#">
+                    <img alt="" src="${contextPath}/resource/view/admin/themes/img/avatar1_small.jpg">
                     <span class="username">
 					Hello, ${pageContext.request.userPrincipal.name}</span> <b class="caret"></b>
                 </a>
@@ -32,15 +32,5 @@
             <!-- user login dropdown end -->
         </ul>
     </div>
-    <%--<script>
-        function deleteUser(id){
-            if(confirm("Do you want to delete this user ?")){
-                var url = '/admin/deleteUser?id='+id;
-                window.location.href = url;
-
-            }
-        }
-
-    </script>--%>
 </header>
 <!--header end-->
