@@ -1,5 +1,6 @@
 package vn.smartdev.controller;
 
+import org.hibernate.annotations.GenerationTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,12 +11,14 @@ import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.manager.CategoryServices;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
+import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductDetailModel;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductImageServices;
 import vn.smartdev.product.manager.ProductServices;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
