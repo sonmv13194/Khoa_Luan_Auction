@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <section id="main-content">
   <section class="wrapper">
     <!-- page start-->
@@ -6,57 +7,43 @@
       <div class="col-lg-12">
         <section class="panel">
           <header class="panel-heading">
-            Create New Product
+            Update Product
           </header>
           <div class="panel-body">
             <div class="form">
-              <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST" action="/admin/updateProductPost">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                <input type="hidden" name="productId" value="${product.getId()}">
+              <form:form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST" action="/admin/updateProductPost">
+                <form:input type="hidden"  value="${productDetail.id}" path="id" />
                 <div class="form-group ">
-                  <label for="firstname" class="control-label col-lg-2">Product Name</label>
+                  <label for="firstname" class="control-label col-lg-2">Description</label>
                   <div class="col-lg-6">
-                    <input class=" form-control" id="firstname" name="productName" type="text" required="required" placeholder="${product.getProductName()}" />
-                  </div>
-                </div>
-                <div class="form-group ">
-                  <label for="categoryName" class="control-label col-lg-2">Category</label>
-                  <div class="col-lg-6">
-                    <select name="categoryName">
-                        <c:forEach var="category" items="listCategory">
-                            <option value="${category.getId()}">${category.getCategoryName()}</option>
-                        </c:forEach>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group ">
-                  <label for="lastname" class="control-label col-lg-2">Description</label>
-                  <div class="col-lg-6">
-                    <input class=" form-control" id="lastname" name="description" type="text" required="required" placeholder="${product.getDescription()}"/>
+                    <form:input class=" form-control" id="firstname" type="text" required="required" value="${productDetail.description}" path="description"/>
                   </div>
                 </div>
                 <div class="form-group ">
                   <label for="password" class="control-label col-lg-2">Price</label>
                   <div class="col-lg-6">
-                    <input class=" form-control" id="password" name="priceProduct" type="number" required="required" placeholder=""/>
+                    <form:input class="form-control" id="password"  type="text"  value="${productDetail.productDetailPrice}" required="required"  path="productDetailPrice"/>
                   </div>
                 </div>
                 <div class="form-group ">
                   <label for="lastname" class="control-label col-lg-2">Quantity</label>
                   <div class="col-lg-6">
-                    <input class=" form-control" id="quantityProduct" name="quantityProduct" type="number" required="required" placeholder=""/>
+                    <form:input class=" form-control" id="quantityProduct" name="quantityProduct" type="text" value="${productDetail.productDetailQuantity}" required="required"  path="productDetailQuantity" />
+                  </div>
+                </div>
+                <div class="form-group ">
+                  <label for="lastname" class="control-label col-lg-2">Status</label>
+                  <div class="col-lg-6">
+                    <form:select path="productDetailStatus">
+                        <form:option value="1">1</form:option>
+                        <form:option value="0">0</form:option>
+                    </form:select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="email" class="control-label col-lg-2">supplyer</label>
                   <div class="col-lg-6">
-                    <input class=" form-control" id="email" name="supplyerProduct" type="text" required="required" placeholder=""/>
-                  </div>
-                </div>
-                <div class="form-group ">
-                  <label for="password" class="control-label col-lg-2">Product Image</label>
-                  <div class="col-lg-6">
-                    <input id="password1" name="image" type="file"/>
+                    <form:input class=" form-control" id="email" type="text" required="required" value="${productDetail.supplyer}" path="supplyer"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -65,7 +52,7 @@
                     <button class="btn btn-default" type="button">Cancel</button>
                   </div>
                 </div>
-              </form>
+              </form:form>
             </div>
           </div>
         </section>

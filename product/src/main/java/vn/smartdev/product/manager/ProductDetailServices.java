@@ -3,6 +3,7 @@ package vn.smartdev.product.manager;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.model.ProductDetailModel;
+import vn.smartdev.product.dao.model.ProductModel;
 
 import java.util.List;
 
@@ -15,6 +16,6 @@ public interface ProductDetailServices {
     public double getTotal(String id);
     public void deleteProductDetail(String id);
     public void saveProductDetail(ProductDetail productDetail);
-    public ProductDetail createProductDetail(ProductDetailModel productDetailModel, Product product);
-
+    public boolean createProductDetail(ProductModel productModel);
+    public boolean updateProductDetail(ProductDetailModel productDetailModel);
 }

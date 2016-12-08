@@ -15,7 +15,5 @@ public interface ProductServices {
     public void saveProduct(Product product);
     public void deleteProduct(String id);
     public void deleteObjectProduct(Product product);
-    public Product createProduct(String categoryId, ProductModel productModel);
-    public Product createProductDetail(String categoryId, String checkProductId, ProductModel productModel);
-
+    public boolean createProduct(ProductModel productModel);
 }

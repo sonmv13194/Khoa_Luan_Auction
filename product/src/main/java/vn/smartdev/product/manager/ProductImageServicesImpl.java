@@ -1,14 +1,11 @@
 package vn.smartdev.product.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
-import vn.smartdev.product.dao.model.ProductImageModel;
+import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.dao.repository.ProductImageRepository;
 
 import java.io.BufferedOutputStream;
@@ -46,7 +43,9 @@ public class ProductImageServicesImpl implements ProductImageServices{
     }
 
     @Override
-    public boolean checkNameImage(List<ProductImage> listProductImage,String nameImage) {
+    public boolean checkNameImage(ProductModel productModel) {
+        String nameImage = productModel.getFile().getOriginalFilename();
+        List<ProductImage> listProductImage = productImageRepository.findAll();
         try {
             for(int i = 0 ; i < listProductImage.size(); i++)
             {
@@ -54,7 +53,6 @@ public class ProductImageServicesImpl implements ProductImageServices{
                 {
                     return true;
                 }
-                break;
             }
         }
         catch (Exception e)
@@ -65,13 +63,13 @@ public class ProductImageServicesImpl implements ProductImageServices{
     }
 
     @Override
-    public boolean uploadFile(CommonsMultipartFile file,String urlImage) {
-
+    public boolean uploadFile(ProductModel productModel,String urlImage) {
+            CommonsMultipartFile file = productModel.getFile();
             try {
                 byte bytes[] = file.getBytes();
                 //test resource localhost
                 String name = file.getOriginalFilename();
-                String demo = "C:\\Users\\Nhat\\IdeaProjects\\java-training-shop\\web-client\\src\\main\\webapp\\resource\\images\\"+name;
+                String demo = "C:\\Users\\Nhat\\IdeaProjects\\java-training-shop-old\\web-client\\src\\main\\webapp\\resource\\images\\"+name;
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
                 stream.write(bytes);
                 stream.flush();
@@ -89,11 +87,4 @@ public class ProductImageServicesImpl implements ProductImageServices{
         return false;
     }
 
-    @Override
-    public ProductImage createProductImage(ProductImageModel productImageModel, ProductDetail productDetail) {
-        ProductImage productImage = new ProductImage();
-        productImage.setUrl(productImageModel.getUrl());
-        productImage.setProductDetail(productDetail);
-        return productImage;
-    }
 }

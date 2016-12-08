@@ -34,7 +34,7 @@
                   <td>${product.productName}</td>
                   <td class="hidden-phone">${product.description}</td>
                   <td class="center hidden-phone">${product.getCategory().getCategoryName()}</td>
-                  <td class="center hidden-phone"><a href='<c:url value="/admin/createProduct"><c:param name="checkCreate" value="productDetailNew"/><c:param name="productId" value="${product.id}"/><c:param name="productName" value="${product.productName}" /></c:url>'><button class="btn btn-success">Create</button> </a><a href='<c:url value="/admin/updateProduct"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-primary">Update</button></a> <a href='<c:url value="/admin/deleteProduct"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-danger">Delete</button></a></td>
+                  <td class="center hidden-phone"><a href='<c:url value="/admin/createProductDetail"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-success">Create</button> </a><a href='<c:url value="/admin/viewProductDetail"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-primary">Detail</button></a> <a href='<c:url value="/admin/deleteProduct"><c:param name="productId" value="${product.id}"/></c:url>'><button class="btn btn-danger">Delete</button></a></td>
                   <td hidden="hidden">${product.getProductDetails().get(0).getProductDetailStatus()}</td>
                   <td hidden="hidden">${product.getProductDetails().get(0).getProductDetailPrice()}</td>
                   <td hidden="hidden">${product.getProductDetails().get(0).getProductDetailQuantity()}</td>

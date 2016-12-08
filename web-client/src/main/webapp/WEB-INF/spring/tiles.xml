@@ -10,10 +10,6 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/resource/view/template/layout/footer.jsp" />
 	</definition>
-	<!-- <definition name="definitionHome"  extends="definition">
-		<put-attribute name="header" value="/view/template/layout/headerHome.jsp" />		
-	</definition> -->
-	 <!-- Home Page -->
 	<definition name="homePage" extends="definition">
 		<put-attribute name="title" value="Home Page" />
 		<put-attribute name="header" value="" />
@@ -28,7 +24,6 @@
 		<put-attribute name="body" value="/resource/view/user/login.jsp" />
         <put-attribute name="footer" value="" />
 	</definition>
-
 	<definition name="registration" extends="definition">
 		<put-attribute name="title" value="Registration Page" />
 		<put-attribute name="header" value="" />
@@ -36,7 +31,6 @@
 		<put-attribute name="body" value="/resource/view/user/registration.jsp" />
 		<put-attribute name="footer" value="" />
 	</definition>
-
 	<!--Admin Page-->
 	<definition name="definitionAdmin" template="/resource/view/admin/template/template.jsp">
 		<put-attribute name="header" value="/resource/view/admin/template/header.jsp" />
@@ -47,15 +41,12 @@
 	<definition name="adminPage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/admin.jsp" />
 	</definition>
-
 	<definition name="viewUserPage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewUser.jsp" />
 	</definition>
-
 	<definition name="category" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewCategory.jsp" />
 	</definition>
-
 	<definition name="viewProduct" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewProduct.jsp"/>
 	</definition>
@@ -64,6 +55,9 @@
 	</definition>
 	<definition name="updateProduct" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/updateProduct.jsp"/>
+	</definition>
+	<definition name="viewProductDetail" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewProductDetail.jsp" />
 	</definition>
 	<definition name="adminInvoicePage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewInvoice.jsp"/>

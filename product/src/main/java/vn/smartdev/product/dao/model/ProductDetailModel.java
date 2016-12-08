@@ -1,23 +1,30 @@
 package vn.smartdev.product.dao.model;
 
+import javax.persistence.Column;
+
 /**
- * Created by Nhat on 05/12/2016.
+ * Created by Nhat on 07/12/2016.
  */
 public class ProductDetailModel {
+    private String id;
     private String description;
-    private int productDetailStatus;
-    private String producDetailCode;
+
+    private String productDetailCode;
+
     private float productDetailPrice;
+
     private int productDetailQuantity;
+
+    private int productDetailStatus;
+
     private String supplyer;
 
-    public ProductDetailModel(String description, int productDetailStatus, float productDetailPrice, int productDetailQuantity, String supplyer) {
-        this.description = description;
-        this.productDetailStatus = productDetailStatus;
-        this.producDetailCode = producDetailCode;
-        this.productDetailPrice = productDetailPrice;
-        this.productDetailQuantity = productDetailQuantity;
-        this.supplyer = supplyer;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -28,20 +35,12 @@ public class ProductDetailModel {
         this.description = description;
     }
 
-    public int getProductDetailStatus() {
-        return productDetailStatus;
+    public String getProductDetailCode() {
+        return productDetailCode;
     }
 
-    public void setProductDetailStatus(int productDetailStatus) {
-        this.productDetailStatus = productDetailStatus;
-    }
-
-    public String getProducDetailCode() {
-        return producDetailCode;
-    }
-
-    public void setProducDetailCode(String producDetailCode) {
-        this.producDetailCode = producDetailCode;
+    public void setProductDetailCode(String productDetailCode) {
+        this.productDetailCode = productDetailCode;
     }
 
     public float getProductDetailPrice() {
@@ -58,6 +57,14 @@ public class ProductDetailModel {
 
     public void setProductDetailQuantity(int productDetailQuantity) {
         this.productDetailQuantity = productDetailQuantity;
+    }
+
+    public int getProductDetailStatus() {
+        return productDetailStatus;
+    }
+
+    public void setProductDetailStatus(int productDetailStatus) {
+        this.productDetailStatus = productDetailStatus;
     }
 
     public String getSupplyer() {

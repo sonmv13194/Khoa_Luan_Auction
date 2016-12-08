@@ -46,6 +46,7 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 		this.supplyer = supplyer;
 	}
 
+
 	/*//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="productDetail")
 	private List<OrderDetail> orderDetails;*/

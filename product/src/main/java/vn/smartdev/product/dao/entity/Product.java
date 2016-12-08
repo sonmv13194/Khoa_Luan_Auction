@@ -28,8 +28,8 @@ public class Product extends AbstractAuditableEntity<String> implements Serializ
 	private String description;
 
 	//	bi-directional many-to-one association to Category
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	@JoinColumn(name="category_id",insertable = false,updatable = false)
+	@ManyToOne(targetEntity = Category.class)
+	@JoinColumn(name="category_id", referencedColumnName = "id")
 	private Category category;
 
 	//bi-directional many-to-one association to ProductDetail
