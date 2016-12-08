@@ -93,7 +93,7 @@ public class UserManagerImpl implements UserManager {
     public void saveForEdit(User user) {
        User userCurrent = userRepository.findOne(user.getId());
        userCurrent.setUsername(user.getUsername());
-       userCurrent.setPassword(user.getPassword());
+       userCurrent.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
        userCurrent.setEmail(user.getEmail());
        userCurrent.setPhone(user.getPhone());
        userCurrent.setBirthday(user.getBirthday());
