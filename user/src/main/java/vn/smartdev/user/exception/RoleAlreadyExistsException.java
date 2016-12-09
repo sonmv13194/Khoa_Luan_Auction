@@ -1,7 +1,7 @@
 package vn.smartdev.user.exception;
 
 public class RoleAlreadyExistsException extends Exception {
-
+    private static final long serialVersionUID = 1L;
     public RoleAlreadyExistsException() {
     }
 

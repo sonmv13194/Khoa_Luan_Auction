@@ -82,6 +82,7 @@
         sOut += '</table>';
         return sOut;
     }
+
     $(document).ready(function() {
         /*
          * Insert a 'details' column to the table
@@ -98,6 +99,7 @@
         $('#hidden-table-info tbody tr').each( function () {
             this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
         } );
+
         /*
          * Initialse DataTables, with no sorting on the 'details' column
          */
@@ -107,6 +109,7 @@
             ],
             "aaSorting": [[1, 'asc']]
         });
+
         /* Add event listener for opening and closing details
          * Note that the indicator for showing which row is open is not controlled by DataTables,
          * rather it is done here

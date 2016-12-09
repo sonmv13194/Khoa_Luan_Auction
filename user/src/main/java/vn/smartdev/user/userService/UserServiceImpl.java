@@ -1,47 +1,40 @@
 package vn.smartdev.user.userService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.ModelMap;
-import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.exception.UserNotFoundException;
-import vn.smartdev.user.manager.RoleManager;
+import vn.smartdev.user.manager.UserAttemptsManager;
 import vn.smartdev.user.manager.UserManager;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 public class UserServiceImpl implements UserDetailsService {
+	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
 	@Autowired
-	private UserManager userManager;
-	
+	UserAttemptsManager attemptsManager;
 	@Autowired
-	private RoleManager roleManager;
-	
-	@Transactional(readOnly = true)
+	UserManager userManager;
+
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = null;
+		User userEntity = null;
 		try {
-			user = userManager.findUserByUsername(username);
+			userEntity = userManager.findUserByUsername(username);
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 		}
-		ModelMap model = new ModelMap();
-		model.addAttribute("user",user);
-		List<Role> roles = roleManager.getAll();
-		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-		for (Role role : roles ) {
-			grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+		if (userEntity == null)
+			throw new UsernameNotFoundException("No such user: " + username);
+		else {
+			Account acc = new Account(userEntity);
+			logger.info("========== User Info: ", acc.toString());
+			if (attemptsManager.isTimeUp(attemptsManager.geAttemptsEntity(username).getLastModified()))
+				attemptsManager.resetAttempts(username);
+			return acc;
 		}
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-				grantedAuthorities);
 	}
-
 }

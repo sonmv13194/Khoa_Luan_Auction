@@ -62,20 +62,6 @@ public class HomeController {
 		return "loginPage";
 	}
 
-//	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-//	public String registration(Model model){
-//		model.addAttribute("userForm", new User());
-//		return "registration";
-//	}
-//
-//	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-//	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) throws UserAlreadyExistsException {
-//
-//		userManager.save(userForm);
-//
-//		return "redirect:/login";
-//	}
-
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
 		logger.info("Welcome login! The client locale is {}.", locale);

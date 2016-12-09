@@ -48,7 +48,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	private boolean credentialsNonExpired;
 
 	//bi-directional many-to-many association to Role
-	@ManyToMany()
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
 			name="role_user"
 			, joinColumns={
@@ -150,5 +150,21 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 
 	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
 		this.credentialsNonExpired = credentialsNonExpired;
+	}
+
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
+	}
+
+	public boolean isAccountNonLocked() {
+		return accountNonLocked;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return credentialsNonExpired;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
 	}
 }
