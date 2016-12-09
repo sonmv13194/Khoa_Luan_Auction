@@ -11,11 +11,9 @@ import java.security.Principal;
 public class AuditorAwareImpl implements AuditorAware<String> {
     public String getCurrentAuditor() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         if (authentication == null || !authentication.isAuthenticated()) {
             return null;
         }
-
         return ((UserDetails) authentication.getPrincipal()).getUsername();
     }
 }
