@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.manager.ProductServices;
 import vn.smartdev.user.dao.entity.User;
@@ -100,7 +101,7 @@ public class HomeController {
 
 	//view detail product
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public String viewDetail(Locale locale, Model model) {
+	public String viewDetail(Locale locale, Model model,@RequestParam("productId") String productId) {
 		logger.info("Welcome login! The client locale is {}.", locale);
 
 		Date date = new Date();
@@ -108,7 +109,10 @@ public class HomeController {
 
 		String formattedDate = dateFormat.format(date);
 
+		Product product = productServices.getProduct(productId);
 		model.addAttribute("serverTime", formattedDate);
+		model.addAttribute("product",product);
+
 
 		return "detailPage";
 	}
