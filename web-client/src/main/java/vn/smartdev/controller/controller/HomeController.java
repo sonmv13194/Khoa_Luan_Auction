@@ -104,4 +104,33 @@ public class HomeController {
 
 		return "redirect:/";
 	}
+
+	//view detail product
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String viewDetail(Locale locale, Model model) {
+		logger.info("Welcome login! The client locale is {}.", locale);
+
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate);
+
+		return "detailPage";
+	}
+
+	@RequestMapping(value = "/shopping", method = RequestMethod.GET)
+	public String viewCart(Locale locale, Model model) {
+		logger.info("Welcome login! The client locale is {}.", locale);
+
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate);
+
+		return "shoppingCart";
+	}
 }

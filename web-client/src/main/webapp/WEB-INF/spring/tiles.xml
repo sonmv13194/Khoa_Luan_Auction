@@ -13,6 +13,14 @@
 		<put-attribute name="title" value="Home Page" />
 		<put-attribute name="body" value="/resource/view/user/home.jsp" />
 	</definition>
+	<definition name="detailPage" extends="definition">
+		<put-attribute name="title" value="Detail Page" />
+		<put-attribute name="body" value="/resource/view/user/productdetail.jsp" />
+	</definition>
+	<definition name="shoppingCart" extends="definition">
+		<put-attribute name="title" value="Shopping Cart Page" />
+		<put-attribute name="body" value="/resource/view/user/shoppingcart.jsp" />
+	</definition>
 	<definition name="loginPage" extends="definition">
 		<put-attribute name="title" value="Login Page" />
         <put-attribute name="header" value="" />
