@@ -1,5 +1,7 @@
 package vn.smartdev.product.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 import java.io.Serializable;
@@ -54,10 +56,12 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 	//bi-directional many-to-one association to Product
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="product_parent_id")
+	@JsonManagedReference
 	private Product product;
 
 	//bi-directional many-to-one association to ProductImage
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="productDetail")
+	@JsonBackReference
 	private List<ProductImage> productImages;
 
 	public ProductDetail() {

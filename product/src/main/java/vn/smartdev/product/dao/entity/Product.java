@@ -1,5 +1,7 @@
 package vn.smartdev.product.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.validator.constraints.NotEmpty;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
@@ -30,10 +32,12 @@ public class Product extends AbstractAuditableEntity<String> implements Serializ
 	//	bi-directional many-to-one association to Category
 	@ManyToOne(targetEntity = Category.class)
 	@JoinColumn(name="category_id", referencedColumnName = "id")
+	@JsonManagedReference
 	private Category category;
 
 	//bi-directional many-to-one association to ProductDetail
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="product",cascade = CascadeType.ALL)
+	@JsonBackReference
 	private List<ProductDetail> productDetails;
 
 	public Product() {

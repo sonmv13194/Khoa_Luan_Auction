@@ -1,5 +1,6 @@
 package vn.smartdev.product.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 import java.io.Serializable;
@@ -24,6 +25,7 @@ public class ProductImage extends AbstractAuditableEntity<String> implements Ser
 	//bi-directional many-to-one association to ProductDetail
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="product_detail_id")
+	@JsonManagedReference
 	private ProductDetail productDetail;
 
 	public ProductImage(String url) {
