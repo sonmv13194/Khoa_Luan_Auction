@@ -13,6 +13,8 @@
     <context:component-scan base-package="vn.smartdev.user.userService"/>
     <http use-expressions="true" auto-config="false">
         <csrf/>
+        <intercept-url pattern="/checkout" access="isAuthenticated()"/>
+        <intercept-url pattern="/" access="permitAll()"/>
         <intercept-url pattern="/admin/*" access="isAuthenticated()"/>
         <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')"/>
         <form-login login-page="/login" username-parameter="username" password-parameter="password"
@@ -22,7 +24,7 @@
                     default-target-url="/"
                     authentication-failure-url="/login?error"
         />
-        <logout logout-url="/logout" logout-success-url="/"></logout>
+        <logout logout-success-url="/login?logout"></logout>
         <access-denied-handler error-page="/403"/>
 
     </http>

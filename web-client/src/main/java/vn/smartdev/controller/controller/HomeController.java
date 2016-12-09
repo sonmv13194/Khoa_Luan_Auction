@@ -46,22 +46,6 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		return "homePage";
 	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {
-		logger.info("Welcome login! The client locale is {}.", locale);
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate );
-
-
-		return "loginPage";
-	}
-
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
 		logger.info("Welcome login! The client locale is {}.", locale);
@@ -73,21 +57,6 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate );
 
-		return "adminPage";
-	}
-	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-	public String viewRegistration(Model model){
-		User userForm = new User();
-		model.addAttribute("userForm", userForm);
-
-		return "registration";
-	}
-
-	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String createUser(@ModelAttribute("userForm") User user, Model model) throws ParseException, UserAlreadyExistsException, RoleNotFoundException {
-
-		userManager.save(user);
-
-		return "redirect:/";
+		return "redirect:/admin/viewUser";
 	}
 }

@@ -56,7 +56,7 @@ public class UserAttemptsManagerImpl implements UserAttemptsManager {
 	public boolean isTimeUp(Date d) {
 		Calendar timeLocked = Calendar.getInstance();
 		timeLocked.setTime(d);
-		timeLocked.add(Calendar.MINUTE, 10);
+		timeLocked.add(Calendar.MINUTE, 2);
 		Calendar currentTime = Calendar.getInstance();
 		currentTime.setTime(new Date());
 		if (currentTime.getTime().after(timeLocked.getTime())){

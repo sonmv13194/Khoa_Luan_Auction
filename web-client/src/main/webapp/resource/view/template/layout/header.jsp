@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <header class="header-style-1">
 
@@ -8,18 +9,30 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-                        <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                         <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
-                        <li><a href="/login"><i class="icon fa fa-lock"></i>Login</a></li>
+                        <c:if test="${pageContext.request.userPrincipal.name == null}">
+                            <li><a href="${contextPath }/login">Login/Register</a></li>
+                        </c:if>
+                        <c:url value="/logout" var="logoutUrl"/>
+                        <form id="logout" action="${logoutUrl}" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </form>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <span>Hello, ${pageContext.request.userPrincipal.name}</span>
+                            <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+                            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                <li><a href="${contextPath }/admin">Admin Page</a></li>
+                            </sec:authorize>
+                        </c:if>
                     </ul>
                 </div><!-- /.cnt-account -->
 
                 <div class="cnt-block">
                     <ul class="list-unstyled list-inline">
                         <li class="dropdown dropdown-small">
-                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span
+                                    class="value">USD </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">USD</a></li>
                                 <li><a href="#">INR</a></li>
@@ -28,7 +41,8 @@
                         </li>
 
                         <li class="dropdown dropdown-small">
-                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span
+                                    class="value">English </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">English</a></li>
                                 <li><a href="#">French</a></li>
@@ -54,7 +68,8 @@
 
                         </a>
                     </div><!-- /.logo -->
-                    <!-- ============================================================= LOGO : END ============================================================= -->				</div><!-- /.logo-holder -->
+                    <!-- ============================================================= LOGO : END ============================================================= -->
+                </div><!-- /.logo-holder -->
 
                 <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
                     <!-- /.contact-row -->
@@ -66,27 +81,33 @@
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown">
 
-                                        <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories
+                                            <b class="caret"></b></a>
 
-                                        <ul class="dropdown-menu" role="menu" >
+                                        <ul class="dropdown-menu" role="menu">
                                             <li class="menu-header">Computer</li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                       href="category.html">- Clothing</a></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                       href="category.html">- Electronics</a></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                       href="category.html">- Shoes</a></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                       href="category.html">- Watches</a></li>
 
                                         </ul>
                                     </li>
                                 </ul>
 
-                                <input class="search-field" placeholder="Search here..." />
+                                <input class="search-field" placeholder="Search here..."/>
 
-                                <a class="search-button" href="#" ></a>
+                                <a class="search-button" href="#"></a>
 
                             </div>
                         </form>
                     </div><!-- /.search-area -->
-                    <!-- ============================================================= SEARCH AREA : END ============================================================= -->				</div><!-- /.top-search-holder -->
+                    <!-- ============================================================= SEARCH AREA : END ============================================================= -->
+                </div><!-- /.top-search-holder -->
 
                 <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
@@ -100,7 +121,7 @@
                                 <div class="basket-item-count"><span class="count">2</span></div>
                                 <div class="total-price-basket">
                                     <span class="lbl">cart -</span>
-					<span class="total-price">
+                                    <span class="total-price">
 						<span class="sign">$</span><span class="value">600.00</span>
 					</span>
                                 </div>
@@ -114,7 +135,9 @@
                                     <div class="row">
                                         <div class="col-xs-4">
                                             <div class="image">
-                                                <a href="detail.html"><img src="${contextPath}/resource/view/template/assets/images/cart.jpg" alt=""></a>
+                                                <a href="detail.html"><img
+                                                        src="${contextPath}/resource/view/template/assets/images/cart.jpg"
+                                                        alt=""></a>
                                             </div>
                                         </div>
                                         <div class="col-xs-7">
@@ -138,7 +161,8 @@
                                     </div>
                                     <div class="clearfix"></div>
 
-                                    <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                                    <a href="checkout.html"
+                                       class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
                                 </div><!-- /.cart-total-->
 
 
@@ -146,7 +170,8 @@
                         </ul><!-- /.dropdown-menu-->
                     </div><!-- /.dropdown-cart -->
 
-                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->				</div><!-- /.top-cart-row -->
+                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
+                </div><!-- /.top-cart-row -->
             </div><!-- /.row -->
 
         </div><!-- /.container -->
@@ -158,7 +183,8 @@
         <div class="container">
             <div class="yamm navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse"
+                            class="navbar-toggle collapsed" type="button">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -170,11 +196,13 @@
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw">
-                                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle"
+                                       data-toggle="dropdown">Home</a>
 
                                 </li>
                                 <li class="dropdown yamm mega-menu">
-                                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
+                                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle"
+                                       data-toggle="dropdown">Clothing</a>
                                     <ul class="dropdown-menu container">
                                         <li>
                                             <div class="yamm-content ">
@@ -239,11 +267,9 @@
 
 
                                                     <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image">
-                                                        <img class="img-responsive" src="${contextPath}/resource/view/template/assets/images/banners/top-menu-banner.jpg" alt="">
-
-
-
-
+                                                        <img class="img-responsive"
+                                                             src="${contextPath}/resource/view/template/assets/images/banners/top-menu-banner.jpg"
+                                                             alt="">
 
 
                                                     </div><!-- /.yamm-content -->
@@ -256,7 +282,8 @@
                                 </li>
 
                                 <li class="dropdown mega-menu">
-                                    <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics
+                                    <a href="category.html" data-hover="dropdown" class="dropdown-toggle"
+                                       data-toggle="dropdown">Electronics
                                         <span class="menu-label hot-menu hidden-xs">hot</span>
                                     </a>
                                     <ul class="dropdown-menu container">
@@ -328,10 +355,11 @@
                                                     </div>
 
                                                     <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner">
-                                                        <a href="#"><img alt="" src="${contextPath}/resource/view/template/assets/images/banners/banner-side.png"></a>
+                                                        <a href="#"><img alt=""
+                                                                         src="${contextPath}/resource/view/template/assets/images/banners/banner-side.png"></a>
                                                     </div>
                                                 </div><!-- /.row -->
-                                            </div><!-- /.yamm-content -->					</li>
+                                            </div><!-- /.yamm-content -->                    </li>
                                     </ul>
                                 </li>
                                 <li class="dropdown hidden-sm">
@@ -368,16 +396,19 @@
                                                             <li><a href="home.html">Home</a></li>
                                                             <li><a href="category.html">Category</a></li>
                                                             <li><a href="detail.html">Detail</a></li>
-                                                            <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>
+                                                            <li><a href="shopping-cart.html">Shopping Cart Summary</a>
+                                                            </li>
                                                             <li><a href="checkout.html">Checkout</a></li>
                                                             <li><a href="blog.html">Blog</a></li>
                                                             <li><a href="blog-details.html">Blog Detail</a></li>
                                                             <li><a href="contact.html">Contact</a></li>
                                                             <li><a href="sign-in.html">Sign In</a></li>
                                                             <li><a href="my-wishlist.html">Wishlist</a></li>
-                                                            <li><a href="terms-conditions.html">Terms and Condition</a></li>
+                                                            <li><a href="terms-conditions.html">Terms and Condition</a>
+                                                            </li>
                                                             <li><a href="track-orders.html">Track Orders</a></li>
-                                                            <li><a href="product-comparison.html">Product-Comparison</a></li>
+                                                            <li><a href="product-comparison.html">Product-Comparison</a>
+                                                            </li>
                                                             <li><a href="faq.html">FAQ</a></li>
                                                             <li><a href="404.html">404</a></li>
 
@@ -385,11 +416,9 @@
                                                     </div>
 
 
-
                                                 </div>
                                             </div>
                                         </li>
-
 
 
                                     </ul>

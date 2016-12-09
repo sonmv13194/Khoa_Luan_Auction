@@ -14,8 +14,8 @@
                 <li><a href="${contextPath }/admin/invoice">Invoice</a></li>
             </ul>
         </li>
-        <li class="sub-menu"><a href="javascript:;"> <i
-                class="icon-shopping-cart"></i> <span>Shop</span></a>
+        <li class="sub-menu"><a href="${contextPath }/"> <i
+                class="icon-shopping-cart"></i> <span>Home Page</span></a>
         </li>
         </a></li>
     </ul>
