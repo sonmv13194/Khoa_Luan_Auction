@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import vn.smartdev.product.dao.entity.Product;
+import vn.smartdev.product.dao.entity.ProductDetail;
+import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductServices;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
@@ -35,6 +37,8 @@ public class HomeController {
 	UserManager userManager;
 	@Autowired
 	private ProductServices productServices;
+	@Autowired
+	private ProductDetailServices productDetailServices;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -50,8 +54,19 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 
 		model.addAttribute("serverTime", formattedDate );
-		List<Product> listProduct = productServices.getListProduct();
-		model.addAttribute("listProduct",listProduct);
+		List<ProductDetail> listProductDetailNew = productDetailServices.findTop6ByOrderByCreateByDesc();
+
+		List<ProductDetail> listProductDetailExpenSivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
+
+		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
+
+		List<ProductDetail> list8ProductDetail = productDetailServices.findTop8ByOrderByCreateByAsc();
+
+		model.addAttribute("listProductDetailNew",listProductDetailNew);
+		model.addAttribute("listProductDetailExpenSivePrice",listProductDetailExpenSivePrice);
+		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
+		model.addAttribute("list8ProductDetail",list8ProductDetail);
+
 		return "homePage";
 	}
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -63,7 +78,7 @@ public class HomeController {
 
 		String formattedDate = dateFormat.format(date);
 
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("serverTime", formattedDate);
 
 		return "redirect:/admin/viewUser";
 	}

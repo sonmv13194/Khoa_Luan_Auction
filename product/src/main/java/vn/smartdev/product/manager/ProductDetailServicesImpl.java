@@ -101,4 +101,24 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
         return true;
     }
 
+    @Override
+    public List<ProductDetail> findTop6ByOrderByCreateByDesc() {
+        return productDetailRepository.findTop6ByOrderByCreateByDesc();
+    }
+
+    @Override
+    public List<ProductDetail> findTop6ByOrderByProductDetailPriceDesc() {
+        return productDetailRepository.findTop6ByOrderByProductDetailPriceDesc();
+    }
+
+    @Override
+    public List<ProductDetail> findTop3ByOrderByProductDetailPriceAsc() {
+        return productDetailRepository.findTop3ByOrderByProductDetailPriceAsc();
+    }
+
+    @Override
+    public List<ProductDetail> findTop8ByOrderByCreateByAsc() {
+        return productDetailRepository.findTop8ByOrderByCreateByAsc();
+    }
+
 }
