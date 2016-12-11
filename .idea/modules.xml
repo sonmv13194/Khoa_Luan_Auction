@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/category/category.iml" filepath="$PROJECT_DIR$/category/category.iml" />
       <module fileurl="file://$PROJECT_DIR$/configuration/configuration.iml" filepath="$PROJECT_DIR$/configuration/configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/invoice/invoice.iml" filepath="$PROJECT_DIR$/invoice/invoice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-training-shop.iml" filepath="$PROJECT_DIR$/.idea/java-training-shop.iml" />
       <module fileurl="file://$PROJECT_DIR$/logging/logging.iml" filepath="$PROJECT_DIR$/logging/logging.iml" />
       <module fileurl="file://$PROJECT_DIR$/order/order.iml" filepath="$PROJECT_DIR$/order/order.iml" />

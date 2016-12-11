@@ -349,8 +349,10 @@
                                 <div class="products">
                                     <div class="hot-deal-wrapper">
                                         <div class="image">
+                                            <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                             <img src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                  alt="">
+                                            </a>
                                         </div>
                                         <div class="sale-offer-tag"><span>49%<br>off</span></div>
                                         <div class="timing-wrapper">
@@ -381,7 +383,7 @@
                                         </div>
                                     </div><!-- /.hot-deal-wrapper -->
                                     <div class="product-info text-left m-t-20">
-                                        <h3 class="name"><a href="detail.html">${productDetail.product.productName}</a>
+                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                         </h3>
                                         <div class="rating rateit-small"></div>
 
@@ -427,7 +429,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -438,8 +440,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -463,7 +464,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -472,8 +473,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -498,7 +498,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -507,8 +507,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -561,7 +560,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -570,8 +569,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -595,7 +593,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -604,8 +602,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -629,7 +626,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -638,8 +635,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -828,7 +824,7 @@
                                                 <div class="product">
                                                     <div class="product-image">
                                                         <div class="image">
-                                                            <a href="detail.html"><img
+                                                            <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
                                                                     src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
@@ -836,8 +832,7 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a
-                                                                href="detail.html">${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -896,15 +891,14 @@
                                                 <div class="product">
                                                     <div class="product-image">
                                                         <div class="image">
-                                                            <a href="detail.html"><img
+                                                            <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
                                                                     src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a
-                                                                href="detail.html">${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -964,15 +958,14 @@
                                                 <div class="product">
                                                     <div class="product-image">
                                                         <div class="image">
-                                                            <a href="detail.html"><img
+                                                            <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
                                                                     src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a
-                                                                href="detail.html">${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -1032,15 +1025,14 @@
                                                 <div class="product">
                                                     <div class="product-image">
                                                         <div class="image">
-                                                            <a href="detail.html"><img
+                                                            <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
                                                                     src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a
-                                                                href="detail.html">${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -1131,15 +1123,14 @@
                                     <div class="product">
                                         <div class="product-image">
                                             <div class="image">
-                                                <a href="detail.html"><img
+                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
                                                         src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                         alt=""></a>
                                             </div><!-- /.image -->
                                             <div class="tag hot"><span>hot</span></div>
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a
-                                                    href="detail.html">${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a></h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             <div class="product-price">
@@ -1225,7 +1216,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${list8ProductDetail[i].productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -1234,8 +1225,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col2 col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${list8ProductDetail[i].product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/></c:url>'>${list8ProductDetail[i].product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -1253,7 +1243,7 @@
                                                     <div class="col col-xs-5">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                <a href="#">
+                                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i+1].id}"/></c:url>'>
                                                                     <img src="${contextPath}/resource/images/${list8ProductDetail[i+1].productImages.get(0).url}"
                                                                          alt="">
                                                                 </a>
@@ -1262,8 +1252,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col2 col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
-                                                                    href="#">${list8ProductDetail[i+1].product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i+1].id}"/></c:url>'>${list8ProductDetail[i+1].product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -1405,15 +1394,14 @@
                                     <div class="product">
                                         <div class="product-image">
                                             <div class="image">
-                                                <a href="detail.html"><img
+                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
                                                         src="${contextPath}/resource/images/${productDetail.productImages.get(0).url}"
                                                         alt=""></a>
                                             </div><!-- /.image -->
                                             <div class="tag new"><span>new</span></div>
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a
-                                                    href="detail.html">${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img${productDetail.product.productName}</a></h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             <div class="product-price">

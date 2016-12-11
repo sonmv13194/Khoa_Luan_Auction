@@ -80,7 +80,7 @@ public class HomeController {
 
 	//view detail product
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public String viewDetail(Locale locale, Model model,@RequestParam("productId") String productId) {
+	public String viewDetail(Locale locale, Model model,@RequestParam("productDetailId") String id) {
 		logger.info("Welcome login! The client locale is {}.", locale);
 
 		Date date = new Date();
@@ -88,9 +88,14 @@ public class HomeController {
 
 		String formattedDate = dateFormat.format(date);
 
-		Product product = productServices.getProduct(productId);
+		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
+		ProductDetail productDetail = productDetailServices.getProductDetail(id);
+		List<ProductDetail> listProductDetailExpenSivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
+
 		model.addAttribute("serverTime", formattedDate);
-		model.addAttribute("product",product);
+		model.addAttribute("productDetail",productDetail);
+		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
+		model.addAttribute("listProductDetailExpensivePrice",listProductDetailExpenSivePrice);
 
 
 		return "detailPage";
