@@ -6,6 +6,7 @@
 	<!-- Base Define -->
 	<definition name="definition" template="/resource/view/template/layout/template.jsp">
 		<put-attribute name="header" value="/resource/view/template/layout/header.jsp" />
+		<put-attribute name="brands" value="/resource/view/template/layout/brands.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/resource/view/template/layout/footer.jsp" />
 	</definition>
@@ -19,21 +20,11 @@
 	</definition>
 	<definition name="shoppingCart" extends="definition">
 		<put-attribute name="title" value="Shopping Cart Page" />
-		<put-attribute name="body" value="/resource/view/user/shoppingcart.jsp" />
+		<put-attribute name="body" value="/resource/view/user/cart.jsp" />
 	</definition>
 	<definition name="loginPage" extends="definition">
 		<put-attribute name="title" value="Login Page" />
-        <put-attribute name="header" value="" />
-        <put-attribute name="menu" value="" />
-		<put-attribute name="body" value="/resource/view/user/login.jsp" />
-        <put-attribute name="footer" value="" />
-	</definition>
-	<definition name="registration" extends="definition">
-		<put-attribute name="title" value="Registration Page" />
-		<put-attribute name="header" value="" />
-		<put-attribute name="menu" value="" />
-		<put-attribute name="body" value="/resource/view/user/registration.jsp" />
-		<put-attribute name="footer" value="" />
+		<put-attribute name="body" value="/resource/view/user/signin.jsp" />
 	</definition>
 	<!--Admin Page-->
 	<definition name="definitionAdmin" template="/resource/view/admin/template/template.jsp">
@@ -65,5 +56,11 @@
 	</definition>
 	<definition name="adminInvoiceDetailPage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewInvoiceDetail.jsp"/>
+	</definition>
+	<definition name="cartPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/cart.jsp"/>
+	</definition>
+	<definition name="checkoutPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/checkout.jsp"/>
 	</definition>
 </tiles-definitions>

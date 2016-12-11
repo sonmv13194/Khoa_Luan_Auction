@@ -9,8 +9,8 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-                        <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
+                        <li><a href="${contextPath}/cart"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+                        <li><a href="${contextPath}/checkout"><i class="icon fa fa-check"></i>Checkout</a></li>
                         <c:if test="${pageContext.request.userPrincipal.name == null}">
                             <li><a href="${contextPath }/login">Login/Register</a></li>
                         </c:if>
@@ -62,7 +62,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
                     <div class="logo">
-                        <a href="home.html">
+                        <a href="/">
 
                             <img src="${contextPath}/resource/view/template/assets/images/logo.png" alt="">
 

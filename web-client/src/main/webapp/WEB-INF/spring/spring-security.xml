@@ -15,13 +15,12 @@
         <csrf/>
         <intercept-url pattern="/checkout" access="isAuthenticated()"/>
         <intercept-url pattern="/" access="permitAll()"/>
-        <intercept-url pattern="/admin/*" access="isAuthenticated()"/>
-        <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/admin**" access="isAuthenticated()"/>
+        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')"/>
         <form-login login-page="/login" username-parameter="username" password-parameter="password"
                     login-processing-url="/j_spring_security_check"
                     authentication-success-handler-ref="loginSuccessHandler"
                     authentication-failure-handler-ref="loginFailureHandler"
-                    default-target-url="/"
                     authentication-failure-url="/login?error"
         />
         <logout logout-success-url="/login?logout"></logout>

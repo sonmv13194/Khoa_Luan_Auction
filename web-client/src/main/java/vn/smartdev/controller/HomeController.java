@@ -1,11 +1,10 @@
-package vn.smartdev.controller.controller;
+package vn.smartdev.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,13 +12,9 @@ import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductServices;
-import vn.smartdev.user.dao.entity.User;
-import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.manager.UserManager;
 
-import javax.management.relation.RoleNotFoundException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;

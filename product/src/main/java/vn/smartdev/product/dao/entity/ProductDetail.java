@@ -21,7 +21,6 @@ import java.util.UUID;
 public class ProductDetail extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Lob
 	private String description;
 
 	@Column(name="product_detail_code")

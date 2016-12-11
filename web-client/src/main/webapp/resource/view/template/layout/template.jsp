@@ -33,15 +33,19 @@
 
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800'
+          rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <header>
     <tiles:insertAttribute name="header"/>
 </header>
-<div class="container">
-    <tiles:insertAttribute name="body"/>
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+    <div class="container">
+        <tiles:insertAttribute name="body"/>
+        <tiles:insertAttribute name="brands"/>
+    </div>
 </div>
 <footer>
     <tiles:insertAttribute name="footer"/>
@@ -65,14 +69,14 @@
 </body>
 </html>
 <script>
-    $(document).ready(function(){
-        $('#loading').click(function(){
+    $(document).ready(function () {
+        $('#loading').click(function () {
             $.ajax({
-                type:'POST',
-                contentType:'application/json;charset=utf-8',
-                url:'/productAll',
-                dataType:'json',
-                success: function(data){
+                type: 'POST',
+                contentType: 'application/json;charset=utf-8',
+                url: '/productAll',
+                dataType: 'json',
+                success: function (data) {
                     alert(data);
 //                    //lay 1 mang nhieu doi tuong
 //                    $.each(data,function(key,value)

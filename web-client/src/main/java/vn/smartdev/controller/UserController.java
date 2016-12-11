@@ -1,4 +1,4 @@
-package vn.smartdev.controller.controller;
+package vn.smartdev.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
