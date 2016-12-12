@@ -12,7 +12,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="form">
-                                <form:form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
+                                <form:form class="cmxform form-horizontal tasi-form" id="signupForm" commandName="command" method="POST"
                                            enctype="multipart/form-data"
                                            action="/admin/createProductPost?${_csrf.parameterName}=${_csrf.token}">
                                     <div class="form-group ">

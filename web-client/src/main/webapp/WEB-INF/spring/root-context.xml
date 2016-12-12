@@ -11,6 +11,8 @@
 	<import resource="classpath:category-applicationContext.xml"/>
 	<import resource="classpath:user-applicationContext.xml"/>
 	<import resource="classpath:product-applicationContext.xml"/>
+
+
 	<bean id="multipartresolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
 		<property name="maxUploadSize" value="100000000"></property>
 	</bean>

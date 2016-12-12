@@ -40,7 +40,12 @@
                                     <td>${productDetail.supplyer}</td>
                                     <td>${productDetail.product.id}</td>
                                     <td>${productDetail.productImages.get(0).url}</td>
-                                    <td class="center hidden-phone"><a
+                                    <td class="center hidden-phone">
+                                        <a
+                                                href='<c:url value="/admin/viewProductImages"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
+                                            <button class="btn btn-primary">View Detail</button>
+                                        </a>
+                                        <a
                                             href='<c:url value="/admin/updateProduct"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
                                         <button class="btn btn-success">Update Product</button>
                                     </a></td>
