@@ -51,6 +51,9 @@
 	<definition name="viewProductDetail" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewProductDetail.jsp" />
 	</definition>
+	<definition name="viewProductImages" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewProductImages.jsp"/>
+	</definition>
 	<definition name="adminInvoicePage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewInvoice.jsp"/>
 	</definition>

@@ -13,6 +13,7 @@ import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.manager.CategoryServices;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
+import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductDetailModel;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.manager.ProductDetailServices;
@@ -92,7 +93,7 @@ public class ProductController {
         }
     }
     @RequestMapping(value="/createProductDetail",method = RequestMethod.GET)
-    public ModelAndView createProductDetail(@ModelAttribute("product") ProductModel productModel,ModelMap modelMap,@RequestParam("productId") String productId)
+    public ModelAndView createProductDetail(ModelMap modelMap,@RequestParam("productId") String productId)
     {
         List<Category> listCategory = categoryServices.getListCategory();
         Product product = productServices.getProduct(productId);
@@ -140,6 +141,13 @@ public class ProductController {
     {
         boolean updateProductDetail = productDetailServices.updateProductDetail(productDetailModel);
         return "redirect:/admin/viewProduct";
+    }
+    @RequestMapping(value="/viewProductImages",method = RequestMethod.GET)
+    public String viewProductImages(@RequestParam("productDetailId") String productDetailId,ModelMap modelMap)
+    {
+        ProductDetail productDetail = productDetailServices.getProductDetail(productDetailId);
+        modelMap.put("productDetail",productDetail);
+        return "viewProductImages";
     }
 
 }
