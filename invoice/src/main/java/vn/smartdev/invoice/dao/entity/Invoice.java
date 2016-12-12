@@ -3,7 +3,6 @@ package vn.smartdev.invoice.dao.entity;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
-import vn.smartdev.invoice.validation.Phone;
 
 import java.io.Serializable;
 import javax.persistence.*;

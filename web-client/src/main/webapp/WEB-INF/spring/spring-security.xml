@@ -10,6 +10,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
+
     <context:component-scan base-package="vn.smartdev.user.userService"/>
     <http use-expressions="true" auto-config="false">
         <csrf/>
@@ -22,7 +23,6 @@
                     authentication-failure-handler-ref="loginFailureHandler"
                     authentication-failure-url="/login?error"
         />
-        <!--<remember-me key="uniqueAndSecret" token-validity-seconds="1209600" remember-me-parameter="remember-me"/>-->
         <logout logout-success-url="/login?logout"/>
         <access-denied-handler error-page="/403"/>
     </http>
@@ -31,7 +31,6 @@
             <password-encoder ref="encoder"/>
         </authentication-provider>
     </authentication-manager>
-
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>
