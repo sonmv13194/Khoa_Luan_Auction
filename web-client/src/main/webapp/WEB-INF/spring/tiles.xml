@@ -22,7 +22,7 @@
 		<put-attribute name="title" value="Shopping Cart Page" />
 		<put-attribute name="body" value="/resource/view/user/cart.jsp" />
 	</definition>
-	<definition name="loginPage" extends="definition">
+	<definition name="signinPage" extends="definition">
 		<put-attribute name="title" value="Login Page" />
 		<put-attribute name="body" value="/resource/view/user/signin.jsp" />
 	</definition>

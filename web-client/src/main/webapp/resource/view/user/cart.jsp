@@ -1,5 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<%--<script type="text/javascript">
+    function incrementValue() {
+        var value = parseInt(document.getElementById('quantity').value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value < 10) {
+            value++;
+            document.getElementById('quantity').value = value;
+        }
+    }
+    function decrementValue() {
+        var value = parseInt(document.getElementById('quantity').value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value > 1) {
+            value--;
+            document.getElementById('quantity').value = value;
+        }
+
+    }
+</script>--%>
 <div class="breadcrumb">
     <div class="container">
         <div class="breadcrumb-inner">
@@ -17,80 +36,88 @@
             <div class="shopping-cart">
                 <div class="shopping-cart-table ">
                     <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th class="cart-romove item">Remove</th>
-                                <th class="cart-description item">Image</th>
-                                <th class="cart-product-name item">Product Name</th>
-                                <th class="cart-qty item">Quantity</th>
-                                <th class="cart-sub-total item">Price</th>
-                                <th class="cart-total last-item">Total</th>
-                            </tr>
-                            </thead><!-- /thead -->
-                            <tfoot>
-                            <tr>
-                                <td colspan="7">
-                                    <div class="shopping-cart-btn">
-							<span class="">
-								<a href="/" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
-                                <c:url value="//cart/update" var="logoutUrl"/>
-                                <form id="updateCart" action="${updateCartUrl}" method="post">
-                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                </form>
-								<a href="javascript:document.getElementById('updateCart').submit()" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
-							</span>
-                                    </div><!-- /.shopping-cart-btn -->
-                                </td>
-                            </tr>
-                            </tfoot>
-                            <tbody>
-                            <c:forEach var="listCart" items="${sessionScope.cartSession}">
+                        <form action="${contextPath }/cart/update" method="POST">
+                            <table class="table" id="shopping-cart-table">
+                                <thead>
                                 <tr>
-                                    <td class="romove-item"><a href="${contextPath }/cart/remove?product_id=${listCart.productDetail.id}" title="cancel" class="icon"><i
-                                            class="fa fa-trash-o"></i></a></td>
-                                    <td class="cart-image">
-                                        <a class="entry-thumbnail" href="detail.html">
-                                            <img src="${contextPath }/resource/themes/images/ladies/${listCart.productDetail.productImages.get(0).url}" alt="">
-                                        </a>
-                                    </td>
-                                    <td class="cart-product-name-info">
-                                        <h4 class='cart-product-description'><a href="detail.html">${listCart.productDetail.productDetailCode}</a>
-                                        </h4>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <div class="rating rateit-small"></div>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="reviews">
-                                                    (06 Reviews)
-                                                </div>
-                                            </div>
-                                        </div><!-- /.row -->
-                                        <div class="cart-product-info">
-                                            <span class="product-color">COLOR:<span>Blue</span></span>
-                                        </div>
-                                    </td>
-                                    <td class="cart-product-quantity">
-                                        <div class="quant-input" id = "quantity">
-                                            <div class="arrows">
-                                                <div class="arrow plus gradient"><span class="ir"><i
-                                                        class="icon fa fa-sort-asc"></i></span></div>
-                                                <div class="arrow minus gradient"><span class="ir"><i
-                                                        class="icon fa fa-sort-desc"></i></span></div>
-                                            </div>
-                                            <input type="text" name="quantity" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="cart-product-sub-total"><span class="cart-sub-total-price">${listCart.productDetail.productDetailPrice}</span>
-                                    </td>
-                                    <td class="cart-product-grand-total"><span
-                                            class="cart-grand-total-price">${listCart.productDetail.productDetailPrice * listCart.quantity}</span>
+                                    <th class="cart-romove item">Remove</th>
+                                    <th class="cart-description item">Image</th>
+                                    <th class="cart-product-name item">Product Name</th>
+                                    <th class="cart-qty item">Quantity</th>
+                                    <th class="cart-sub-total item">Price</th>
+                                    <th class="cart-total last-item">Total</th>
+                                </tr>
+                                </thead><!-- /thead -->
+                                <tfoot>
+                                <tr>
+                                    <td colspan="7">
+                                        <div class="shopping-cart-btn">
+							    <span class="">
+								    <a href="/" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
+								    <input type="submit" value="Update shopping cart"
+                                        class="btn btn-upper btn-primary pull-right outer-right-xs"/>
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							    </span>
+                                        </div><!-- /.shopping-cart-btn -->
                                     </td>
                                 </tr>
-                            </c:forEach>
-                            </tbody><!-- /tbody -->
-                        </table><!-- /table -->
+                                </tfoot>
+                                <tbody>
+                                <c:forEach var="listCart" items="${sessionScope.cartSession}">
+                                    <tr>
+                                        <td class="romove-item"><a
+                                                href="${contextPath }/cart/remove?product_id=${listCart.productDetail.id}"
+                                                title="cancel" class="icon"><i
+                                                class="fa fa-trash-o"></i></a></td>
+                                        <td class="cart-image">
+                                            <a class="entry-thumbnail" href="detail.html">
+                                                <img src="${contextPath }/resource/images/${listCart.productDetail.productImages.get(0).url}"
+                                                     alt="">
+                                            </a>
+                                        </td>
+                                        <td class="cart-product-name-info">
+                                            <h4 class='cart-product-description'><a
+                                                    href="detail.html">${listCart.productDetail.productDetailCode}</a>
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="rating rateit-small"></div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="reviews">
+                                                        (06 Reviews)
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.row -->
+                                            <div class="cart-product-info">
+                                                <span class="product-color">COLOR:<span>Blue</span></span>
+                                            </div>
+                                        </td>
+                                        <td class="cart-product-quantity">
+                                            <div class="quant-input">
+                                                <div class="arrows">
+                                                    <div class="arrow plus gradient"><span class="ir"><i
+                                                            class="icon fa fa-sort-asc"
+                                                    ></i></span></div>
+                                                    <div class="arrow minus gradient"><span class="ir"><i
+                                                            class="icon fa fa-sort-desc"
+                                                    ></i></span></div>
+                                                </div>
+                                                <input type="text" id="quantity" aria-valuemax="10" aria-valuemin="1" maxlength="2" name="quantity"
+                                                       value="${listCart.quantity}">
+                                            </div>
+                                        </td>
+                                        <td class="cart-product-sub-total"><span
+                                                class="cart-sub-total-price">${listCart.productDetail.productDetailPrice}</span>
+                                        </td>
+                                        <td class="cart-product-grand-total"><span
+                                                class="cart-grand-total-price">${listCart.productDetail.productDetailPrice * listCart.quantity}</span>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody><!-- /tbody -->
+                            </table><!-- /table -->
+                        </form>
                     </div>
                 </div><!-- /.shopping-cart-table -->
                 <div class="col-md-4 col-sm-12 estimate-ship-tax">

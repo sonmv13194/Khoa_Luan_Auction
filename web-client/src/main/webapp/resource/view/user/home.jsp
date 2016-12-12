@@ -1401,7 +1401,7 @@
                                             <div class="tag new"><span>new</span></div>
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a></h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             <div class="product-price">
