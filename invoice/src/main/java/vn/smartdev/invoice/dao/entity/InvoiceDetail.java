@@ -3,6 +3,7 @@ package vn.smartdev.invoice.dao.entity;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 import vn.smartdev.product.dao.entity.ProductDetail;
 
+
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.UUID;
