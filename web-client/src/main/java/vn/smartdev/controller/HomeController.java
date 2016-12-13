@@ -12,7 +12,7 @@ import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductServices;
-import vn.smartdev.product.manager.SendEmailSevices;
+//import vn.smartdev.product.manager.SendEmailSevices;
 import vn.smartdev.user.manager.UserManager;
 
 import java.text.DateFormat;
@@ -35,8 +35,8 @@ public class HomeController {
 	private ProductServices productServices;
 	@Autowired
 	private ProductDetailServices productDetailServices;
-	@Autowired
-	private SendEmailSevices sendEmailSevices;
+//	@Autowired
+//	private SendEmailSevices SendEmailSevices;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	

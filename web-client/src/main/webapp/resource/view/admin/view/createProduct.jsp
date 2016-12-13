@@ -70,7 +70,7 @@
                                     <div class="form-group ">
                                         <label for="password" class="control-label col-lg-2">Product Image</label>
                                         <div class="col-lg-6">
-                                            <form:input id="password122" type="file" required="required" path="file"/>
+                                            <form:input id="password" type="file" name ="file" required="required" path="file"/>
                                             <span style="color:red">${message}</span>
                                         </div>
                                     </div>
