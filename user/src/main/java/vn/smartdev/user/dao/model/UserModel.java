@@ -1,6 +1,5 @@
 package vn.smartdev.user.dao.model;
 
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
