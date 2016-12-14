@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserDetailsService {
 		else {
 			Account acc = new Account(userEntity);
 			logger.info("========== User Info: ", acc.toString());
-			if (attemptsManager.isTimeUp(attemptsManager.geAttemptsEntity(username).getLastModified()))
+			if (attemptsManager != null && attemptsManager.isTimeUp(attemptsManager.geAttemptsEntity(username).getLastModified()))
 				attemptsManager.resetAttempts(username);
 			return acc;
 		}

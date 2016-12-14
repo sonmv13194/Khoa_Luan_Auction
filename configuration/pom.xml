@@ -73,7 +73,7 @@
             </activation>
             <build>
                 <filters>
-                    <filter>profiles/environment.database.properties</filter>
+                    <filter>profiles/environment.dev.properties</filter>
                 </filters>
                 <resources>
                     <resource>
@@ -94,7 +94,7 @@
             </activation>
             <build>
                 <filters>
-                    <filter>profiles/environment.dev.properties</filter>
+                    <filter>profiles/environment.database.properties</filter>
                 </filters>
                 <resources>
                     <resource>
