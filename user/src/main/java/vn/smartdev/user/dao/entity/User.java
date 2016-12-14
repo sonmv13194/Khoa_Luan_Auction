@@ -1,11 +1,9 @@
 package vn.smartdev.user.dao.entity;
 
-import org.springframework.data.jpa.domain.AbstractAuditable;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
-import vn.smartdev.user.dao.entity.Role;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -21,10 +19,11 @@ import java.util.UUID;
 public class User extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+
 	private String address;
 
-	//@Temporal(TemporalType.DATE)
-	private String birthday;
+	@Temporal(TemporalType.DATE)
+	private  Date birthday;
 
 
 	private String email;
@@ -36,6 +35,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	public User(String username) {
 		this.username = username;
 	}
+
 
 	private String username;
 
@@ -78,7 +78,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 		setId(UUID.randomUUID().toString());
 	}
 
-	public User(String address, String birthday, String email, String password, String phone,
+	public User(String address, Date birthday, String email, String password, String phone,
 				String username) {
 		this.address = address;
 		this.birthday = birthday;
@@ -89,11 +89,11 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 		setId(UUID.randomUUID().toString());
 	}
 
-	public String getBirthday() {
+	public Date getBirthday() {
 		return this.birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

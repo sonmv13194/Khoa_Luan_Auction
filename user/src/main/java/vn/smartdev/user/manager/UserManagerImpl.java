@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.dao.model.UserModel;
 import vn.smartdev.user.dao.repository.RoleRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
@@ -73,8 +74,9 @@ public class UserManagerImpl implements UserManager {
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
-    public void save(User user){
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    public void save(UserModel userModel) {
+        User user = new User();
+        user.setPassword(bCryptPasswordEncoder.encode(userModel.getPassword()));
 
         Role role = roleRepository.findByRoleName("ROLE_USER");
         List<Role> roles = new ArrayList<>();
@@ -86,6 +88,7 @@ public class UserManagerImpl implements UserManager {
         user.setCredentialsNonExpired(true);
 
         userRepository.save(user);
+
     }
 
     @Override
