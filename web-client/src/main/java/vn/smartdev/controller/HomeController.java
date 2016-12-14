@@ -1,8 +1,13 @@
 package vn.smartdev.controller;
 
+import com.sun.imageio.plugins.jpeg.JPEG;
+import javassist.bytecode.stackmap.TypeData;
+import org.cryptacular.io.ClassPathResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +20,13 @@ import vn.smartdev.product.manager.ProductServices;
 //import vn.smartdev.product.manager.SendEmailSevices;
 import vn.smartdev.user.manager.UserManager;
 
+import javax.annotation.Resource;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 
 /**
  * Handles requests for the application home page.
@@ -60,12 +68,19 @@ public class HomeController {
 		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
 
 		List<ProductDetail> list8ProductDetail = productDetailServices.findTop8ByOrderByCreateByAsc();
+		Properties prop = new Properties();
+		try {
 
+			prop.load(getClass().getClassLoader().getResourceAsStream("images.properties"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		model.addAttribute("listProductDetailNew",listProductDetailNew);
 		model.addAttribute("listProductDetailExpenSivePrice",listProductDetailExpenSivePrice);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
 		model.addAttribute("list8ProductDetail",list8ProductDetail);
-
+		model.addAttribute("locationImages",prop.getProperty("local.images.directory"));
 
 		return "homePage";
 	}

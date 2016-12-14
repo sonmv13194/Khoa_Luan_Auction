@@ -69,7 +69,7 @@ public class ProductImageServicesImpl implements ProductImageServices{
                 byte bytes[] = file.getBytes();
                 //test resource localhost
                 String name = file.getOriginalFilename();
-                String demo = "D:\\SmartDev\\Intern\\java-training-shop\\web-client\\src\\main\\webapp\\resource\\images\\"+name;
+                String demo = "D:\\SmartDev\\Intern\\java-training-shop\\web-client\\src\\main\\webapp\\images\\"+name;
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
                 stream.write(bytes);
                 stream.flush();
