@@ -166,5 +166,28 @@
                 </resources>
             </build>
         </profile>
+
+        <!-- Images -->
+        <profile>
+            <id>uploadImages</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>profiles/environment.database.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                        <includes>
+                            <include>images.properties</include>
+                            <include>**/*.xml</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
     </profiles>
 </project>
