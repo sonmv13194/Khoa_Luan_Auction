@@ -77,16 +77,19 @@ public class UserManagerImpl implements UserManager {
     public void save(UserModel userModel) {
         User user = new User();
         user.setPassword(bCryptPasswordEncoder.encode(userModel.getPassword()));
-
         Role role = roleRepository.findByRoleName("ROLE_USER");
         List<Role> roles = new ArrayList<>();
+        user.setUsername(userModel.getUsername());
+        user.setAddress(userModel.getAddress());
+        user.setBirthday(userModel.getBirthday());
+        user.setPhone(userModel.getPhone());
+        user.setEmail(userModel.getEmail());
         roles.add(role);
         user.setRoles(roles);
         user.setEnabled(false);
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);
-
         userRepository.save(user);
 
     }
@@ -137,4 +140,14 @@ public class UserManagerImpl implements UserManager {
         user.setPassword(newPassword);
         return userRepository.save(user);
     }*/
+    public static Date convertStringToDate(String date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        Date result = null;
+        try {
+            result = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

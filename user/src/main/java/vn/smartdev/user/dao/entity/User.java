@@ -49,15 +49,15 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
 	private boolean credentialsNonExpired;
 
 	//bi-directional many-to-many association to Role
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, targetEntity = Role.class)
 	@JoinTable(
 			name="role_user"
 			, joinColumns={
-			@JoinColumn(name="user_id")
+			@JoinColumn(name="user_id", referencedColumnName = "id")
 	}
 
 			, inverseJoinColumns={
-			@JoinColumn(name="role_id")
+			@JoinColumn(name="role_id", referencedColumnName = "id")
 	}
 	)
 	private List<Role> roles;

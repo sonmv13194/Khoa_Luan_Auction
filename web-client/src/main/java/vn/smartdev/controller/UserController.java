@@ -15,7 +15,10 @@ import vn.smartdev.user.exception.UserNotFoundException;
 import vn.smartdev.user.manager.RoleManager;
 import vn.smartdev.user.manager.UserManager;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,7 +54,6 @@ public class UserController {
         } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
-
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
@@ -61,10 +63,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
-    public String editUserPost(@ModelAttribute("user") User user, Model model) throws ParseException {
-
+    public String editUserPost(@ModelAttribute("user") User user, Model model, HttpServletRequest request) throws ParseException {
+        Date birthday = convertStringToDate(request.getParameter("birthday"));
+        user.setBirthday(birthday);
         userManager.saveForEdit(user);
-
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
@@ -82,6 +84,17 @@ public class UserController {
             e.printStackTrace();
         }
         return "redirect:viewUser";
+    }
+
+    public static Date convertStringToDate(String date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        Date result = null;
+        try {
+            result = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
 

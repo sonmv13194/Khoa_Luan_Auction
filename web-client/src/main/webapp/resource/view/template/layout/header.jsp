@@ -11,20 +11,22 @@
                     <ul class="list-unstyled">
                         <li><a href="${contextPath}/cart"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="${contextPath}/checkout"><i class="icon fa fa-check"></i>Checkout</a></li>
-                        <c:if test="${pageContext.request.userPrincipal.name == null}">
-                            <li><a href="${contextPath }/login">Login/Register</a></li>
-                        </c:if>
-                        <c:url value="/logout" var="logoutUrl"/>
-                        <form id="logout" action="${logoutUrl}" method="post">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        </form>
-                        <c:if test="${pageContext.request.userPrincipal.name != null}">
-                            <span>Hello, ${pageContext.request.userPrincipal.name}</span>
-                            <a href="javascript:document.getElementById('logout').submit()">Logout</a>
-                            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                <li><a href="${contextPath }/admin">Admin Page</a></li>
-                            </sec:authorize>
-                        </c:if>
+                        <li>
+                            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                <li><a href="${contextPath }/login">Login/Register</a></li>
+                            </c:if>
+                            <c:url value="/logout" var="logoutUrl"/>
+                            <form id="logout" action="${logoutUrl}" method="post">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form>
+                            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <span>Hello, ${pageContext.request.userPrincipal.name}</span>
+                                <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+                                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                    <li><a href="${contextPath }/admin">Admin Page</a></li>
+                                </sec:authorize>
+                            </c:if>
+                        </li>
                     </ul>
                 </div><!-- /.cnt-account -->
 
@@ -112,69 +114,61 @@
                 <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-                    <div class="dropdown dropdown-cart">
-                        <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
-                            <div class="items-cart-inner">
-                                <div class="basket">
-                                    <i class="glyphicon glyphicon-shopping-cart"></i>
-                                </div>
-                                <div class="basket-item-count"><span class="count">2</span></div>
-                                <div class="total-price-basket">
-                                    <span class="lbl">cart -</span>
-                                    <span class="total-price">
-						<span class="sign">$</span><span class="value">600.00</span>
-					</span>
-                                </div>
-
-
-                            </div>
-                        </a>
+                    <div class="dropdown dropdown-cart"><a href="#" class="dropdown-toggle lnk-cart"
+                                                           data-toggle="dropdown">
+                        <div class="items-cart-inner">
+                            <div class="basket"><i class="glyphicon glyphicon-shopping-cart"></i></div>
+                            <div class="basket-item-count"><span class="count">${countItem}</span></div>
+                            <div class="total-price-basket"><span class="lbl">cart -</span> <span
+                                    class="total-price"> <span class="sign">$</span><span
+                                    class="value">${sessionScope.total}</span> </span></div>
+                        </div>
+                    </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <div class="cart-item product-summary">
-                                    <div class="row">
-                                        <div class="col-xs-4">
-                                            <div class="image">
-                                                <a href="detail.html"><img
-                                                        src="${contextPath}/resource/view/template/assets/images/cart.jpg"
-                                                        alt=""></a>
+                                <c:forEach var="cart" items="${sessionScope.cartSession}">
+                                    <div class="cart-item product-summary">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <div class="image"><a href="detail.html"><img
+                                                        src="/uploaded-image/${cart.productDetail.productImages.get(0).url}" alt=""></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-xs-7">
-
-                                            <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
-                                            <div class="price">$600.00</div>
-                                        </div>
-                                        <div class="col-xs-1 action">
-                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                            <div class="col-xs-7">
+                                                <h3 class="name"><a
+                                                        href="index.php?page-detail">${cart.productDetail.product.productName} </a>
+                                                </h3>
+                                                <div class="price">$ ${cart.productDetail.productDetailPrice }</div>
+                                                <p>(x ${cart.quantity})</p>
+                                            </div>
+                                            <div class="col-xs-1 action"><a
+                                                    href='<c:url value="${contextPath }/cart/removeCartInHome"><c:param name="product_id" value="${cart.productDetail.id}" /></c:url>'><i
+                                                    class="fa fa-trash"></i></a></div>
                                         </div>
                                     </div>
-                                </div><!-- /.cart-item -->
+                                    <!-- /.cart-item -->
+                                </c:forEach>
                                 <div class="clearfix"></div>
                                 <hr>
-
                                 <div class="clearfix cart-total">
-                                    <div class="pull-right">
-
-                                        <span class="text">Sub Total :</span><span class='price'>$600.00</span>
-
-                                    </div>
+                                    <div class="pull-right"><span class="text">Sub Total :</span><span
+                                            class='price'>$ ${sessionScope.total}</span></div>
                                     <div class="clearfix"></div>
-
-                                    <a href="checkout.html"
-                                       class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
-                                </div><!-- /.cart-total-->
-
+                                    <a href="${contextPath}/checkout"
+                                       class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a></div>
+                                <!-- /.cart-total-->
 
                             </li>
-                        </ul><!-- /.dropdown-menu-->
-                    </div><!-- /.dropdown-cart -->
+                        </ul>
+                        <!-- /.dropdown-menu-->
+                    </div>
+                </div>
 
-                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
-                </div><!-- /.top-cart-row -->
-            </div><!-- /.row -->
+                <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
+            </div><!-- /.top-cart-row -->
+        </div><!-- /.row -->
 
-        </div><!-- /.container -->
+    </div><!-- /.container -->
 
     </div><!-- /.main-header -->
 
