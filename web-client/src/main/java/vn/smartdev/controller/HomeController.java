@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import vn.smartdev.category.dao.entity.Category;
+import vn.smartdev.category.manager.CategoryServices;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.manager.ProductDetailServices;
@@ -35,7 +37,8 @@ public class HomeController {
 	private ProductServices productServices;
 	@Autowired
 	private ProductDetailServices productDetailServices;
-//	@Autowired
+	@Autowired
+	private CategoryServices categoryServices;
 //	private SendEmailSevices SendEmailSevices;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -60,15 +63,19 @@ public class HomeController {
 		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
 
 		List<ProductDetail> list8ProductDetail = productDetailServices.findTop8ByOrderByCreateByAsc();
+		List<Category> listCategory = categoryServices.getListCategory();
+
 
 		model.addAttribute("listProductDetailNew",listProductDetailNew);
 		model.addAttribute("listProductDetailExpenSivePrice",listProductDetailExpenSivePrice);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
 		model.addAttribute("list8ProductDetail",list8ProductDetail);
-
-
+		model.addAttribute("listCategory", listCategory);
 		return "homePage";
 	}
+
+
+
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
 		logger.info("Welcome login! The client locale is {}.", locale);
