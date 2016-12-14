@@ -18,7 +18,7 @@
                     </span>
                                 </div>
                                 <div class="media-body">
-                                    <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                                    <p>House Vinh Trung Plaza - SmartDev Company</p>
                                 </div>
                             </li>
 
@@ -29,7 +29,7 @@
                     </span>
                                 </div>
                                 <div class="media-body">
-                                    <p>+(888) 123-4567<br>+(888) 456-7890</p>
+                                    <p>0120 591 3463 <br> 093 605 4481</p>
                                 </div>
                             </li>
 
@@ -40,7 +40,7 @@
                     </span>
                                 </div>
                                 <div class="media-body">
-                                    <span><a href="#">flipmart@themesground.com</a></span>
+                                    <span><a href="#">Team-Training@SmartDev.vn</a></span>
                                 </div>
                             </li>
 
