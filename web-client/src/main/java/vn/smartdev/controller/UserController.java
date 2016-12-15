@@ -63,6 +63,7 @@ public class UserController {
         return "viewUserPage";
     }
 
+
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String editUserPost(@ModelAttribute("user") User user, Model model) throws ParseException {
         userManager.saveForEdit(user);

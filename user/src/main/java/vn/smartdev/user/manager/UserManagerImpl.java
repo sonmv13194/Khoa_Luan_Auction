@@ -94,6 +94,7 @@ public class UserManagerImpl implements UserManager {
 
     }
 
+
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public void saveForEdit(User user) {

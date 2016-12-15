@@ -92,6 +92,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
         return birthday;
     }
 
+
     public void setBirthday(java.sql.Date birthday) {
         this.birthday = birthday;
     }

@@ -64,6 +64,13 @@
                                 <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
                                       commandName="user" action="/admin/editUser">
                                     <div class="form-group ">
+                                        <label for="username" class="control-label col-lg-2"></label>
+                                        <div class="col-lg-10" >
+                                            <input class="form-control" id="id" name="id" type="hidden"
+                                                   value="${user.id}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Username</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="username" name="username" type="text"
@@ -90,7 +97,7 @@
                                     <div class="form-group ">
                                         <label for="birthday" class="control-label col-lg-2">Birthday</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="birthday" name="birthday" type="date"
+                                            <input class="form-control" id="birthday" name="birthday" type = "date"
                                                    value="${user.birthday}"/>
                                         </div>
                                     </div>
@@ -136,4 +143,5 @@
             <!-- page end-->
         </section>
     </section>
+
 </section>

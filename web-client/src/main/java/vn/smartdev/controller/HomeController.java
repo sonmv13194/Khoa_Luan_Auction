@@ -42,6 +42,7 @@ public class HomeController {
 	private CategoryServices categoryServices;
 //	private SendEmailSevices SendEmailSevices;
 
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
