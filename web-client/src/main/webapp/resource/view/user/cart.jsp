@@ -63,21 +63,21 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <c:forEach var="listCart" items="${sessionScope.cartSession}">
+                                <c:forEach var="cart" items="${sessionScope.cartSession}">
                                     <tr>
                                         <td class="romove-item"><a
-                                                href="${contextPath }/cart/remove?product_id=${listCart.productDetail.id}"
+                                                href="${contextPath }/cart/remove?product_id=${cart.productDetail.id}"
                                                 title="cancel" class="icon"><i
                                                 class="fa fa-trash-o"></i></a></td>
                                         <td class="cart-image">
                                             <a class="entry-thumbnail" href="detail.html">
-                                                <img src="${contextPath }/resource/images/${listCart.productDetail.productImages.get(0).url}"
+                                                <img src="${contextPath }/resource/images/${cart.productDetail.productImages.get(0).url}"
                                                      alt="">
                                             </a>
                                         </td>
                                         <td class="cart-product-name-info">
                                             <h4 class='cart-product-description'><a
-                                                    href="detail.html">${listCart.productDetail.productDetailCode}</a>
+                                                    href="detail.html">${cart.productDetail.productDetailCode}</a>
                                             </h4>
                                             <div class="row">
                                                 <div class="col-sm-4">
@@ -104,14 +104,14 @@
                                                     ></i></span></div>
                                                 </div>
                                                 <input type="text" id="quantity" aria-valuemax="10" aria-valuemin="1" maxlength="2" name="quantity"
-                                                       value="${listCart.quantity}">
+                                                       value="${cart.quantity}">
                                             </div>
                                         </td>
                                         <td class="cart-product-sub-total"><span
-                                                class="cart-sub-total-price">${listCart.productDetail.productDetailPrice}</span>
+                                                class="cart-sub-total-price">${cart.productDetail.productDetailPrice}</span>
                                         </td>
                                         <td class="cart-product-grand-total"><span
-                                                class="cart-grand-total-price">${listCart.productDetail.productDetailPrice * listCart.quantity}</span>
+                                                class="cart-grand-total-price">${cart.productDetail.productDetailPrice * listCart.quantity}</span>
                                         </td>
                                     </tr>
                                 </c:forEach>

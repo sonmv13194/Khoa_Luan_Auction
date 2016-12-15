@@ -62,6 +62,8 @@ public class CheckoutController {
 //					email, phone, "1", username, firstName, lastName, address, city, null);
 			invoiceService.save(invoiceModel,carts);
 			session.removeAttribute("cartSession");
+			session.removeAttribute("countItem");
+			session.removeAttribute("total");
 		} catch (NullPointerException e) {
 			// TODO: handle exception
 			return "cartPage";

@@ -17,6 +17,7 @@ import vn.smartdev.product.manager.ProductServices;
 //import vn.smartdev.product.manager.SendEmailSevices;
 import vn.smartdev.user.manager.UserManager;
 
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
@@ -47,7 +48,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, HttpSession session) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -71,6 +72,10 @@ public class HomeController {
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
 		model.addAttribute("list8ProductDetail",list8ProductDetail);
 		model.addAttribute("listCategory", listCategory);
+		if(session.getAttribute("cartSession") == null){
+			session.setAttribute("countItem", 0);
+			session.setAttribute("total", 0);
+		}
 		return "homePage";
 	}
 
