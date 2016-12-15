@@ -43,6 +43,7 @@ public class UserController {
         List<Role> roles = roleManager.getAll();
         model.addAttribute("listRole", roles);
         return "viewUserPage";
+
     }
 
     @RequestMapping(value = "/editUser", method = RequestMethod.GET)
@@ -63,9 +64,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
-    public String editUserPost(@ModelAttribute("user") User user, Model model, HttpServletRequest request) throws ParseException {
-        Date birthday = convertStringToDate(request.getParameter("birthday"));
-        user.setBirthday(birthday);
+    public String editUserPost(@ModelAttribute("user") User user, Model model) throws ParseException {
         userManager.saveForEdit(user);
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
@@ -74,7 +73,6 @@ public class UserController {
         model.addAttribute("listRole", roles);
         return "viewUserPage";
     }
-
 
     @RequestMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam("id") String id, Model model){

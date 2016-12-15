@@ -1,6 +1,8 @@
 package vn.smartdev.user.dao.model;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.io.Serializable;
@@ -16,9 +18,17 @@ public class UserModel implements Serializable {
 
     private String address;
 
-    @Temporal(TemporalType.DATE)
-    private Date birthday;
+    //@Temporal(TemporalType.DATE)
+    //@DateTimeFormat(pattern = "MM-dd-yyyy")
+    private java.sql.Date birthday;
 
+    public java.sql.Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(java.sql.Date birthday) {
+        this.birthday = birthday;
+    }
 
     private String email;
 
@@ -34,13 +44,7 @@ public class UserModel implements Serializable {
         this.address = address;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
 
     public String getEmail() {
         return email;

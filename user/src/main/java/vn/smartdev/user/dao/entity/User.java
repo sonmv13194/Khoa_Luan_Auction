@@ -11,161 +11,160 @@ import java.util.UUID;
 
 /**
  * The persistent class for the user database table.
- * 
  */
 @Entity
 @Table(name = "user")
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 public class User extends AbstractAuditableEntity<String> implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
 
-	private String address;
+    private String address;
 
-	@Temporal(TemporalType.DATE)
-	private  Date birthday;
-
-
-	private String email;
-
-	private String password;
-
-	private String phone;
-
-	public User(String username) {
-		this.username = username;
-	}
+    //@Temporal(TemporalType.DATE)
+    private java.sql.Date birthday;
 
 
-	private String username;
+    private String email;
 
-	@Column(name = "enabled")
-	private boolean enabled;
-	@Column(name = "account_non_expired")
-	private boolean accountNonExpired;
-	@Column(name = "account_non_locked")
-	private boolean accountNonLocked;
-	@Column(name = "credentials_non_expired")
-	private boolean credentialsNonExpired;
+    private String password;
 
-	//bi-directional many-to-many association to Role
-	@ManyToMany(fetch = FetchType.EAGER, targetEntity = Role.class)
-	@JoinTable(
-			name="role_user"
-			, joinColumns={
-			@JoinColumn(name="user_id", referencedColumnName = "id")
-	}
+    private String phone;
 
-			, inverseJoinColumns={
-			@JoinColumn(name="role_id", referencedColumnName = "id")
-	}
-	)
-	private List<Role> roles;
+    public User(String username) {
+        this.username = username;
+    }
 
-	public String getAddress() {
-		return this.address;
-	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    private String username;
 
-	public User() {
-		setId(UUID.randomUUID().toString());
-	}
+    @Column(name = "enabled")
+    private boolean enabled;
+    @Column(name = "account_non_expired")
+    private boolean accountNonExpired;
+    @Column(name = "account_non_locked")
+    private boolean accountNonLocked;
+    @Column(name = "credentials_non_expired")
+    private boolean credentialsNonExpired;
 
-	public User(String address, Date birthday, String email, String password, String phone, String huy, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, Role admin) {
-		setId(UUID.randomUUID().toString());
-	}
+    //bi-directional many-to-many association to Role
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Role.class)
+    @JoinTable(
+            name = "role_user"
+            , joinColumns = {
+            @JoinColumn(name = "user_id", referencedColumnName = "id")
+    }
 
-	public User(String address, Date birthday, String email, String password, String phone,
-				String username) {
-		this.address = address;
-		this.birthday = birthday;
-		this.email = email;
-		this.password = password;
-		this.phone = phone;
-		this.username = username;
-		setId(UUID.randomUUID().toString());
-	}
+            , inverseJoinColumns = {
+            @JoinColumn(name = "role_id", referencedColumnName = "id")
+    }
+    )
+    private List<Role> roles;
 
-	public Date getBirthday() {
-		return this.birthday;
-	}
+    public String getAddress() {
+        return this.address;
+    }
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getEmail() {
-		return this.email;
-	}
+    public User() {
+        setId(UUID.randomUUID().toString());
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public User(String address, Date birthday, String email, String password, String phone, String huy, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, Role admin) {
+        setId(UUID.randomUUID().toString());
+    }
 
-	public String getPassword() {
-		return this.password;
-	}
+    public User(String address, Date birthday, String email, String password, String phone,
+                String username) {
+        this.address = address;
+        this.birthday = (java.sql.Date) birthday;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.username = username;
+        setId(UUID.randomUUID().toString());
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public java.sql.Date getBirthday() {
+        return birthday;
+    }
 
-	public String getPhone() {
-		return this.phone;
-	}
+    public void setBirthday(java.sql.Date birthday) {
+        this.birthday = birthday;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public String getEmail() {
+        return this.email;
+    }
 
-	public String getUsername() {
-		return this.username;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public String getPassword() {
+        return this.password;
+    }
 
-	public List<Role> getRoles() {
-		return this.roles;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
+    public String getPhone() {
+        return this.phone;
+    }
 
-	public void setAccountNonExpired(boolean accountNonExpired) {
-		this.accountNonExpired = accountNonExpired;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+    public String getUsername() {
+        return this.username;
+    }
 
-	public void setAccountNonLocked(boolean accountNonLocked) {
-		this.accountNonLocked = accountNonLocked;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-		this.credentialsNonExpired = credentialsNonExpired;
-	}
+    public List<Role> getRoles() {
+        return this.roles;
+    }
 
-	public boolean isAccountNonExpired() {
-		return accountNonExpired;
-	}
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
-	public boolean isAccountNonLocked() {
-		return accountNonLocked;
-	}
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
 
-	public boolean isCredentialsNonExpired() {
-		return credentialsNonExpired;
-	}
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
 }

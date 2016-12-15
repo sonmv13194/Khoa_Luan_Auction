@@ -81,9 +81,9 @@ public class UserManagerImpl implements UserManager {
         List<Role> roles = new ArrayList<>();
         user.setUsername(userModel.getUsername());
         user.setAddress(userModel.getAddress());
-        user.setBirthday(userModel.getBirthday());
         user.setPhone(userModel.getPhone());
         user.setEmail(userModel.getEmail());
+        user.setBirthday(userModel.getBirthday());
         roles.add(role);
         user.setRoles(roles);
         user.setEnabled(false);
@@ -102,15 +102,10 @@ public class UserManagerImpl implements UserManager {
        userCurrent.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
        userCurrent.setEmail(user.getEmail());
        userCurrent.setPhone(user.getPhone());
+
        userCurrent.setBirthday(user.getBirthday());
        userCurrent.setAddress(user.getAddress());
-//        Role role = roleRepository.findByRoleName(user.getRoles().toString());
-//        List<Role> roles = new ArrayList<>();
-//        roles.add(role);
-//       userCurrent.setRoles(roles);
-
-
-        userRepository.save(userCurrent);
+       userRepository.save(userCurrent);
     }
 
     @Override
@@ -141,7 +136,7 @@ public class UserManagerImpl implements UserManager {
         return userRepository.save(user);
     }*/
     public static Date convertStringToDate(String date){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy");
         Date result = null;
         try {
             result = dateFormat.parse(date);
