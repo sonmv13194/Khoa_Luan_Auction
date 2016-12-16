@@ -15,7 +15,10 @@ import vn.smartdev.user.exception.UserNotFoundException;
 import vn.smartdev.user.manager.RoleManager;
 import vn.smartdev.user.manager.UserManager;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,6 +43,7 @@ public class UserController {
         List<Role> roles = roleManager.getAll();
         model.addAttribute("listRole", roles);
         return "viewUserPage";
+
     }
 
     @RequestMapping(value = "/editUser", method = RequestMethod.GET)
@@ -51,7 +55,6 @@ public class UserController {
         } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
-
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
@@ -59,12 +62,11 @@ public class UserController {
         model.addAttribute("listRole", roles);
         return "viewUserPage";
     }
+
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String editUserPost(@ModelAttribute("user") User user, Model model) throws ParseException {
-
         userManager.saveForEdit(user);
-
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
@@ -72,7 +74,6 @@ public class UserController {
         model.addAttribute("listRole", roles);
         return "viewUserPage";
     }
-
 
     @RequestMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam("id") String id, Model model){
@@ -82,6 +83,17 @@ public class UserController {
             e.printStackTrace();
         }
         return "redirect:viewUser";
+    }
+
+    public static Date convertStringToDate(String date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        Date result = null;
+        try {
+            result = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
 

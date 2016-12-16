@@ -1,5 +1,6 @@
 package vn.smartdev.product.dao.model;
 
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /**
@@ -15,7 +16,7 @@ public class ProductModel {
     private int quantity;
     private String supplyer;
 
-    private CommonsMultipartFile file;
+    private MultipartFile file;
     public ProductModel() {
     }
 
@@ -67,11 +68,11 @@ public class ProductModel {
         this.supplyer = supplyer;
     }
 
-    public CommonsMultipartFile getFile() {
+    public MultipartFile getFile() {
         return file;
     }
 
-    public void setFile(CommonsMultipartFile file) {
+    public void setFile(MultipartFile file) {
         this.file = file;
     }
     public String getProductName() {

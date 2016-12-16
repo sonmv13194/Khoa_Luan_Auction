@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.dao.model.UserModel;
 import vn.smartdev.user.dao.repository.RoleRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
@@ -73,20 +74,26 @@ public class UserManagerImpl implements UserManager {
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
-    public void save(User user){
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-
+    public void save(UserModel userModel) {
+        User user = new User();
+        user.setPassword(bCryptPasswordEncoder.encode(userModel.getPassword()));
         Role role = roleRepository.findByRoleName("ROLE_USER");
         List<Role> roles = new ArrayList<>();
+        user.setUsername(userModel.getUsername());
+        user.setAddress(userModel.getAddress());
+        user.setPhone(userModel.getPhone());
+        user.setEmail(userModel.getEmail());
+        user.setBirthday(userModel.getBirthday());
         roles.add(role);
         user.setRoles(roles);
         user.setEnabled(false);
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);
-
         userRepository.save(user);
+
     }
+
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
@@ -96,15 +103,10 @@ public class UserManagerImpl implements UserManager {
        userCurrent.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
        userCurrent.setEmail(user.getEmail());
        userCurrent.setPhone(user.getPhone());
+
        userCurrent.setBirthday(user.getBirthday());
        userCurrent.setAddress(user.getAddress());
-//        Role role = roleRepository.findByRoleName(user.getRoles().toString());
-//        List<Role> roles = new ArrayList<>();
-//        roles.add(role);
-//       userCurrent.setRoles(roles);
-
-
-        userRepository.save(userCurrent);
+       userRepository.save(userCurrent);
     }
 
     @Override
@@ -134,4 +136,14 @@ public class UserManagerImpl implements UserManager {
         user.setPassword(newPassword);
         return userRepository.save(user);
     }*/
+    public static Date convertStringToDate(String date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy");
+        Date result = null;
+        try {
+            result = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

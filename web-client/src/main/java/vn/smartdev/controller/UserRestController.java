@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.dao.model.UserModel;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.exception.UserNotFoundException;
 import vn.smartdev.user.manager.UserManager;
@@ -46,16 +47,16 @@ public class UserRestController {
     }
 
     // -------------------Create a Users------------------
-    @RequestMapping(value = "/user/", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody User user,
-                                           UriComponentsBuilder ucBuilder) throws UserAlreadyExistsException {
-        userManager.save(user);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-
-    }
+//    @RequestMapping(value = "/user/", method = RequestMethod.POST)
+//    public ResponseEntity<Void> createUser(@RequestBody UserModel userModel,
+//                                           UriComponentsBuilder ucBuilder) throws UserAlreadyExistsException {
+//        userManager.save(userModel);
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(userModel.get).toUri());
+//        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+//
+//    }
 
     // -------------------Update a Users------------------
     @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)

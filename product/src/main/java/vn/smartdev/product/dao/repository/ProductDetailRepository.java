@@ -15,5 +15,7 @@ public interface ProductDetailRepository extends JpaRepository<ProductDetail,Str
     public List<ProductDetail> findTop6ByOrderByProductDetailPriceDesc();
     public List<ProductDetail> findTop3ByOrderByProductDetailPriceAsc();
     public List<ProductDetail> findTop8ByOrderByCreateByAsc();
+    public List<ProductDetail> findByOrderByProductDetailPriceAsc();
+    public List<ProductDetail> findByOrderByProductDetailPriceDesc();
 }
 

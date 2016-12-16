@@ -46,7 +46,7 @@
                   <td>Images</td>
                   <td>
                     <c:forEach var="productImages" items="${productDetail.productImages}">
-                      <img src="${contextPath}/resource/images/${productImages.url}" style="width:50px;height:50px">
+                      <img src="/uploaded-image/${productImages.url}" style="width:50px;height:50px">
                     </c:forEach>
                   </td>
                 </tr>

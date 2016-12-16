@@ -32,7 +32,7 @@
                                 <tr class="gradeX">
                                     <td>${product.id}</td>
                                     <td><img
-                                            src="${contextPath}/resource/images/${product.getProductDetails().get(0).getProductImages().get(0).getUrl()}"
+                                            src="/uploaded-image/${product.getProductDetails().get(0).getProductImages().get(0).getUrl()}"
                                             style="width:50px;height:50px"></td>
                                     <td>${product.productName}</td>
                                     <td class="hidden-phone">${product.description}</td>

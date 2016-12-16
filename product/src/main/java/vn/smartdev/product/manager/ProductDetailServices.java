@@ -18,10 +18,14 @@ public interface ProductDetailServices {
     public void saveProductDetail(ProductDetail productDetail);
     public boolean createProductDetail(ProductModel productModel);
     public boolean updateProductDetail(ProductDetailModel productDetailModel);
+    public List<ProductDetail> getListProductDetailByCategory(String categoryId);
 
     //select view
     public List<ProductDetail> findTop6ByOrderByCreateByDesc();
     public List<ProductDetail> findTop6ByOrderByProductDetailPriceDesc();
     public List<ProductDetail> findTop3ByOrderByProductDetailPriceAsc();
     public List<ProductDetail> findTop8ByOrderByCreateByAsc();
+    public List<ProductDetail> findByOrderByProductDetailPriceAsc();
+    public List<ProductDetail> findByOrderByProductDetailPriceDesc();
+
 }

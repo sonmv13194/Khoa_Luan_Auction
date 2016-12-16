@@ -14,6 +14,9 @@
 		<put-attribute name="title" value="Home Page" />
 		<put-attribute name="body" value="/resource/view/user/home.jsp" />
 	</definition>
+	<definition name="categoryPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/category.jsp"/>
+	</definition>
 	<definition name="detailPage" extends="definition">
 		<put-attribute name="title" value="Detail Page" />
 		<put-attribute name="body" value="/resource/view/user/productdetail.jsp" />

@@ -10,9 +10,12 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import vn.smartdev.category.dao.entity.Category;
+import vn.smartdev.category.manager.CategoryServices;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.manager.ProductDetailServices;
@@ -22,6 +25,7 @@ import vn.smartdev.user.manager.UserManager;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
@@ -43,8 +47,10 @@ public class HomeController {
 	private ProductServices productServices;
 	@Autowired
 	private ProductDetailServices productDetailServices;
-//	@Autowired
+	@Autowired
+	private CategoryServices categoryServices;
 //	private SendEmailSevices SendEmailSevices;
+
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -52,7 +58,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, HttpSession session) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -68,22 +74,23 @@ public class HomeController {
 		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
 
 		List<ProductDetail> list8ProductDetail = productDetailServices.findTop8ByOrderByCreateByAsc();
-		Properties prop = new Properties();
-		try {
+		List<Category> listCategory = categoryServices.getListCategory();
 
-			prop.load(getClass().getClassLoader().getResourceAsStream("images.properties"));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		model.addAttribute("listProductDetailNew",listProductDetailNew);
 		model.addAttribute("listProductDetailExpenSivePrice",listProductDetailExpenSivePrice);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
 		model.addAttribute("list8ProductDetail",list8ProductDetail);
-		model.addAttribute("locationImages",prop.getProperty("local.images.directory"));
+		model.addAttribute("listCategory", listCategory);
+		if(session.getAttribute("cartSession") == null){
+			session.setAttribute("countItem", 0);
+			session.setAttribute("total", 0);
+		}
 
 		return "homePage";
 	}
+
+
+
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
 		logger.info("Welcome login! The client locale is {}.", locale);
@@ -133,5 +140,32 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate);
 
 		return "shoppingCart";
+	}
+	@RequestMapping(value="/category",method = RequestMethod.GET)
+	public String viweCategory(@RequestParam("check") String check,ModelMap modelMap)
+	{
+		List<Category> listCategory = categoryServices.getListCategory();
+		List<ProductDetail> listProductDetail = productDetailServices.getListProductDetail();
+		if(check.equals("all"))
+		{
+			modelMap.put("listProductDetail",listProductDetail);
+		}
+		else if(check.equals("productPriceAsc"))
+		{
+			List<ProductDetail> listProductDetailNew = productDetailServices.findByOrderByProductDetailPriceAsc();
+			modelMap.put("listProductDetail",listProductDetailNew);
+		}
+		else if(check.equals("productPriceDesc"))
+		{
+			List<ProductDetail> listProductDetailNew = productDetailServices.findByOrderByProductDetailPriceDesc();
+			modelMap.put("listProductDetail",listProductDetailNew);
+		}
+		else
+		{
+			List<ProductDetail> listProductDetailNew = productDetailServices.getListProductDetailByCategory(check);
+			modelMap.put("listProductDetail",listProductDetailNew);
+		}
+		modelMap.put("listCategory",listCategory);
+		return "categoryPage";
 	}
 }

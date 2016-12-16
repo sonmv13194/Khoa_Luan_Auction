@@ -21,7 +21,9 @@ import vn.smartdev.product.manager.ProductImageServices;
 import vn.smartdev.product.manager.ProductServices;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Created by Nhat on 01/12/2016.
@@ -86,7 +88,15 @@ public class ProductController {
         }
         else
         {
-            String urlImage = session.getServletContext().getRealPath("images");
+            Properties prop = new Properties();
+            try {
+
+                prop.load(getClass().getClassLoader().getResourceAsStream("images.properties"));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String urlImage = prop.getProperty("local.imagesUpload.directory");
             boolean upload = productImageServices.uploadFile(productModel, urlImage);
             boolean createProduct = productServices.createProduct(productModel);
             return "redirect:/admin/viewProduct";
@@ -115,7 +125,15 @@ public class ProductController {
         }
         else
         {
-            String urlImage = session.getServletContext().getRealPath("images");
+            Properties prop = new Properties();
+            try {
+
+                prop.load(getClass().getClassLoader().getResourceAsStream("images.properties"));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String urlImage = prop.getProperty("local.imagesUpload.directory");
             boolean upload = productImageServices.uploadFile(productModel, urlImage);
             boolean createProductDetail = productDetailServices.createProductDetail(productModel);
             return "redirect:/admin/viewProduct";

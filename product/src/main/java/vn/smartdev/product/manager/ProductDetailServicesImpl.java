@@ -13,6 +13,7 @@ import vn.smartdev.product.dao.repository.ProductDetailRepository;
 import vn.smartdev.product.dao.repository.ProductImageRepository;
 import vn.smartdev.product.dao.repository.ProductRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -121,4 +122,27 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
         return productDetailRepository.findTop8ByOrderByCreateByAsc();
     }
 
+    @Override
+    public List<ProductDetail> findByOrderByProductDetailPriceAsc() {
+        return productDetailRepository.findByOrderByProductDetailPriceAsc();
+    }
+
+    @Override
+    public List<ProductDetail> findByOrderByProductDetailPriceDesc() {
+        return productDetailRepository.findByOrderByProductDetailPriceDesc();
+    }
+
+    @Override
+    public List<ProductDetail> getListProductDetailByCategory(String categoryId) {
+        List<ProductDetail> listProductDetail = productDetailRepository.findAll();
+        List<ProductDetail> listProductDetailnew = new ArrayList<ProductDetail>();
+        for(int i = 0 ; i < listProductDetail.size() ; i++)
+        {
+            if(listProductDetail.get(i).getProduct().getCategory().getId().equals(categoryId))
+            {
+                listProductDetailnew.add(listProductDetail.get(i));
+            }
+        }
+        return listProductDetailnew;
+    }
 }

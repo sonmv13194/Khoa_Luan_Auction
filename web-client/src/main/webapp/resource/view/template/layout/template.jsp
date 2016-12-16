@@ -54,6 +54,7 @@
 <!-- Bootstrap Core CSS -->
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
 <script src="${contextPath}/resource/view/template/assets/js/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="${contextPath}/resource/view/template/assets/js/bootstrap.min.js"></script>
 <script src="${contextPath}/resource/view/template/assets/js/bootstrap-hover-dropdown.min.js"></script>
 <script src="${contextPath}/resource/view/template/assets/js/owl.carousel.min.js"></script>

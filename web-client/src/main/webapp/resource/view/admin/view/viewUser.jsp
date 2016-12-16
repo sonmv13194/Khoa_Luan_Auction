@@ -14,7 +14,6 @@
                                id="hidden-table-info">
                             <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>User Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -30,7 +29,6 @@
                             <tbody>
                             <c:forEach items="${listUser}" var="user">
                                 <tr class="gradeX">
-                                    <td>${user.id}</td>
                                     <td>${user.username}</td>
                                     <td>${user.email}</td>
                                     <td>${user.phone}</td>
@@ -66,9 +64,9 @@
                                 <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
                                       commandName="user" action="/admin/editUser">
                                     <div class="form-group ">
-                                        <label for="username" class="control-label col-lg-2">ID</label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" id="id" name="id" type="text"
+                                        <label for="username" class="control-label col-lg-2"></label>
+                                        <div class="col-lg-10" >
+                                            <input class="form-control" id="id" name="id" type="hidden"
                                                    value="${user.id}"/>
                                         </div>
                                     </div>
@@ -99,7 +97,7 @@
                                     <div class="form-group ">
                                         <label for="birthday" class="control-label col-lg-2">Birthday</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="birthday" name="birthday" type="date"
+                                            <input class="form-control" id="birthday" name="birthday" type = "date"
                                                    value="${user.birthday}"/>
                                         </div>
                                     </div>
@@ -145,4 +143,5 @@
             <!-- page end-->
         </section>
     </section>
+
 </section>

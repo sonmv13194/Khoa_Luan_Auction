@@ -2,6 +2,7 @@ package vn.smartdev.product.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
@@ -64,12 +65,12 @@ public class ProductImageServicesImpl implements ProductImageServices{
 
     @Override
     public boolean uploadFile(ProductModel productModel,String urlImage) {
-            CommonsMultipartFile file = productModel.getFile();
+            MultipartFile file = productModel.getFile();
             try {
                 byte bytes[] = file.getBytes();
                 //test resource localhost
                 String name = file.getOriginalFilename();
-                String demo = "D:\\SmartDev\\Intern\\java-training-shop\\web-client\\src\\main\\webapp\\images\\"+name;
+                String demo = urlImage+name;
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
                 stream.write(bytes);
                 stream.flush();
