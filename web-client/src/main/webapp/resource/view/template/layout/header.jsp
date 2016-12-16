@@ -187,16 +187,12 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-
                 <div class="nav-bg-class">
-
                     <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
-
                         <div class="nav-outer">
-
                             <ul class="nav navbar-nav">
                                   <li class="active dropdown yamm-fw">
-                                   <a href="home.html" data-hover="dropdown" class="dropdown-toggle"
+                                   <a href="${contextPath}/" data-hover="dropdown" class="dropdown-toggle"
                                       data-toggle="dropdown">Home</a>
                                </li>
                                 <c:forEach var="category" items="${listCategory}">
@@ -210,61 +206,31 @@
                                         <li>
                                             <div class="yamm-content">
                                                 <div class="row">
-
                                                     <div class="col-xs-12 col-menu">
                                                         <ul class="links">
                                                             <li><a href="/">Home</a></li>
                                                             <li><a href='<c:url value="category"><c:param name="check" value="all"/></c:url>'>Category</a></li>
                                                             <li><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>Detail</a></li>
-                                                            <li><a href="confirmCheckout">Shopping Cart Summary</a></li>
-                                                            <li><a href="confirmCheckout">Checkout</a></li>
-                                                            <li><a href="blog.html">Blog</a></li>
-                                                            <li><a href="blog-details.html">Blog Detail</a></li>
-                                                            <li><a href="contact.html">Contact</a></li>
-                                                            <li><a href="sign-in.html">Sign In</a></li>
-                                                            <li><a href="my-wishlist.html">Wishlist</a></li>
-                                                            <li><a href="terms-conditions.html">Terms and Condition</a></li>
-                                                            <li><a href="track-orders.html">Track Orders</a></li>
-                                                            <li><a href="product-comparison.html">Product-Comparison</a></li>
-                                                            <li><a href="faq.html">FAQ</a></li>
-                                                            <li><a href="404.html">404</a></li>
-
                                                         </ul>
                                                     </div>
-
-
-
                                                 </div>
                                             </div>
                                         </li>
-
-
-
                                     </ul>
                                 </li>
-
                                <%-- <li class="dropdown  navbar-right special-menu">
                                     <a href="#">Todays offer</a>
                                 </li>
 --%>
-
                             </ul><!-- /.navbar-nav -->
-
                             <div class="clearfix"></div>
                         </div><!-- /.nav-outer -->
-
                     </div><!-- /.navbar-collapse -->
-
-
                 </div><!-- /.nav-bg-class -->
-
             </div><!-- /.navbar-default -->
-
         </div><!-- /.container-class -->
-
     </div><!-- /.header-nav -->
     <!-- ============================================== NAVBAR : END ============================================== -->
-
 </header>
 
 <!-- ============================================== HEADER : END ============================================== -->

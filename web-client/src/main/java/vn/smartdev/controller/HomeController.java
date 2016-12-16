@@ -1,36 +1,27 @@
 package vn.smartdev.controller;
 
-import com.sun.imageio.plugins.jpeg.JPEG;
-import javassist.bytecode.stackmap.TypeData;
-import org.cryptacular.io.ClassPathResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.manager.CategoryServices;
-import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductServices;
-//import vn.smartdev.product.manager.SendEmailSevices;
 import vn.smartdev.user.manager.UserManager;
 
-import javax.annotation.Resource;
-import java.io.IOException;
 import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Properties;
 
 /**
  * Handles requests for the application home page.
@@ -50,7 +41,6 @@ public class HomeController {
 	@Autowired
 	private CategoryServices categoryServices;
 //	private SendEmailSevices SendEmailSevices;
-
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -142,7 +132,7 @@ public class HomeController {
 		return "shoppingCart";
 	}
 	@RequestMapping(value="/category",method = RequestMethod.GET)
-	public String viweCategory(@RequestParam("check") String check,ModelMap modelMap)
+	public String viewCategory(@RequestParam("check") String check,ModelMap modelMap)
 	{
 		List<Category> listCategory = categoryServices.getListCategory();
 		List<ProductDetail> listProductDetail = productDetailServices.getListProductDetail();

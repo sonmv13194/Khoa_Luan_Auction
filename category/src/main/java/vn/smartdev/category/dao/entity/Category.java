@@ -48,4 +48,5 @@ public class Category extends AbstractAuditableEntity<String> implements Seriali
 		sb.append("  createdBy=" + getCreateBy());
 		return sb.toString();
 	}
+
 }

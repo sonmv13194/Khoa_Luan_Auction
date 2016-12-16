@@ -14,13 +14,10 @@ import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.exception.UserNotFoundException;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import vn.smartdev.user.manager.UserManagerImpl;
 import org.fest.assertions.Assertions;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
+import java.sql.Date;
 
 
 /**

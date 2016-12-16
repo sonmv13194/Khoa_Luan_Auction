@@ -19,11 +19,12 @@
         <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')"/>
         <form-login login-page="/login" username-parameter="username" password-parameter="password"
                     login-processing-url="/j_spring_security_check"
-                    authentication-success-handler-ref="loginSuccessHandler"
+                    authentication-success-handler-ref="savedRequestAwareAuthenticationSuccessHandler"
                     authentication-failure-handler-ref="loginFailureHandler"
                     authentication-failure-url="/login?error"
                     default-target-url="/"
         />
+        <remember-me key="uniqueAndSecret" token-validity-seconds="86400"/>
         <logout logout-success-url="/login?logout"/>
         <access-denied-handler error-page="/403"/>
     </http>
@@ -37,10 +38,10 @@
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
     <beans:bean id="userServiceImpl" class="vn.smartdev.user.userService.UserServiceImpl" autowire="byType"/>
-    <beans:bean id="loginSuccessHandler" class="vn.smartdev.security.LoginSuccessHandler">
-        <beans:property name="defaultTargetUrl" value="/"/>
-        <beans:property name="useReferer" value="true"/>
-    </beans:bean>
+    <!--<beans:bean id="loginSuccessHandler" class="vn.smartdev.security.LoginSuccessHandler">-->
+        <!--<beans:property name="defaultTargetUrl" value="/"/>-->
+        <!--<beans:property name="useReferer" value="true"/>-->
+    <!--</beans:bean>-->
     <beans:bean id="loginFailureHandler" class="vn.smartdev.security.LoginFailureHandler">
         <beans:property name="defaultFailureUrl" value="/login?error" />
     </beans:bean>

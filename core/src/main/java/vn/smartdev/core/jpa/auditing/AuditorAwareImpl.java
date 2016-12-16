@@ -14,6 +14,9 @@ public class AuditorAwareImpl implements AuditorAware<String> {
         if (authentication == null || !authentication.isAuthenticated()) {
             return "system";
         }
-        return ((UserDetails) authentication.getPrincipal()).getUsername();
+        if( authentication.getPrincipal() instanceof UserDetails){
+            ((UserDetails) authentication.getPrincipal()).getUsername();
+        }
+        return authentication.getPrincipal().toString();
     }
 }

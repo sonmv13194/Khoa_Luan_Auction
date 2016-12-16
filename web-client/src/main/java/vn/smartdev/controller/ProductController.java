@@ -4,16 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.manager.CategoryServices;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
-import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductDetailModel;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.manager.ProductDetailServices;
@@ -22,6 +18,7 @@ import vn.smartdev.product.manager.ProductServices;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -44,7 +41,6 @@ public class ProductController {
 
     @Autowired
     private ProductImageServices productImageServices;
-
 
     @RequestMapping(value="/viewProduct",method = RequestMethod.GET)
     public String viewProduct(ModelMap modelMap,HttpSession session)
@@ -167,5 +163,4 @@ public class ProductController {
         modelMap.put("productDetail",productDetail);
         return "viewProductImages";
     }
-
 }

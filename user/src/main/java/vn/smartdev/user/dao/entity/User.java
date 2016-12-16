@@ -4,7 +4,7 @@ import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,7 +22,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
     private String address;
 
     //@Temporal(TemporalType.DATE)
-    private java.sql.Date birthday;
+    private Date birthday;
 
 
     private String email;
@@ -80,7 +80,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
     public User(String address, Date birthday, String email, String password, String phone,
                 String username) {
         this.address = address;
-        this.birthday = (java.sql.Date) birthday;
+        this.birthday = birthday;
         this.email = email;
         this.password = password;
         this.phone = phone;
