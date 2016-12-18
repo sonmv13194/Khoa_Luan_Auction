@@ -67,7 +67,7 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
 
             //productDetail
             ProductDetail productDetail = new ProductDetail();
-            productDetail.setProductDetailCode("1");
+            productDetail.setProductDetailName(productModel.getProductDetailName());
             productDetail.setProductDetailStatus(productModel.getProductStatus());
             productDetail.setProductDetailPrice(productModel.getPrice());
             productDetail.setProductDetailQuantity(productModel.getQuantity());
@@ -133,16 +133,9 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
     }
 
     @Override
-    public List<ProductDetail> getListProductDetailByCategory(String categoryId) {
-        List<ProductDetail> listProductDetail = productDetailRepository.findAll();
-        List<ProductDetail> listProductDetailnew = new ArrayList<ProductDetail>();
-        for(int i = 0 ; i < listProductDetail.size() ; i++)
-        {
-            if(listProductDetail.get(i).getProduct().getCategory().getId().equals(categoryId))
-            {
-                listProductDetailnew.add(listProductDetail.get(i));
-            }
-        }
-        return listProductDetailnew;
+    public List<ProductDetail> getListProductDetailByProduct(String productId) {
+        Product product = productRepository.findOne(productId);
+        List<ProductDetail> listProductDetail = product.getProductDetails();
+        return listProductDetail;
     }
 }

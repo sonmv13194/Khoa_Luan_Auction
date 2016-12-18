@@ -5,6 +5,76 @@
         <div class="row">
             <!-- ============================================== SIDEBAR ============================================== -->
             <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
+                <!-- ================================== TOP NAVIGATION ================================== -->
+                <div class="side-menu animate-dropdown outer-bottom-xs">
+                    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
+                    <nav class="yamm megamenu-horizontal" role="navigation">
+                        <ul class="nav">
+                            <c:forEach var="category" items="${listCategory}">
+                                <li class="dropdown menu-item">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                            class="icon fa fa-shopping-bag" aria-hidden="true"></i>${category.categoryName}</a>
+                                    <ul class="dropdown-menu mega-menu">
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Shoes </a></li>
+                                                        <li><a href="#">Jackets</a></li>
+                                                        <li><a href="#">Sunglasses</a></li>
+                                                        <li><a href="#">Sport Wear</a></li>
+                                                        <li><a href="#">Blazers</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                    </ul>
+                                                </div><!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Handbags</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Swimwear </a></li>
+                                                        <li><a href="#">Tops</a></li>
+                                                        <li><a href="#">Flats</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">Winter Wear</a></li>
+                                                        <li><a href="#">Night Suits</a></li>
+                                                    </ul>
+                                                </div><!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Toys &amp; Games</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">Shoes</a></li>
+                                                        <li><a href="#">School Bags</a></li>
+                                                        <li><a href="#">Lunch Box</a></li>
+                                                        <li><a href="#">Footwear</a></li>
+                                                        <li><a href="#">Wipes</a></li>
+                                                    </ul>
+                                                </div><!-- /.col -->
+                                                <div class="col-sm-12 col-md-3">
+                                                    <ul class="links list-unstyled">
+                                                        <li><a href="#">Sandals </a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                        <li><a href="#">Dresses</a></li>
+                                                        <li><a href="#">Jwellery</a></li>
+                                                        <li><a href="#">Bags</a></li>
+                                                        <li><a href="#">Night Dress</a></li>
+                                                        <li><a href="#">Swim Wear</a></li>
+                                                        <li><a href="#">Toys</a></li>
+                                                    </ul>
+                                                </div><!-- /.col -->
+                                            </div><!-- /.row -->
+                                        </li><!-- /.yamm-content -->
+                                    </ul><!-- /.dropdown-menu -->
+                                </li><!-- /.menu-item -->
+                            </c:forEach>
+
+                        </ul><!-- /.nav -->
+                    </nav><!-- /.megamenu-horizontal -->
+                </div><!-- /.side-menu -->
+                <!-- ================================== TOP NAVIGATION : END ================================== -->
                 <div class="home-banner outer-bottom-xs">
                     <img src="${contextPath}/resource/view/template/assets/images/banners/LHS-banner.jpg" alt="Image">
                 </div>
@@ -18,8 +88,8 @@
                                     <div class="hot-deal-wrapper">
                                         <div class="image">
                                             <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                            <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
-                                                 alt="">
+                                                <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                     alt="">
                                             </a>
                                         </div>
                                         <div class="sale-offer-tag"><span>49%<br>off</span></div>
@@ -51,7 +121,7 @@
                                         </div>
                                     </div><!-- /.hot-deal-wrapper -->
                                     <div class="product-info text-left m-t-20">
-                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                         </h3>
                                         <div class="rating rateit-small"></div>
 
@@ -64,11 +134,15 @@
                                     </div><!-- /.product-info -->
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
-                                            <div class="btn-group">
-                                                <a class="btn btn-primary cart-btn" data-toggle="dropdown"
+                                            <div class="add-cart-button btn-group">
+                                                <a class="btn btn-primary icon" data-toggle="dropdown"
                                                    href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
                                                    type="button">
                                                     <i class="fa fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="">
+                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart
+                                                    </button>
                                                 </a>
                                             </div>
                                         </div><!-- /.action -->
@@ -104,12 +178,12 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
                                                             <span class="price">
-                                                                $ ${productDetail.productDetailPrice}</span>
+                                                                $ ${productDetail.productDetailPrice}			</span>
                                                             </div><!-- /.product-price -->
                                                         </div>
                                                     </div><!-- /.col -->
@@ -137,12 +211,12 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
 				                                            <span class="price">
-					                                            $ ${productDetail.productDetailPrice}</span>
+					                                            $ ${productDetail.productDetailPrice}			</span>
                                                             </div><!-- /.product-price -->
                                                         </div>
                                                     </div><!-- /.col -->
@@ -171,12 +245,12 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
                                                             <span class="price">
-                                                                $ ${productDetail.productDetailPrice}</span>
+                                                                $ ${productDetail.productDetailPrice}			</span>
 
                                                             </div><!-- /.product-price -->
                                                         </div>
@@ -238,7 +312,7 @@
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
                                                             <span class="price">
-                                                                $ ${productDetail.productDetailPrice}</span>
+                                                                $ ${productDetail.productDetailPrice}			</span>
                                                             </div><!-- /.product-price -->
                                                         </div>
                                                     </div><!-- /.col -->
@@ -271,7 +345,7 @@
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
                                                             <span class="price">
-                                                                $ ${productDetail.productDetailPrice}</span>
+                                                                $ ${productDetail.productDetailPrice}			</span>
                                                             </div><!-- /.product-price -->
                                                         </div>
                                                     </div><!-- /.col -->
@@ -299,12 +373,12 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
                                                             <span class="price">
-                                                                $ ${productDetail.productDetailPrice}</span>
+                                                                $ ${productDetail.productDetailPrice}			</span>
                                                             </div><!-- /.product-price -->
                                                         </div>
                                                     </div><!-- /.col -->
@@ -386,11 +460,11 @@
                                 <div class="caption bg-color vertical-center text-left">
                                     <div class="slider-header fadeInDown-1">Top Brands</div>
                                     <div class="big-text fadeInDown-1">
-                                        New Collections
+                                        Vegetable
                                     </div>
                                     <div class="excerpt fadeInDown-2 hidden-xs">
 
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                        <span>Do you want to buy these fresh food...</span>
                                     </div>
                                     <div class="button-holder fadeInDown-3">
                                         <a href="index.php?page=single-product"
@@ -405,11 +479,11 @@
                                 <div class="caption bg-color vertical-center text-left">
                                     <div class="slider-header fadeInDown-1">Spring 2016</div>
                                     <div class="big-text fadeInDown-1">
-                                        Women <span class="highlight">Fashion</span>
+                                        Vegetable <span class="highlight">Fresh</span>
                                     </div>
                                     <div class="excerpt fadeInDown-2 hidden-xs">
 
-                                        <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</span>
+                                        <span>Do you want to buy these fresh food...</span>
                                     </div>
                                     <div class="button-holder fadeInDown-3">
                                         <a href="index.php?page=single-product"
@@ -465,6 +539,17 @@
                 <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
                     <div class="more-info-tab clearfix ">
                         <h3 class="new-product-title pull-left">New Products</h3>
+                        <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
+                            <li class="active"><a data-transition-type="backSlide" href="#all"
+                                                  data-toggle="tab">All</a>
+                            </li>
+                            <li><a data-transition-type="backSlide" href="#smartphone"
+                                   data-toggle="tab">Clothing</a>
+                            </li>
+                            <li><a data-transition-type="backSlide" href="#laptop" data-toggle="tab">Electronics</a>
+                            </li>
+                            <li><a data-transition-type="backSlide" href="#apple" data-toggle="tab">Shoes</a></li>
+                        </ul><!-- /.nav-tabs -->
                     </div>
                     <div class="tab-content outer-top-xs">
                         <div class="tab-pane in active" id="all">
@@ -485,7 +570,7 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -551,7 +636,7 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -618,7 +703,7 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -685,7 +770,7 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -783,7 +868,7 @@
                                             <div class="tag hot"><span>hot</span></div>
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a></h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             <div class="product-price">
@@ -1054,7 +1139,7 @@
                                             <div class="tag new"><span>new</span></div>
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a></h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             <div class="product-price">

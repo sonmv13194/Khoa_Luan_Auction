@@ -71,7 +71,7 @@
                                                 class="fa fa-trash-o"></i></a></td>
                                         <td class="cart-image">
                                             <a class="entry-thumbnail" href="detail.html">
-                                                <img src="${contextPath }/resource/images/${cart.productDetail.productImages.get(0).url}"
+                                                <img src="/uploaded-image/${cart.productDetail.productImages.get(0).url}"
                                                      alt="">
                                             </a>
                                         </td>

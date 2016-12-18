@@ -13,19 +13,19 @@
                         <li><a href="${contextPath}/checkout"><i class="icon fa fa-check"></i>Checkout</a></li>
                         <li>
                             <c:if test="${pageContext.request.userPrincipal.name == null}">
-                                <li><a href="${contextPath }/login">Login/Register</a></li>
-                            </c:if>
-                            <c:url value="/logout" var="logoutUrl"/>
-                            <form id="logout" action="${logoutUrl}" method="post">
-                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                            </form>
-                            <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                <span>Hello, ${pageContext.request.userPrincipal.name}</span>
-                                <a href="javascript:document.getElementById('logout').submit()">Logout</a>
-                                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                    <li><a href="${contextPath }/admin">Admin Page</a></li>
-                                </sec:authorize>
-                            </c:if>
+                        <li><a href="${contextPath }/login">Login/Register</a></li>
+                        </c:if>
+                        <c:url value="/logout" var="logoutUrl"/>
+                        <form id="logout" action="${logoutUrl}" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </form>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <span>Hello, ${pageContext.request.userPrincipal.name}</span>
+                            <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+                            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                <li><a href="${contextPath }/admin">Admin Page</a></li>
+                            </sec:authorize>
+                        </c:if>
                         </li>
                     </ul>
                 </div><!-- /.cnt-account -->
@@ -83,25 +83,21 @@
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown">
 
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="product.html">Categories
                                             <b class="caret"></b></a>
 
                                         <ul class="dropdown-menu" role="menu">
-                                            <li class="menu-header">Computer</li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Clothing</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Electronics</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Shoes</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Watches</a></li>
-
+                                            <li class="menu-header">Food</li>
+                                            <c:forEach var="category" items="${listCategory}">
+                                                <li role="presentation">
+                                                    <a role="menuitem" tabindex="-1" href="category.html">- ${category.categoryName}</a>
+                                                </li>
+                                            </c:forEach>
                                         </ul>
                                     </li>
                                 </ul>
 
-                                <input class="search-field" placeholder="Search here..."/>
+                                <input class="search-field" placeholder="Search here..." name="searchProductDetail"/>
 
                                 <a class="search-button" href="#"></a>
 
@@ -187,17 +183,43 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
+
                 <div class="nav-bg-class">
+
                     <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+
                         <div class="nav-outer">
+
                             <ul class="nav navbar-nav">
-                                  <li class="active dropdown yamm-fw">
-                                   <a href="${contextPath}/" data-hover="dropdown" class="dropdown-toggle"
-                                      data-toggle="dropdown">Home</a>
-                               </li>
-                                <c:forEach var="category" items="${listCategory}">
-                                    <li class="active dropdown yamm-fw">
-                                        <a href='<c:url value="category"><c:param name="check" value="${category.id}"/></c:url>'>${category.categoryName}</a>
+                                <li class="active dropdown yamm-fw">
+                                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle"
+                                       data-toggle="dropdown">Home</a>
+                                </li>
+                                <c:forEach var="categoryNew" items="${listCategory}">
+                                    <li class="dropdown yamm mega-menu">
+                                        <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">${categoryNew.categoryName}</a>
+                                        <ul class="dropdown-menu conta	iner">
+                                            <li>
+                                                <div class="yamm-content ">
+                                                    <div class="row">
+                                                        <c:forEach var="product" items="${listProduct}">
+                                                            <c:if test="${product.category.id == categoryNew.id}">
+                                                                <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                                                    <h2 class="title">${product.productName}</h2>
+                                                                    <ul class="links">
+                                                                        <c:forEach var="productDetail" items="${product.productDetails}">
+                                                                            <li><a href='<c:url value="product"><c:param name="check" value="${product.id}" /></c:url>'>${productDetail.productDetailName}</a></li>
+                                                                        </c:forEach>
+                                                                    </ul>
+                                                                </div><!-- /.col -->
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        </ul>
+
                                     </li>
                                 </c:forEach>
                                 <li class="dropdown">
@@ -206,31 +228,61 @@
                                         <li>
                                             <div class="yamm-content">
                                                 <div class="row">
+
                                                     <div class="col-xs-12 col-menu">
                                                         <ul class="links">
                                                             <li><a href="/">Home</a></li>
-                                                            <li><a href='<c:url value="category"><c:param name="check" value="all"/></c:url>'>Category</a></li>
+                                                            <li><a href='<c:url value="product"><c:param name="check" value="all"/></c:url>'>Product Details</a></li>
                                                             <li><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>Detail</a></li>
+                                                            <li><a href="confirmCheckout">Shopping Cart Summary</a></li>
+                                                            <li><a href="confirmCheckout">Checkout</a></li>
+                                                            <li><a href="blog.html">Blog</a></li>
+                                                            <li><a href="blog-details.html">Blog Detail</a></li>
+                                                            <li><a href="contact.html">Contact</a></li>
+                                                            <li><a href="sign-in.html">Sign In</a></li>
+                                                            <li><a href="my-wishlist.html">Wishlist</a></li>
+                                                            <li><a href="terms-conditions.html">Terms and Condition</a></li>
+                                                            <li><a href="track-orders.html">Track Orders</a></li>
+                                                            <li><a href="product-comparison.html">Product-Comparison</a></li>
+                                                            <li><a href="faq.html">FAQ</a></li>
+                                                            <li><a href="404.html">404</a></li>
+
                                                         </ul>
                                                     </div>
+
+
+
                                                 </div>
                                             </div>
                                         </li>
+
+
+
                                     </ul>
                                 </li>
-                               <%-- <li class="dropdown  navbar-right special-menu">
-                                    <a href="#">Todays offer</a>
-                                </li>
---%>
+
+                                <%-- <li class="dropdown  navbar-right special-menu">
+                                     <a href="#">Todays offer</a>
+                                 </li>
+ --%>
+
                             </ul><!-- /.navbar-nav -->
+
                             <div class="clearfix"></div>
                         </div><!-- /.nav-outer -->
+
                     </div><!-- /.navbar-collapse -->
+
+
                 </div><!-- /.nav-bg-class -->
+
             </div><!-- /.navbar-default -->
+
         </div><!-- /.container-class -->
+
     </div><!-- /.header-nav -->
     <!-- ============================================== NAVBAR : END ============================================== -->
+
 </header>
 
 <!-- ============================================== HEADER : END ============================================== -->

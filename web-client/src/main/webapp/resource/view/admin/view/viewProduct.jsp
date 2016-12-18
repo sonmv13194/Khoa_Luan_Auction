@@ -13,7 +13,7 @@
                                id="hidden-table-info">
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>STT</th>
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th class="hidden-phone">Description</th>
@@ -27,10 +27,11 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <c:set var="i" value="1"></c:set>
                             <c:forEach var="product" items="${listProducts}">
 
                                 <tr class="gradeX">
-                                    <td>${product.id}</td>
+                                    <td>${i}</td>
                                     <td><img
                                             src="/uploaded-image/${product.getProductDetails().get(0).getProductImages().get(0).getUrl()}"
                                             style="width:50px;height:50px"></td>
@@ -52,6 +53,7 @@
                                     <td hidden="hidden">${product.getProductDetails().get(0).getSupplyer()}</td>
                                     <td hidden="hidden">${product.getProductDetails().get(0).getProductImages().get(0).getUrl()}</td>
                                 </tr>
+                                <c:set var="i" value="${i+1}"></c:set>
                             </c:forEach>
                             </tbody>
                         </table>

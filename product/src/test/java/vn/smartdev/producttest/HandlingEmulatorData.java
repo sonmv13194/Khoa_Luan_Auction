@@ -80,7 +80,7 @@ public class HandlingEmulatorData {
             for(int j = 0 ; j < number ; j++)
             {
                 ProductDetail productDetail = new ProductDetail();
-                productDetail.setProductDetailCode("productDetailCode_"+i+"-"+j);
+                productDetail.setProductDetailName("productDetailCode_"+i+"-"+j);
                 productDetail.setDescription("productDetailDescription_" + i + "-" + j);
                 productDetail.setProductDetailPrice(i);
                 productDetail.setProductDetailQuantity(i);
@@ -95,7 +95,7 @@ public class HandlingEmulatorData {
     {
         ProductDetail productDetail = new ProductDetail();
         productDetail.setId("productDetailId_30");
-        productDetail.setProductDetailCode("productDetailCode_30");
+        productDetail.setProductDetailName("productDetailCode_30");
         productDetail.setDescription("productDetailDescription_30");
         productDetail.setProductDetailPrice(30);
         productDetail.setProductDetailQuantity(30);

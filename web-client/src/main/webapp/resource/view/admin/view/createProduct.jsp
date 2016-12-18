@@ -23,6 +23,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
+                                        <label for="firstname" class="control-label col-lg-2">ProductDetail Name</label>
+                                        <div class="col-lg-6">
+                                            <form:input class=" form-control" id="firstname" type="text"
+                                                        required="required" path="productDetailName"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Category Name</label>
                                         <form:select id="username" path="categoryId">
                                             <c:forEach var="category" items="${listCategory}">
@@ -98,21 +105,27 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Create New Product
+                            Create New ProductDetail
                         </header>
                         <div class="panel-body">
                             <div class="form">
                                 <form:form class="cmxform form-horizontal tasi-form" id="signupForm1" method="POST"
                                            enctype="multipart/form-data"
                                            action="/admin/createProductDetailPost?${_csrf.parameterName}=${_csrf.token}">
-                                    <div class="form-group ">
+                                    <div class="form-group " hidden="hidden">
+                                        <label for="username" class="control-label col-lg-2"></label>
+                                        <form:select id="username" path="categoryId">
+                                            <option value="${product.category.id}"></option>
+                                        </form:select>
+                                    </div>
+                                    <div class="form-group " hidden="hidden">
                                         <label for="firstname" class="control-label col-lg-2">Product Id</label>
                                         <div class="col-lg-6">
                                             <form:input class=" form-control" id="firstname11" type="text"
                                                         value="${product.id}" path="productId"/>
                                         </div>
                                     </div>
-                                    <div class="form-group ">
+                                    <div class="form-group " hidden="hidden">
                                         <label for="firstname" class="control-label col-lg-2">Product Name</label>
                                         <div class="col-lg-6">
                                             <form:input class=" form-control" id="firstname1" type="text"
@@ -120,10 +133,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="username" class="control-label col-lg-2">Category Name</label>
+                                        <label for="firstname" class="control-label col-lg-2">ProductDetail Name</label>
                                         <div class="col-lg-6">
-                                            <form:input class=" form-control" id="firstname12" type="text"
-                                                        value="CategoryID" path="categoryId"/>
+                                            <form:input class=" form-control" id="firstname" type="text"
+                                                        required="required" path="productDetailName"/>
                                         </div>
                                     </div>
                                     <div class="form-group ">

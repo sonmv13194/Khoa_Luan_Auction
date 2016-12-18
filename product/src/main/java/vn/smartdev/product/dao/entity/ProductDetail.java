@@ -23,8 +23,8 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 
 	private String description;
 
-	@Column(name="product_detail_code")
-	private String productDetailCode;
+	@Column(name="product_detail_name")
+	private String productDetailName;
 
 	@Column(name="product_detail_price")
 	private float productDetailPrice;
@@ -59,7 +59,7 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 	private Product product;
 
 	//bi-directional many-to-one association to ProductImage
-	@OneToMany(fetch = FetchType.EAGER,mappedBy="productDetail")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="productDetail",cascade = CascadeType.ALL)
 	@JsonBackReference
 	private List<ProductImage> productImages;
 
@@ -75,12 +75,12 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 		this.description = description;
 	}
 
-	public String getProductDetailCode() {
-		return this.productDetailCode;
+	public String getProductDetailName() {
+		return this.productDetailName;
 	}
 
-	public void setProductDetailCode(String productDetailCode) {
-		this.productDetailCode = productDetailCode;
+	public void setProductDetailName(String productDetailName) {
+		this.productDetailName = productDetailName;
 	}
 
 	public float getProductDetailPrice() {

@@ -9,6 +9,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class ProductModel {
     private String productId;
     private String productName;
+    private String productDetailName;
     private String categoryId;
     private int productStatus;
     private String description;
@@ -91,4 +92,11 @@ public class ProductModel {
         this.description = description;
     }
 
+    public String getProductDetailName() {
+        return productDetailName;
+    }
+
+    public void setProductDetailName(String productDetailName) {
+        this.productDetailName = productDetailName;
+    }
 }

@@ -9,7 +9,7 @@ public class ProductDetailModel {
     private String id;
     private String description;
 
-    private String productDetailCode;
+    private String productDetailName;
 
     private float productDetailPrice;
 
@@ -35,12 +35,12 @@ public class ProductDetailModel {
         this.description = description;
     }
 
-    public String getProductDetailCode() {
-        return productDetailCode;
+    public String getProductDetailName() {
+        return productDetailName;
     }
 
-    public void setProductDetailCode(String productDetailCode) {
-        this.productDetailCode = productDetailCode;
+    public void setProductDetailName(String productDetailCode) {
+        this.productDetailName = productDetailName;
     }
 
     public float getProductDetailPrice() {

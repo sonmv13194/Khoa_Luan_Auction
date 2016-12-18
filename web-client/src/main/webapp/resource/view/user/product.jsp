@@ -374,8 +374,8 @@
 
                       <ul role="menu" class="dropdown-menu">
                         <li role="presentation"><a href='#'>position</a></li>
-                        <li role="presentation"><a href='<c:url value="category"><c:param name="check" value="productPriceAsc"/></c:url>'>Product Price:ASC</a></li>
-                        <li role="presentation"><a href='<c:url value="category"><c:param name="check" value="productPriceDesc"/></c:url>'>Product Price:DESC</a></li>
+                        <li role="presentation"><a href='<c:url value="product"><c:param name="check" value="productPriceAsc"/></c:url>'>Product Price:ASC</a></li>
+                        <li role="presentation"><a href='<c:url value="product"><c:param name="check" value="productPriceDesc"/></c:url>'>Product Price:DESC</a></li>
                       </ul>
                     </div>
                   </div><!-- /.fld -->

@@ -18,7 +18,7 @@ public interface ProductDetailServices {
     public void saveProductDetail(ProductDetail productDetail);
     public boolean createProductDetail(ProductModel productModel);
     public boolean updateProductDetail(ProductDetailModel productDetailModel);
-    public List<ProductDetail> getListProductDetailByCategory(String categoryId);
+    public List<ProductDetail> getListProductDetailByProduct(String productId);
 
     //select view
     public List<ProductDetail> findTop6ByOrderByCreateByDesc();
@@ -27,5 +27,6 @@ public interface ProductDetailServices {
     public List<ProductDetail> findTop8ByOrderByCreateByAsc();
     public List<ProductDetail> findByOrderByProductDetailPriceAsc();
     public List<ProductDetail> findByOrderByProductDetailPriceDesc();
+
 
 }

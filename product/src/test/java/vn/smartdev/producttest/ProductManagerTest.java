@@ -174,7 +174,7 @@ public class ProductManagerTest extends HandlingEmulatorData{
 
         Assertions.assertThat(productDetail.getId()).isEqualTo("productDetailId_30");
         Assertions.assertThat(productDetail.getDescription()).isEqualTo("productDetailDescription_30");
-        Assertions.assertThat(productDetail.getProductDetailCode()).isEqualTo("productDetailCode_30");
+        Assertions.assertThat(productDetail.getProductDetailName()).isEqualTo("productDetailCode_30");
         Assertions.assertThat(productDetail.getProductDetailPrice()).isEqualTo(30);
         Assertions.assertThat(productDetail.getProductDetailQuantity()).isEqualTo(30);
         Assertions.assertThat(productDetail.getSupplyer()).isEqualTo("productDetailSupplyer_30");
