@@ -72,7 +72,8 @@ public class UserController {
         model.addAttribute("user", user);
         List<Role> roles = roleManager.getAll();
         model.addAttribute("listRole", roles);
-        return "redirect:viewUser";
+
+        return "viewUserPage";
     }
 
     @RequestMapping(value = "/deleteUser")

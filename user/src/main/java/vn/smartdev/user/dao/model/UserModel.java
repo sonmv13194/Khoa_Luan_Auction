@@ -2,17 +2,19 @@ package vn.smartdev.user.dao.model;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
+import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 
 /**
  * Created by levuhuy on 12/14/16.
  */
-public class UserModel implements Serializable {
+public class UserModel extends AbstractAuditableEntity<String> implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -33,6 +35,9 @@ public class UserModel implements Serializable {
 
     private String email;
 
+    public UserModel() {
+    }
+
     private String password;
 
     private String phone;
@@ -45,7 +50,16 @@ public class UserModel implements Serializable {
         this.address = address;
     }
 
-
+    public UserModel(String address, java.sql.Date birthday, String email, String password, String phone, String username, String confirmPassword) {
+        this.address = address;
+        this.birthday = birthday;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.username = username;
+        this.confirmPassword = confirmPassword;
+        setId(UUID.randomUUID().toString());
+    }
 
     public String getEmail() {
         return email;
