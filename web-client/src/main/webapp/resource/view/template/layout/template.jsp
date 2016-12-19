@@ -106,28 +106,41 @@
                     required: true,
                    // pattern: true
                 },
-                birthday:"required",
+                birthday:{
+                    required : true
+                },
                 email: {
                     required: true,
                     email: true
                 },
                 password: {
                     required: true,
-                    minlength: 5
+                    minlength: 5,
+                    maxlength: 20
                 },
+                confirm_password :{
+                    required: true,
+                    equalTo: "#password",
+                }
             },
 
             // Specify the validation error messages
             messages: {
                 username: "Please enter your username",
                 address: "Please enter your address",
+                birthday:"Please enter your birthay",
                 phone:{
                     required: "Please provide a phone",
                   //  pattern:"\d{3}[\-]\d{3}[\-]\d{4}"
                 },
                 password: {
                     required: "Please provide a password",
-                    minlength: "Your password must be at least 5 characters long"
+                    minlength: "Your password must be at least 5 characters long",
+                    maxlength: "Your password must be at least than 20 characters long"
+                },
+                confirm_password:{
+                    required: "Please confirm password !"
+
                 },
                 email: "Please enter a valid email address",
             },
@@ -140,3 +153,12 @@
     });
 
 </script>
+<%--<script>--%>
+    <%--function compareDate() {--%>
+        <%--var dateEntered = document.getElementById("birthday").value.parseDate();--%>
+      <%--//  alert("selected date : "+dateEntered);--%>
+        <%--var currentDate = new Date($.now());--%>
+        <%--if(dateEntered < currentDate)--%>
+        <%--alert("dateEntered nho hon current date");--%>
+    <%--}--%>
+<%--</script>--%>
