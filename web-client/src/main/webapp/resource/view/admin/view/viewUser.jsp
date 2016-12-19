@@ -19,9 +19,9 @@
                                 <th>Phone</th>
                                 <th>Birthday</th>
                                 <th>Address</th>
-                                <th>Created</th>
+                                <th>Last Update By</th>
                                 <th>Last Update</th>
-                                <th>Created By</th>
+                                <th>Role</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -34,9 +34,10 @@
                                     <td>${user.phone}</td>
                                     <td>${user.birthday}</td>
                                     <td>${user.address}</td>
-                                    <td>${user.createBy}</td>
+                                    <td>${user.lastUpdatedBy}</td>
                                     <td>${user.lastUpdated}</td>
-                                    <td>${user.createBy}</td>
+                                    <td><c:forEach items="${user.roles }"
+                                                   var="role">${role.roleName }</c:forEach></td>
                                     <td><a class="edit" href="/admin/editUser?id=${user.id}">Edit</a></td>
                                         <%--onclick="javascript:deleteUser(${user.id}--%>
                                     <td>

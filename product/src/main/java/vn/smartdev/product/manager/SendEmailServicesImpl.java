@@ -48,12 +48,16 @@ public class SendEmailServicesImpl implements SendEmailSevices{
             this.username = userName;
             this.password = password;
             Properties properties = new Properties();
-            properties.put("mail.transport.protocol", "smtp");
-            properties.put("mail.smtp.auth", "true");
-            properties.put("mail.smtp.host", "smtp.gmail.com");
-            properties.put("mail.smtp.port", "465");
             properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.ssl.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.setProperty("mail.transport.protocol", "smtps");
+            properties.put("mail.smtp.socketFactory.port", "465");
+            properties.put("mail.smtp.socketFactory.class",
+                    "javax.net.ssl.SSLSocketFactory");
+            properties.put("mail.smtp.user", userName);
+            properties.put("mail.smtp.password", password);
+            properties.put("mail.smtp.port", "465");
+            properties.put("mail.smtps.auth", "true");
             this.properties = properties;
             return true;
         }
@@ -81,7 +85,7 @@ public class SendEmailServicesImpl implements SendEmailSevices{
             message.setText(body);
 
             //transport Email
-            Transport transport = session.getTransport("smtp");
+            Transport transport = session.getTransport("smtps");
             transport.connect();
             transport.send(message, message.getAllRecipients());
             transport.close();
@@ -105,8 +109,8 @@ public class SendEmailServicesImpl implements SendEmailSevices{
         }
         else
         {
-            String username = "nhatnv7192@gmail.com";
-            String password ="nhat1234";
+            String username = "kupinguyen567@gmail.com";
+            String password ="0936054481";
             boolean checkProperties = setProperties(username,password);
             boolean setMessage = setMessage(username,toEmail,subjectEmail, textEmail);
             return true;

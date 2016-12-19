@@ -91,7 +91,7 @@ public class ProductController {
         if(checkExistNameImage == true)
         {
             session.setAttribute("message", "Name image is exist in system ,please rename image ...");
-            return "redirect:/admin/createProduct";
+            return "redirect:createProduct";
         }
         else
         {
@@ -106,7 +106,7 @@ public class ProductController {
             String urlImage = prop.getProperty("local.imagesUpload.directory");
             boolean upload = productImageServices.uploadFile(productModel, urlImage);
             boolean createProduct = productServices.createProduct(productModel);
-            return "redirect:/admin/viewProduct";
+            return "redirect:viewProduct";
         }
     }
     @RequestMapping(value="/createProductDetail",method = RequestMethod.GET)
@@ -128,7 +128,7 @@ public class ProductController {
         if(checkExistNameImage == true)
         {
             session.setAttribute("message", "Name image is exist in system ,please rename image ...");
-            return "redirect:/admin/createProduct";
+            return "redirect:createProduct";
         }
         else
         {
@@ -143,7 +143,7 @@ public class ProductController {
             String urlImage = prop.getProperty("local.imagesUpload.directory");
             boolean upload = productImageServices.uploadFile(productModel, urlImage);
             boolean createProductDetail = productDetailServices.createProductDetail(productModel);
-            return "redirect:/admin/viewProduct";
+            return "redirect:viewProduct";
         }
     }
     @RequestMapping(value = "/viewProductDetail",method = RequestMethod.GET)
@@ -165,7 +165,7 @@ public class ProductController {
     public String updateProductPost(@ModelAttribute("updateModel") ProductDetailModel productDetailModel)
     {
         boolean updateProductDetail = productDetailServices.updateProductDetail(productDetailModel);
-        return "redirect:/admin/viewProduct";
+        return "redirect:viewProduct";
     }
     @RequestMapping(value="/viewProductImages",method = RequestMethod.GET)
     public String viewProductImages(@RequestParam("productDetailId") String productDetailId,ModelMap modelMap)

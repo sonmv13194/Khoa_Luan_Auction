@@ -71,6 +71,7 @@
 </body>
 </html>
 <script type="text/javascript">
+    jQuery.noConflict();
     /* Formating function for row details */
     function fnFormatDetails ( oTable, nTr )
     {
@@ -83,7 +84,7 @@
         return sOut;
     }
 
-    $(document).ready(function() {
+    jQuery (document).ready(function($) {
         /*
          * Insert a 'details' column to the table
          */
@@ -131,4 +132,3 @@
         } );
     } );
 </script>
-

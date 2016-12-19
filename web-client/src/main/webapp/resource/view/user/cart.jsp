@@ -45,6 +45,7 @@
                                     <th class="cart-product-name item">Product Name</th>
                                     <th class="cart-qty item">Quantity</th>
                                     <th class="cart-sub-total item">Price</th>
+                                    <th class="cart-sub-total item">Discount</th>
                                     <th class="cart-total last-item">Total</th>
                                 </tr>
                                 </thead><!-- /thead -->
@@ -55,7 +56,7 @@
 							    <span class="">
 								    <a href="/" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
 								    <input type="submit" value="Update shopping cart"
-                                        class="btn btn-upper btn-primary pull-right outer-right-xs"/>
+                                           class="btn btn-upper btn-primary pull-right outer-right-xs"/>
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							    </span>
                                         </div><!-- /.shopping-cart-btn -->
@@ -108,10 +109,13 @@
                                             </div>
                                         </td>
                                         <td class="cart-product-sub-total"><span
-                                                class="cart-sub-total-price">${cart.productDetail.productDetailPrice}</span>
+                                                class="cart-sub-total-price">${cart.productDetail.productDetailPrice} $</span>
+                                        </td>
+                                        <td class="cart-product-sub-total"><span
+                                                class="cart-sub-total-price">${cart.discount} %</span>
                                         </td>
                                         <td class="cart-product-grand-total"><span
-                                                class="cart-grand-total-price">${cart.productDetail.productDetailPrice * listCart.quantity}</span>
+                                                class="cart-grand-total-price">${cart.productDetail.productDetailPrice * cart.quantity - (cart.productDetail.productDetailPrice * cart.quantity * cart.discount) / 100} $</span>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -200,8 +204,14 @@
                         <thead>
                         <tr>
                             <th>
-                                <div class="cart-grand-total">
-                                    Total<span class="inner-left-md">${sessionScope.total}</span>
+                                <div class="cart-grand-total" >
+                                    <h5 style="text-align: left"> Before :  </h5> <span class="inner-left-md" style="text-align: right">${sessionScope.total} $</span>
+                                </div>
+                                <div class="cart-grand-total" >
+                                    <h5 style="text-align: left"> Discount : </h5> <span class="inner-left-md" style="text-align: right"> - ${sessionScope.discount} $</span></h5>
+                                </div>
+                                <div class="cart-grand-total" >
+                                    <h5 style="text-align: left"> Toal : </h5><span class="inner-left-md" style="text-align: right;">${sessionScope.total - (sessionScope.discount)} $</span></h5>
                                 </div>
                             </th>
                         </tr>
@@ -218,9 +228,9 @@
                         </tr>
                         </tbody><!-- /tbody -->
                     </table><!-- /table -->
-                </div><!-- /.cart-shopping-total -->            </div><!-- /.shopping-cart -->
+                </div><!-- /.cart-shopping-total -->
+            </div><!-- /.shopping-cart -->
         </div> <!-- /.row -->
     </div><!-- /.container -->
 </div>
 <!-- /.body-content -->
-

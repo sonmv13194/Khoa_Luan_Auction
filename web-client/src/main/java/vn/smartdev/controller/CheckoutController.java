@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import vn.smartdev.category.dao.entity.Category;
+import vn.smartdev.category.manager.CategoryServices;
 import vn.smartdev.invoice.dao.model.CartModel;
 import vn.smartdev.invoice.dao.entity.Invoice;
 import vn.smartdev.invoice.dao.entity.InvoiceDetail;
 import vn.smartdev.invoice.dao.model.InvoiceModel;
 import vn.smartdev.invoice.manager.InvoiceDetailService;
 import vn.smartdev.invoice.manager.InvoiceService;
+import vn.smartdev.product.manager.SendEmailSevices;
 
 @Controller
 @RequestMapping(value = "/")
@@ -32,7 +35,14 @@ public class CheckoutController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@Autowired
+	private CategoryServices categoryServices;
+
+	@Autowired
 	InvoiceService invoiceService;
+
+	@Autowired
+	SendEmailSevices sendEmailSevices;
+
 	@Autowired
 	InvoiceDetailService invoiceDetailService;
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
@@ -40,6 +50,11 @@ public class CheckoutController {
 		modelMap.addAttribute("invoiceModel", new InvoiceModel());
 		modelMap.addAttribute("invoice",new Invoice());
 		return "checkoutPage";
+	}
+	@ModelAttribute("listCategory")
+	public void listAllCategory(ModelMap modelMap){
+		List<Category> listCategory = categoryServices.getListCategory();
+		modelMap.addAttribute("listCategory",listCategory);
 	}
 	@RequestMapping(value = "/confirmCheckout", method = RequestMethod.POST)
 	public String checkoutAdd(@ModelAttribute InvoiceModel invoiceModel,
@@ -61,6 +76,7 @@ public class CheckoutController {
 //			Invoice invoiceAdd = new Invoice(Calendar.getInstance().getTime(),
 //					email, phone, "1", username, firstName, lastName, address, city, null);
 			invoiceService.save(invoiceModel,carts);
+			sendEmailSevices.sendEmail(invoiceModel.getEmail());
 			session.removeAttribute("cartSession");
 			session.removeAttribute("countItem");
 			session.removeAttribute("total");

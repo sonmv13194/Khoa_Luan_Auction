@@ -12,12 +12,19 @@
                 <li><a href="${contextPath }/admin/viewProduct">Product</a></li>
                 <li><a href="${contextPath }/admin/category">Category</a></li>
                 <li><a href="${contextPath }/admin/invoice">Invoice</a></li>
+                <li><a href="${contextPath }/admin/discount">Discount</a></li>
             </ul>
         </li>
         <li class="sub-menu"><a href="${contextPath }/"> <i
                 class="icon-shopping-cart"></i> <span>Home Page</span></a>
         </li>
-        </a></li>
+        <li class="sub-menu">
+        <c:url value="/logout" var="logoutUrl"/>
+        <form id="logout" action="${logoutUrl}" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+            <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+        </li>
     </ul>
     <!-- sidebar menu end-->
 </div>

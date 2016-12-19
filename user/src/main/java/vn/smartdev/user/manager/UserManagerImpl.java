@@ -103,7 +103,6 @@ public class UserManagerImpl implements UserManager {
        userCurrent.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
        userCurrent.setEmail(user.getEmail());
        userCurrent.setPhone(user.getPhone());
-
        userCurrent.setBirthday(user.getBirthday());
        userCurrent.setAddress(user.getAddress());
        userRepository.save(userCurrent);

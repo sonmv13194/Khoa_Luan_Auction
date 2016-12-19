@@ -11,13 +11,16 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.manager.CategoryServices;
+import vn.smartdev.product.dao.entity.Discount;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
+import vn.smartdev.product.manager.DiscountServices;
 import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductServices;
 //import vn.smartdev.product.manager.SendEmailSevices;
@@ -50,6 +53,8 @@ public class HomeController {
 	private ProductDetailServices productDetailServices;
 	@Autowired
 	private CategoryServices categoryServices;
+	@Autowired
+	private DiscountServices discountServices;
 	@Autowired
 	private SendEmailSevices sendEmailSevices;
 //	private SendEmailSevices SendEmailSevices;
@@ -93,9 +98,6 @@ public class HomeController {
 
 		return "homePage";
 	}
-
-
-
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
 		logger.info("Welcome login! The client locale is {}.", locale);
@@ -122,9 +124,15 @@ public class HomeController {
 
 		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
 		ProductDetail productDetail = productDetailServices.getProductDetail(id);
+		Product product = productServices.getProduct(productDetail.getProduct().getId());
 		List<ProductDetail> listProductDetailExpenSivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
 		List<Category> listCategory = categoryServices.getListCategory();
-
+		Discount discount = discountServices.findByProduct(product);
+		if(discount == null){
+			model.addAttribute("discount",0);
+		}else {
+			model.addAttribute("discount",discount.getDiscount());
+		}
 		model.addAttribute("serverTime", formattedDate);
 		model.addAttribute("productDetail",productDetail);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);

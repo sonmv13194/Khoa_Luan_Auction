@@ -51,7 +51,7 @@
                                 <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
                                       commandName="category" action="/admin/saveCategory">
                                     <div class="form-group ">
-                                        <label class="control-label col-lg-2">ID</label>
+                                        <label class="control-label col-lg-2">Category Name</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="categoryName" name="categoryName" type="text"
                                                    placeholder="Category Name"/>

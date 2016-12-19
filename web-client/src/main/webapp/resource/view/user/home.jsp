@@ -88,7 +88,7 @@
                                     <div class="hot-deal-wrapper">
                                         <div class="image">
                                             <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                <img src="/uploaded-image/${productDetail.product.url}"
                                                      alt="">
                                             </a>
                                         </div>
@@ -168,7 +168,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${productDetail.product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -203,7 +203,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${productDetail.product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -237,7 +237,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${productDetail.product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -299,7 +299,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${productDetail.product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -332,7 +332,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${productDetail.product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -365,7 +365,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${productDetail.product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -563,7 +563,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
-                                                                    src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    src="/uploaded-image/${productDetail.product.url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
 
@@ -630,7 +630,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
-                                                                    src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    src="/uploaded-image/${productDetail.product.url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
                                                         <div class="tag new"><span>new</span></div>
@@ -697,7 +697,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
-                                                                    src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    src="/uploaded-image/${productDetail.product.url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
                                                         <div class="tag new"><span>new</span></div>
@@ -764,7 +764,7 @@
                                                     <div class="product-image">
                                                         <div class="image">
                                                             <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
-                                                                    src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                                    src="/uploaded-image/${productDetail.product.url}"
                                                                     alt=""></a>
                                                         </div><!-- /.image -->
                                                         <div class="tag new"><span>new</span></div>
@@ -862,7 +862,7 @@
                                         <div class="product-image">
                                             <div class="image">
                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
-                                                        src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                        src="/uploaded-image/${productDetail.product.url}"
                                                         alt=""></a>
                                             </div><!-- /.image -->
                                             <div class="tag hot"><span>hot</span></div>
@@ -955,7 +955,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${list8ProductDetail[i].productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${list8ProductDetail[i].product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -982,7 +982,7 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i+1].id}"/></c:url>'>
-                                                                    <img src="/uploaded-image/${list8ProductDetail[i+1].productImages.get(0).url}"
+                                                                    <img src="/uploaded-image/${list8ProductDetail[i+1].product.url}"
                                                                          alt="">
                                                                 </a>
                                                             </div><!-- /.image -->
@@ -1133,7 +1133,7 @@
                                         <div class="product-image">
                                             <div class="image">
                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
-                                                        src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                        src="/uploaded-image/${productDetail.product.url}"
                                                         alt=""></a>
                                             </div><!-- /.image -->
                                             <div class="tag new"><span>new</span></div>

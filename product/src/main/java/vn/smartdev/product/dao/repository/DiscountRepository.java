@@ -1,0 +1,1 @@
+package vn.smartdev.product.dao.repository;import org.springframework.data.jpa.repository.JpaRepository;import vn.smartdev.product.dao.entity.Discount;import vn.smartdev.product.dao.entity.Product;/** * Created by Nguyen on 16/12/2016. */public interface DiscountRepository extends JpaRepository<Discount, String> {    Discount findByProduct(Product product);}

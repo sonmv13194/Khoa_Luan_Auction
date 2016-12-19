@@ -18,12 +18,15 @@ import java.util.UUID;
 public class InvoiceDetail extends AbstractAuditableEntity<String> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "discount")
+	private int discount;
+
 	private double amount;
 
 	private int quantity;
 
 	//bi-directional many-to-one association to Invoice
-	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="invoice_id")
 	private Invoice invoice;
 
@@ -68,4 +71,11 @@ public class InvoiceDetail extends AbstractAuditableEntity<String> implements Se
 		this.productDetail = productDetail;
 	}
 
+	public int getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
 }

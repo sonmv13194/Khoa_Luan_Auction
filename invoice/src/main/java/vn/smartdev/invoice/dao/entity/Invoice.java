@@ -49,7 +49,7 @@ public class Invoice extends AbstractAuditableEntity<String> implements Serializ
 	private Date invoiceDate;
 
 	//bi-directional many-to-one association to InvoiceDetail
-	@OneToMany(mappedBy="invoice")
+	@OneToMany(mappedBy="invoice", fetch=FetchType.EAGER)
 	private List<InvoiceDetail> invoiceDetails;
 
 	public Invoice(String username) {

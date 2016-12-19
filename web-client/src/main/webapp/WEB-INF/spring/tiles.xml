@@ -69,4 +69,7 @@
 	<definition name="checkoutPage" extends="definition">
 		<put-attribute name="body" value="/resource/view/user/checkout.jsp"/>
 	</definition>
+	<definition name="viewDiscountPage" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewDiscount.jsp"/>
+	</definition>
 </tiles-definitions>

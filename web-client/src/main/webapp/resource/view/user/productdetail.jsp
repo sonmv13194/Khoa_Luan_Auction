@@ -16,13 +16,6 @@
         <div class='row single-product'>
             <div class='col-md-3 sidebar'>
                 <div class="sidebar-module-container">
-                    <div class="home-banner outer-top-n">
-                        <img src="${contextPath}/resource/view/template/assets/images/Nhat/1.jpg" alt="Image">
-                    </div>
-
-
-
-                    <!-- ============================================== HOT DEALS ============================================== -->
                     <div class="sidebar-widget hot-deals wow fadeInUp outer-top-vs">
                         <h3 class="section-title">hot deals</h3>
                         <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
@@ -31,7 +24,7 @@
                                     <div class="products">
                                         <div class="hot-deal-wrapper">
                                             <div class="image">
-                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/>></c:url>'>
+                                                <a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>
                                                     <img src="/uploaded-image/${productDetail.productImages.get(0).url}" alt="">
                                                 </a>
                                             </div>
@@ -68,28 +61,26 @@
                                         </div><!-- /.hot-deal-wrapper -->
 
                                         <div class="product-info text-left m-t-20">
-                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/>></c:url>'>${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a href='<c:url value="detail"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/>></c:url>'>${productDetail.product.productName}</a></h3>
                                             <div class="rating rateit-small"></div>
 
                                             <div class="product-price">
-								<span class="price">
-									$ ${productDetail.productDetailPrice}
-								</span>
-
-                                                <span class="price-before-discount">$ 0</span>
-
+                                            <span class="price">
+                                                $ ${productDetail.productDetailPrice}
+                                            </span>
+                                                <span class="price-before-discount">${discount} %</span>
                                             </div><!-- /.product-price -->
 
                                         </div><!-- /.product-info -->
 
                                         <div class="cart clearfix animate-effect">
                                             <div class="action">
-
-                                                <div class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                <div class="btn-group">
+                                                    <a class="btn btn-primary cart-btn" data-toggle="dropdown"
+                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                       type="button">
                                                         <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                    </a>
 
                                                 </div>
 
@@ -259,14 +250,14 @@
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="stock-box">
-                                                <span class="value">In Stock</span>
+                                                <span class="value">${productDetail.productDetailQuantity}</span>
                                             </div>
                                         </div>
                                     </div><!-- /.row -->
                                 </div><!-- /.stock-container -->
 
                                 <div class="description-container m-t-20">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    ${productDetail.product.description}
                                 </div><!-- /.description-container -->
 
                                 <div class="price-container info-container m-t-20">
@@ -317,7 +308,7 @@
                                         </div>
 
                                         <div class="col-sm-7">
-                                            <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                            <a href="${contextPath}/cart/addCart?product_id=${productDetail.id }" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
                                         </div>
 
 
@@ -497,7 +488,7 @@
                                     <div class="product">
                                         <div class="product-image">
                                             <div class="image">
-                                                <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'><img  src="/uploaded-image/${productDetail.productImages.get(0).url}" alt=""></a>
+                                                <a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'><img  src="/uploaded-image/${productDetail.productImages.get(0).url}" alt=""></a>
                                             </div><!-- /.image -->
 
                                             <div class="tag sale"><span>sale</span></div>
@@ -505,15 +496,13 @@
 
 
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>${productDetail.product.productName}</a></h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
 
                                             <div class="product-price">
-                  <span class="price">
-                      $650.99				</span>
-                                                <span class="price-before-discount">$ ${productDetail.productDetailPrice}</span>
-
+                                              <span class="price">
+                                                      ${productDetail.productDetailPrice}</span>
                                             </div><!-- /.product-price -->
 
                                         </div><!-- /.product-info -->
@@ -521,10 +510,17 @@
                                             <div class="action">
                                                 <ul class="list-unstyled">
                                                     <li class="add-cart-button btn-group">
-                                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                        <a data-toggle="tooltip"
+                                                           href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                           class="btn btn-primary icon" type="button"
+                                                           title="Add Cart">
                                                             <i class="fa fa-shopping-cart"></i>
-                                                        </button>
-                                                        <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                        </a>
+                                                        <a href="">
+                                                            <button class="btn btn-primary cart-btn"
+                                                                    type="button">Add to cart
+                                                            </button>
+                                                        </a>
 
                                                     </li>
 
