@@ -27,9 +27,6 @@ public class Product extends AbstractAuditableEntity<String> implements Serializ
 	@Column(name="product_name")
 	private String productName;
 
-	@Lob
-	private String url;
-
 	@Column(name="description")
 	private String description;
 
@@ -106,13 +103,5 @@ public class Product extends AbstractAuditableEntity<String> implements Serializ
 		productDetail.setProduct(null);
 
 		return productDetail;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
 	}
 }

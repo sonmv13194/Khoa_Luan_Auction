@@ -76,12 +76,7 @@
                                         <div class="cart clearfix animate-effect">
                                             <div class="action">
                                                 <div class="btn-group">
-                                                    <a class="btn btn-primary cart-btn" data-toggle="dropdown"
-                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
-                                                       type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </a>
-
+                                                    <a href="${contextPath}/cart/addCart?product_id=${productDetail.id }" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
                                                 </div>
 
                                             </div><!-- /.action -->

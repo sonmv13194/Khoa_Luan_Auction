@@ -152,10 +152,10 @@
                             </div>
                             <div class="sidebar-widget-body m-t-10">
                                 <div class="price-range-holder">
-      	    <span class="min-max">
-                 <span class="pull-left">$200.00</span>
-                 <span class="pull-right">$800.00</span>
-            </span>
+                                <span class="min-max">
+                                     <span class="pull-left">$200.00</span>
+                                     <span class="pull-right">$800.00</span>
+                                </span>
                                     <input type="text" id="amount"
                                            style="border:0; color:#666666; font-weight:bold;text-align:center;">
 
@@ -407,8 +407,8 @@
                                                         <div class="description"></div>
 
                                                         <div class="product-price">
-				<span class="price">
-					$ ${productDetail.productDetailPrice}				</span>
+                                                        <span class="price">
+                                                            $ ${productDetail.productDetailPrice}				</span>
                                                             <span class="price-before-discount">$ ${productDetail.productDetailPrice}</span>
 
                                                         </div><!-- /.product-price -->
@@ -418,14 +418,17 @@
                                                         <div class="action">
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
-                                                                    <button class="btn btn-primary icon"
-                                                                            data-toggle="dropdown" type="button">
+                                                                    <a data-toggle="tooltip"
+                                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                       class="btn btn-primary icon" type="button"
+                                                                       title="Add Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
-                                                                    </button>
-                                                                    <button class="btn btn-primary cart-btn"
-                                                                            type="button">Add to cart
-                                                                    </button>
-
+                                                                    </a>
+                                                                    <a href="">
+                                                                        <button class="btn btn-primary cart-btn"
+                                                                                type="button">Add to cart
+                                                                        </button>
+                                                                    </a>
                                                                 </li>
 
                                                                 <li class="lnk wishlist">

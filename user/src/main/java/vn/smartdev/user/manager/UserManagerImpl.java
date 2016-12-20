@@ -86,7 +86,7 @@ public class UserManagerImpl implements UserManager {
         user.setBirthday(userModel.getBirthday());
         roles.add(role);
         user.setRoles(roles);
-        user.setEnabled(false);
+        user.setEnabled(true);
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);

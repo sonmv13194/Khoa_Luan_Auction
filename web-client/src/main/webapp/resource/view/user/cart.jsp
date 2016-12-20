@@ -78,7 +78,7 @@
                                         </td>
                                         <td class="cart-product-name-info">
                                             <h4 class='cart-product-description'><a
-                                                    href="detail.html">${cart.productDetail.productDetailCode}</a>
+                                                    href="detail.html">${cart.productDetail.productDetailName}</a>
                                             </h4>
                                             <div class="row">
                                                 <div class="col-sm-4">

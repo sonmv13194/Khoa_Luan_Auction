@@ -137,7 +137,9 @@ public class HomeController {
 		model.addAttribute("productDetail",productDetail);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
 		model.addAttribute("listProductDetailExpensivePrice",listProductDetailExpenSivePrice);
+		List<Product> listProduct = productServices.getListProduct();
 		model.addAttribute("listCategory", listCategory);
+		model.addAttribute("listProduct",listProduct);
 
 		return "detailPage";
 	}

@@ -5,80 +5,6 @@
         <div class="row">
             <!-- ============================================== SIDEBAR ============================================== -->
             <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
-                <!-- ================================== TOP NAVIGATION ================================== -->
-                <div class="side-menu animate-dropdown outer-bottom-xs">
-                    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
-                    <nav class="yamm megamenu-horizontal" role="navigation">
-                        <ul class="nav">
-                            <c:forEach var="category" items="${listCategory}">
-                                <li class="dropdown menu-item">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="icon fa fa-shopping-bag" aria-hidden="true"></i>${category.categoryName}</a>
-                                    <ul class="dropdown-menu mega-menu">
-                                        <li class="yamm-content">
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Shoes </a></li>
-                                                        <li><a href="#">Jackets</a></li>
-                                                        <li><a href="#">Sunglasses</a></li>
-                                                        <li><a href="#">Sport Wear</a></li>
-                                                        <li><a href="#">Blazers</a></li>
-                                                        <li><a href="#">Shirts</a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Handbags</a></li>
-                                                        <li><a href="#">Jwellery</a></li>
-                                                        <li><a href="#">Swimwear </a></li>
-                                                        <li><a href="#">Tops</a></li>
-                                                        <li><a href="#">Flats</a></li>
-                                                        <li><a href="#">Shoes</a></li>
-                                                        <li><a href="#">Winter Wear</a></li>
-                                                        <li><a href="#">Night Suits</a></li>
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Toys &amp; Games</a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                        <li><a href="#">Shirts</a></li>
-                                                        <li><a href="#">Shoes</a></li>
-                                                        <li><a href="#">School Bags</a></li>
-                                                        <li><a href="#">Lunch Box</a></li>
-                                                        <li><a href="#">Footwear</a></li>
-                                                        <li><a href="#">Wipes</a></li>
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Sandals </a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Jwellery</a></li>
-                                                        <li><a href="#">Bags</a></li>
-                                                        <li><a href="#">Night Dress</a></li>
-                                                        <li><a href="#">Swim Wear</a></li>
-                                                        <li><a href="#">Toys</a></li>
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                            </div><!-- /.row -->
-                                        </li><!-- /.yamm-content -->
-                                    </ul><!-- /.dropdown-menu -->
-                                </li><!-- /.menu-item -->
-                            </c:forEach>
-
-                        </ul><!-- /.nav -->
-                    </nav><!-- /.megamenu-horizontal -->
-                </div><!-- /.side-menu -->
-                <!-- ================================== TOP NAVIGATION : END ================================== -->
-                <div class="home-banner outer-bottom-xs">
-                    <img src="${contextPath}/resource/view/template/assets/images/banners/LHS-banner.jpg" alt="Image">
-                </div>
-                <!-- ============================================== HOT DEALS ============================================== -->
                 <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
                     <h3 class="section-title">Product Cheap</h3>
                     <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
@@ -134,16 +60,8 @@
                                     </div><!-- /.product-info -->
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
-                                            <div class="add-cart-button btn-group">
-                                                <a class="btn btn-primary icon" data-toggle="dropdown"
-                                                   href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
-                                                   type="button">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart
-                                                    </button>
-                                                </a>
+                                            <div class="btn-group">
+                                                <a href="${contextPath}/cart/addCart?product_id=${productDetail.id }" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
                                             </div>
                                         </div><!-- /.action -->
                                     </div><!-- /.cart -->
@@ -595,6 +513,7 @@
                                                                                 type="button">Add to cart
                                                                         </button>
                                                                     </a>
+
                                                                 </li>
                                                                 <li class="lnk wishlist">
                                                                     <a data-toggle="tooltip" class="add-to-cart"

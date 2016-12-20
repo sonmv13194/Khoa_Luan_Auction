@@ -25,6 +25,8 @@ import vn.smartdev.invoice.dao.entity.InvoiceDetail;
 import vn.smartdev.invoice.dao.model.InvoiceModel;
 import vn.smartdev.invoice.manager.InvoiceDetailService;
 import vn.smartdev.invoice.manager.InvoiceService;
+import vn.smartdev.product.dao.entity.Product;
+import vn.smartdev.product.manager.ProductServices;
 import vn.smartdev.product.manager.SendEmailSevices;
 
 @Controller
@@ -36,12 +38,12 @@ public class CheckoutController {
 	 */
 	@Autowired
 	private CategoryServices categoryServices;
-
 	@Autowired
 	InvoiceService invoiceService;
-
 	@Autowired
 	SendEmailSevices sendEmailSevices;
+	@Autowired
+	private ProductServices productServices;
 
 	@Autowired
 	InvoiceDetailService invoiceDetailService;
@@ -51,10 +53,12 @@ public class CheckoutController {
 		modelMap.addAttribute("invoice",new Invoice());
 		return "checkoutPage";
 	}
-	@ModelAttribute("listCategory")
+	@ModelAttribute
 	public void listAllCategory(ModelMap modelMap){
 		List<Category> listCategory = categoryServices.getListCategory();
-		modelMap.addAttribute("listCategory",listCategory);
+		List<Product> listProduct = productServices.getListProduct();
+		modelMap.addAttribute("listCategory", listCategory);
+		modelMap.addAttribute("listProduct",listProduct);
 	}
 	@RequestMapping(value = "/confirmCheckout", method = RequestMethod.POST)
 	public String checkoutAdd(@ModelAttribute InvoiceModel invoiceModel,

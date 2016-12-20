@@ -104,10 +104,6 @@ public class Invoice extends AbstractAuditableEntity<String> implements Serializ
 		return lastName;
 	}
 
-	public void setLasttName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public String getCity() {
 		return city;
 	}
