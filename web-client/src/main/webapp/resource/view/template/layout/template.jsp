@@ -36,6 +36,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800'
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
 </head>
 <body>
 <header>
@@ -53,8 +55,8 @@
 <!-- js placed at the end of the document so the pages load faster -->
 <!-- Bootstrap Core CSS -->
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
-<script src="${contextPath}/resource/view/template/assets/js/jquery-1.11.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<%--<script src="${contextPath}/resource/view/template/assets/js/jquery-1.11.1.min.js"></script>--%>
+
 <script src="${contextPath}/resource/view/template/assets/js/bootstrap.min.js"></script>
 <script src="${contextPath}/resource/view/template/assets/js/bootstrap-hover-dropdown.min.js"></script>
 <script src="${contextPath}/resource/view/template/assets/js/owl.carousel.min.js"></script>
@@ -90,3 +92,73 @@
         });
     });
 </script>
+<script>
+    $(function() {
+
+        // Setup form validation on the #register-form element
+        $("#register-form").validate({
+
+            // Specify the validation rules
+            rules: {
+                username: "required",
+                address: "required",
+                phone:{
+                    required: true,
+                   // pattern: true
+                },
+                birthday:{
+                    required : true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 5,
+                    maxlength: 20
+                },
+                confirm_password :{
+                    required: true,
+                    equalTo: "#password",
+                }
+            },
+
+            // Specify the validation error messages
+            messages: {
+                username: "Please enter your username",
+                address: "Please enter your address",
+                birthday:"Please enter your birthay",
+                phone:{
+                    required: "Please provide a phone",
+                  //  pattern:"\d{3}[\-]\d{3}[\-]\d{4}"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                    maxlength: "Your password must be at least than 20 characters long"
+                },
+                confirm_password:{
+                    required: "Please confirm password !"
+
+                },
+                email: "Please enter a valid email address",
+            },
+
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+    });
+
+</script>
+<%--<script>--%>
+    <%--function compareDate() {--%>
+        <%--var dateEntered = document.getElementById("birthday").value.parseDate();--%>
+      <%--//  alert("selected date : "+dateEntered);--%>
+        <%--var currentDate = new Date($.now());--%>
+        <%--if(dateEntered < currentDate)--%>
+        <%--alert("dateEntered nho hon current date");--%>
+    <%--}--%>
+<%--</script>--%>

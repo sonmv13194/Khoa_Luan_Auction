@@ -11,6 +11,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
+import vn.smartdev.user.dao.model.UserModel;
 import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.exception.UserNotFoundException;
@@ -53,17 +54,21 @@ public class UserTest {
 
     }
 
-    /*@Test
-    public void shouldReturnTrueWhenCreateUser() throws UserAlreadyExistsException {
-        User user;
-        user = new User("Da nang", new Date(2000-12-12) ,"huyhaohoa@gmail."
-                ,"","09052453445","Huy"
-                ,true,true,true
-                , true, new Role("ADMIN"));
-        User expected =user;
-        Mockito.when(userRepository.save(user)).thenReturn(user);
-        Assertions.assertThat(userManager.createUser(user)).isEqualTo(user);
-    }*/
+
+//    public void shouldReturnTrueWhenCreateUser() throws UserAlreadyExistsException {
+//        UserModel userModel= new UserModel("Da Nang", new Date(2000-12-12), "huy@gmail.com",
+//                "123456", "01122434224", "huyle","huyle");
+//
+//      //  "Da nang", new Date(2000-12-12) ,"huyhaohoa@gmail."
+//      //          ,"123","09052453445","Huy"
+//                //         ,true,true,true
+//      //          , true, new Role("ROLE_ADMIN"));
+//
+//
+//        UserModel expected =userModel;
+//        Mockito.when(userRepository.save((UserModel) userModel).thenReturn(userModel);
+//        Assertions.assertThat(userManager.save(userModel)).isEqualTo(userModel);
+//    }
 
     @Test
     public void shouldReturnTrueWhenUpdateUser() throws UserAlreadyExistsException, UserNotFoundException {

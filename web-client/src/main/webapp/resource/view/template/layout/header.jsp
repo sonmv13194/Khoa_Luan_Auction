@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <header class="header-style-1">
+    <!-- Load jQuery and the validate plugin -->
 
     <!-- ============================================== TOP MENU ============================================== -->
     <div class="top-bar animate-dropdown">
@@ -282,6 +285,8 @@
 
     </div><!-- /.header-nav -->
     <!-- ============================================== NAVBAR : END ============================================== -->
+
+
 
 </header>
 

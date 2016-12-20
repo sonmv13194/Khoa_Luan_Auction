@@ -95,5 +95,5 @@ public class AbstractAuditableEntity <PK extends Serializable> implements Serial
         this.deleted = deleted;
     }
 
-    
+
 }

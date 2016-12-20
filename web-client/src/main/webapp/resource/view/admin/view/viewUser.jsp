@@ -38,7 +38,7 @@
                                     <td>${user.lastUpdated}</td>
                                     <td><c:forEach items="${user.roles }"
                                                    var="role">${role.roleName }</c:forEach></td>
-                                    <td><a class="edit" href="/admin/editUser?id=${user.id}">Edit</a></td>
+                                    <td><a class="edit" href="/admin/editUser?id=${user.id} #edit">Edit</a></td>
                                         <%--onclick="javascript:deleteUser(${user.id}--%>
                                     <td>
                                         <a class="delete"
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
-                        <header class="panel-heading">
+                        <header class="panel-heading" id="edit">
                             Edit User
                         </header>
                         <div class="panel-body">
