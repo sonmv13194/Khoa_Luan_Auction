@@ -14,10 +14,10 @@
     <context:component-scan base-package="vn.smartdev.user.userService"/>
     <http use-expressions="true" auto-config="false">
         <csrf/>
-        <intercept-url pattern="/checkout" access="isAuthenticated()"/>
+        <intercept-url pattern="/checkout" access="isAuthenticated()" requires-channel="http" />
         <intercept-url pattern="/" access="permitAll()"/>
-        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" requires-channel="http" />
+        <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" requires-channel="http" />
         <form-login login-page="/login" username-parameter="username" password-parameter="password"
                     login-processing-url="/j_spring_security_check"
                     authentication-success-handler-ref="savedRequestAwareAuthenticationSuccessHandler"

@@ -14,6 +14,8 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, String> {
     @Query("SELECT u FROM User u WHERE u.username = :username")
     User findByUsername(@Param("username") String username);
+
+
     int countByUsernameOrEmailOrPhoneAndIdNotIn(String username, String email, String phone, String id);
     User findByIdAndDeletedIsFalse(String userId);
     @Modifying
