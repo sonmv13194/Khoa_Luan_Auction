@@ -3,9 +3,13 @@ package vn.smartdev.user.dao.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
+import vn.smartdev.user.dao.validator.Phone;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
@@ -18,11 +22,12 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
     private static final long serialVersionUID = 1L;
 
 
-
+    @NotNull
     private String address;
 
     //@Temporal(TemporalType.DATE)
     //@DateTimeFormat(pattern = "MM-dd-yyyy")
+    @NotNull
     private java.sql.Date birthday;
 
     public java.sql.Date getBirthday() {
@@ -33,14 +38,29 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
         this.birthday = birthday;
     }
 
+    @NotNull
+
     private String email;
 
-    public UserModel() {
+    UserModel() {
     }
 
+    @NotNull
+    @Size(min = 5, max = 30)
+    private String username;
+
+    @NotNull
+
+    private String confirmPassword;
+
+    @NotNull
+    @Size(min = 5, max = 30)
     private String password;
 
+    @NotNull
+    @Phone
     private String phone;
+    @Pattern(regexp="^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$")
 
     public String getAddress() {
         return address;
@@ -101,8 +121,6 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
         this.confirmPassword = confirmPassword;
     }
 
-    private String username;
 
-    private String confirmPassword;
 
 }
