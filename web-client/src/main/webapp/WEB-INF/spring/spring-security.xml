@@ -30,7 +30,7 @@
         <access-denied-handler error-page="/403"/>
     </http>
     <authentication-manager>
-        <authentication-provider user-service-ref="userServiceImpl">
+        <authentication-provider user-service-ref="userDetailServiceImpl">
             <password-encoder ref="encoder"/>
         </authentication-provider>
     </authentication-manager>
@@ -38,7 +38,7 @@
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
-    <beans:bean id="userServiceImpl" class="vn.smartdev.user.userService.UserServiceImpl" autowire="byType"/>
+    <beans:bean id="userDetailServiceImpl" class="vn.smartdev.user.services.UserDetailServiceImpl" autowire="byType"/>
     <!--<beans:bean id="loginSuccessHandler" class="vn.smartdev.security.LoginSuccessHandler">-->
         <!--<beans:property name="defaultTargetUrl" value="/"/>-->
         <!--<beans:property name="useReferer" value="true"/>-->
