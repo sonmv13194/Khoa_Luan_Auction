@@ -9,16 +9,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.exception.UserNotFoundException;
 import vn.smartdev.user.manager.RoleManager;
 import vn.smartdev.user.manager.UserManager;
 
-import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,12 +46,12 @@ public class UserController {
 
     @RequestMapping(value = "/editUser", method = RequestMethod.GET)
     public String editUserGet(@RequestParam("id") String uid, Model model){
-
+        logger.info("Access editUserGet method !!");
         User user = new User();
         try {
             user = userManager.findUserById(uid);
         } catch (UserNotFoundException e) {
-            e.printStackTrace();
+            logger.error("+++++++++++++++++UserNotFoundException+++++++++++++++++");
         }
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
@@ -66,6 +64,7 @@ public class UserController {
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String editUserPost(@ModelAttribute("user") User user, Model model) throws ParseException {
+        logger.info("Access editUserPost method !!");
         userManager.saveForEdit(user);
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
@@ -78,23 +77,13 @@ public class UserController {
 
     @RequestMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam("id") String id, Model model){
+        logger.info("Access deleteUser method !!");
         try {
             userManager.deleteUser(userManager.findUserById(id));
         } catch (UserNotFoundException e) {
-            e.printStackTrace();
+            logger.error("+++++++++++++++++UserNotFoundException+++++++++++++++++");
         }
         return "redirect:viewUser";
-    }
-
-    public static Date convertStringToDate(String date){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-        Date result = null;
-        try {
-            result = dateFormat.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return result;
     }
 }
 

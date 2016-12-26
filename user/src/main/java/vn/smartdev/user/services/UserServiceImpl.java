@@ -1,6 +1,5 @@
 package vn.smartdev.user.services;
 
-import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,16 +11,18 @@ import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.dao.model.UserModel;
 import vn.smartdev.user.dao.repository.RoleRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
-import vn.smartdev.user.exception.UserAlreadyExistsException;
+
 import vn.smartdev.user.exception.UserNotFoundException;
 import vn.smartdev.user.manager.UserManager;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import  java.util.List;
+import  java.util.ArrayList;
 @Service
 public class UserServiceImpl implements UserManager {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserRepository userRepository;
 
@@ -33,10 +34,12 @@ public class UserServiceImpl implements UserManager {
 
     @Override
     public User findUserByUsername(String username) throws UserNotFoundException {
+
         User user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UserNotFoundException("Cannot find user by username: " + username);
         }
+        logger.error("Excuted findUserByUsername method !!");
         return user;
     }
 
@@ -46,6 +49,7 @@ public class UserServiceImpl implements UserManager {
         if (user == null) {
             throw new UserNotFoundException("Cannot find user by id: " + userId);
         }
+        logger.error("Excuted findUserById method !!");
         return user;
     }
 
@@ -81,6 +85,7 @@ public class UserServiceImpl implements UserManager {
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);
         userRepository.save(user);
+        logger.error("Excuted save method !!");
 
     }
 
@@ -96,10 +101,12 @@ public class UserServiceImpl implements UserManager {
        userCurrent.setBirthday(user.getBirthday());
        userCurrent.setAddress(user.getAddress());
        userRepository.save(userCurrent);
+       logger.error("Excuted saveForEdit method !!");
     }
 
     @Override
     public List<User> findAllUsers() {
+        logger.error("Excuted findAllUser method !!");
         return userRepository.findAll();
     }
 
@@ -107,6 +114,7 @@ public class UserServiceImpl implements UserManager {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public void deleteUser(User user) throws UserNotFoundException {
+        logger.error("Excuted deleteUser method !!");
         userRepository.delete(user);
     }
 
