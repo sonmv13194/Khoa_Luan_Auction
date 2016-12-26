@@ -4,6 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -94,11 +95,8 @@
 </script>
 <script>
     $(function() {
-
-        // Setup form validation on the #register-form element
         $("#register-form").validate({
 
-            // Specify the validation rules
             rules: {
                 username: "required",
                 address: "required",
@@ -140,11 +138,9 @@
                 },
                 confirm_password:{
                     required: "Please confirm password !"
-
                 },
                 email: "Please enter a valid email address",
             },
-
             submitHandler: function(form) {
                 form.submit();
             }
@@ -153,12 +149,4 @@
     });
 
 </script>
-<%--<script>--%>
-    <%--function compareDate() {--%>
-        <%--var dateEntered = document.getElementById("birthday").value.parseDate();--%>
-      <%--//  alert("selected date : "+dateEntered);--%>
-        <%--var currentDate = new Date($.now());--%>
-        <%--if(dateEntered < currentDate)--%>
-        <%--alert("dateEntered nho hon current date");--%>
-    <%--}--%>
-<%--</script>--%>
+

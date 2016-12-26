@@ -1,7 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
          pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<style>
 
+    #editForm label.error {
+        color:#FB3A3A;
+        font-weight:bold;
+    }
+    h1 {
+        font-family: Helvetica;
+        font-weight: 100;
+        color:#333;
+        padding-bottom:20px;
+    }
+
+</style>
 <section id="container" class="">
     <section id="main-content">
         <section class="wrapper">
@@ -42,7 +57,8 @@
                                         <%--onclick="javascript:deleteUser(${user.id}--%>
                                     <td>
                                         <a class="delete"
-                                           href="${contextPath }/admin/deleteUser?id=${user.id}">
+                                           href="${contextPath }/admin/deleteUser?id=${user.id}"
+                                           onclick="return confirm('Are you sure you want to delete this item?');">
                                             Delete
                                         </a>
                                     </td>
@@ -60,22 +76,26 @@
                         <header class="panel-heading" id="edit">
                             Edit User
                         </header>
+                        <h2>${message}</h2>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="POST"
+                                <form class="cmxform form-horizontal tasi-form" id="editForm" method="POST"
                                       commandName="user" action="/admin/editUser">
+
+
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2"></label>
-                                        <div class="col-lg-10" >
+
                                             <input class="form-control" id="id" name="id" type="hidden"
                                                    value="${user.id}"/>
-                                        </div>
+
                                     </div>
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Username</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="username" name="username" type="text"
                                                    value="${user.username}"/>
+                                            <form:errors path="username" cssClass="error" />
                                         </div>
                                     </div>
 
@@ -84,6 +104,7 @@
                                         <div class="col-lg-10">
                                             <input class="form-control" id="password" name="password" type="password"
                                                    value="${user.password}"/>
+                                            <form:errors path="password" cssClass="error" />
                                         </div>
                                     </div>
 
@@ -92,6 +113,7 @@
                                         <div class="col-lg-10">
                                             <input class="form-control" id="email" name="email" type="email"
                                                    value="${user.email}"/>
+                                            <form:errors path="email" cssClass="error" />
                                         </div>
                                     </div>
 
@@ -100,6 +122,7 @@
                                         <div class="col-lg-10">
                                             <input class="form-control" id="birthday" name="birthday" type = "date"
                                                    value="${user.birthday}"/>
+                                            <form:errors path="birthday" cssClass="error" />
                                         </div>
                                     </div>
 
@@ -108,12 +131,14 @@
                                         <div class="col-lg-10">
                                             <input class="form-control" id="address" name="address"
                                                    value="${user.address}"/>
+                                            <form:errors path="address" cssClass="error" />
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Phone</label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="phone" name="phone" value="${user.phone}"/>
+                                            <form:errors path="phone" cssClass="error" />
                                         </div>
                                     </div>
 

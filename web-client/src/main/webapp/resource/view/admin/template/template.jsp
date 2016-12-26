@@ -5,7 +5,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,4 +133,60 @@
             }
         } );
     } );
+</script>
+
+<script type="text/javascript" >
+    $(function() {
+
+        // Setup form validation on the #register-form element
+        $("#editForm").validate({
+
+            // Specify the validation rules
+            rules: {
+                username: "required",
+                address: "required",
+                phone:{
+                    required: true,
+                    // pattern: true
+                },
+                birthday:{
+                    required : true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 5,
+                    maxlength: 20
+                }
+
+            },
+
+            // Specify the validation error messages
+            messages: {
+                username: "Please enter your username",
+                address: "Please enter your address",
+                birthday:"Please enter your birthay",
+                phone:{
+                    required: "Please provide a phone",
+                    //  pattern:"\d{3}[\-]\d{3}[\-]\d{4}"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                    maxlength: "Your password must be at least than 20 characters long"
+                },
+
+                email: "Please enter a valid email address",
+            },
+
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+    });
+
 </script>
