@@ -1,4 +1,4 @@
-package vn.smartdev.user.manager;
+package vn.smartdev.user.services;
 
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,14 @@ import vn.smartdev.user.dao.repository.RoleRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
 import vn.smartdev.user.exception.UserAlreadyExistsException;
 import vn.smartdev.user.exception.UserNotFoundException;
+import vn.smartdev.user.manager.UserManager;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
-public class UserManagerImpl implements UserManager {
+public class UserServiceImpl implements UserManager {
     @Autowired
     private UserRepository userRepository;
 
@@ -50,27 +51,16 @@ public class UserManagerImpl implements UserManager {
 
 
 
-    public boolean userExists(User user) {
-        return userRepository.countByUsernameOrEmailOrPhoneAndIdNotIn(user.getUsername(),
-                user.getEmail(), user.getPhone(), user.getId()) > 0;
-    }
+//    public boolean userExists(User user) {
+//        return userRepository.countByUsernameOrEmailOrPhoneAndIdNotIn(user.getUsername(),
+//                user.getEmail(), user.getPhone(), user.getId()) > 0;
+//    }
+//
+//    @Override
+//    public User enableUser(User user) throws UserNotFoundException {
+//        throw new NotImplementedException();
+//    }
 
-    @Override
-    public User enableUser(User user) throws UserNotFoundException {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
-    public User updateUser(User user) throws UserNotFoundException, UserAlreadyExistsException {
-//        if (userExists(user)) {
-//            throw new UserAlreadyExistsException(
-//                    "User already exists with email id: " + user.getEmail()
-//                            + " and/or phone number: "
-//                            + user.getPhone() + " and/or username: " + user.getUsername());
-//        }
-        return userRepository.save(user);
-    }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
@@ -117,32 +107,7 @@ public class UserManagerImpl implements UserManager {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
     public void deleteUser(User user) throws UserNotFoundException {
-//        if(!userExists(user)){
-//            throw new UserNotFoundException("User not exists");
-//        }
         userRepository.delete(user);
     }
 
-
-
-    /*@Override
-    @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.DEFAULT, readOnly = false)
-    public User changePassword(String userId, String newPassword) throws UserNotFoundException {
-        User user = findUserById(userId);
-        PasswordHistory passwordHistory = user.getPasswordHistory();
-        passwordHistory.addPassword(newPassword);
-        passwordHistory.setLastPasswordChanged(Calendar.getInstance().getTime());
-        user.setPassword(newPassword);
-        return userRepository.save(user);
-    }*/
-    public static Date convertStringToDate(String date){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy");
-        Date result = null;
-        try {
-            result = dateFormat.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 }

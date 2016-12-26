@@ -12,9 +12,6 @@ public interface UserManager {
 
     User findUserByUsername(String username) throws UserNotFoundException;
     User findUserById(String userId) throws UserNotFoundException;
-   // User createUser(User user) throws UserAlreadyExistsException;
-    User enableUser(User user) throws UserNotFoundException;
-    User updateUser(User user) throws UserNotFoundException, UserAlreadyExistsException;
     void save(UserModel userModel);
     void saveForEdit(User user);
     List<User> findAllUsers();

@@ -19,6 +19,7 @@ import java.util.UUID;
  * Created by levuhuy on 12/14/16.
  */
 public class UserModel extends AbstractAuditableEntity<String> implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
 
@@ -39,10 +40,9 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
     }
 
     @NotNull
-
     private String email;
 
-    UserModel() {
+    public UserModel() {
     }
 
     @NotNull
@@ -50,7 +50,6 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
     private String username;
 
     @NotNull
-
     private String confirmPassword;
 
     @NotNull
@@ -59,8 +58,9 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
 
     @NotNull
     @Phone
-    private String phone;
     @Pattern(regexp="^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$")
+    private String phone;
+
 
     public String getAddress() {
         return address;
