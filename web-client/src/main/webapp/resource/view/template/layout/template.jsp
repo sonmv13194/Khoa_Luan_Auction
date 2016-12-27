@@ -98,7 +98,7 @@
         $("#register-form").validate({
 
             rules: {
-                username: "required",
+               // username: "required",
                 address: "required",
                 phone:{
                     required: true,
@@ -124,7 +124,7 @@
 
             // Specify the validation error messages
             messages: {
-                username: "Please enter your username",
+              //  username: "Please enter your username",
                 address: "Please enter your address",
                 birthday:"Please enter your birthay",
                 phone:{

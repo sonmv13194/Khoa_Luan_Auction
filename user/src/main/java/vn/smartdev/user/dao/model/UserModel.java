@@ -58,7 +58,7 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
 
     @NotNull
     @Phone
-    @Pattern(regexp="^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$")
+    @Pattern(regexp="^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}")
     private String phone;
 
 
