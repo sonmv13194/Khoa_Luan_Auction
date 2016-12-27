@@ -1,13 +1,8 @@
 package vn.smartdev.controller;
 
-import com.sun.imageio.plugins.jpeg.JPEG;
-import javassist.bytecode.stackmap.TypeData;
-import org.cryptacular.io.ClassPathResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,8 +17,6 @@ import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.manager.DiscountServices;
 import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductServices;
-//import vn.smartdev.product.manager.SendEmailSevices;
-import vn.smartdev.product.manager.SendEmailSevices;
 import vn.smartdev.user.dao.manager.UserManager;
 
 import javax.servlet.http.HttpSession;
@@ -51,9 +44,6 @@ public class HomeController {
 	private CategoryServices categoryServices;
 	@Autowired
 	private DiscountServices discountServices;
-	@Autowired
-	private SendEmailSevices sendEmailSevices;
-//	private SendEmailSevices SendEmailSevices;
 
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);

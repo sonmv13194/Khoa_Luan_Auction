@@ -21,13 +21,12 @@ import vn.smartdev.category.dao.entity.Category;
 import vn.smartdev.category.manager.CategoryServices;
 import vn.smartdev.invoice.dao.model.CartModel;
 import vn.smartdev.invoice.dao.entity.Invoice;
-import vn.smartdev.invoice.dao.entity.InvoiceDetail;
 import vn.smartdev.invoice.dao.model.InvoiceModel;
-import vn.smartdev.invoice.manager.InvoiceDetailService;
-import vn.smartdev.invoice.manager.InvoiceService;
+import vn.smartdev.invoice.services.InvoiceDetailServices;
+import vn.smartdev.invoice.services.InvoiceServices;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.manager.ProductServices;
-import vn.smartdev.product.manager.SendEmailSevices;
+import vn.smartdev.product.manager.SendEmailServicesImpl;
 
 @Controller
 @RequestMapping(value = "/")
@@ -39,19 +38,23 @@ public class CheckoutController {
 	@Autowired
 	private CategoryServices categoryServices;
 	@Autowired
-	InvoiceService invoiceService;
+	InvoiceServices invoiceServices;
 	@Autowired
-	SendEmailSevices sendEmailSevices;
+	SendEmailServicesImpl sendEmailServicesImpl;
 	@Autowired
 	private ProductServices productServices;
 
 	@Autowired
-	InvoiceDetailService invoiceDetailService;
+	InvoiceDetailServices invoiceDetailServices;
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
-	public String checkout(ModelMap modelMap) {
-		modelMap.addAttribute("invoiceModel", new InvoiceModel());
-		modelMap.addAttribute("invoice",new Invoice());
-		return "checkoutPage";
+	public String checkout(ModelMap modelMap, HttpSession session) {
+		List<CartModel> cartModels = (List<CartModel>) session.getAttribute("cartSession");
+		if(cartModels.isEmpty()){
+			return "cartPage";
+		}else {
+			modelMap.addAttribute("invoiceModel", new InvoiceModel());
+			return "checkoutPage";
+		}
 	}
 	@ModelAttribute
 	public void listAllCategory(ModelMap modelMap){
@@ -61,9 +64,9 @@ public class CheckoutController {
 		modelMap.addAttribute("listProduct",listProduct);
 	}
 	@RequestMapping(value = "/confirmCheckout", method = RequestMethod.POST)
-	public String checkoutAdd(@ModelAttribute InvoiceModel invoiceModel,
+	public String checkoutAdd(@Valid InvoiceModel invoiceModel,
 			BindingResult bindingResult,
-			ModelMap modelMap, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws Exception {
+			HttpSession session, HttpServletRequest request) throws Exception {
 		@SuppressWarnings("unchecked")
 		List<CartModel> carts = (List<CartModel>)session.getAttribute("cartSession");
 		String username = request.getUserPrincipal().getName();
@@ -74,19 +77,17 @@ public class CheckoutController {
 		} else {
 			logger.info("=== No error");
 			// insert into database
-		}
-		try {
-			invoiceModel.setUsername(username);
-//			Invoice invoiceAdd = new Invoice(Calendar.getInstance().getTime(),
-//					email, phone, "1", username, firstName, lastName, address, city, null);
-			invoiceService.save(invoiceModel,carts);
-			sendEmailSevices.sendEmail(invoiceModel.getEmail());
-			session.removeAttribute("cartSession");
-			session.removeAttribute("countItem");
-			session.removeAttribute("total");
-		} catch (NullPointerException e) {
-			// TODO: handle exception
-			return "cartPage";
+			try {
+				invoiceModel.setUsername(username);
+				invoiceServices.save(invoiceModel,carts);
+				sendEmailServicesImpl.sendEmail(invoiceModel.getEmail());
+				session.removeAttribute("cartSession");
+				session.removeAttribute("countItem");
+				session.removeAttribute("total");
+			} catch (NullPointerException e) {
+				// TODO: handle exception
+				return "cartPage";
+			}
 		}
 		return "redirect:/";
 	}

@@ -39,7 +39,8 @@ public class ProductDetail extends AbstractAuditableEntity<String> implements Se
 	private String supplyer;
 	//contrustor
 
-	public ProductDetail(String description, float productDetailPrice, int productDetailQuantity, int productDetailStatus,String supplyer) {
+	public ProductDetail(String productDetailName, String description, float productDetailPrice, int productDetailQuantity, int productDetailStatus,String supplyer) {
+		this.productDetailName = productDetailName;
 		this.description = description;
 		this.productDetailPrice = productDetailPrice;
 		this.productDetailQuantity = productDetailQuantity;

@@ -48,13 +48,9 @@ public class Invoice extends AbstractAuditableEntity<String> implements Serializ
 	@Column(name = "invoice_date")
 	private Date invoiceDate;
 
-	//bi-directional many-to-one association to InvoiceDetail
+	//bi-directional many-to-one association to InvoiceDetailServices
 	@OneToMany(mappedBy="invoice", fetch=FetchType.EAGER)
 	private List<InvoiceDetail> invoiceDetails;
-
-	public Invoice(String username) {
-		this.username = username;
-	}
 
 	public Invoice() {
 		setId(UUID.randomUUID().toString());

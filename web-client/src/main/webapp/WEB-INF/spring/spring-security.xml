@@ -41,10 +41,6 @@
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
     <beans:bean id="userDetailServiceImpl" class="vn.smartdev.user.services.UserDetailServiceImpl" autowire="byType"/>
-    <!--<beans:bean id="loginSuccessHandler" class="vn.smartdev.security.LoginSuccessHandler">-->
-        <!--<beans:property name="defaultTargetUrl" value="/"/>-->
-        <!--<beans:property name="useReferer" value="true"/>-->
-    <!--</beans:bean>-->
     <beans:bean id="loginFailureHandler" class="vn.smartdev.security.LoginFailureHandler">
         <beans:property name="defaultFailureUrl" value="/login?error" />
     </beans:bean>

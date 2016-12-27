@@ -18,7 +18,7 @@
 //import vn.smartdev.user.exception.UserAlreadyExistsException;
 //import vn.smartdev.user.exception.UserNotFoundException;
 //
-//import vn.smartdev.user.services.UserServiceImpl;
+//import vn.smartdev.user.services.UserDetailServiceImpl;
 //import org.fest.assertions.Assertions;
 //
 //import java.sql.Date;
@@ -36,7 +36,7 @@
 //    private BCryptPasswordEncoder bCryptPasswordEncoder;
 //
 //    @InjectMocks
-//    private UserServiceImpl userService;
+//    private UserDetailServiceImpl userService;
 //
 //    @Before
 //    public void setUp() throws Exception {

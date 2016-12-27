@@ -13,6 +13,7 @@ public class CartModel implements Serializable{
 	private ProductDetail productDetail;
 	private int quantity;
 	private int discount;
+
 	public CartModel() {
 		super();
 	}
@@ -27,6 +28,7 @@ public class CartModel implements Serializable{
 	public ProductDetail getProductDetail() {
 		return productDetail;
 	}
+
 	public void setProductDetail(ProductDetail productDetail) {
 		this.productDetail = productDetail;
 	}

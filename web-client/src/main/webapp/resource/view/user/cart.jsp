@@ -1,24 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<%--<script type="text/javascript">
-    function incrementValue() {
-        var value = parseInt(document.getElementById('quantity').value, 10);
-        value = isNaN(value) ? 0 : value;
-        if (value < 10) {
-            value++;
-            document.getElementById('quantity').value = value;
-        }
-    }
-    function decrementValue() {
-        var value = parseInt(document.getElementById('quantity').value, 10);
-        value = isNaN(value) ? 0 : value;
-        if (value > 1) {
-            value--;
-            document.getElementById('quantity').value = value;
-        }
-
-    }
-</script>--%>
 <div class="breadcrumb">
     <div class="container">
         <div class="breadcrumb-inner">
@@ -55,10 +36,12 @@
                                         <div class="shopping-cart-btn">
 							    <span class="">
 								    <a href="/" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
+                                    <c:if test="${not empty sessionScope.cartSession}">
 								    <input type="submit" value="Update shopping cart"
                                            class="btn btn-upper btn-primary pull-right outer-right-xs"/>
-                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							    </span>
+                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                    </c:if>
+                                </span>
                                         </div><!-- /.shopping-cart-btn -->
                                     </td>
                                 </tr>
@@ -104,7 +87,8 @@
                                                             class="icon fa fa-sort-desc"
                                                     ></i></span></div>
                                                 </div>
-                                                <input type="text" id="quantity" aria-valuemax="10" aria-valuemin="1" maxlength="2" name="quantity"
+                                                <input type="text" id="quantity" aria-valuemax="10" aria-valuemin="1"
+                                                       maxlength="2" name="quantity"
                                                        value="${cart.quantity}">
                                             </div>
                                         </td>
@@ -204,14 +188,17 @@
                         <thead>
                         <tr>
                             <th>
-                                <div class="cart-grand-total" >
-                                    <h5 style="text-align: left"> Before :  </h5> <span class="inner-left-md" style="text-align: right">${sessionScope.total} $</span>
+                                <div class="cart-grand-total">
+                                    <h5 style="text-align: left"> Before : </h5> <span class="inner-left-md"
+                                                                                       style="text-align: right">${sessionScope.total} $</span>
                                 </div>
-                                <div class="cart-grand-total" >
-                                    <h5 style="text-align: left"> Discount : </h5> <span class="inner-left-md" style="text-align: right"> - ${sessionScope.discount} $</span></h5>
+                                <div class="cart-grand-total">
+                                    <h5 style="text-align: left"> Discount : </h5> <span class="inner-left-md"
+                                                                                         style="text-align: right"> - ${sessionScope.discount} $</span></h5>
                                 </div>
-                                <div class="cart-grand-total" >
-                                    <h5 style="text-align: left"> Toal : </h5><span class="inner-left-md" style="text-align: right;">${sessionScope.total - (sessionScope.discount)} $</span></h5>
+                                <div class="cart-grand-total">
+                                    <h5 style="text-align: left"> Toal : </h5><span class="inner-left-md"
+                                                                                    style="text-align: right;">${sessionScope.total - (sessionScope.discount)} $</span></h5>
                                 </div>
                             </th>
                         </tr>
@@ -220,7 +207,11 @@
                         <tr>
                             <td>
                                 <div class="cart-checkout-btn pull-right">
-                                    <a type="submit" href="${contextPath}/checkout"
+                                    <a type="submit"
+                                       onclick="if(${empty sessionScope.cartSession}) {return alert('Cart null !')}"
+                                            <c:if test="${not empty sessionScope.cartSession}">
+                                                href="${contextPath}/checkout"
+                                            </c:if>
                                        class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</a>
                                     <span class="">Checkout with multiples address!</span>
                                 </div>

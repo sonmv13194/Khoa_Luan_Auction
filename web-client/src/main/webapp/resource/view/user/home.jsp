@@ -61,7 +61,11 @@
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
                                             <div class="btn-group">
-                                                <a href="${contextPath}/cart/addCart?product_id=${productDetail.id }" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                                <a onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                        <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                            href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                        </c:if>
+                                                   class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> Add To Cart</a>
                                             </div>
                                         </div><!-- /.action -->
                                     </div><!-- /.cart -->
@@ -503,14 +507,17 @@
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
                                                                     <a data-toggle="tooltip"
-                                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                       onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                            <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                                href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                            </c:if>
                                                                        class="btn btn-primary icon" type="button"
-                                                                       title="Add Cart">
+                                                                       title="Add To Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </a>
                                                                     <a href="">
                                                                         <button class="btn btn-primary cart-btn"
-                                                                                type="button">Add to cart
+                                                                                type="button">Add To Cart
                                                                         </button>
                                                                     </a>
 
@@ -564,21 +571,23 @@
                                                                 $ ${productDetail.productDetailPrice}				</span>
                                                             <span class="price-before-discount">$ 0%</span>
                                                         </div><!-- /.product-price -->
-
                                                     </div><!-- /.product-info -->
                                                     <div class="cart clearfix animate-effect">
                                                         <div class="action">
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
                                                                     <a data-toggle="tooltip"
-                                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                       onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                            <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                                href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                            </c:if>
                                                                        class="btn btn-primary icon" type="button"
-                                                                       title="Add Cart">
+                                                                       title="Add To Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </a>
                                                                     <a href="">
                                                                         <button class="btn btn-primary cart-btn"
-                                                                                type="button">Add to cart
+                                                                                type="button">Add To Cart
                                                                         </button>
                                                                     </a>
                                                                 </li>
@@ -637,14 +646,17 @@
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
                                                                     <a data-toggle="tooltip"
-                                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                       onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                            <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                                href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                            </c:if>
                                                                        class="btn btn-primary icon" type="button"
-                                                                       title="Add Cart">
+                                                                       title="Add To Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </a>
                                                                     <a href="">
                                                                         <button class="btn btn-primary cart-btn"
-                                                                                type="button">Add to cart
+                                                                                type="button">Add To Cart
                                                                         </button>
                                                                     </a>
                                                                 </li>
@@ -705,14 +717,17 @@
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
                                                                     <a data-toggle="tooltip"
-                                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                       onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                            <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                                href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                            </c:if>
                                                                        class="btn btn-primary icon" type="button"
-                                                                       title="Add Cart">
+                                                                       title="Add To Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </a>
                                                                     <a href="">
                                                                         <button class="btn btn-primary cart-btn"
-                                                                                type="button">Add to cart
+                                                                                type="button">Add To Cart
                                                                         </button>
                                                                     </a>
 
@@ -801,14 +816,17 @@
                                                 <ul class="list-unstyled">
                                                     <li class="add-cart-button btn-group">
                                                         <a data-toggle="tooltip"
-                                                           href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                           onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                    href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                </c:if>
                                                            class="btn btn-primary icon" type="button"
-                                                           title="Add Cart">
+                                                           title="Add To Cart">
                                                             <i class="fa fa-shopping-cart"></i>
                                                         </a>
                                                         <a href="">
                                                             <button class="btn btn-primary cart-btn"
-                                                                    type="button">Add to cart
+                                                                    type="button">Add To Cart
                                                             </button>
                                                         </a>
                                                     </li>

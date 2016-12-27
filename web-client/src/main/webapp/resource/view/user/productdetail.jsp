@@ -10,7 +10,8 @@
             </ul>
         </div><!-- /.breadcrumb-inner -->
     </div><!-- /.container -->
-</div><!-- /.breadcrumb -->
+</div>
+<!-- /.breadcrumb -->
 <div class="body-content outer-top-xs">
     <div class='container'>
         <div class='row single-product'>
@@ -25,7 +26,8 @@
                                         <div class="hot-deal-wrapper">
                                             <div class="image">
                                                 <a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>
-                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}" alt="">
+                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                         alt="">
                                                 </a>
                                             </div>
                                             <div class="sale-offer-tag"><span>35%<br>off</span></div>
@@ -61,14 +63,15 @@
                                         </div><!-- /.hot-deal-wrapper -->
 
                                         <div class="product-info text-left m-t-20">
-                                            <h3 class="name"><a href='<c:url value="detail"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/>></c:url>'>${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a
+                                                    href='<c:url value="detail"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/>></c:url>'>${productDetail.product.productName}</a>
+                                            </h3>
                                             <div class="rating rateit-small"></div>
 
                                             <div class="product-price">
                                             <span class="price">
                                                 $ ${productDetail.productDetailPrice}
                                             </span>
-                                                <span class="price-before-discount">${discount} %</span>
                                             </div><!-- /.product-price -->
 
                                         </div><!-- /.product-info -->
@@ -76,7 +79,12 @@
                                         <div class="cart clearfix animate-effect">
                                             <div class="action">
                                                 <div class="btn-group">
-                                                    <a href="${contextPath}/cart/addCart?product_id=${productDetail.id }" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                                    <a onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                       <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                            href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                       </c:if>
+                                                       class="btn btn-primary"><i
+                                                            class="fa fa-shopping-cart inner-right-vs"></i> Add To Cart</a>
                                                 </div>
 
                                             </div><!-- /.action -->
@@ -84,11 +92,9 @@
                                     </div>
                                 </div>
                             </c:forEach>
-
-
                         </div><!-- /.sidebar-widget -->
                     </div>
-                    <!-- ============================================== HOT DEALS: END ============================================== -->					<!-- ==============================================
+                    <!-- ============================================== HOT DEALS: END ============================================== -->                    <!-- ==============================================
 
 <!-- ============================================== NEWSLETTER ============================================== -->
                     <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
@@ -98,7 +104,8 @@
                             <form role="form">
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter">
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                           placeholder="Subscribe to our newsletter">
                                 </div>
                                 <button class="btn btn-primary">Subscribe</button>
                             </form>
@@ -110,28 +117,38 @@
                     <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
                         <div id="advertisement" class="advertisement">
                             <div class="item">
-                                <div class="avatar"><img src="${contextPath}/resource/view/template/assets/images/Nhat/2.jpg" alt="Image"></div>
-                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                <div class="clients_author">John Doe	<span>Abc Company</span>	</div><!-- /.container-fluid -->
+                                <div class="avatar"><img
+                                        src="${contextPath}/resource/view/template/assets/images/Nhat/2.jpg"
+                                        alt="Image"></div>
+                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
+                                    mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
+                                <div class="clients_author">John Doe <span>Abc Company</span></div>
+                                <!-- /.container-fluid -->
                             </div><!-- /.item -->
 
                             <div class="item">
-                                <div class="avatar"><img src="${contextPath}/resource/view/template/assets/images/Nhat/3.jpg" alt="Image"></div>
-                                <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                <div class="clients_author">Stephen Doe	<span>Xperia Designs</span>	</div>
+                                <div class="avatar"><img
+                                        src="${contextPath}/resource/view/template/assets/images/Nhat/3.jpg"
+                                        alt="Image"></div>
+                                <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port
+                                    mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
+                                <div class="clients_author">Stephen Doe <span>Xperia Designs</span></div>
                             </div><!-- /.item -->
 
                             <div class="item">
-                                <div class="avatar"><img src="${contextPath}/resource/view/template/assets/images/Nhat/4.png" alt="Image"></div>
-                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                <div class="clients_author">Saraha Smith	<span>Datsun &amp; Co</span>	</div><!-- /.container-fluid -->
+                                <div class="avatar"><img
+                                        src="${contextPath}/resource/view/template/assets/images/Nhat/4.png"
+                                        alt="Image"></div>
+                                <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
+                                    mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
+                                <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span></div>
+                                <!-- /.container-fluid -->
                             </div><!-- /.item -->
 
                         </div><!-- /.owl-carousel -->
                     </div>
 
                     <!-- ============================================== Testimonials: END ============================================== -->
-
 
 
                 </div>
@@ -145,56 +162,83 @@
 
                                 <div id="owl-single-product">
                                     <div class="single-product-gallery-item" id="slide1">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="/uploaded-image/${productDetail.productImages.get(0).url}">
-                                            <img class="img-responsive" alt="" src="/uploaded-image/${productDetail.productImages.get(0).url}" data-echo="/uploaded-image/${productDetail.productImages.get(0).url}" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="/uploaded-image/${productDetail.productImages.get(0).url}">
+                                            <img class="img-responsive" alt=""
+                                                 src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                 data-echo="/uploaded-image/${productDetail.productImages.get(0).url}"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide2">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p9.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p9.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p9.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p9.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide3">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p10.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p10.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p10.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p10.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide4">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p11.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p11.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p11.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p11.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide5">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p12.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p12.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p12.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p12.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide6">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p13.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p13.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p13.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p13.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide7">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p14.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p14.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p14.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p14.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide8">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p15.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p15.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p15.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p15.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
                                     <div class="single-product-gallery-item" id="slide9">
-                                        <a data-lightbox="image-1" data-title="Gallery" href="${contextPath}/resource/view/template/assets/images/products/p16.jpg">
-                                            <img class="img-responsive" alt="" src="${contextPath}/resource/view/template/assets/images/blank.gif" data-echo="${contextPath}/resource/view/template/assets/images/products/p16.jpg" />
+                                        <a data-lightbox="image-1" data-title="Gallery"
+                                           href="${contextPath}/resource/view/template/assets/images/products/p16.jpg">
+                                            <img class="img-responsive" alt=""
+                                                 src="${contextPath}/resource/view/template/assets/images/blank.gif"
+                                                 data-echo="${contextPath}/resource/view/template/assets/images/products/p16.jpg"/>
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
 
@@ -206,13 +250,15 @@
                                     <div id="owl-single-product-thumbnails">
                                         <c:forEach var="productImages" items="${productDetail.productImages}">
                                             <div class="item">
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
-                                                    <img class="img-responsive" width="85" alt="" src="/uploaded-image/${productImages.url}" data-echo="/uploaded-image/${productImages.url}"/>
+                                                <a class="horizontal-thumb" data-target="#owl-single-product"
+                                                   data-slide="2" href="#slide2">
+                                                    <img class="img-responsive" width="85" alt=""
+                                                         src="/uploaded-image/${productImages.url}"
+                                                         data-echo="/uploaded-image/${productImages.url}"/>
                                                 </a>
                                             </div>
                                         </c:forEach>
                                     </div><!-- /#owl-single-product-thumbnails -->
-
 
 
                                 </div><!-- /.gallery-thumbs -->
@@ -268,13 +314,16 @@
 
                                         <div class="col-sm-6">
                                             <div class="favorite-button m-t-10">
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
+                                                   title="Wishlist" href="#">
                                                     <i class="fa fa-heart"></i>
                                                 </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
+                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
+                                                   title="Add to Compare" href="#">
                                                     <i class="fa fa-signal"></i>
                                                 </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="E-mail" href="#">
+                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right"
+                                                   title="E-mail" href="#">
                                                     <i class="fa fa-envelope"></i>
                                                 </a>
                                             </div>
@@ -285,36 +334,16 @@
 
                                 <div class="quantity-container info-container">
                                     <div class="row">
-
-                                        <div class="col-sm-2">
-                                            <span class="label">Qty :</span>
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <div class="cart-quantity">
-                                                <div class="quant-input">
-                                                    <div class="arrows">
-                                                        <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                                        <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-                                                    </div>
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <div class="col-sm-7">
-                                            <a href="${contextPath}/cart/addCart?product_id=${productDetail.id }" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                            <a onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                    <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                        href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                    </c:if>
+                                               class="btn btn-primary"><i
+                                                    class="fa fa-shopping-cart inner-right-vs"></i> Add To Cart</a>
                                         </div>
-
-
                                     </div><!-- /.row -->
                                 </div><!-- /.quantity-container -->
-
-
-
-
-
-
                             </div><!-- /.product-info -->
                         </div><!-- /.col-sm-7 -->
                     </div><!-- /.row -->
@@ -335,7 +364,19 @@
 
                                 <div id="description" class="tab-pane in active">
                                     <div class="product-tab">
-                                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                                            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                            est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                            commodo consequat.<br><br> Duis aute irure dolor in reprehenderit in
+                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                                            anim id est laborum.</p>
                                     </div>
                                 </div><!-- /.tab-pane -->
 
@@ -347,13 +388,18 @@
 
                                             <div class="reviews">
                                                 <div class="review">
-                                                    <div class="review-title"><span class="summary">We love this product</span><span class="date"><i class="fa fa-calendar"></i><span>1 days ago</span></span></div>
-                                                    <div class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam suscipit."</div>
+                                                    <div class="review-title"><span
+                                                            class="summary">We love this product</span><span
+                                                            class="date"><i
+                                                            class="fa fa-calendar"></i><span>1 days ago</span></span>
+                                                    </div>
+                                                    <div class="text">"Lorem ipsum dolor sit amet, consectetur
+                                                        adipiscing elit.Aliquam suscipit."
+                                                    </div>
                                                 </div>
 
                                             </div><!-- /.reviews -->
                                         </div><!-- /.product-reviews -->
-
 
 
                                         <div class="product-add-review">
@@ -374,27 +420,42 @@
                                                         <tbody>
                                                         <tr>
                                                             <td class="cell-label">Quality</td>
-                                                            <td><input type="radio" name="quality" class="radio" value="1"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="2"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="3"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="4"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="5"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="1"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="2"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="3"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="4"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="5"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="cell-label">Price</td>
-                                                            <td><input type="radio" name="quality" class="radio" value="1"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="2"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="3"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="4"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="5"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="1"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="2"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="3"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="4"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="5"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="cell-label">Value</td>
-                                                            <td><input type="radio" name="quality" class="radio" value="1"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="2"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="3"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="4"></td>
-                                                            <td><input type="radio" name="quality" class="radio" value="5"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="1"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="2"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="3"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="4"></td>
+                                                            <td><input type="radio" name="quality" class="radio"
+                                                                       value="5"></td>
                                                         </tr>
                                                         </tbody>
                                                     </table><!-- /.table .table-bordered -->
@@ -408,25 +469,33 @@
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputName">Your Name <span class="astk">*</span></label>
-                                                                    <input type="text" class="form-control txt" id="exampleInputName" placeholder="">
+                                                                    <label for="exampleInputName">Your Name <span
+                                                                            class="astk">*</span></label>
+                                                                    <input type="text" class="form-control txt"
+                                                                           id="exampleInputName" placeholder="">
                                                                 </div><!-- /.form-group -->
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputSummary">Summary <span class="astk">*</span></label>
-                                                                    <input type="text" class="form-control txt" id="exampleInputSummary" placeholder="">
+                                                                    <label for="exampleInputSummary">Summary <span
+                                                                            class="astk">*</span></label>
+                                                                    <input type="text" class="form-control txt"
+                                                                           id="exampleInputSummary" placeholder="">
                                                                 </div><!-- /.form-group -->
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputReview">Review <span class="astk">*</span></label>
-                                                                    <textarea class="form-control txt txt-review" id="exampleInputReview" rows="4" placeholder=""></textarea>
+                                                                    <label for="exampleInputReview">Review <span
+                                                                            class="astk">*</span></label>
+                                                                    <textarea class="form-control txt txt-review"
+                                                                              id="exampleInputReview" rows="4"
+                                                                              placeholder=""></textarea>
                                                                 </div><!-- /.form-group -->
                                                             </div>
                                                         </div><!-- /.row -->
 
                                                         <div class="action text-right">
-                                                            <button class="btn btn-primary btn-upper">SUBMIT REVIEW</button>
+                                                            <button class="btn btn-primary btn-upper">SUBMIT REVIEW
+                                                            </button>
                                                         </div><!-- /.action -->
 
                                                     </form><!-- /.cnt-form -->
@@ -452,7 +521,8 @@
 
                                                 </div>
 
-                                                <button class="btn btn-upper btn-primary" type="submit">ADD TAGS</button>
+                                                <button class="btn btn-upper btn-primary" type="submit">ADD TAGS
+                                                </button>
                                             </div><!-- /.form-container -->
                                         </form><!-- /.form-cnt -->
 
@@ -483,7 +553,9 @@
                                     <div class="product">
                                         <div class="product-image">
                                             <div class="image">
-                                                <a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'><img  src="/uploaded-image/${productDetail.productImages.get(0).url}" alt=""></a>
+                                                <a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'><img
+                                                        src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                        alt=""></a>
                                             </div><!-- /.image -->
 
                                             <div class="tag sale"><span>sale</span></div>
@@ -491,7 +563,9 @@
 
 
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>${productDetail.product.productName}</a></h3>
+                                            <h3 class="name"><a
+                                                    href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>${productDetail.product.productName}</a>
+                                            </h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
 
@@ -506,14 +580,17 @@
                                                 <ul class="list-unstyled">
                                                     <li class="add-cart-button btn-group">
                                                         <a data-toggle="tooltip"
-                                                           href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                           onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                    href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                </c:if>
                                                            class="btn btn-primary icon" type="button"
-                                                           title="Add Cart">
+                                                           title="Add To Cart">
                                                             <i class="fa fa-shopping-cart"></i>
                                                         </a>
                                                         <a href="">
                                                             <button class="btn btn-primary cart-btn"
-                                                                    type="button">Add to cart
+                                                                    type="button">Add To Cart
                                                             </button>
                                                         </a>
 
@@ -536,7 +613,8 @@
                                     </div><!-- /.product -->
 
                                 </div><!-- /.products -->
-                            </div><!-- /.item -->
+                            </div>
+                            <!-- /.item -->
                         </c:forEach>
 
                     </div><!-- /.home-owl-carousel -->
@@ -547,4 +625,5 @@
             <div class="clearfix"></div>
         </div><!-- /.row -->
     </div><!-- /.container -->
-</div><!-- /.body-content -->
+</div>
+<!-- /.body-content -->

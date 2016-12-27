@@ -29,13 +29,6 @@
     </bean>
     <!-- temporary add datasource for test -->
     <jee:jndi-lookup id="dataSource" jndi-name="jdbc/java-training-shop-dev_db"/>
-    <!--<bean id="dataSourceTestAuditing"-->
-    <!--class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-    <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
-    <!--<property name="url" value="jdbc:mysql://localhost:3306/instrument_main"/>-->
-    <!--<property name="username" value="root"/>-->
-    <!--<property name="password" value="root"/>-->
-    <!--</bean>-->
     <bean id="savedRequestAwareAuthenticationSuccessHandler"
           class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
         <property name="targetUrlParameter" value="targetUrl" />

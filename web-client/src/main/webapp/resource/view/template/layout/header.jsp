@@ -13,7 +13,11 @@
                 <div class="cnt-account">
                     <ul class="list-unstyled">
                         <li><a href="${contextPath}/cart"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-                        <li><a href="${contextPath}/checkout"><i class="icon fa fa-check"></i>Checkout</a></li>
+                        <li><a onclick="if(${empty sessionScope.cartSession}) {return alert('Cart null. Please add product to cart !')}"
+                                <c:if test="${not empty sessionScope.cartSession}">
+                                    href="${contextPath}/checkout"
+                                </c:if> >
+                            <i class="icon fa fa-check"></i>Checkout</a></li>
                         <li>
                             <c:if test="${pageContext.request.userPrincipal.name == null}">
                         <li><a href="${contextPath }/login">Login/Register</a></li>
@@ -153,7 +157,10 @@
                                     <div class="pull-right"><span class="text">Sub Total :</span><span
                                             class='price'>$ ${sessionScope.total}</span></div>
                                     <div class="clearfix"></div>
-                                    <a href="${contextPath}/checkout"
+                                    <a onclick="if(${empty sessionScope.cartSession}) {return alert('Cart null !')}"
+                                            <c:if test="${not empty sessionScope.cartSession}">
+                                                href="${contextPath}/checkout"
+                                            </c:if>
                                        class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a></div>
                                 <!-- /.cart-total-->
 
@@ -194,13 +201,12 @@
                         <div class="nav-outer">
 
                             <ul class="nav navbar-nav">
-                                <li class="active dropdown yamm-fw">
-                                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle"
-                                       data-toggle="dropdown">Home</a>
+                                <li class="active yamm-fw">
+                                    <a href="${contextPath}/">Home</a>
                                 </li>
                                 <c:forEach var="categoryNew" items="${listCategory}">
                                     <li class="dropdown yamm mega-menu">
-                                        <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">${categoryNew.categoryName}</a>
+                                        <a data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">${categoryNew.categoryName}</a>
                                         <ul class="dropdown-menu conta	iner">
                                             <li>
                                                 <div class="yamm-content ">
@@ -225,50 +231,6 @@
 
                                     </li>
                                 </c:forEach>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
-                                    <ul class="dropdown-menu pages">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-
-                                                    <div class="col-xs-12 col-menu">
-                                                        <ul class="links">
-                                                            <li><a href="/">Home</a></li>
-                                                            <li><a href='<c:url value="product"><c:param name="check" value="all"/></c:url>'>Product Details</a></li>
-                                                            <li><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>Detail</a></li>
-                                                            <li><a href="confirmCheckout">Shopping Cart Summary</a></li>
-                                                            <li><a href="confirmCheckout">Checkout</a></li>
-                                                            <li><a href="blog.html">Blog</a></li>
-                                                            <li><a href="blog-details.html">Blog Detail</a></li>
-                                                            <li><a href="contact.html">Contact</a></li>
-                                                            <li><a href="sign-in.html">Sign In</a></li>
-                                                            <li><a href="my-wishlist.html">Wishlist</a></li>
-                                                            <li><a href="terms-conditions.html">Terms and Condition</a></li>
-                                                            <li><a href="track-orders.html">Track Orders</a></li>
-                                                            <li><a href="product-comparison.html">Product-Comparison</a></li>
-                                                            <li><a href="faq.html">FAQ</a></li>
-                                                            <li><a href="404.html">404</a></li>
-
-                                                        </ul>
-                                                    </div>
-
-
-
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-
-                                    </ul>
-                                </li>
-
-                                <%-- <li class="dropdown  navbar-right special-menu">
-                                     <a href="#">Todays offer</a>
-                                 </li>
- --%>
-
                             </ul><!-- /.navbar-nav -->
 
                             <div class="clearfix"></div>

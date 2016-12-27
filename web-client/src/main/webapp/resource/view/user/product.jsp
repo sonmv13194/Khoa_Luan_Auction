@@ -419,14 +419,17 @@
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
                                                                     <a data-toggle="tooltip"
-                                                                       href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                       onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                            <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                                href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                            </c:if>
                                                                        class="btn btn-primary icon" type="button"
-                                                                       title="Add Cart">
+                                                                       title="Add To Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </a>
                                                                     <a href="">
                                                                         <button class="btn btn-primary cart-btn"
-                                                                                type="button">Add to cart
+                                                                                type="button">Add To Cart
                                                                         </button>
                                                                     </a>
                                                                 </li>
@@ -505,7 +508,7 @@
                                                                                 <i class="fa fa-shopping-cart"></i>
                                                                             </button>
                                                                             <button class="btn btn-primary cart-btn"
-                                                                                    type="button">Add to cart
+                                                                                    type="button">Add To Cart
                                                                             </button>
 
                                                                         </li>

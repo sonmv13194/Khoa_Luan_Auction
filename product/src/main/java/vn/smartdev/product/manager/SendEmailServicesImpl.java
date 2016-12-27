@@ -13,7 +13,7 @@ import java.util.Properties;
  * Created by Nhat on 12/12/2016.
  */
 @Service
-public class SendEmailServicesImpl implements SendEmailSevices{
+public class SendEmailServicesImpl implements SendEmailServices  {
     private Properties properties;
     private String username;
     private String password;

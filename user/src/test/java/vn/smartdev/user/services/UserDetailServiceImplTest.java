@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 /**
  * Created by levuhuy on 12/26/16.
  */
-public class UserServiceImplTest {
+public class UserDetailServiceImplTest {
 
     @InjectMocks
     private UserServiceImpl userServiceIml;
