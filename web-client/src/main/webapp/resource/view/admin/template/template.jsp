@@ -137,11 +137,8 @@
 
 <script type="text/javascript" >
     $(function() {
-
-        // Setup form validation on the #register-form element
         $("#editForm").validate({
 
-            // Specify the validation rules
             rules: {
                 username: "required",
                 address: "required",

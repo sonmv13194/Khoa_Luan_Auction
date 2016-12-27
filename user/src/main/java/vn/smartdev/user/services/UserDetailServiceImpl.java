@@ -1,4 +1,4 @@
-package vn.smartdev.user.userService;
+package vn.smartdev.user.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,11 +8,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.exception.UserNotFoundException;
-import vn.smartdev.user.manager.UserAttemptsManager;
-import vn.smartdev.user.manager.UserManager;
+import vn.smartdev.user.dao.manager.UserAttemptsManager;
+import vn.smartdev.user.dao.manager.UserManager;
 
-public class UserServiceImpl implements UserDetailsService {
-	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+public class UserDetailServiceImpl implements UserDetailsService {
+	private Logger logger = LoggerFactory.getLogger(UserDetailServiceImpl.class);
 
 	@Autowired
 	UserAttemptsManager attemptsManager;
@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserDetailsService {
 		User userEntity = null;
 		try {
 			userEntity = userManager.findUserByUsername(username);
+			logger.info("Role of user :"+userEntity.getRoles().get(0).getRoleName());
 		} catch (UserNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -16,8 +16,8 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.dao.entity.UserAttempt;
 import vn.smartdev.user.exception.UserNotFoundException;
-import vn.smartdev.user.manager.UserAttemptsManager;
-import vn.smartdev.user.manager.UserManager;
+import vn.smartdev.user.dao.manager.UserAttemptsManager;
+import vn.smartdev.user.dao.manager.UserManager;
 
 
 public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
@@ -39,6 +39,7 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
             if (user == null)
                 exception = new BadCredentialsException("Username or Password wrong");
             else if (user != null && password != user.getPassword()){
+                logger.info("Role User: "+user.getRoles().get(0).getRoleName());
                 if(!attemptsManager.isExists(name)){
                     attemptsManager.insertAttempts(name);
                     exception = new BadCredentialsException("Username or Password wrong");

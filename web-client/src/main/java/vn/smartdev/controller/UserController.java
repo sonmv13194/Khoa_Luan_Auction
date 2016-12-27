@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import vn.smartdev.user.dao.entity.Role;
 import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.exception.UserNotFoundException;
-import vn.smartdev.user.manager.RoleManager;
-import vn.smartdev.user.manager.UserManager;
+import vn.smartdev.user.dao.manager.RoleManager;
+import vn.smartdev.user.dao.manager.UserManager;
 
 import java.text.ParseException;
 import java.util.List;

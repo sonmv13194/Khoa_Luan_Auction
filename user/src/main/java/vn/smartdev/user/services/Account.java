@@ -1,4 +1,4 @@
-package vn.smartdev.user.userService;
+package vn.smartdev.user.services;
 
 import java.util.Collection;
 import java.util.HashSet;

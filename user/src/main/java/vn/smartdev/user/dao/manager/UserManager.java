@@ -1,4 +1,4 @@
-package vn.smartdev.user.manager;
+package vn.smartdev.user.dao.manager;
 
 
 import vn.smartdev.user.dao.entity.User;

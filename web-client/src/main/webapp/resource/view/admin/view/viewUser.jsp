@@ -79,7 +79,7 @@
                         <h2>${message}</h2>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" id="editForm" method="POST"
+                                <form class="cmxform form-horizontal tasi-form" role="form" id="editForm" method="POST"
                                       commandName="user" action="/admin/editUser">
 
 
@@ -92,54 +92,42 @@
                                     </div>
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Username</label>
-                                        <div class="col-lg-10">
                                             <input class="form-control" id="username" name="username" type="text"
                                                    value="${user.username}"/>
                                             <form:errors path="username" cssClass="error" />
-                                        </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="password" class="control-label col-lg-2">Password</label>
-                                        <div class="col-lg-10">
                                             <input class="form-control" id="password" name="password" type="password"
                                                    value="${user.password}"/>
                                             <form:errors path="password" cssClass="error" />
-                                        </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="email" class="control-label col-lg-2">Email</label>
-                                        <div class="col-lg-10">
                                             <input class="form-control" id="email" name="email" type="email"
                                                    value="${user.email}"/>
                                             <form:errors path="email" cssClass="error" />
-                                        </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="birthday" class="control-label col-lg-2">Birthday</label>
-                                        <div class="col-lg-10">
                                             <input class="form-control" id="birthday" name="birthday" type = "date"
                                                    value="${user.birthday}"/>
                                             <form:errors path="birthday" cssClass="error" />
-                                        </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Address</label>
-                                        <div class="col-lg-10">
                                             <input class="form-control" id="address" name="address"
                                                    value="${user.address}"/>
                                             <form:errors path="address" cssClass="error" />
-                                        </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Phone</label>
-                                        <div class="col-lg-10">
                                             <input class="form-control" id="phone" name="phone" value="${user.phone}"/>
                                             <form:errors path="phone" cssClass="error" />
-                                        </div>
                                     </div>
 
                                     <div class="form-group ">

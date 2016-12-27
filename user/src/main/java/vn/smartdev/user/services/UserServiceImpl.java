@@ -13,7 +13,7 @@ import vn.smartdev.user.dao.repository.RoleRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
 
 import vn.smartdev.user.exception.UserNotFoundException;
-import vn.smartdev.user.manager.UserManager;
+import vn.smartdev.user.dao.manager.UserManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import  java.util.List;

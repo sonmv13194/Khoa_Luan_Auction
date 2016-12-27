@@ -11,7 +11,7 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="vn.smartdev.user.userService"/>
+    <context:component-scan base-package="vn.smartdev.user.services"/>
     <http use-expressions="true" auto-config="false">
         <csrf/>
         <intercept-url pattern="/checkout" access="isAuthenticated()" requires-channel="http" />
@@ -29,11 +29,13 @@
         <logout logout-success-url="/login?logout"/>
         <access-denied-handler error-page="/403"/>
     </http>
-    <authentication-manager>
+
+    <authentication-manager erase-credentials="false">
         <authentication-provider user-service-ref="userDetailServiceImpl">
             <password-encoder ref="encoder"/>
         </authentication-provider>
     </authentication-manager>
+
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>

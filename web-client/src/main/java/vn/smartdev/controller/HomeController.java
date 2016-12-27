@@ -25,7 +25,7 @@ import vn.smartdev.product.manager.ProductDetailServices;
 import vn.smartdev.product.manager.ProductServices;
 //import vn.smartdev.product.manager.SendEmailSevices;
 import vn.smartdev.product.manager.SendEmailSevices;
-import vn.smartdev.user.manager.UserManager;
+import vn.smartdev.user.dao.manager.UserManager;
 
 import javax.annotation.Resource;
 import java.io.IOException;

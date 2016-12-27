@@ -1,4 +1,4 @@
-package vn.smartdev.user.manager;
+package vn.smartdev.user.services;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import vn.smartdev.user.dao.entity.UserAttempt;
 import vn.smartdev.user.dao.repository.UserAttemptsRepository;
 import vn.smartdev.user.dao.repository.UserRepository;
+import vn.smartdev.user.dao.manager.UserAttemptsManager;
 
 @Service
 public class UserAttemptsManagerImpl implements UserAttemptsManager {
