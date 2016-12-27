@@ -1,13 +1,17 @@
 package vn.smartdev.user.dao.entity;
 
+import java.sql.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
+import vn.smartdev.user.dao.validator.Phone;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
-
 
 /**
  * The persistent class for the user database table.
@@ -18,24 +22,31 @@ import java.util.UUID;
 public class User extends AbstractAuditableEntity<String> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-
+    @NotNull
     private String address;
 
     //@Temporal(TemporalType.DATE)
+    @NotNull
     private Date birthday;
 
 
+    @NotNull
     private String email;
 
+    @NotNull
+    @Size(min = 5, max = 30)
     private String password;
 
+    @NotNull
+    @Phone
     private String phone;
 
     public User(String username) {
         this.username = username;
     }
 
-
+    @NotNull
+    @Size(min = 5, max = 30)
     private String username;
 
     @Column(name = "enabled")

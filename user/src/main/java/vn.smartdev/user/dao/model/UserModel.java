@@ -5,13 +5,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 import vn.smartdev.user.dao.validator.Phone;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.UUID;
 
 
@@ -58,7 +54,7 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
 
     @NotNull
     @Phone
-    @Pattern(regexp="^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}")
+//    @Pattern(regexp="^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}")
     private String phone;
 
 

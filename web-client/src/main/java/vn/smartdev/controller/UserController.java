@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ import vn.smartdev.user.exception.UserNotFoundException;
 import vn.smartdev.user.dao.manager.RoleManager;
 import vn.smartdev.user.dao.manager.UserManager;
 
+import javax.validation.Valid;
 import java.text.ParseException;
 import java.util.List;
 
@@ -40,6 +42,7 @@ public class UserController {
         model.addAttribute("listUser",users);
         List<Role> roles = roleManager.getAll();
         model.addAttribute("listRole", roles);
+        model.addAttribute("user", new User());
         return "viewUserPage";
 
     }
@@ -63,8 +66,15 @@ public class UserController {
 
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
-    public String editUserPost(@ModelAttribute("user") User user, Model model) throws ParseException {
+    public String editUserPost(@Valid User user, BindingResult bindingResult, Model model) throws ParseException {
         logger.info("Access editUserPost method !!");
+        if (bindingResult.hasErrors()) {
+            // handle error
+            logger.error("===Got error");
+        } else {
+            logger.info("=== No error");
+
+        }
         userManager.saveForEdit(user);
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);

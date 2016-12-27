@@ -6,14 +6,15 @@
 <style>
 
     #editForm label.error {
-        color:#FB3A3A;
-        font-weight:bold;
+        color: #FB3A3A;
+        font-weight: bold;
     }
+
     h1 {
         font-family: Helvetica;
         font-weight: 100;
-        color:#333;
-        padding-bottom:20px;
+        color: #333;
+        padding-bottom: 20px;
     }
 
 </style>
@@ -22,7 +23,7 @@
         <section class="wrapper">
             <!-- page start-->
             <section class="panel">
-                <header class="panel-heading"> User </header>
+                <header class="panel-heading"> User</header>
                 <div class="panel-body">
                     <div class="adv-table">
                         <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered"
@@ -76,70 +77,65 @@
                         <header class="panel-heading" id="edit">
                             Edit User
                         </header>
-                        <h2>${message}</h2>
+
                         <div class="panel-body">
                             <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" role="form" id="editForm" method="POST"
-                                      commandName="user" action="/admin/editUser">
-
+                                <h2>${message}</h2>
+                                <form:form class="cmxform form-horizontal tasi-form" role="form" id="editForm"
+                                           method="POST"
+                                           novalidate="novalidate" commandName="user" action="/admin/editUser">
 
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2"></label>
-
-                                            <input class="form-control" id="id" name="id" type="hidden"
-                                                   value="${user.id}"/>
-
+                                        <form:input path="id" class="form-control" id="id" name="id" type="hidden"
+                                                    value="${user.id}"/>
+                                        <form:errors path="id" cssClass="error"/>
                                     </div>
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Username</label>
-                                            <input class="form-control" id="username" name="username" type="text"
-                                                   value="${user.username}"/>
-                                            <form:errors path="username" cssClass="error" />
+                                        <form:input path="username" class="form-control" id="username" name="username"
+                                                    type="text" value="${user.username}"/>
+                                        <form:errors path="username" cssClass="error"/>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="password" class="control-label col-lg-2">Password</label>
-                                            <input class="form-control" id="password" name="password" type="password"
-                                                   value="${user.password}"/>
-                                            <form:errors path="password" cssClass="error" />
+                                        <form:password path="password" class="form-control" id="password"
+                                                       name="password"
+                                                       value="${user.password}"/>
+                                        <form:errors path="password" cssClass="error"/>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="email" class="control-label col-lg-2">Email</label>
-                                            <input class="form-control" id="email" name="email" type="email"
-                                                   value="${user.email}"/>
-                                            <form:errors path="email" cssClass="error" />
+                                        <form:input path="email" class="form-control" id="email" name="email"
+                                                    type="email"
+                                                    value="${user.email}"/>
+                                        <form:errors path="email" cssClass="error"/>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="birthday" class="control-label col-lg-2">Birthday</label>
-                                            <input class="form-control" id="birthday" name="birthday" type = "date"
-                                                   value="${user.birthday}"/>
-                                            <form:errors path="birthday" cssClass="error" />
+                                        <form:input path="birthday" class="form-control" id="birthday" name="birthday"
+                                                    type="date"
+                                                    value="${user.birthday}"/>
+                                        <form:errors path="birthday" cssClass="error"/>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Address</label>
-                                            <input class="form-control" id="address" name="address"
-                                                   value="${user.address}"/>
-                                            <form:errors path="address" cssClass="error" />
+                                        <form:input path="address" class="form-control" id="address" name="address"
+                                                    value="${user.address}"/>
+                                        <form:errors path="address" cssClass="error"/>
                                     </div>
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Phone</label>
-                                            <input class="form-control" id="phone" name="phone" value="${user.phone}"/>
-                                            <form:errors path="phone" cssClass="error" />
+                                        <form:input path="phone" class="form-control" id="phone" name="phone"
+                                                    value="${user.phone}"/>
+                                        <form:errors path="phone" cssClass="error"/>
                                     </div>
 
-                                    <div class="form-group ">
-                                        <label for="address" class="control-label col-lg-2">ROLE</label>
-                                        <c:forEach items="${listRole}" var="role">
-                                            <label class="radio-inline">
-                                                <input type="radio" value="${role.roleName}"
-                                                       name="optradio">${role.roleName}</label>
-                                        </c:forEach>
                                     </div>
-
-
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
                                             <button class="btn btn-danger" type="submit">Save</button>
@@ -147,8 +143,7 @@
                                         </div>
                                     </div>
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                </form>
-
+                                </form:form>
                             </div>
                         </div>
                     </section>

@@ -11,7 +11,7 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="vn.smartdev.user.services"/>
+    <context:component-scan base-package="vn.smartdev.user.*"/>
     <http use-expressions="true" auto-config="false">
         <csrf/>
         <intercept-url pattern="/checkout" access="isAuthenticated()" requires-channel="http" />
@@ -30,7 +30,7 @@
         <access-denied-handler error-page="/403"/>
     </http>
 
-    <authentication-manager erase-credentials="false">
+    <authentication-manager>
         <authentication-provider user-service-ref="userDetailServiceImpl">
             <password-encoder ref="encoder"/>
         </authentication-provider>
