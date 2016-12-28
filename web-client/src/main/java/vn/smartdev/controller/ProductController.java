@@ -49,13 +49,22 @@ public class ProductController {
     @RequestMapping(value="/viewProduct",method = RequestMethod.GET)
     public String viewProduct(ModelMap modelMap,HttpSession session)
     {
-        List<Product> listProducts = productServices.getListProduct();
         List<ProductDetail> listProductDetails = productDetailServices.getListProductDetail();
         String message = (String) session.getAttribute("message");
         modelMap.put("message",message);
-        modelMap.put("listProducts", listProducts);
         modelMap.put("listProductDetails",listProductDetails);
         return "viewProduct";
+    }
+
+    @ModelAttribute("categories")
+    public List<Category> listAllCategory() {
+        List<Category> categories = categoryServices.getListCategory();
+        return categories;
+    }
+    @ModelAttribute("products")
+    public List<Product> listAllProduct() {
+        List<Product> products = productServices.getListProduct();
+        return products;
     }
 
     @RequestMapping(value="/deleteProduct",method = RequestMethod.GET)
@@ -70,15 +79,11 @@ public class ProductController {
     public String deleteProductDetail(@RequestParam("productId") String productId,@RequestParam("productDetailId") String productDetailId)
     {
         productDetailServices.deleteProductDetail(productDetailId);
-        //return "redirect:viewProductDetail?productId='"+productId+"'";
         return "redirect:viewProduct";
     }
     @RequestMapping(value = "/createProduct",method = RequestMethod.GET)
     public ModelAndView createProduct(ModelMap modelMap)
     {
-        List<Category> listCategory = categoryServices.getListCategory();
-
-        modelMap.put("listCategory", listCategory);
         modelMap.put("productId","1");
 
         return new ModelAndView("createProduct","command",new ProductModel());
@@ -104,18 +109,16 @@ public class ProductController {
                 e.printStackTrace();
             }
             String urlImage = prop.getProperty("local.imagesUpload.directory");
-            boolean upload = productImageServices.uploadFile(productModel, urlImage);
-            boolean createProduct = productServices.createProduct(productModel);
+            productImageServices.uploadFile(productModel, urlImage);
+            productServices.createProduct(productModel);
             return "redirect:viewProduct";
         }
     }
     @RequestMapping(value="/createProductDetail",method = RequestMethod.GET)
     public ModelAndView createProductDetail(ModelMap modelMap,@RequestParam("productId") String productId)
     {
-        List<Category> listCategory = categoryServices.getListCategory();
         Product product = productServices.getProduct(productId);
 
-        modelMap.put("listCategory",listCategory);
         modelMap.put("product",product);
 
         return new ModelAndView("createProduct","command",new ProductModel());
@@ -141,8 +144,8 @@ public class ProductController {
                 e.printStackTrace();
             }
             String urlImage = prop.getProperty("local.imagesUpload.directory");
-            boolean upload = productImageServices.uploadFile(productModel, urlImage);
-            boolean createProductDetail = productDetailServices.createProductDetail(productModel);
+            productImageServices.uploadFile(productModel, urlImage);
+            productDetailServices.createProductDetail(productModel);
             return "redirect:viewProduct";
         }
     }
@@ -164,7 +167,7 @@ public class ProductController {
     @RequestMapping(value="/updateProductPost",method = RequestMethod.POST)
     public String updateProductPost(@ModelAttribute("updateModel") ProductDetailModel productDetailModel)
     {
-        boolean updateProductDetail = productDetailServices.updateProductDetail(productDetailModel);
+        productDetailServices.updateProductDetail(productDetailModel);
         return "redirect:viewProduct";
     }
     @RequestMapping(value="/viewProductImages",method = RequestMethod.GET)

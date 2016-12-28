@@ -56,12 +56,15 @@ public class CheckoutController {
 			return "checkoutPage";
 		}
 	}
-	@ModelAttribute
-	public void listAllCategory(ModelMap modelMap){
-		List<Category> listCategory = categoryServices.getListCategory();
-		List<Product> listProduct = productServices.getListProduct();
-		modelMap.addAttribute("listCategory", listCategory);
-		modelMap.addAttribute("listProduct",listProduct);
+	@ModelAttribute("categories")
+	public List<Category> listAllCategory() {
+		List<Category> categories = categoryServices.getListCategory();
+		return categories;
+	}
+	@ModelAttribute("products")
+	public List<Product> listAllProduct() {
+		List<Product> products = productServices.getListProduct();
+		return products;
 	}
 	@RequestMapping(value = "/confirmCheckout", method = RequestMethod.POST)
 	public String checkoutAdd(@Valid InvoiceModel invoiceModel,

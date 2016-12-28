@@ -21,7 +21,7 @@
                             <table class="table" id="shopping-cart-table">
                                 <thead>
                                 <tr>
-                                    <th class="cart-romove item">Remove</th>
+                                    <th class="cart-remove item">Remove</th>
                                     <th class="cart-description item">Image</th>
                                     <th class="cart-product-name item">Product Name</th>
                                     <th class="cart-qty item">Quantity</th>
@@ -49,7 +49,7 @@
                                 <tbody>
                                 <c:forEach var="cart" items="${sessionScope.cartSession}">
                                     <tr>
-                                        <td class="romove-item"><a
+                                        <td class="remove-item"><a
                                                 href="${contextPath }/cart/remove?product_id=${cart.productDetail.id}"
                                                 title="cancel" class="icon"><i
                                                 class="fa fa-trash-o"></i></a></td>
@@ -79,16 +79,7 @@
                                         </td>
                                         <td class="cart-product-quantity">
                                             <div class="quant-input">
-                                                <div class="arrows">
-                                                    <div class="arrow plus gradient"><span class="ir"><i
-                                                            class="icon fa fa-sort-asc"
-                                                    ></i></span></div>
-                                                    <div class="arrow minus gradient"><span class="ir"><i
-                                                            class="icon fa fa-sort-desc"
-                                                    ></i></span></div>
-                                                </div>
-                                                <input type="text" id="quantity" aria-valuemax="10" aria-valuemin="1"
-                                                       maxlength="2" name="quantity"
+                                                <input style="padding-left: 10px;" type="number" name="quantity" id="quantity" min="1" max="${cart.productDetail.productDetailQuantity}" name="quantity"
                                                        value="${cart.quantity}">
                                             </div>
                                         </td>

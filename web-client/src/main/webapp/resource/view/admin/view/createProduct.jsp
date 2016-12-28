@@ -32,7 +32,7 @@
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Category Name</label>
                                         <form:select id="username" path="categoryId">
-                                            <c:forEach var="category" items="${listCategory}">
+                                            <c:forEach var="category" items="${categories}">
                                                 <option value="${category.getId()}">${category.getCategoryName()}</option>
                                             </c:forEach>
                                         </form:select>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,20 +64,16 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		List<ProductDetail> listProductDetailNew = productDetailServices.findTop6ByOrderByCreateByDesc();
 
-		List<ProductDetail> listProductDetailExpenSivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
+		List<ProductDetail> listProductDetailExpensivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
 
 		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
 
 		List<ProductDetail> list8ProductDetail = productDetailServices.findTop8ByOrderByCreateByAsc();
-		List<Category> listCategory = categoryServices.getListCategory();
-		List<Product> listProduct = productServices.getListProduct();
 
 		model.addAttribute("listProductDetailNew",listProductDetailNew);
-		model.addAttribute("listProductDetailExpenSivePrice",listProductDetailExpenSivePrice);
+		model.addAttribute("listProductDetailExpensivePrice",listProductDetailExpensivePrice);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
 		model.addAttribute("list8ProductDetail",list8ProductDetail);
-		model.addAttribute("listCategory", listCategory);
-		model.addAttribute("listProduct",listProduct);
 		if(session.getAttribute("cartSession") == null){
 			session.setAttribute("countItem", 0);
 			session.setAttribute("total", 0);
@@ -84,6 +81,18 @@ public class HomeController {
 
 		return "homePage";
 	}
+
+	@ModelAttribute("categories")
+	public List<Category> listAllCategory() {
+		List<Category> categories = categoryServices.getListCategory();
+		return categories;
+	}
+	@ModelAttribute("products")
+	public List<Product> listAllProduct() {
+		List<Product> products = productServices.getListProduct();
+		return products;
+	}
+
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Locale locale, Model model) {
 		logger.info("Welcome login! The client locale is {}.", locale);
@@ -111,7 +120,7 @@ public class HomeController {
 		List<ProductDetail> listProductDetailCheap = productDetailServices.findTop3ByOrderByProductDetailPriceAsc();
 		ProductDetail productDetail = productDetailServices.getProductDetail(id);
 		Product product = productServices.getProduct(productDetail.getProduct().getId());
-		List<ProductDetail> listProductDetailExpenSivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
+		List<ProductDetail> listProductDetailExpensivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
 		List<Category> listCategory = categoryServices.getListCategory();
 		Discount discount = discountServices.findByProduct(product);
 		if(discount == null){
@@ -122,11 +131,8 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate);
 		model.addAttribute("productDetail",productDetail);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
-		model.addAttribute("listProductDetailExpensivePrice",listProductDetailExpenSivePrice);
-		List<Product> listProduct = productServices.getListProduct();
+		model.addAttribute("listProductDetailExpensivePrice",listProductDetailExpensivePrice);
 		model.addAttribute("listCategory", listCategory);
-		model.addAttribute("listProduct",listProduct);
-
 		return "detailPage";
 	}
 
@@ -140,17 +146,12 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 
 		modelMap.addAttribute("serverTime", formattedDate);
-		List<Category> listCategory = categoryServices.getListCategory();
-		modelMap.put("listCategory", listCategory);
 
 		return "shoppingCart";
 	}
 	@RequestMapping(value="/product",method = RequestMethod.GET)
-	public String viweCategory(@RequestParam("check") String check,ModelMap modelMap)
+	public String viewProduct(@RequestParam("check") String check,ModelMap modelMap)
 	{
-		List<Category> listCategory = categoryServices.getListCategory();
-		List<Product> listProduct = productServices.getListProduct();
-
 		List<ProductDetail> listProductDetail = productDetailServices.getListProductDetail();
 		if(check.equals("all"))
 		{
@@ -171,8 +172,6 @@ public class HomeController {
 			List<ProductDetail> listProductDetailNew = productDetailServices.getListProductDetailByProduct(check);
 			modelMap.put("listProductDetail",listProductDetailNew);
 		}
-		modelMap.put("listCategory",listCategory);
-		modelMap.addAttribute("listProduct",listProduct);
 		return "productPage";
 	}
 }

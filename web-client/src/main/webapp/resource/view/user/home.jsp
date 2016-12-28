@@ -380,16 +380,8 @@
                              style="background-image: url(${contextPath}/resource/view/template/assets/images/sliders/01.jpg);">
                             <div class="container-fluid">
                                 <div class="caption bg-color vertical-center text-left">
-                                    <div class="slider-header fadeInDown-1">Top Brands</div>
-                                    <div class="big-text fadeInDown-1">
-                                        Vegetable
-                                    </div>
-                                    <div class="excerpt fadeInDown-2 hidden-xs">
-
-                                        <span>Do you want to buy these fresh food...</span>
-                                    </div>
                                     <div class="button-holder fadeInDown-3">
-                                        <a href="index.php?page=single-product"
+                                        <a href="${contextPath}/product?check=productPriceAsc"
                                            class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a>
                                     </div>
                                 </div><!-- /.caption -->
@@ -399,16 +391,8 @@
                              style="background-image: url(${contextPath}/resource/view/template/assets/images/sliders/02.jpg);">
                             <div class="container-fluid">
                                 <div class="caption bg-color vertical-center text-left">
-                                    <div class="slider-header fadeInDown-1">Spring 2016</div>
-                                    <div class="big-text fadeInDown-1">
-                                        Vegetable <span class="highlight">Fresh</span>
-                                    </div>
-                                    <div class="excerpt fadeInDown-2 hidden-xs">
-
-                                        <span>Do you want to buy these fresh food...</span>
-                                    </div>
                                     <div class="button-holder fadeInDown-3">
-                                        <a href="index.php?page=single-product"
+                                        <a href="${contextPath}/product?check=productPriceAsc"
                                            class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a>
                                     </div>
                                 </div><!-- /.caption -->
@@ -789,7 +773,7 @@
                 <section class="section featured-product wow fadeInUp">
                     <h3 class="section-title">Expensive products</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
-                        <c:forEach var="productDetail" items="${listProductDetailExpenSivePrice}">
+                        <c:forEach var="productDetail" items="${listProductDetailExpensivePrice}">
                             <div class="item item-carousel">
                                 <div class="products">
                                     <div class="product">

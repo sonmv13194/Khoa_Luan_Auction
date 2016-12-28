@@ -427,11 +427,6 @@
                                                                        title="Add To Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </a>
-                                                                    <a href="">
-                                                                        <button class="btn btn-primary cart-btn"
-                                                                                type="button">Add To Cart
-                                                                        </button>
-                                                                    </a>
                                                                 </li>
 
                                                                 <li class="lnk wishlist">
@@ -473,7 +468,6 @@
                                                     <div class="col col-sm-4 col-lg-4">
                                                         <div class="product-image">
                                                             <div class="image">
-                                                                    <%--<img src="${contextPath}/resource/view/template/assets/images/products/p3.jpg" alt="">--%>
                                                                 <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'><img
                                                                         src="/uploaded-image/${productDetail.productImages.get(0).url}"
                                                                         alt=""></a>
@@ -487,29 +481,26 @@
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
-					<span class="price">
-						$ ${productDetail.productDetailPrice}					</span>
+                                                            <span class="price">
+                                                                $ ${productDetail.productDetailPrice}</span>
                                                                 <span class="price-before-discount">$ ${productDetail.productDetailPrice}</span>
 
                                                             </div><!-- /.product-price -->
-                                                            <div class="description m-t-10">Suspendisse posuere arcu
-                                                                diam, id accumsan eros pharetra ac. Nulla enim risus,
-                                                                facilisis bibendum gravida eget, lacinia id purus.
-                                                                Suspendisse posuere arcu diam, id accumsan eros pharetra
-                                                                ac. Nulla enim risus, facilisis bibendum gravida eget.
+                                                            <div class="description m-t-10">${productDetail.product.description}
                                                             </div>
                                                             <div class="cart clearfix animate-effect">
                                                                 <div class="action">
                                                                     <ul class="list-unstyled">
                                                                         <li class="add-cart-button btn-group">
-                                                                            <button class="btn btn-primary icon"
-                                                                                    data-toggle="dropdown"
-                                                                                    type="button">
+                                                                            <a data-toggle="tooltip"
+                                                                               onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                                    <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                                        href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                                    </c:if>
+                                                                               class="btn btn-primary icon" type="button"
+                                                                               title="Add To Cart">
                                                                                 <i class="fa fa-shopping-cart"></i>
-                                                                            </button>
-                                                                            <button class="btn btn-primary cart-btn"
-                                                                                    type="button">Add To Cart
-                                                                            </button>
+                                                                            </a>
 
                                                                         </li>
 
@@ -538,9 +529,7 @@
                                         </div><!-- /.products -->
                                     </div>
                                     <!-- /.category-product-inner -->
-
                                 </c:forEach>
-
                             </div><!-- /.category-product -->
                         </div><!-- /.tab-pane #list-container -->
                     </div><!-- /.tab-content -->

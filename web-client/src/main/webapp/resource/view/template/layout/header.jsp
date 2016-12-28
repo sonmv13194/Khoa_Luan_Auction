@@ -95,7 +95,7 @@
 
                                         <ul class="dropdown-menu" role="menu">
                                             <li class="menu-header">Food</li>
-                                            <c:forEach var="category" items="${listCategory}">
+                                            <c:forEach var="category" items="${categories}">
                                                 <li role="presentation">
                                                     <a role="menuitem" tabindex="-1" href="category.html">- ${category.categoryName}</a>
                                                 </li>
@@ -204,14 +204,14 @@
                                 <li class="active yamm-fw">
                                     <a href="${contextPath}/">Home</a>
                                 </li>
-                                <c:forEach var="categoryNew" items="${listCategory}">
+                                <c:forEach var="categoryNew" items="${categories}">
                                     <li class="dropdown yamm mega-menu">
                                         <a data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">${categoryNew.categoryName}</a>
                                         <ul class="dropdown-menu conta	iner">
                                             <li>
                                                 <div class="yamm-content ">
                                                     <div class="row">
-                                                        <c:forEach var="product" items="${listProduct}">
+                                                        <c:forEach var="product" items="${products}">
                                                             <c:if test="${product.category.id == categoryNew.id}">
                                                                 <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
                                                                     <h2 class="title">${product.productName}</h2>
