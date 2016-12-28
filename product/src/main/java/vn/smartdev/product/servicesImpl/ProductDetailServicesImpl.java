@@ -80,7 +80,7 @@ public class ProductDetailServicesImpl implements ProductDetailServices {
             productImage.setUrl(productModel.getProductName() + "_" + productModel.getFile().getOriginalFilename());
             productImage.setProductDetail(productDetail);
 
-            productImageManager.savePorductImage(productImage);
+            productImageManager.saveProductImage(productImage);
             return true;
         }
         catch (Exception e)
