@@ -3,6 +3,7 @@ package vn.smartdev.category.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vn.smartdev.category.dao.entity.Category;
+import vn.smartdev.category.dao.manager.CategoryManager;
 
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 @Service
 public class CategoryServicesImpl implements CategoryServices {
     @Autowired
-    private CategoryServicesImpl categoryManager;
+    private CategoryManager categoryManager;
 
     @Override
     public List<Category> getListCategory() {
