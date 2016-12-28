@@ -94,7 +94,7 @@
             <column name="id" type="VARCHAR(45)">
                 <constraints nullable="false"/>
             </column>
-            <column name="product_detail_code" type="VARCHAR(100)"/>
+            <column name="product_detail_name" type="VARCHAR(100)"/>
             <column name="product_detail_status" type="INT"/>
             <column name="product_detail_price" type="FLOAT(12)"/>
             <column name="product_detail_quantity" type="INT"/>

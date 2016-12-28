@@ -12,6 +12,9 @@
 //import vn.smartdev.category.dao.entity.Category;
 //import vn.smartdev.product.dao.entity.Product;
 //import vn.smartdev.product.dao.entity.ProductDetail;
+//import vn.smartdev.product.dao.manager.ProductDetailManagerImpl;
+//import vn.smartdev.product.dao.manager.ProductImageManagerImpl;
+//import vn.smartdev.product.dao.manager.ProductManagerImpl;
 //import vn.smartdev.product.dao.repository.ProductDetailRepository;
 //import vn.smartdev.product.dao.repository.ProductImageRepository;
 //import vn.smartdev.product.dao.repository.ProductRepository;
@@ -29,13 +32,13 @@
 //    //InjecMock : required MockitoJunitRunner create object for variable
 //    //set these value for these properties in object mock
 //    @InjectMocks
-//    private ProductServicesImpl productServices;
+//    private ProductManagerImpl productManager;
 //
 //    @InjectMocks
-//    private ProductDetailServicesImpl productDetailServices;
+//    private ProductDetailManagerImpl productDetailManager;
 //
 //    @InjectMocks
-//    private ProductImageServicesImpl productImageServices;
+//    private ProductImageManagerImpl productImageManager;
 //
 //    @Mock
 //    private ProductRepository productRepository;
@@ -71,13 +74,13 @@
 //
 //    @Test
 //    public void testGetListProductDetail() throws Exception {
-//        List<ProductDetail> listProductDetails = productDetailServices.getListProductDetail();
+//        List<ProductDetail> listProductDetails = productDetailManager.getListProductDetail();
 //        Assertions.assertThat(listProductDetails.size()).isEqualTo(36);
 //    }
 //
 //    @Test
 //    public void testGetProductDetail() throws Exception {
-//        ProductDetail productDetail = productDetailServices.getProductDetail("123456789");
+//        ProductDetail productDetail = productDetailManager.getProductDetail("123456789");
 //        Assertions.assertThat(productDetail.getId()).isEqualTo("123456789");
 //        Assertions.assertThat(productDetail.getProductDetailName()).isEqualTo("productDetailName_13");
 //        Assertions.assertThat(productDetail.getDescription()).isEqualTo("productDetailDescription_13");
@@ -95,7 +98,7 @@
 //    public void testDeleteProductDetail() throws Exception {
 //        //captor in productDetailRepository get Id ProductDetail when implement deleteProductDetail() from server
 //        ArgumentCaptor<String> stringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-//        productDetailServices.deleteProductDetail("productDetailId_25");
+//        productDetailManager.deleteProductDetail("productDetailId_25");
 //
 //        Mockito.verify(productDetailRepository, Mockito.times(1)).delete(stringArgumentCaptor.capture());
 //        String productDetailId = stringArgumentCaptor.getValue();
@@ -107,7 +110,7 @@
 //    public void testSaveProductDetail() throws Exception {
 //        //captor in productDetailRepository get ProductDetail when implement SaveProductDetail() from server
 //        ArgumentCaptor<ProductDetail> productDetailArgumentCaptor = ArgumentCaptor.forClass(ProductDetail.class);
-//        productDetailServices.saveProductDetail(createProductDetail(createNewProduct()));
+//        productDetailManager.saveProductDetail(createProductDetail(createNewProduct()));
 //
 //        Mockito.verify(productDetailRepository, Mockito.times(1)).save(productDetailArgumentCaptor.capture());
 //        ProductDetail productDetail = productDetailArgumentCaptor.getValue();
@@ -124,7 +127,7 @@
 //    public void testUpdateProductDetail() throws Exception {
 //        //captor in productDetailRepository get ProductDetail when implement SaveProductDetail() from server
 //        ArgumentCaptor<ProductDetail> productDetailArgumentCaptor = ArgumentCaptor.forClass(ProductDetail.class);
-//        productDetailServices.saveProductDetail(createProductDetail(createNewProduct()));
+//        productDetailManager.saveProductDetail(createProductDetail(createNewProduct()));
 //
 //        Mockito.verify(productDetailRepository, Mockito.times(1)).save(productDetailArgumentCaptor.capture());
 //        ProductDetail productDetail = productDetailArgumentCaptor.getValue();

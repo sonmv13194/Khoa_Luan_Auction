@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
                             <c:set var="i" value="1"></c:set>
-                            <c:forEach var="product" items="${listProducts}">
+                            <c:forEach var="product" items="${products}">
 
                                 <tr class="gradeX">
                                     <td>${i}</td>

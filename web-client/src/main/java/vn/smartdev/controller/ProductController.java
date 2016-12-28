@@ -79,7 +79,8 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/createProduct", method = RequestMethod.GET)
-    public ModelAndView createProduct() {
+    public ModelAndView createProduct(ModelMap modelMap) {
+        modelMap.put("productId","1");
         return new ModelAndView("createProduct", "command", new ProductModel());
     }
 

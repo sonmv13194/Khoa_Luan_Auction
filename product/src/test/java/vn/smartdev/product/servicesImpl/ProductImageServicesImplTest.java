@@ -13,6 +13,7 @@
 //import vn.smartdev.product.dao.entity.Product;
 //import vn.smartdev.product.dao.entity.ProductDetail;
 //import vn.smartdev.product.dao.entity.ProductImage;
+//import vn.smartdev.product.dao.manager.ProductImageManagerImpl;
 //import vn.smartdev.product.dao.repository.ProductImageRepository;
 //import vn.smartdev.product.handlingData.HandlingEmulatorData;
 //
@@ -28,7 +29,7 @@
 //    //set these value for these properties in object mock
 //
 //    @InjectMocks
-//    private ProductImageServicesImpl productImageServices;
+//    private ProductImageManagerImpl productImageManager;
 //
 //    @Mock
 //    private ProductImageRepository productImageRepository;
@@ -62,13 +63,13 @@
 //
 //    @Test
 //    public void testGetListProductImage() throws Exception {
-//        List<ProductImage> listProductImages = productImageServices.getListProductImage();
+//        List<ProductImage> listProductImages = productImageManager.getListProductImage();
 //        Assertions.assertThat(listProductImages.size()).isEqualTo(72);
 //    }
 //
 //    @Test
 //    public void testGetProductImage() throws Exception {
-//        ProductImage productImage = productImageServices.getProductImage("productImageId_73");
+//        ProductImage productImage = productImageManager.getProductImage("productImageId_73");
 //        Assertions.assertThat(productImage.getId()).isEqualTo("productImageId_73");
 //    }
 //
@@ -76,7 +77,7 @@
 //    public void testSavePorductImage() throws Exception {
 //        //captor in productImagesRepository get ProductImages when saveProductImages from server
 //        ArgumentCaptor<ProductImage> productImageArgumentCaptor = ArgumentCaptor.forClass(ProductImage.class);
-//        productImageServices.saveProductImage(createProductImages());
+//        productImageManager.saveProductImage(createProductImages());
 //
 //        Mockito.verify(productImageRepository,Mockito.times(1)).save(productImageArgumentCaptor.capture());
 //        ProductImage productImage = productImageArgumentCaptor.getValue();
@@ -88,7 +89,7 @@
 //    public void testDeleteProductImage() throws Exception {
 //        //captor in productImagesRepository get ProductImages when saveProductImages from server
 //        ArgumentCaptor<String> productImageArgumentCaptor = ArgumentCaptor.forClass(String.class);
-//        productImageServices.deleteProductImage("productImageId_74");
+//        productImageManager.deleteProductImage("productImageId_74");
 //
 //        Mockito.verify(productImageRepository,Mockito.times(1)).delete(productImageArgumentCaptor.capture());
 //        String productImageId = productImageArgumentCaptor.getValue();

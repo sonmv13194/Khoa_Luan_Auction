@@ -18,6 +18,7 @@ import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.services.DiscountServices;
 import vn.smartdev.product.services.ProductDetailServices;
 import vn.smartdev.product.services.ProductServices;
+import vn.smartdev.product.services.SendEmailServices;
 import vn.smartdev.user.dao.manager.UserManager;
 
 import javax.servlet.http.HttpSession;
@@ -45,6 +46,8 @@ public class HomeController {
 	private CategoryServices categoryServices;
 	@Autowired
 	private DiscountServices discountServices;
+	@Autowired
+	private SendEmailServices sendEmailServices;
 
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -78,7 +81,6 @@ public class HomeController {
 			session.setAttribute("countItem", 0);
 			session.setAttribute("total", 0);
 		}
-
 		return "homePage";
 	}
 
