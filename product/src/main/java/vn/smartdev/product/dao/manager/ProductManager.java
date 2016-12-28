@@ -7,9 +7,9 @@ import vn.smartdev.product.dao.model.ProductModel;
 import java.util.List;
 /** * Created by Nhat on 28/12/2016. */
 public interface ProductManager {    
-  public List getListProduct();    
-  public Product getProduct(String id);    
-  public void saveProduct(Product product);    
-  public void deleteProduct(String id);    
-  public boolean createProduct(ProductModel productModel);
+  List<Product> getListProduct();
+  Product getProduct(String id);
+  void saveProduct(Product product);
+  void deleteProduct(String id);
+  boolean createProduct(ProductModel productModel);
 }
