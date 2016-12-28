@@ -22,31 +22,31 @@ import java.util.UUID;
 public class User extends AbstractAuditableEntity<String> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @NotNull
+   // @NotNull
     private String address;
 
     //@Temporal(TemporalType.DATE)
-    @NotNull
+  //  @NotNull
     private Date birthday;
 
 
-    @NotNull
+   // @NotNull
     private String email;
 
-    @NotNull
-    @Size(min = 5, max = 30)
+   // @NotNull
+   // @Size(min = 5, max = 30)
     private String password;
 
-    @NotNull
-    @Phone
+   // @NotNull
+   // @Phone
     private String phone;
 
     public User(String username) {
         this.username = username;
     }
 
-    @NotNull
-    @Size(min = 5, max = 30)
+   // @NotNull
+   // @Size(min = 5, max = 30)
     private String username;
 
     @Column(name = "enabled")
@@ -87,6 +87,7 @@ public class User extends AbstractAuditableEntity<String> implements Serializabl
     public User(String address, Date birthday, String email, String password, String phone, String huy, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, Role admin) {
         setId(UUID.randomUUID().toString());
     }
+
 
     public User(String address, Date birthday, String email, String password, String phone,
                 String username) {

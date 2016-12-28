@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
-         pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false"
+         pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -80,62 +80,61 @@
 
                         <div class="panel-body">
                             <div class="form">
-                                <h2>${message}</h2>
-                                <form:form class="cmxform form-horizontal tasi-form" role="form" id="editForm"
+                                <%--<h2>${message}</h2>--%>
+                                <form class="cmxform form-horizontal tasi-form" role="form" id="editForm"
                                            method="POST"
                                            novalidate="novalidate" commandName="user" action="/admin/editUser">
 
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2"></label>
-                                        <form:input path="id" class="form-control" id="id" name="id" type="hidden"
+                                        <input path="id" class="form-control" id="id" name="id" type="hidden"
                                                     value="${user.id}"/>
-                                        <form:errors path="id" cssClass="error"/>
+                                        <%--<form:errors path="id" cssClass="error"/>--%>
                                     </div>
                                     <div class="form-group ">
                                         <label for="username" class="control-label col-lg-2">Username</label>
-                                        <form:input path="username" class="form-control" id="username" name="username"
+                                        <input path="username" class="form-control" id="username" name="username"
                                                     type="text" value="${user.username}"/>
-                                        <form:errors path="username" cssClass="error"/>
+                                        <%--<form:errors path="username" cssClass="error"/>--%>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="password" class="control-label col-lg-2">Password</label>
-                                        <form:password path="password" class="form-control" id="password"
-                                                       name="password"
+                                        <input path="password" class="form-control" id="password"
+                                                       name="password" type="password"
                                                        value="${user.password}"/>
-                                        <form:errors path="password" cssClass="error"/>
+                                        <%--<form:errors path="password" cssClass="error"/>--%>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="email" class="control-label col-lg-2">Email</label>
-                                        <form:input path="email" class="form-control" id="email" name="email"
+                                        <input path="email" class="form-control" id="email" name="email"
                                                     type="email"
                                                     value="${user.email}"/>
-                                        <form:errors path="email" cssClass="error"/>
+                                        <%--<form:errors path="email" cssClass="error"/>--%>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="birthday" class="control-label col-lg-2">Birthday</label>
-                                        <form:input path="birthday" class="form-control" id="birthday" name="birthday"
+                                        <input path="birthday" class="form-control" id="birthday" name="birthday"
                                                     type="date"
                                                     value="${user.birthday}"/>
-                                        <form:errors path="birthday" cssClass="error"/>
+                                        <%--<form:errors path="birthday" cssClass="error"/>--%>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Address</label>
-                                        <form:input path="address" class="form-control" id="address" name="address"
+                                        <input path="address" class="form-control" id="address" name="address"
                                                     value="${user.address}"/>
-                                        <form:errors path="address" cssClass="error"/>
+                                        <%--<form:errors path="address" cssClass="error"/>--%>
                                     </div>
                                     <div class="form-group ">
                                         <label for="address" class="control-label col-lg-2">Phone</label>
-                                        <form:input path="phone" class="form-control" id="phone" name="phone"
+                                        <input path="phone" class="form-control" id="phone" name="phone"
                                                     value="${user.phone}"/>
-                                        <form:errors path="phone" cssClass="error"/>
+                                        <%--<form:errors path="phone" cssClass="error"/>--%>
                                     </div>
 
-                                    </div>
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
                                             <button class="btn btn-danger" type="submit">Save</button>
@@ -143,9 +142,8 @@
                                         </div>
                                     </div>
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                </form:form>
+                                </form>
                             </div>
-                        </div>
                     </section>
                 </div>
             </div>

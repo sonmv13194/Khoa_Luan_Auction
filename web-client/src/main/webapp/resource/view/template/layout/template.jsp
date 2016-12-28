@@ -148,5 +148,29 @@
 
     });
 
+
+    //validate username is exits.
+    var username = $('#username').val();
+    $('#username').change(function() {
+        $.ajax({
+            url: "signin.jsp",
+            type: 'POST',
+            data: 'username=' + username,
+            success: function(result){
+                if(result > 0){
+                    // do something if username already exist
+                    //show that the username is available
+                    $('#username_availability_result').html(username + ' is not Available');
+                }
+                else{
+                    // do something if username doesn't exist
+                    //show that the username is NOT available
+
+                    $('#username_availability_result').html(username + ' is Available');
+                }
+            }
+        });
+    });
+
 </script>
 

@@ -56,6 +56,7 @@ public class UserController {
         } catch (UserNotFoundException e) {
             logger.error("+++++++++++++++++UserNotFoundException+++++++++++++++++");
         }
+
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
@@ -66,15 +67,15 @@ public class UserController {
 
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
-    public String editUserPost(@Valid User user, BindingResult bindingResult, Model model) throws ParseException {
+    public String editUserPost(@ModelAttribute User user, Model model) throws ParseException {
         logger.info("Access editUserPost method !!");
-        if (bindingResult.hasErrors()) {
-            // handle error
-            logger.error("===Got error");
-        } else {
-            logger.info("=== No error");
-
-        }
+//        if (bindingResult.hasErrors()) {
+//            // handle error
+//            logger.error("===Got error");
+//        } else {
+//            logger.info("=== No error");
+//
+//        }
         userManager.saveForEdit(user);
         List<User> users = userManager.findAllUsers();
         model.addAttribute("listUser",users);
