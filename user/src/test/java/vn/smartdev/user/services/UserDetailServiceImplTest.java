@@ -15,8 +15,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by levuhuy on 12/26/16.
  */

@@ -8,7 +8,7 @@
 //import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.util.UriComponentsBuilder;
 //import vn.smartdev.user.dao.entity.User;
-//import vn.smartdev.user.dao.model.UserModel;
+//import UserModel;
 //import vn.smartdev.user.exception.UserAlreadyExistsException;
 //import vn.smartdev.user.exception.UserNotFoundException;
 //import vn.smartdev.user.manager.UserManager;

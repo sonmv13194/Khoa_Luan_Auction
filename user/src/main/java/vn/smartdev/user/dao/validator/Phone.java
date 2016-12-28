@@ -1,7 +1,5 @@
 package vn.smartdev.user.dao.validator;
 
-import org.hibernate.annotations.Table;
-
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.ElementType;

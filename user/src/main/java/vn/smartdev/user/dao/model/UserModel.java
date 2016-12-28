@@ -1,7 +1,6 @@
 package vn.smartdev.user.dao.model;
 
 
-import org.springframework.format.annotation.DateTimeFormat;
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 import vn.smartdev.user.dao.validator.Phone;
 

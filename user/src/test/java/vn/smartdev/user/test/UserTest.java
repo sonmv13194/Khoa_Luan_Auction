@@ -13,7 +13,7 @@
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import vn.smartdev.user.dao.entity.Role;
 //import vn.smartdev.user.dao.entity.User;
-//import vn.smartdev.user.dao.model.UserModel;
+//import UserModel;
 //import vn.smartdev.user.dao.repository.UserRepository;
 //import vn.smartdev.user.exception.UserAlreadyExistsException;
 //import vn.smartdev.user.exception.UserNotFoundException;
