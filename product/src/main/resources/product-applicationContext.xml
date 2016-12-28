@@ -11,7 +11,7 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <tx:annotation-driven/>
     <context:annotation-config/>
-    <context:component-scan base-package="vn.smartdev.product"/>
+    <context:component-scan base-package="vn.smartdev.*"/>
     <context:property-placeholder  location="classpath*:*.properties" order="0" ignore-unresolvable="true" />
     <jpa:repositories base-package="vn.smartdev.product.dao.repository"/>
     <jpa:auditing auditor-aware-ref="auditorAwareIml"/>
