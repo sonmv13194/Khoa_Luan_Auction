@@ -199,7 +199,7 @@
                             <td>
                                 <div class="cart-checkout-btn pull-right">
                                     <a type="submit"
-                                       onclick="if(${empty sessionScope.cartSession}) {return alert('Cart null !')}"
+                                       onclick="checkOut()"
                                             <c:if test="${not empty sessionScope.cartSession}">
                                                 href="${contextPath}/checkout"
                                             </c:if>
@@ -216,3 +216,10 @@
     </div><!-- /.container -->
 </div>
 <!-- /.body-content -->
+<script>
+    function checkOut() {
+        if(${empty sessionScope.cartSession}) {
+            return alert('Cart null !');
+        }
+    }
+</script>

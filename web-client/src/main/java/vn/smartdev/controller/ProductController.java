@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import vn.smartdev.category.dao.entity.Category;
-import vn.smartdev.category.manager.CategoryServices;
+import vn.smartdev.category.services.CategoryServices;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.model.ProductDetailModel;
@@ -45,13 +45,22 @@ public class ProductController {
 
     @RequestMapping(value = "/viewProduct", method = RequestMethod.GET)
     public String viewProduct(ModelMap modelMap, HttpSession session) {
-        List<Product> listProducts = productServices.getListProduct();
         List<ProductDetail> listProductDetails = productDetailServices.getListProductDetail();
         String message = (String) session.getAttribute("message");
         modelMap.put("message", message);
-        modelMap.put("listProducts", listProducts);
         modelMap.put("listProductDetails", listProductDetails);
         return "viewProduct";
+    }
+
+    @ModelAttribute("categories")
+    public List<Category> listAllCategory() {
+        List<Category> categories = categoryServices.getListCategory();
+        return categories;
+    }
+    @ModelAttribute("products")
+    public List<Product> listAllProduct() {
+        List<Product> products = productServices.getListProduct();
+        return products;
     }
 
     @RequestMapping(value = "/deleteProduct", method = RequestMethod.GET)
@@ -70,39 +79,30 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/createProduct", method = RequestMethod.GET)
-    public ModelAndView createProduct(ModelMap modelMap) {
-        List<Category> listCategory = categoryServices.getListCategory();
-
-        modelMap.put("listCategory", listCategory);
-        modelMap.put("productId", "1");
-
+    public ModelAndView createProduct() {
         return new ModelAndView("createProduct", "command", new ProductModel());
     }
 
     @RequestMapping(value = "/createProductPost", method = RequestMethod.POST)
     public String createProductPost(@ModelAttribute("product") ProductModel productModel, HttpSession session) {
         //upload file
-        boolean createProduct = productServices.createProduct(productModel);
-        boolean upload = productImageServices.uploadFile(productModel);
+        productServices.createProduct(productModel);
+        productImageServices.uploadFile(productModel);
         return "redirect:viewProduct";
     }
 
     @RequestMapping(value = "/createProductDetail", method = RequestMethod.GET)
     public ModelAndView createProductDetail(ModelMap modelMap, @RequestParam("productId") String productId) {
-        List<Category> listCategory = categoryServices.getListCategory();
         Product product = productServices.getProduct(productId);
-
-        modelMap.put("listCategory", listCategory);
         modelMap.put("product", product);
-
         return new ModelAndView("createProduct", "command", new ProductModel());
     }
 
     @RequestMapping(value = "/createProductDetailPost", method = RequestMethod.POST)
     public String createProductDetailPost(@ModelAttribute("product") ProductModel productModel, HttpSession session) {
         //upload file
-        boolean upload = productImageServices.uploadFile(productModel);
-        boolean createProductDetail = productDetailServices.createProductDetail(productModel);
+        productImageServices.uploadFile(productModel);
+        productDetailServices.createProductDetail(productModel);
         return "redirect:viewProduct";
     }
 
@@ -117,13 +117,12 @@ public class ProductController {
     public ModelAndView updateProduct(@RequestParam("productDetailId") String productDetailId, ModelMap modelMap) {
         ProductDetail productDetail = productDetailServices.getProductDetail(productDetailId);
         modelMap.put("productDetail", productDetail);
-
         return new ModelAndView("updateProduct", "command", new ProductDetailModel());
     }
 
     @RequestMapping(value = "/updateProductPost", method = RequestMethod.POST)
     public String updateProductPost(@ModelAttribute("updateModel") ProductDetailModel productDetailModel) {
-        boolean updateProductDetail = productDetailServices.updateProductDetail(productDetailModel);
+        productDetailServices.updateProductDetail(productDetailModel);
         return "redirect:viewProduct";
     }
 

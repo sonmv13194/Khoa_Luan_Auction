@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import vn.smartdev.category.dao.entity.Category;
-import vn.smartdev.category.manager.CategoryServices;
+import vn.smartdev.category.services.CategoryServices;
 import vn.smartdev.product.dao.entity.Discount;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
-import vn.smartdev.product.manager.DiscountServices;
-import vn.smartdev.product.manager.ProductDetailServices;
-import vn.smartdev.product.manager.ProductServices;
+import vn.smartdev.product.services.DiscountServices;
+import vn.smartdev.product.services.ProductDetailServices;
+import vn.smartdev.product.services.ProductServices;
 import vn.smartdev.user.dao.manager.UserManager;
 
 import javax.servlet.http.HttpSession;
@@ -121,7 +121,6 @@ public class HomeController {
 		ProductDetail productDetail = productDetailServices.getProductDetail(id);
 		Product product = productServices.getProduct(productDetail.getProduct().getId());
 		List<ProductDetail> listProductDetailExpensivePrice = productDetailServices.findTop6ByOrderByProductDetailPriceDesc();
-		List<Category> listCategory = categoryServices.getListCategory();
 		Discount discount = discountServices.findByProduct(product);
 		if(discount == null){
 			model.addAttribute("discount",0);
@@ -132,7 +131,6 @@ public class HomeController {
 		model.addAttribute("productDetail",productDetail);
 		model.addAttribute("listProductDetailCheap",listProductDetailCheap);
 		model.addAttribute("listProductDetailExpensivePrice",listProductDetailExpensivePrice);
-		model.addAttribute("listCategory", listCategory);
 		return "detailPage";
 	}
 

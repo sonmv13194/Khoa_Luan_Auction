@@ -9,9 +9,9 @@ import java.util.List;
  * Created by Nhat on 03/12/2016.
  */
 public interface ProductImageServices {
-    public List<ProductImage> getListProductImage();
-    public ProductImage getProductImage(String id);
-    public void savePorductImage(ProductImage productImage);
-    public void deleteProductImage(String id);
-    public boolean uploadFile(ProductModel productModel);
+    List<ProductImage> getListProductImage();
+    ProductImage getProductImage(String id);
+    void saveProductImage(ProductImage productImage);
+    void deleteProductImage(String id);
+    boolean uploadFile(ProductModel productModel);
 }

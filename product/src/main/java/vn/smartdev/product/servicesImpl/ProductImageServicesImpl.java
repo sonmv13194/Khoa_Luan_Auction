@@ -33,7 +33,7 @@ public class ProductImageServicesImpl implements ProductImageServices {
     }
 
     @Override
-    public void savePorductImage(ProductImage productImage) {
+    public void saveProductImage(ProductImage productImage) {
         productImageRepository.save(productImage);
     }
 
@@ -44,26 +44,24 @@ public class ProductImageServicesImpl implements ProductImageServices {
 
     @Override
     public boolean uploadFile(ProductModel productModel) {
-            MultipartFile file = productModel.getFile();
-            try {
-                byte bytes[] = file.getBytes();
-                //test resource localhost
-                String name = file.getOriginalFilename();
-                String demo = productModel.getUrlImage()+productModel.getProductName()+"_"+name;
-                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
-                stream.write(bytes);
-                stream.flush();
-                stream.close();
-                return true;
-            }
-            catch (FileNotFoundException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        MultipartFile file = productModel.getFile();
+        try {
+            byte bytes[] = file.getBytes();
+            //test resource localhost
+            String name = file.getOriginalFilename();
+            String demo = productModel.getUrlImage() + productModel.getProductName() + "_" + name;
+            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
+            stream.write(bytes);
+            stream.flush();
+            stream.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return false;
     }
 

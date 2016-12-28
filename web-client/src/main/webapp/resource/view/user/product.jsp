@@ -419,7 +419,7 @@
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
                                                                     <a data-toggle="tooltip"
-                                                                       onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                       onclick="addProductToCartError()"
                                                                             <c:if test="${productDetail.productDetailQuantity > 0}">
                                                                                 href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
                                                                             </c:if>
@@ -493,11 +493,12 @@
                                                                     <ul class="list-unstyled">
                                                                         <li class="add-cart-button btn-group">
                                                                             <a data-toggle="tooltip"
-                                                                               onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                               onclick="addProductToCartError()"
                                                                                     <c:if test="${productDetail.productDetailQuantity > 0}">
                                                                                         href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
                                                                                     </c:if>
-                                                                               class="btn btn-primary icon" type="button"
+                                                                               class="btn btn-primary icon"
+                                                                               type="button"
                                                                                title="Add To Cart">
                                                                                 <i class="fa fa-shopping-cart"></i>
                                                                             </a>
@@ -554,7 +555,12 @@
             </div><!-- /.col -->
         </div><!-- /.row -->
         <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-
-
     </div><!-- /.body-content -->
-    <!-- ============================================================= FOOTER ============================================================= -->
+</div>
+<script>
+    function addProductToCartError() {
+        if(${productDetail.productDetailQuantity == 0}) {
+            return alert('Sorry. This product is out of stock !')
+        }
+    }
+</script>

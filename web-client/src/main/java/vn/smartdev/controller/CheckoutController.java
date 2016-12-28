@@ -3,7 +3,6 @@ package vn.smartdev.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -18,15 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import vn.smartdev.category.dao.entity.Category;
-import vn.smartdev.category.manager.CategoryServices;
+import vn.smartdev.category.services.CategoryServices;
 import vn.smartdev.invoice.dao.model.CartModel;
-import vn.smartdev.invoice.dao.entity.Invoice;
 import vn.smartdev.invoice.dao.model.InvoiceModel;
 import vn.smartdev.invoice.services.InvoiceDetailServices;
 import vn.smartdev.invoice.services.InvoiceServices;
 import vn.smartdev.product.dao.entity.Product;
-import vn.smartdev.product.manager.ProductServices;
-import vn.smartdev.product.manager.SendEmailServicesImpl;
+import vn.smartdev.product.services.ProductServices;
+import vn.smartdev.product.services.SendEmailServices;
 
 @Controller
 @RequestMapping(value = "/")
@@ -40,9 +38,9 @@ public class CheckoutController {
 	@Autowired
 	InvoiceServices invoiceServices;
 	@Autowired
-	SendEmailServicesImpl sendEmailServicesImpl;
+	SendEmailServices sendEmailServices;
 	@Autowired
-	private ProductServices productServices;
+	ProductServices productServices;
 
 	@Autowired
 	InvoiceDetailServices invoiceDetailServices;
@@ -67,7 +65,7 @@ public class CheckoutController {
 		return products;
 	}
 	@RequestMapping(value = "/confirmCheckout", method = RequestMethod.POST)
-	public String checkoutAdd(@Valid InvoiceModel invoiceModel,
+	public String confirmCheckout(@Valid InvoiceModel invoiceModel,
 			BindingResult bindingResult,
 			HttpSession session, HttpServletRequest request) throws Exception {
 		@SuppressWarnings("unchecked")
@@ -83,7 +81,7 @@ public class CheckoutController {
 			try {
 				invoiceModel.setUsername(username);
 				invoiceServices.save(invoiceModel,carts);
-				sendEmailServicesImpl.sendEmail(invoiceModel.getEmail());
+				sendEmailServices.sendEmail(invoiceModel.getEmail(), "order");
 				session.removeAttribute("cartSession");
 				session.removeAttribute("countItem");
 				session.removeAttribute("total");

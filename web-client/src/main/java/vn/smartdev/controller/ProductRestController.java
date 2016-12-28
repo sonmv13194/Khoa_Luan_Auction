@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import vn.smartdev.product.dao.entity.Product;
-import vn.smartdev.product.manager.ProductDetailServices;
-import vn.smartdev.product.manager.ProductServices;
+import vn.smartdev.product.services.ProductServices;
 
 import java.util.List;
 
@@ -20,8 +19,6 @@ import java.util.List;
 public class ProductRestController {
     @Autowired
     private ProductServices productServices;
-    @Autowired
-    private ProductDetailServices productDetailServices;
 
     @RequestMapping(value="/productAll",method = RequestMethod.GET)
     public ResponseEntity<List<Product>> viewRestProduct()

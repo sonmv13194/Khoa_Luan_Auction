@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
-import vn.smartdev.product.dao.manager.*;
+import vn.smartdev.product.dao.manager.ProductDetailManager;
+import vn.smartdev.product.dao.manager.ProductImageManager;
+import vn.smartdev.product.dao.manager.ProductManager;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.services.ProductServices;
 
