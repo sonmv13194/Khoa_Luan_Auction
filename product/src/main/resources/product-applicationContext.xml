@@ -12,8 +12,30 @@
     <tx:annotation-driven/>
     <context:annotation-config/>
     <context:component-scan base-package="vn.smartdev.product"/>
+    <context:property-placeholder  location="classpath*:*.properties" order="0" ignore-unresolvable="true" />
     <jpa:repositories base-package="vn.smartdev.product.dao.repository"/>
     <jpa:auditing auditor-aware-ref="auditorAwareIml"/>
     <bean id="auditorAwareIml" class="vn.smartdev.core.jpa.auditing.AuditorAwareImpl"/>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.smtp.host}"/>
+        <property name="port" value="${mail.smtp.port}"/>
+        <property name="username" value="${mail.userName}" />
+        <property name="password" value="${mail.password}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="beanSendEmailOrder" class="vn.smartdev.product.dao.repository.SendEmail">
+        <property name="mailSender" ref="mailSender"/>
+        <property name="from" value="${mail.userName}"/>
+        <property name="subjectOrder" value="${mail.subjectEmail.order}"/>
+        <property name="msgOrder" value="${mail.bodyEmail.order}"/>
+        <property name="subjectRegistration" value="${mail.subjectEmail.registration}"/>
+        <property name="msgRegistration" value="${mail.bodyEmail.registration}"/>
+    </bean>
 </beans>

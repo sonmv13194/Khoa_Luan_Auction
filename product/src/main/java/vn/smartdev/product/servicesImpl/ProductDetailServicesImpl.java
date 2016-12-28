@@ -1,4 +1,4 @@
-package vn.smartdev.product.manager;
+package vn.smartdev.product.servicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,20 +7,22 @@ import vn.smartdev.category.dao.repository.CategoryRepository;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
+import vn.smartdev.product.dao.manager.ProductDetailManagerImpl;
+import vn.smartdev.product.dao.manager.ProductImageManagerImpl;
 import vn.smartdev.product.dao.model.ProductDetailModel;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.dao.repository.ProductDetailRepository;
 import vn.smartdev.product.dao.repository.ProductImageRepository;
 import vn.smartdev.product.dao.repository.ProductRepository;
+import vn.smartdev.product.services.ProductDetailServices;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Nhat on 29/11/2016.
  */
 @Service
-public class ProductDetailServicesImpl implements ProductDetailServices{
+public class ProductDetailServicesImpl implements ProductDetailServices {
     @Autowired
     private ProductDetailRepository productDetailRepository;
     @Autowired
@@ -30,6 +32,9 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
     @Autowired
     private ProductRepository productRepository;
 
+    private ProductDetailManagerImpl productDetailManagerImpl = new ProductDetailManagerImpl();
+    private ProductImageManagerImpl productImageManagerImpl = new ProductImageManagerImpl();
+
     @Override
     public List<ProductDetail> getListProductDetail() {
         return productDetailRepository.findAll();
@@ -38,13 +43,6 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
     @Override
     public ProductDetail getProductDetail(String id) {
         return productDetailRepository.findOne(id);
-    }
-
-    @Override
-    public double getTotal(String id) {
-        ProductDetail productDetail = productDetailRepository.getOne(id);
-
-        return productDetail.getProductDetailPrice() * productDetail.getProductDetailQuantity();
     }
 
     @Override
@@ -78,7 +76,7 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
 
             //productImage
             ProductImage productImage = new ProductImage();
-            productImage.setUrl(productModel.getFile().getOriginalFilename());
+            productImage.setUrl(productModel.getProductName()+"_"+productModel.getFile().getOriginalFilename());
             productImage.setProductDetail(productDetail);
 
             productImageRepository.save(productImage);
@@ -138,4 +136,5 @@ public class ProductDetailServicesImpl implements ProductDetailServices{
         List<ProductDetail> listProductDetail = product.getProductDetails();
         return listProductDetail;
     }
+
 }

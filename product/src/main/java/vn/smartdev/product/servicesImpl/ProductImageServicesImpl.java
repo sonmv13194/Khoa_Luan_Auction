@@ -1,13 +1,12 @@
-package vn.smartdev.product.manager;
+package vn.smartdev.product.servicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.dao.repository.ProductImageRepository;
+import vn.smartdev.product.services.ProductImageServices;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -19,7 +18,7 @@ import java.util.List;
  * Created by Nhat on 03/12/2016.
  */
 @Service
-public class ProductImageServicesImpl implements ProductImageServices{
+public class ProductImageServicesImpl implements ProductImageServices {
     @Autowired
     private ProductImageRepository productImageRepository;
 
@@ -44,33 +43,13 @@ public class ProductImageServicesImpl implements ProductImageServices{
     }
 
     @Override
-    public boolean checkNameImage(ProductModel productModel) {
-        String nameImage = productModel.getFile().getOriginalFilename();
-        List<ProductImage> listProductImage = productImageRepository.findAll();
-        try {
-            for(int i = 0 ; i < listProductImage.size(); i++)
-            {
-                if(listProductImage.get(i).getUrl().equals(nameImage))
-                {
-                    return true;
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            throw e;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean uploadFile(ProductModel productModel,String urlImage) {
+    public boolean uploadFile(ProductModel productModel) {
             MultipartFile file = productModel.getFile();
             try {
                 byte bytes[] = file.getBytes();
                 //test resource localhost
                 String name = file.getOriginalFilename();
-                String demo = urlImage+name;
+                String demo = productModel.getUrlImage()+productModel.getProductName()+"_"+name;
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
                 stream.write(bytes);
                 stream.flush();

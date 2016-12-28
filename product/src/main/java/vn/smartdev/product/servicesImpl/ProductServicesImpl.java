@@ -1,79 +1,67 @@
-package vn.smartdev.product.manager;
+package vn.smartdev.product.servicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-import vn.smartdev.category.dao.entity.Category;
-import vn.smartdev.category.dao.repository.CategoryRepository;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
+import vn.smartdev.product.dao.manager.*;
 import vn.smartdev.product.dao.model.ProductModel;
-import vn.smartdev.product.dao.repository.ProductDetailRepository;
-import vn.smartdev.product.dao.repository.ProductImageRepository;
-import vn.smartdev.product.dao.repository.ProductRepository;
+import vn.smartdev.product.services.ProductServices;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Nhat on 29/11/2016.
  */
 @Service
-public class ProductServicesImpl implements ProductServices{
+public class ProductServicesImpl implements ProductServices {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductManager productManager;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private ProductDetailManager productDetailManager;
 
     @Autowired
-    private ProductImageRepository productImageRepository;
+    private ProductImageManager productImageManager;
 
-    @Autowired
-    private ProductDetailRepository productDetailRepository;
+
+    //@Autowired
+    //private CategoryRepository categoryRepository;
 
     @Override
     public List<Product> getListProduct() {
-        return productRepository.findAll();
+        return productManager.getListProduct();
     }
 
     @Override
     public Product getProduct(String id) {
-        return productRepository.findOne(id);
+        return productManager.getProduct(id);
     }
 
     @Override
     public void saveProduct(Product product) {
-        productRepository.save(product);
+        productManager.saveProduct(product);
     }
 
     @Override
     public void deleteProduct(String id) {
-        productRepository.delete(id);
+        productManager.deleteProduct(id);
     }
 
     @Override
-    public void deleteObjectProduct(Product product) {
-        productRepository.delete(product);
-    }
-
-
-    @Override
-    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
+    //@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
     public boolean createProduct(ProductModel productModel) {
         try {
-            Category category = categoryRepository.findOne(productModel.getCategoryId());
+            //Category category = categoryRepository.findOne(productModel.getCategoryId());
 
             //Product
             Product product = new Product();
             product.setProductName(productModel.getProductName());
             product.setDescription(productModel.getDescription());
-            product.setCategory(category);
-            productRepository.save(product);
+            //product.setCategory(category);
+            productManager.saveProduct(product);
 
             //productDetail
             ProductDetail productDetail = new ProductDetail();
@@ -84,13 +72,13 @@ public class ProductServicesImpl implements ProductServices{
             productDetail.setDescription(productDetail.getDescription());
             productDetail.setSupplyer(productDetail.getSupplyer());
             productDetail.setProduct(product);
-            productDetailRepository.save(productDetail);
+            productDetailManager.saveProductDetail(productDetail);
 
             //productImage
             ProductImage productImage = new ProductImage();
-            productImage.setUrl(productModel.getFile().getOriginalFilename());
+            productImage.setUrl(productModel.getProductName()+"_"+productModel.getFile().getOriginalFilename());
             productImage.setProductDetail(productDetail);
-            productImageRepository.save(productImage);
+            productImageManager.savePorductImage(productImage);
             return true;
         }
         catch (Exception e)

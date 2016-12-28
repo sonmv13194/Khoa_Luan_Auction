@@ -1,7 +1,5 @@
-package vn.smartdev.product.manager;
+package vn.smartdev.product.services;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductModel;
 
@@ -15,6 +13,5 @@ public interface ProductImageServices {
     public ProductImage getProductImage(String id);
     public void savePorductImage(ProductImage productImage);
     public void deleteProductImage(String id);
-    public boolean checkNameImage(ProductModel productModel);
-    public boolean uploadFile(ProductModel productModel, String urlImage);
+    public boolean uploadFile(ProductModel productModel);
 }

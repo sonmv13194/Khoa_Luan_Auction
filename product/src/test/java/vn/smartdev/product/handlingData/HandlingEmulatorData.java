@@ -1,4 +1,4 @@
-package vn.smartdev.producttest;
+package vn.smartdev.product.handlingData;
 
 import jdk.nashorn.internal.objects.NativeRegExp;
 import vn.smartdev.category.dao.entity.Category;
@@ -19,7 +19,7 @@ public class HandlingEmulatorData {
     //1.Emulator Product And Category
 
     //initialized ListCategory()
-    protected List<Category> createListCategory(int number)
+    public List<Category> createListCategory(int number)
     {
         List<Category> listCategory = new ArrayList<Category>();
         for(int i = 0 ; i < number ; i++)
@@ -32,10 +32,10 @@ public class HandlingEmulatorData {
     }
 
     //initialized productMap()
-    protected Map<String,Product> productMap = new HashMap<String,Product>();
+    public Map<String,Product> productMap = new HashMap<String,Product>();
 
     //initialized createProductMap()
-        protected Map<String,Product> createProductMap(int number,List<Category> listCategory)
+    public Map<String,Product> createProductMap(int number,List<Category> listCategory)
         {
             Map<String,Product> createProductMap = new HashMap<String,Product>();
 
@@ -54,7 +54,7 @@ public class HandlingEmulatorData {
     }
 
     //initialized listProduct()
-    protected List<Product> createListProduct(Map<String,Product> createProductMap)
+    public List<Product> createListProduct(Map<String,Product> createProductMap)
     {
         List<Product> listProduct = new ArrayList<Product>();
         for(int i = 0 ;  i < createProductMap.size() ; i++)
@@ -63,16 +63,36 @@ public class HandlingEmulatorData {
         }
         return listProduct;
     }
-    protected Product createNewProduct()
+    public Product createNewProduct()
     {
         Product product = new Product();
         product.setProductName("name_13");
         product.setDescription("description_13");
         return product;
     }
+    public ProductDetail createProductDetail(Product product)
+    {
+        ProductDetail productDetail = new ProductDetail();
+        productDetail.setId("123456789");
+        productDetail.setProductDetailName("productDetailName_13");
+        productDetail.setDescription("productDetailDescription_13");
+        productDetail.setProductDetailPrice(13);
+        productDetail.setSupplyer("productDetailSupplyer_13");
+        productDetail.setProductDetailQuantity(13);
+        productDetail.setProductDetailStatus(1);
+        productDetail.setProduct(product);
+        return productDetail;
+    }
+    public ProductImage createProductImage(ProductDetail productDetail)
+    {
+        ProductImage productImage = new ProductImage();
+        productImage.setProductDetail(productDetail);
+        productImage.setUrl("productImage_13");
+        return productImage;
+    }
 
     //ProductDetail
-    protected List<ProductDetail> createListProductDetail(List<Product> listProduct,int number)
+    public List<ProductDetail> createListProductDetail(List<Product> listProduct,int number)
     {
         List<ProductDetail> listProductDetail = new ArrayList<ProductDetail>();
         for(int i = 0; i < listProduct.size() ; i++)
@@ -91,7 +111,7 @@ public class HandlingEmulatorData {
         }
         return listProductDetail;
     }
-    protected ProductDetail createNewProductDetail()
+    public ProductDetail createNewProductDetail()
     {
         ProductDetail productDetail = new ProductDetail();
         productDetail.setId("productDetailId_30");
@@ -104,7 +124,7 @@ public class HandlingEmulatorData {
     }
 
     //productImages
-    protected List<ProductImage> createListProductImages(List<ProductDetail> listProductDetails,int number)
+    public List<ProductImage> createListProductImages(List<ProductDetail> listProductDetails,int number)
     {
         List<ProductImage> listProductImages = new ArrayList<ProductImage>();
         for(int i = 0 ; i < listProductDetails.size() ; i++)
@@ -119,7 +139,7 @@ public class HandlingEmulatorData {
         }
         return listProductImages;
     }
-    protected ProductImage createProductImages()
+    public ProductImage createProductImages()
     {
         ProductImage productImage = new ProductImage();
         productImage.setId("productImageId_73");

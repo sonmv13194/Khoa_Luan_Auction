@@ -1,7 +1,13 @@
 package vn.smartdev.product.dao.model;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+import java.io.IOException;
+import java.util.Properties;
 
 /**
  * Created by Nhat on 05/12/2016.
@@ -16,9 +22,19 @@ public class ProductModel {
     private float price;
     private int quantity;
     private String supplyer;
+    private String urlImage;
 
     private MultipartFile file;
     public ProductModel() {
+        Properties prop = new Properties();
+        try {
+
+            prop.load(getClass().getClassLoader().getResourceAsStream("images.properties"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.urlImage = prop.getProperty("local.imagesUpload.directory");
     }
 
     public String getProductId() {
@@ -99,4 +115,14 @@ public class ProductModel {
     public void setProductDetailName(String productDetailName) {
         this.productDetailName = productDetailName;
     }
+    //initialized object applicationContext;
+    public void setUrlImage(String urlImage)
+    {
+        this.urlImage = urlImage;
+    }
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+
 }
