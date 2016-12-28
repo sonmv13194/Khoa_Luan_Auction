@@ -18,7 +18,7 @@ public interface ProductImageManager {
 
     public ProductImage getProductImage(String id);
 
-    public void savePorductImage(ProductImage productImage);
+    public void saveProductImage(ProductImage productImage);
 
     public void deleteProductImage(String id);
 

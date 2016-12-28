@@ -2,6 +2,8 @@ package vn.smartdev.product.servicesImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import vn.smartdev.category.dao.entity.Category;
+import vn.smartdev.category.dao.manager.CategoryManager;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.entity.ProductImage;
@@ -29,8 +31,8 @@ public class ProductServicesImpl implements ProductServices {
     private ProductImageManager productImageManager;
 
 
-    //@Autowired
-    //private CategoryRepository categoryRepository;
+    @Autowired
+    private CategoryManager categoryManager;
 
     @Override
     public List<Product> getListProduct() {
@@ -56,13 +58,13 @@ public class ProductServicesImpl implements ProductServices {
     //@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
     public boolean createProduct(ProductModel productModel) {
         try {
-            //Category category = categoryRepository.findOne(productModel.getCategoryId());
+            Category category = categoryManager.getCategory(productModel.getCategoryId());
 
             //Product
             Product product = new Product();
             product.setProductName(productModel.getProductName());
             product.setDescription(productModel.getDescription());
-            //product.setCategory(category);
+            product.setCategory(category);
             productManager.saveProduct(product);
 
             //productDetail
@@ -80,7 +82,7 @@ public class ProductServicesImpl implements ProductServices {
             ProductImage productImage = new ProductImage();
             productImage.setUrl(productModel.getProductName()+"_"+productModel.getFile().getOriginalFilename());
             productImage.setProductDetail(productDetail);
-            productImageManager.savePorductImage(productImage);
+            productImageManager.saveProductImage(productImage);
             return true;
         }
         catch (Exception e)

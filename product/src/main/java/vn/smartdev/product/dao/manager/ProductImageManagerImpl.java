@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Nhat on 26/12/2016.
  */
 @Component
-public class ProductImageManagerImpl {
+public class ProductImageManagerImpl implements ProductImageManager{
     @Autowired
     private ProductImageRepository productImageRepository;
 
@@ -29,7 +29,7 @@ public class ProductImageManagerImpl {
         return productImageRepository.findOne(id);
     }
 
-    public void savePorductImage(ProductImage productImage) {
+    public void saveProductImage(ProductImage productImage) {
         productImageRepository.save(productImage);
     }
 

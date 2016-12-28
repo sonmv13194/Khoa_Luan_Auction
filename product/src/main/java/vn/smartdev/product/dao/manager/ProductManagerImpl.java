@@ -19,6 +19,7 @@ import java.util.List;
  */
 @Component
 public class ProductManagerImpl implements ProductManager{
+
     @Autowired
     private ProductRepository productRepository;
 
