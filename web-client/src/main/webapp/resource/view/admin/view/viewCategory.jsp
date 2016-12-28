@@ -30,7 +30,7 @@
                                 <tr class="gradeX">
                                     <td>${index.index + 1}</td>
                                     <td>${category.categoryName}</td>
-                                    <td><a class="delete" href="deleteCategory?id=${category.id}">Delete</a></td>
+                                    <td><a class="delete" href="deleteCategory?id=${category.id}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
