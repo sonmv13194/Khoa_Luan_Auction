@@ -3,6 +3,7 @@ package vn.smartdev.product.dao.manager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.dao.repository.ProductImageRepository;
@@ -37,13 +38,12 @@ public class ProductImageManagerImpl implements ProductImageManager{
         productImageRepository.delete(id);
     }
 
-    public boolean uploadFile(ProductModel productModel) {
-        MultipartFile file = productModel.getFile();
+    public boolean uploadFile(Product product,String urlImage,MultipartFile file) {
         try {
             byte bytes[] = file.getBytes();
             //test resource localhost
             String name = file.getOriginalFilename();
-            String demo = productModel.getUrlImage()+productModel.getProductName()+"_"+name;
+            String demo = urlImage+product.getProductName()+"_"+name;
             BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
             stream.write(bytes);
             stream.flush();

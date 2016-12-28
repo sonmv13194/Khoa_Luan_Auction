@@ -3,6 +3,7 @@ package vn.smartdev.product.servicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.manager.ProductImageManager;
 import vn.smartdev.product.dao.model.ProductModel;
@@ -34,7 +35,7 @@ public class ProductImageServicesImpl implements ProductImageServices {
     }
 
     @Override
-    public void savePorductImage(ProductImage productImage) {
+    public void saveProductImage(ProductImage productImage) {
         productImageManager.saveProductImage(productImage);
     }
 
@@ -45,26 +46,11 @@ public class ProductImageServicesImpl implements ProductImageServices {
 
     @Override
     public boolean uploadFile(ProductModel productModel) {
-            MultipartFile file = productModel.getFile();
-            try {
-                byte bytes[] = file.getBytes();
-                //test resource localhost
-                String name = file.getOriginalFilename();
-                String demo = productModel.getUrlImage()+productModel.getProductName()+"_"+name;
-                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(demo)));
-                stream.write(bytes);
-                stream.flush();
-                stream.close();
-                return true;
-            }
-            catch (FileNotFoundException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        Product product = new Product();
+        product.setProductName(productModel.getProductName());
+        String urlImages = productModel.getUrlImage();
+        MultipartFile file = productModel.getFile();
+            productImageManager.uploadFile(product,urlImages,file);
         return false;
     }
 

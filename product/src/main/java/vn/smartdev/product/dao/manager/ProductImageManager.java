@@ -1,6 +1,7 @@
 package vn.smartdev.product.dao.manager;
 
 import org.springframework.web.multipart.MultipartFile;
+import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductModel;
 
@@ -22,5 +23,5 @@ public interface ProductImageManager {
 
     public void deleteProductImage(String id);
 
-    public boolean uploadFile(ProductModel productModel);
+    public boolean uploadFile(Product product,String urlImage,MultipartFile file);
 }
