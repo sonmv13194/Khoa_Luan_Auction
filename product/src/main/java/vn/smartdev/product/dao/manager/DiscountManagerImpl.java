@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class DiscountManagerImpl implements DiscountManager {
     @Autowired
-    private DiscountRepository discountRepository;
+    DiscountRepository discountRepository;
 
     @Override
     public Discount findByProduct(Product product) {
@@ -22,12 +22,12 @@ public class DiscountManagerImpl implements DiscountManager {
     }
 
     @Override
-    public List<Discount> listAll() {
+    public List<Discount> findAll() {
         return discountRepository.findAll();
     }
 
     @Override
-    public void deleteDiscount(String discountID) {
+    public void delete(String discountID) {
         discountRepository.delete(discountID);
     }
 

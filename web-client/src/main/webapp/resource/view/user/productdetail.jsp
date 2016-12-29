@@ -18,79 +18,82 @@
             <div class='col-md-3 sidebar'>
                 <div class="sidebar-module-container">
                     <div class="sidebar-widget hot-deals wow fadeInUp outer-top-vs">
-                        <h3 class="section-title">hot deals</h3>
+                        <h3 class="section-title">Product Discount</h3>
                         <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
-                            <c:forEach var="productDetail" items="${listProductDetailCheap}">
-                                <div class="item">
-                                    <div class="products">
-                                        <div class="hot-deal-wrapper">
-                                            <div class="image">
-                                                <a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>
-                                                    <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
-                                                         alt="">
-                                                </a>
-                                            </div>
-                                            <div class="sale-offer-tag"><span>35%<br>off</span></div>
-                                            <div class="timing-wrapper">
-                                                <div class="box-wrapper">
-                                                    <div class="date box">
-                                                        <span class="key">120</span>
-                                                        <span class="value">Days</span>
+                            <c:forEach var="discount" items="${discounts}">
+                                <c:forEach var="productDetail" items="${discount.product.productDetails}">
+                                    <div class="item">
+                                        <div class="products">
+                                            <div class="hot-deal-wrapper">
+                                                <div class="image">
+                                                    <a href='<c:url value="detail"><c:param name="productDetailId" value="${productDetail.id}"/>></c:url>'>
+                                                        <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                             alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="sale-offer-tag"><span>35%<br>off</span></div>
+                                                <div class="timing-wrapper">
+                                                    <div class="box-wrapper">
+                                                        <div class="date box">
+                                                            <span class="key">120</span>
+                                                            <span class="value">Days</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-wrapper">
+                                                        <div class="hour box">
+                                                            <span class="key">20</span>
+                                                            <span class="value">HRS</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-wrapper">
+                                                        <div class="minutes box">
+                                                            <span class="key">36</span>
+                                                            <span class="value">MINS</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-wrapper hidden-md">
+                                                        <div class="seconds box">
+                                                            <span class="key">60</span>
+                                                            <span class="value">SEC</span>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            </div><!-- /.hot-deal-wrapper -->
 
-                                                <div class="box-wrapper">
-                                                    <div class="hour box">
-                                                        <span class="key">20</span>
-                                                        <span class="value">HRS</span>
-                                                    </div>
-                                                </div>
+                                            <div class="product-info text-left m-t-20">
+                                                <h3 class="name"><a
+                                                        href='<c:url value="detail"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/>></c:url>'>${productDetail.product.productName}</a>
+                                                </h3>
+                                                <div class="rating rateit-small"></div>
 
-                                                <div class="box-wrapper">
-                                                    <div class="minutes box">
-                                                        <span class="key">36</span>
-                                                        <span class="value">MINS</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper hidden-md">
-                                                    <div class="seconds box">
-                                                        <span class="key">60</span>
-                                                        <span class="value">SEC</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.hot-deal-wrapper -->
-
-                                        <div class="product-info text-left m-t-20">
-                                            <h3 class="name"><a
-                                                    href='<c:url value="detail"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/>></c:url>'>${productDetail.product.productName}</a>
-                                            </h3>
-                                            <div class="rating rateit-small"></div>
-
-                                            <div class="product-price">
+                                                <div class="product-price">
                                             <span class="price">
                                                 $ ${productDetail.productDetailPrice}
                                             </span>
-                                            </div><!-- /.product-price -->
+                                                </div><!-- /.product-price -->
 
-                                        </div><!-- /.product-info -->
+                                            </div><!-- /.product-info -->
 
-                                        <div class="cart clearfix animate-effect">
-                                            <div class="action">
-                                                <div class="btn-group">
-                                                    <a onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
-                                                       <c:if test="${productDetail.productDetailQuantity > 0}">
-                                                            href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
-                                                       </c:if>
-                                                       class="btn btn-primary"><i
-                                                            class="fa fa-shopping-cart inner-right-vs"></i> Add To Cart</a>
-                                                </div>
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
+                                                    <div class="btn-group">
+                                                        <a onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                    href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                </c:if>
+                                                           class="btn btn-primary"><i
+                                                                class="fa fa-shopping-cart inner-right-vs"></i> Add To
+                                                            Cart</a>
+                                                    </div>
 
-                                            </div><!-- /.action -->
-                                        </div><!-- /.cart -->
+                                                </div><!-- /.action -->
+                                            </div><!-- /.cart -->
+                                        </div>
                                     </div>
-                                </div>
+                                </c:forEach>
                             </c:forEach>
                         </div><!-- /.sidebar-widget -->
                     </div>

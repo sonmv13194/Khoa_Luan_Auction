@@ -26,7 +26,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="category" items="${categoryList}" varStatus="index">
+                            <c:forEach var="category" items="${categories}" varStatus="index">
                                 <tr class="gradeX">
                                     <td>${index.index + 1}</td>
                                     <td>${category.categoryName}</td>

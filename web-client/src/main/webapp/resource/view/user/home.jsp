@@ -6,73 +6,64 @@
             <!-- ============================================== SIDEBAR ============================================== -->
             <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
                 <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
-                    <h3 class="section-title">Product Cheap</h3>
-                    <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
-                        <c:forEach var="productDetail" items="${listProductDetailCheap}">
-                            <div class="item">
-                                <div class="products">
-                                    <div class="hot-deal-wrapper">
-                                        <div class="image">
-                                            <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
-                                                <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
-                                                     alt="">
-                                            </a>
-                                        </div>
-                                        <div class="sale-offer-tag"><span>49%<br>off</span></div>
-                                        <div class="timing-wrapper">
-                                            <div class="box-wrapper">
-                                                <div class="date box">
-                                                    <span class="key">120</span>
-                                                    <span class="value">DAYS</span>
+                    <c:if test="${not empty discounts}">
+                        <h3 class="section-title">Product Discount</h3>
+                        <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+                            <c:forEach var="discount" items="${discounts}">
+                                <c:forEach var="productDetail" items="${discount.product.productDetails}">
+                                    <div class="item">
+                                        <div class="products">
+                                            <div class="hot-deal-wrapper">
+                                                <div class="image">
+                                                    <a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>
+                                                        <img src="/uploaded-image/${productDetail.productImages.get(0).url}"
+                                                             alt="">
+                                                    </a>
                                                 </div>
-                                            </div>
-                                            <div class="box-wrapper">
-                                                <div class="hour box">
-                                                    <span class="key">20</span>
-                                                    <span class="value">HRS</span>
+                                                <div class="sale-offer-tag"><span>${discount.discount} %<br>off</span>
                                                 </div>
-                                            </div>
-                                            <div class="box-wrapper">
-                                                <div class="minutes box">
-                                                    <span class="key">36</span>
-                                                    <span class="value">MINS</span>
+                                                <div class="timing-wrapper">
+                                                    <div class="box-wrapper">
+                                                        <div class="date box">
+                                                            <span class="key">${Calendar.getInstance().add(discount.endDate, -Date())}</span>
+                                                            <span class="value">Days</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="box-wrapper hidden-md">
-                                                <div class="seconds box">
-                                                    <span class="key">60</span>
-                                                    <span class="value">SEC</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.hot-deal-wrapper -->
-                                    <div class="product-info text-left m-t-20">
-                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
-                                        </h3>
-                                        <div class="rating rateit-small"></div>
+                                            </div><!-- /.hot-deal-wrapper -->
+                                            <div class="product-info text-left m-t-20">
+                                                <h3 class="name"><a
+                                                        href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                </h3>
+                                                <div class="rating rateit-small"></div>
 
-                                        <div class="product-price">
+                                                <div class="product-price">
                                         <span class="price">
                                             $ ${productDetail.productDetailPrice}
                                         </span>
-                                            <span class="price-before-discount">$ 0</span>
-                                        </div><!-- /.product-price -->
-                                    </div><!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <div class="btn-group">
-                                                <a onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
-                                                        <c:if test="${productDetail.productDetailQuantity > 0}">
-                                                            href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
-                                                        </c:if>
-                                                   class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> Add To Cart</a>
-                                            </div>
-                                        </div><!-- /.action -->
-                                    </div><!-- /.cart -->
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div><!-- /.sidebar-widget -->
+                                                    <span class="price-before-discount">$ 0</span>
+                                                </div><!-- /.product-price -->
+                                            </div><!-- /.product-info -->
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
+                                                    <div class="btn-group">
+                                                        <a onclick="if(${productDetail.productDetailQuantity == 0}) {return alert('Sorry. This product is out of stock !')}"
+                                                                <c:if test="${productDetail.productDetailQuantity > 0}">
+                                                                    href="${contextPath}/cart/addCart?product_id=${productDetail.id }"
+                                                                </c:if>
+                                                           class="btn btn-primary"><i
+                                                                class="fa fa-shopping-cart inner-right-vs"></i> Add To
+                                                            Cart</a>
+                                                    </div>
+                                                </div><!-- /.action -->
+                                            </div><!-- /.cart -->
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </c:forEach>
+                        </div>
+                        <!-- /.sidebar-widget -->
+                    </c:if>
                 </div>
                 <!-- ============================================== HOT DEALS: END ============================================== -->
                 <!-- ============================================== SPECIAL OFFER ============================================== -->
@@ -100,7 +91,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -133,7 +125,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -167,7 +160,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -229,7 +223,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -262,7 +257,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -295,7 +291,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -476,7 +473,8 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                        <h3 class="name"><a
+                                                                href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -546,7 +544,8 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                        <h3 class="name"><a
+                                                                href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -615,7 +614,8 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                        <h3 class="name"><a
+                                                                href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -685,7 +685,8 @@
                                                         <div class="tag new"><span>new</span></div>
                                                     </div><!-- /.product-image -->
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                                        <h3 class="name"><a
+                                                                href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
                                                         </h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
@@ -786,7 +787,9 @@
                                             <div class="tag hot"><span>hot</span></div>
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a></h3>
+                                            <h3 class="name"><a
+                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                            </h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             <div class="product-price">
@@ -884,7 +887,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col2 col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/></c:url>'>${list8ProductDetail[i].product.productName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i].id}"/></c:url>'>${list8ProductDetail[i].product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -911,7 +915,8 @@
                                                     </div><!-- /.col -->
                                                     <div class="col2 col-xs-7">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i+1].id}"/></c:url>'>${list8ProductDetail[i+1].product.productName}</a>
+                                                            <h3 class="name"><a
+                                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${list8ProductDetail[i+1].id}"/></c:url>'>${list8ProductDetail[i+1].product.productName}</a>
                                                             </h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
@@ -1060,7 +1065,9 @@
                                             <div class="tag new"><span>new</span></div>
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a></h3>
+                                            <h3 class="name"><a
+                                                    href='<c:url value="detail.html"><c:param name="productDetailId" value="${productDetail.id}"/></c:url>'>${productDetail.productDetailName}</a>
+                                            </h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             <div class="product-price">

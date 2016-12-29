@@ -9,8 +9,8 @@ import java.util.List;
  * Created by Nhat on 28/12/2016.
  */
 public interface DiscountManager {
-    public Discount findByProduct(Product product);
-    public List<Discount> listAll();
-    void deleteDiscount(String discountID);
+    Discount findByProduct(Product product);
+    List<Discount> findAll();
+    void delete(String discountID);
     void save(Discount discount);
 }
