@@ -13,5 +13,5 @@ public interface ProductImageServices {
     ProductImage getProductImage(String id);
     void saveProductImage(ProductImage productImage);
     void deleteProductImage(String id);
-    boolean uploadFile(ProductModel productModel);
+    void uploadFile(ProductModel productModel);
 }

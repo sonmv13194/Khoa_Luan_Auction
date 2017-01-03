@@ -4,6 +4,9 @@ import org.springframework.web.multipart.MultipartFile;
 import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductModel;
+import vn.smartdev.product.exception.ProductImageAlreadyException;
+import vn.smartdev.product.exception.ProductImageNotFoundException;
+import vn.smartdev.product.exception.UploadFileFailedException;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -15,13 +18,13 @@ import java.util.List;
  * Created by Nhat on 28/12/2016.
  */
 public interface ProductImageManager {
-    public List<ProductImage> getListProductImage();
+    List<ProductImage> getListProductImage() throws ProductImageNotFoundException;
 
-    public ProductImage getProductImage(String id);
+    ProductImage getProductImage(String id) throws ProductImageNotFoundException;
 
-    public void saveProductImage(ProductImage productImage);
+    void saveProductImage(ProductImage productImage) throws ProductImageAlreadyException;
 
-    public void deleteProductImage(String id);
+    void deleteProductImage(String id) throws ProductImageNotFoundException;
 
-    public boolean uploadFile(Product product,String urlImage,MultipartFile file);
+    void uploadFile(Product product,String urlImage,MultipartFile file) throws UploadFileFailedException;
 }

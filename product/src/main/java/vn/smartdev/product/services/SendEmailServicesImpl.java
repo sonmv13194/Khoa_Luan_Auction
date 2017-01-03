@@ -1,4 +1,4 @@
-package vn.smartdev.product.servicesImpl;
+package vn.smartdev.product.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

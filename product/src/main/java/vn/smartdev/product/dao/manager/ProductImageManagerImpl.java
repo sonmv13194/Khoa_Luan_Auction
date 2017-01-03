@@ -7,6 +7,7 @@ import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductImage;
 import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.dao.repository.ProductImageRepository;
+import vn.smartdev.product.exception.ProductImageAlreadyException;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -30,7 +31,7 @@ public class ProductImageManagerImpl implements ProductImageManager{
         return productImageRepository.findOne(id);
     }
 
-    public void saveProductImage(ProductImage productImage) {
+    public void saveProductImage(ProductImage productImage){
         productImageRepository.save(productImage);
     }
 
@@ -38,7 +39,7 @@ public class ProductImageManagerImpl implements ProductImageManager{
         productImageRepository.delete(id);
     }
 
-    public boolean uploadFile(Product product,String urlImage,MultipartFile file) {
+    public void uploadFile(Product product,String urlImage,MultipartFile file) {
         try {
             byte bytes[] = file.getBytes();
             //test resource localhost
@@ -48,7 +49,6 @@ public class ProductImageManagerImpl implements ProductImageManager{
             stream.write(bytes);
             stream.flush();
             stream.close();
-            return true;
         }
         catch (FileNotFoundException e)
         {
@@ -58,6 +58,5 @@ public class ProductImageManagerImpl implements ProductImageManager{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return false;
     }
 }
