@@ -1,11 +1,15 @@
 package vn.smartdev.product.dao.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -15,16 +19,40 @@ import java.util.Properties;
 public class ProductModel {
 
     private String productId;
+
+    @NotBlank
+    @Size(min = 2,max = 50)
     private String productName;
+
+    @NotBlank
+    @Size(min = 2,max = 50)
     private String productDetailName;
+
+    @NotNull
     private String categoryId;
+
+    @NotNull
     private int productStatus;
+
+    @NotNull
+    @Size(max = 256)
     private String description;
+
+    @NotNull
+    @Size(min = 0)
     private float price;
+
+    @NotNull
+    @Size(min = 0)
     private int quantity;
+
+    @NotNull
     private String supplyer;
+
+    @NotNull
     private String urlImage;
 
+    @NotNull
     private MultipartFile file;
     public ProductModel() {
         Properties prop = new Properties();
