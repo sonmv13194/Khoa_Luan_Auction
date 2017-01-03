@@ -98,11 +98,10 @@
         $("#register-form").validate({
 
             rules: {
-               // username: "required",
+                username: "required",
                 address: "required",
                 phone:{
                     required: true,
-                   // pattern: true
                 },
                 birthday:{
                     required : true

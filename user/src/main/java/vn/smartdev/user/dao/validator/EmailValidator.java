@@ -1,14 +1,12 @@
 package vn.smartdev.user.dao.validator;
 
-import org.hibernate.validator.constraints.Email;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
  * Created by levuhuy on 12/22/16.
  */
-public class EmailValidator implements ConstraintValidator<Email,String>{
+public class EmailValidator implements ConstraintValidator<Email, String>{
     @Override
     public void initialize(Email paramA) {
 

@@ -3,6 +3,7 @@ package vn.smartdev.user.dao.model;
 
 import vn.smartdev.core.jpa.auditing.AbstractAuditableEntity;
 import vn.smartdev.user.dao.validator.Phone;
+import vn.smartdev.user.dao.validator.Email;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -35,6 +36,7 @@ public class UserModel extends AbstractAuditableEntity<String> implements Serial
     }
 
     @NotNull
+    @Email
     private String email;
 
     public UserModel() {
