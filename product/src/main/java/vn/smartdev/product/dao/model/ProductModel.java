@@ -24,35 +24,35 @@ public class ProductModel {
     @Size(min = 2,max = 50)
     private String productName;
 
-    @NotBlank
-    @Size(min = 2,max = 50)
+    //@NotBlank
+    //@Size(min = 2,max = 50)
     private String productDetailName;
 
-    @NotNull
+    //@NotNull
     private String categoryId;
 
-    @NotNull
+    //@NotNull
     private int productStatus;
 
-    @NotNull
-    @Size(max = 256)
+    //@NotNull
+    //@Size(max = 256)
     private String description;
 
-    @NotNull
-    @Size(min = 0)
+    //@NotNull
+    //@Size(min = 0)
     private float price;
 
-    @NotNull
-    @Size(min = 0)
+    //@NotNull
+    //@Size(min = 0)
     private int quantity;
 
-    @NotNull
+    //@NotNull
     private String supplyer;
 
-    @NotNull
+    //@NotNull
     private String urlImage;
 
-    @NotNull
+    //@NotNull
     private MultipartFile file;
     public ProductModel() {
         Properties prop = new Properties();

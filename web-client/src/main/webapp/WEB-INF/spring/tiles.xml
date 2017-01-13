@@ -72,4 +72,5 @@
 	<definition name="viewDiscountPage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewDiscount.jsp"/>
 	</definition>
+
 </tiles-definitions>

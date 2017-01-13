@@ -3,8 +3,10 @@ package vn.smartdev.product.dao.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,5 +22,14 @@ public interface ProductDetailRepository extends JpaRepository<ProductDetail,Str
     public List<ProductDetail> findByOrderByProductDetailPriceDesc();
 //    @Query("select p from ProductDetail p where p.productDetailPrice = :productDetailPrice or p.supplyer = :supplyer")
 //    public List<ProductDetail> findByProductDetailPriceOrSupplyer(@Param("productDetailPrice") String productDetalPrice,@Param("supplyer") String supplyer);
+
+    //test
+    List<ProductDetail> findFirstByProductIdAndCreatedGreaterThanOrderByCreatedDesc(String createBy,Date create);
+
+
+    //test query
+//    @Query("select p  ")
+//    List<ProductDetail> testQuery(String createBy,Date create);
+
 }
 
