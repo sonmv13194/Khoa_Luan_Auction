@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/main/java/hvcntt/org/shoppingweb/controller/HomePageController.java=UTF-8
+encoding//src/main/java/hvcntt/org/shoppingweb/controller/MenuController.java=UTF-8
+encoding//src/main/java/hvcntt/org/shoppingweb/controller/UserController.java=UTF-8
+encoding//src/main/webapp/view/ajax/ajaxsave.jsp=UTF-8
+encoding//src/main/webapp/view/cart/cart.jsp=UTF-8
+encoding//src/main/webapp/view/detail/detailpage.jsp=UTF-8
+encoding//src/main/webapp/view/home/home.jsp=UTF-8
+encoding//src/main/webapp/view/login--register/login.jsp=UTF-8
+encoding//src/main/webapp/view/login--register/register.jsp=UTF-8
+encoding//src/main/webapp/view/template/homepage/footer.jsp=UTF-8
+encoding//src/main/webapp/view/template/homepage/header.jsp=UTF-8
