@@ -1,0 +1,58 @@
+ <%@page contentType="text/html" pageEncoding="UTF-8"%>
+ <!-- START CONTENT -->
+<section class="main-content-login">
+    <div class="container">
+        <div class="row">
+            <div class="content-login-title">
+                <h2 class="content-paget-title-item">SIGN IN/SIGN UP</h2>
+            </div>
+            <div class="col-sm-6">
+               <!--  <div class="create-account">
+                    <form class="new-account-form primary-form">
+                        <h3 class="form-heading">Create Account</h3>
+                        <div class="form-content">
+                            <p>Xin vui lòng nhập Email để tạo tài khoản</p>
+                            <div class="form-group primary-form-group">
+                                <label for="email">Email Address</label>
+                                <input class="form-control input-field" type="email" >
+                                <div class="submit-button">
+                                    <a href="register" class="btn submit-btn">
+                                        <span><i class="fa fa-user submit-icon"></i>
+                                            Create new account
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div> -->
+            </div>
+                 <div class="col-sm-6">
+                <div class="create-account">
+                    <form class="new-account-form primary-form">
+                        <h3 class="form-heading">Login Account</h3>
+                        <div class="form-content">
+                            <p>Xin vui lòng nhập Email hoặc password để đăng nhập vào tài khoản</p>
+                            <div class="form-group primary-form-group">
+                                <label for="email">Email Address</label>
+                                <input class="form-control input-field" type="email" >
+                                <label for="password">Password</label>
+                                <input class="form-control input-field" type="password">
+                                <label for="password">Confirm Password</label>
+                                <input class="form-control input-field" type="password">
+                                <div class="submit-button">
+                                    <a href="#" class="btn submit-btn">
+                                        <span><i class="fa fa-user submit-icon"></i>
+                                            Login
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END CONTENT -->

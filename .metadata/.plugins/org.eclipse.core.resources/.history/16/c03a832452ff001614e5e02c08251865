@@ -1,0 +1,26 @@
+package hvcntt.org.shoppingweb.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="comment")
+public class Comment {
+	@Id
+	@GeneratedValue
+	private int idcomment;
+	private String content;
+	private String title;
+	private Date createdate;
+	private Date lastupdate;
+	
+	ManyToOne
+	@JoinColumn(name="idproduct")
+	Product product;
+}

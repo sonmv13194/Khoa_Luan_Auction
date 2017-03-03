@@ -1,0 +1,9 @@
+package hvcntt.org.shoppingweb.repository;
+
+import java.util.List;
+
+import hvcntt.org.shoppingweb.model.Category;
+
+public interface CategoryRepository {
+	List<Category> getAll();
+}

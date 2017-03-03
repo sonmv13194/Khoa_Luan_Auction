@@ -1,0 +1,4 @@
+NotEmptyUsername=Vui lòng nh\u1EADp username
+Size.userForm.username=Tên \u0111\u0103ng nh\u1EADp ph\u1EA3i l\u01A\u1EDBn h\u01A1n 6 ký t\u01B\u1EF1 và nh\u1ECF h\u01A1n 32 ký t\u01B\u1EF1
+NotEmptyPassword=M\u1EADt kh\u1EA9u không \u0111\u01B0\u01A\u1EE3c \u0111\u1EC3 tr\u1ED1ng
+Duplicate.userForm.username=Tên \u0111\u0103ng nh\u1EADp \u0111ã t\u1ED3n t\u1EA1i

@@ -1,0 +1,27 @@
+ <%@page contentType="text/html" pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!--    CONTENT-->
+    <div class="content-page">
+        <div class="container">
+            <div class="row">
+                <div class="content-page">
+                    <div class="content-page-title">
+                        <h2 class="content-paget-title-item">Sản phẩm</h2>
+                        <p style="font-size: 15px;font-weight: bold;">${message}</p>
+                    </div>
+                    <div class="row">
+                		<div class="col-sm-4">
+                			<div class="profile-avarta">
+                				<div class="profile-image">
+                				</div>
+                			</div>
+                		</div>
+                		<div class="col-sm-8">
+                		</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->

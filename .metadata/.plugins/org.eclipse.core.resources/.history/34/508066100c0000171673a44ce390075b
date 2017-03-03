@@ -1,0 +1,5 @@
+package hvcntt.org.shoppingweb.dto;
+
+public class CommentDto {
+
+}

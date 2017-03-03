@@ -1,0 +1,13 @@
+package validator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import hvcntt.org.shoppingweb.service.UserService;
+
+@Component
+public class UserValidator {
+	@Autowired
+	UserService userService;
+	
+}

@@ -1,0 +1,9 @@
+package hvcntt.org.shoppingweb.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import hvcntt.org.shoppingweb.model.Customer;
+
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+	public Customer findByfirstNameAnlLastName(String firstname,String lastname);
+}

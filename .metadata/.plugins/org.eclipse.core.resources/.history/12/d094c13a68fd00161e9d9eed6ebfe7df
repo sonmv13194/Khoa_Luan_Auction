@@ -1,0 +1,5 @@
+package hvcntt.org.shoppingweb.repository;
+
+public interface ProductRepository {
+
+}
