@@ -29,7 +29,6 @@
                             <tbody>
                             <c:set var="i" value="1"></c:set>
                             <c:forEach var="product" items="${products}">
-
                                 <tr class="gradeX">
                                     <td>${i}</td>
                                     <td><img
@@ -53,8 +52,8 @@
                                     <td hidden="hidden">${product.getProductDetails().get(0).getSupplyer()}</td>
                                     <td hidden="hidden">${product.getProductDetails().get(0).getProductImages().get(0).getUrl()}</td>
                                 </tr>
-                                <c:set var="i" value="${i+1}"></c:set>
                             </c:forEach>
+                            <c:set var="i" value="${i+1}"></c:set>
                             </tbody>
                         </table>
                     </div>

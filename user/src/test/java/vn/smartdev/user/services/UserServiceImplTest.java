@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by levuhuy on 12/26/16.
  */
-public class UserDetailServiceImplTest {
+public class UserServiceImplTest {
 
     @InjectMocks
     private UserServiceImpl userServiceIml;
@@ -106,7 +106,7 @@ public class UserDetailServiceImplTest {
         currentUser.setBirthday(user.getBirthday());
         currentUser.setAddress(user.getAddress());
 
-        userRepository.save(currentUser);
+        userServiceIml.saveForEdit(user);
         ArgumentCaptor<User> argumentCaptor = ArgumentCaptor.forClass(User.class);
         Mockito.verify(userRepository, Mockito.times(1)).save(argumentCaptor.capture());
 

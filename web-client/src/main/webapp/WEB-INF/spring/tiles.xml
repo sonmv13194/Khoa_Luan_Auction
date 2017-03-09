@@ -6,7 +6,6 @@
 	<!-- Base Define -->
 	<definition name="definition" template="/resource/view/template/layout/template.jsp">
 		<put-attribute name="header" value="/resource/view/template/layout/header.jsp" />
-		<put-attribute name="brands" value="/resource/view/template/layout/brands.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/resource/view/template/layout/footer.jsp" />
 	</definition>
@@ -14,20 +13,30 @@
 		<put-attribute name="title" value="Home Page" />
 		<put-attribute name="body" value="/resource/view/user/home.jsp" />
 	</definition>
-	<definition name="productPage" extends="definition">
-		<put-attribute name="body" value="/resource/view/user/product.jsp"/>
-	</definition>
 	<definition name="detailPage" extends="definition">
 		<put-attribute name="title" value="Detail Page" />
-		<put-attribute name="body" value="/resource/view/user/productdetail.jsp" />
+		<put-attribute name="body" value="/resource/view/user/detail.jsp" />
 	</definition>
 	<definition name="shoppingCart" extends="definition">
 		<put-attribute name="title" value="Shopping Cart Page" />
-		<put-attribute name="body" value="/resource/view/user/cart.jsp" />
+		<put-attribute name="body" value="/resource/view/user/shopping-cart.jsp" />
 	</definition>
 	<definition name="signinPage" extends="definition">
 		<put-attribute name="title" value="Login Page" />
-		<put-attribute name="body" value="/resource/view/user/signin.jsp" />
+		<put-attribute name="body" value="/resource/view/user/sign-in.jsp" />
+	</definition>
+	<definition name="registationPage" extends="definition">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="body" value="/resource/view/user/registration.jsp" />
+	</definition>
+	<definition name="cartPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/contact.jsp"/>
+	</definition>
+	<definition name="checkoutPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/checkout.jsp"/>
+	</definition>
+	<definition name="categoryPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/category.jsp"/>
 	</definition>
 	<!--Admin Page-->
 	<definition name="definitionAdmin" template="/resource/view/admin/template/template.jsp">
@@ -62,12 +71,6 @@
 	</definition>
 	<definition name="adminInvoiceDetailPage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewInvoiceDetail.jsp"/>
-	</definition>
-	<definition name="cartPage" extends="definition">
-		<put-attribute name="body" value="/resource/view/user/cart.jsp"/>
-	</definition>
-	<definition name="checkoutPage" extends="definition">
-		<put-attribute name="body" value="/resource/view/user/checkout.jsp"/>
 	</definition>
 	<definition name="viewDiscountPage" extends="definitionAdmin">
 		<put-attribute name="body" value="/resource/view/admin/view/viewDiscount.jsp"/>

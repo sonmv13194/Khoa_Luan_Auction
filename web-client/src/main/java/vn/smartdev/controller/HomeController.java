@@ -89,6 +89,7 @@ public class HomeController {
 		List<Category> categories = categoryServices.getListCategory();
 		return categories;
 	}
+	
 	@ModelAttribute("products")
 	public List<Product> listAllProduct() {
 		List<Product> products = productServices.getListProduct();

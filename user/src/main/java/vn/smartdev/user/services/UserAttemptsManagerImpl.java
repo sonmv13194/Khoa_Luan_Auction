@@ -49,7 +49,7 @@ public class UserAttemptsManagerImpl implements UserAttemptsManager {
 	@Override
 	public boolean isExists(String name) {
 		if(uar.countAttempts(name)==1)
-		return true;
+			return true;
 		else return false;
 	}
 

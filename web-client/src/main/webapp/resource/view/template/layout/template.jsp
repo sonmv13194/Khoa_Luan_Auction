@@ -41,18 +41,9 @@
 
 </head>
 <body>
-<header>
-    <tiles:insertAttribute name="header"/>
-</header>
-<div class="body-content outer-top-xs" id="top-banner-and-menu">
-    <div class="container">
-        <tiles:insertAttribute name="body"/>
-        <tiles:insertAttribute name="brands"/>
-    </div>
-</div>
-<footer>
-    <tiles:insertAttribute name="footer"/>
-</footer>
+<tiles:insertAttribute name="header"/>
+<tiles:insertAttribute name="body"/>
+<tiles:insertAttribute name="footer"/>
 <!-- js placed at the end of the document so the pages load faster -->
 <!-- Bootstrap Core CSS -->
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
@@ -94,18 +85,18 @@
     });
 </script>
 <script>
-    $(function() {
+    $(function () {
         $("#register-form").validate({
 
             rules: {
-               // username: "required",
+                // username: "required",
                 address: "required",
-                phone:{
+                phone: {
                     required: true,
-                   // pattern: true
+                    // pattern: true
                 },
-                birthday:{
-                    required : true
+                birthday: {
+                    required: true
                 },
                 email: {
                     required: true,
@@ -116,7 +107,7 @@
                     minlength: 5,
                     maxlength: 20
                 },
-                confirm_password :{
+                confirm_password: {
                     required: true,
                     equalTo: "#password",
                 }
@@ -124,24 +115,24 @@
 
             // Specify the validation error messages
             messages: {
-              //  username: "Please enter your username",
+                //  username: "Please enter your username",
                 address: "Please enter your address",
-                birthday:"Please enter your birthay",
-                phone:{
+                birthday: "Please enter your birthay",
+                phone: {
                     required: "Please provide a phone",
-                  //  pattern:"\d{3}[\-]\d{3}[\-]\d{4}"
+                    //  pattern:"\d{3}[\-]\d{3}[\-]\d{4}"
                 },
                 password: {
                     required: "Please provide a password",
                     minlength: "Your password must be at least 5 characters long",
                     maxlength: "Your password must be at least than 20 characters long"
                 },
-                confirm_password:{
+                confirm_password: {
                     required: "Please confirm password !"
                 },
                 email: "Please enter a valid email address",
             },
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 form.submit();
             }
         });
@@ -151,18 +142,18 @@
 
     //validate username is exits.
     var username = $('#username').val();
-    $('#username').change(function() {
+    $('#username').change(function () {
         $.ajax({
             url: "signin.jsp",
             type: 'POST',
             data: 'username=' + username,
-            success: function(result){
-                if(result > 0){
+            success: function (result) {
+                if (result > 0) {
                     // do something if username already exist
                     //show that the username is available
                     $('#username_availability_result').html(username + ' is not Available');
                 }
-                else{
+                else {
                     // do something if username doesn't exist
                     //show that the username is NOT available
 

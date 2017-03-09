@@ -1,6 +1,5 @@
 package vn.smartdev.invoice.dao.model;
 
-import vn.smartdev.product.dao.entity.Product;
 import vn.smartdev.product.dao.entity.ProductDetail;
 
 import java.io.Serializable;

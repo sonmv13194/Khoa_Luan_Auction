@@ -1,4 +1,4 @@
-package vn.smartdev.category.manager;
+package vn.smartdev.category.dao.manager;
 
 import vn.smartdev.category.dao.entity.Category;
 

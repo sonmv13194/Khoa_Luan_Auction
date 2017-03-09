@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: levuhuy
-  Date: 12/6/16
-  Time: 10:01 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -56,5 +49,6 @@
                 <!-- create a new account -->
             </div><!-- /.row -->
         </div><!-- /.sigin-in-->
+        <jsp:include page="../template/layout/brands-carousel.jsp"/>
     </div><!-- /.container -->
 </div><!-- /.body-content -->

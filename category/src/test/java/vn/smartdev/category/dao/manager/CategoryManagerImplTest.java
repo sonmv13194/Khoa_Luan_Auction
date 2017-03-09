@@ -1,4 +1,4 @@
-package vn.smartdev.category.manager;
+package vn.smartdev.category.dao.manager;
 
 import org.fest.assertions.Assertions;
 import org.junit.Before;
@@ -7,13 +7,10 @@ import org.mockito.*;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import vn.smartdev.category.dao.entity.Category;
-import vn.smartdev.category.dao.manager.CategoryManagerImpl;
 import vn.smartdev.category.dao.repository.CategoryRepository;
 
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by XuanVinh on 12/28/2016.
