@@ -80,7 +80,7 @@
 
                         <div class="panel-body">
                             <div class="form">
-                                <%--<h2>${message}</h2>--%>
+                                <h2>${message}</h2>
                                 <form class="cmxform form-horizontal tasi-form" role="form" id="editForm"
                                            method="POST"
                                            novalidate="novalidate" commandName="user" action="/admin/editUser">

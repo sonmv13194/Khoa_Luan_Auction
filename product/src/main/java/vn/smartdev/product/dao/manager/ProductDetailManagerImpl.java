@@ -12,6 +12,7 @@ import vn.smartdev.product.dao.model.ProductModel;
 import vn.smartdev.product.dao.repository.ProductDetailRepository;
 import vn.smartdev.product.dao.repository.ProductImageRepository;
 import vn.smartdev.product.dao.repository.ProductRepository;
+import vn.smartdev.product.exception.ProductDetailAlreadyException;
 
 import java.util.List;
 
@@ -45,54 +46,11 @@ public class ProductDetailManagerImpl implements ProductDetailManager{
     }
 
     @Override
-    public void saveProductDetail(ProductDetail productDetail) {
+    public void saveProductDetail(ProductDetail productDetail) throws ProductDetailAlreadyException {
         productDetailRepository.save(productDetail);
     }
 
-    @Override
-    public boolean createProductDetail(ProductModel productModel) {
-        try
-        {
-            Category category = categoryRepository.findOne(productModel.getCategoryId());
-            //Product
-            Product product = productRepository.getOne(productModel.getProductId());
 
-            //productDetail
-            ProductDetail productDetail = new ProductDetail();
-            productDetail.setProductDetailName(productModel.getProductDetailName());
-            productDetail.setProductDetailStatus(productModel.getProductStatus());
-            productDetail.setProductDetailPrice(productModel.getPrice());
-            productDetail.setProductDetailQuantity(productModel.getQuantity());
-            productDetail.setDescription(productDetail.getDescription());
-            productDetail.setSupplyer(productDetail.getSupplyer());
-            productDetail.setProduct(product);
-            productDetailRepository.save(productDetail);
-
-            //productImage
-            ProductImage productImage = new ProductImage();
-            productImage.setUrl(productModel.getProductName()+"_"+productModel.getFile().getOriginalFilename());
-            productImage.setProductDetail(productDetail);
-
-            productImageRepository.save(productImage);
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
-    }
-
-    @Override
-    public boolean updateProductDetail(ProductDetailModel productDetailModel) {
-        ProductDetail productDetail = productDetailRepository.findOne(productDetailModel.getId());
-        productDetail.setDescription(productDetailModel.getDescription());
-        productDetail.setProductDetailPrice(productDetailModel.getProductDetailPrice());
-        productDetail.setProductDetailQuantity(productDetailModel.getProductDetailQuantity());
-        productDetail.setSupplyer(productDetailModel.getSupplyer());
-
-        productDetailRepository.save(productDetail);
-        return true;
-    }
 
     @Override
     public List<ProductDetail> findTop6ByOrderByCreateByDesc() {

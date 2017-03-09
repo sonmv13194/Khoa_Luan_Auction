@@ -6,21 +6,21 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * Created by levuhuy on 12/22/16.
  */
-public class PhoneValidator implements ConstraintValidator<Phone,String>{
+public class EmailValidator implements ConstraintValidator<Email, String>{
     @Override
-    public void initialize(Phone paramA) {
+    public void initialize(Email paramA) {
 
     }
 
     @Override
-    public boolean isValid(String phoneNo, ConstraintValidatorContext ctx) {
-        if (phoneNo == null){
+    public boolean isValid(String emailStr, ConstraintValidatorContext ctx) {
+        if (emailStr == null){
             return false;
         }
 
         //validate phone numbers of format "1234567890"
-        if (phoneNo.matches("\\d{10}")) return true;
-            //validating phone number with -, . or spaces
+        if (emailStr.matches("^(0[1-9]|1[0-2])\\/(0[1-9]|1\\d|2\\d|3[01])\\/(19|20)\\d{2}$")) return true;
+
         else return false;
     }
 }

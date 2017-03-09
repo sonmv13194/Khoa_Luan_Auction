@@ -3,6 +3,7 @@ package vn.smartdev.product.services;
 import vn.smartdev.product.dao.entity.ProductDetail;
 import vn.smartdev.product.dao.model.ProductDetailModel;
 import vn.smartdev.product.dao.model.ProductModel;
+import vn.smartdev.product.exception.ProductNotFoundException;
 
 import java.util.List;
 
@@ -10,23 +11,24 @@ import java.util.List;
  * Created by Nhat on 29/11/2016.
  */
 public interface ProductDetailServices {
-    public List<ProductDetail> getListProductDetail();
-    public ProductDetail getProductDetail(String id);
-    public void deleteProductDetail(String id);
-    public void saveProductDetail(ProductDetail productDetail);
-    public boolean createProductDetail(ProductModel productModel);
-    public boolean updateProductDetail(ProductDetailModel productDetailModel);
-    public List<ProductDetail> getListProductDetailByProduct(String productId);
+    List<ProductDetail> getListProductDetail();
+    ProductDetail getProductDetail(String id);
+    void deleteProductDetail(String id);
+    void saveProductDetail(ProductDetail productDetail);
+    void createProductDetail(ProductModel productModel);
+    void updateProductDetail(ProductDetailModel productDetailModel);
+    List<ProductDetail> getListProductDetailByProduct(String productId);
 
     //select view
-    public List<ProductDetail> findTop8ByOrderByCreateByAsc();
-    public List<ProductDetail> findTop6ByOrderByCreateByDesc();
+    List<ProductDetail> findTop8ByOrderByCreateByAsc();
+    List<ProductDetail> findTop6ByOrderByCreateByDesc();
 
-    public List<ProductDetail> findTop3ByOrderByProductDetailPriceAsc();
-    public List<ProductDetail> findTop6ByOrderByProductDetailPriceDesc();
+    List<ProductDetail> findTop3ByOrderByProductDetailPriceAsc();
+    List<ProductDetail> findTop6ByOrderByProductDetailPriceDesc();
 
-    public List<ProductDetail> findByOrderByProductDetailPriceAsc();
-    public List<ProductDetail> findByOrderByProductDetailPriceDesc();
+    List<ProductDetail> findByOrderByProductDetailPriceAsc();
+    List<ProductDetail> findByOrderByProductDetailPriceDesc();
+
 
 
 }

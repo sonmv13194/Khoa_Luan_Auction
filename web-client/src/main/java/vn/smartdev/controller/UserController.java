@@ -15,6 +15,8 @@ import vn.smartdev.user.dao.entity.User;
 import vn.smartdev.user.dao.manager.RoleManager;
 import vn.smartdev.user.exception.UserNotFoundException;
 import vn.smartdev.user.dao.manager.UserManager;
+import vn.smartdev.user.services.RoleService;
+import vn.smartdev.user.services.UserService;
 
 import java.text.ParseException;
 import java.util.List;
@@ -28,17 +30,17 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserManager userManager;
+    UserService userService;
 
     @Autowired
-    RoleManager roleManager;
+    RoleService roleService;
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping(value = "/viewUser", method = RequestMethod.GET)
     public String getAllUsers(Model model) {
-        List<User> users = userManager.findAllUsers();
+        List<User> users = userService.findAllUsersService();
         model.addAttribute("listUser",users);
-        List<Role> roles = roleManager.getAll();
+        List<Role> roles = roleService.getAllRoleService();
         model.addAttribute("listRole", roles);
         model.addAttribute("user", new User());
         return "viewUserPage";
@@ -48,21 +50,13 @@ public class UserController {
     @RequestMapping(value = "/editUser", method = RequestMethod.GET)
     public String editUserGet(@RequestParam("id") String uid, Model model){
         logger.info("Access editUserGet method !!");
-        User user = new User();
-        try {
-            user = userManager.findUserById(uid);
-        } catch (UserNotFoundException e) {
-            logger.error("+++++++++++++++++UserNotFoundException+++++++++++++++++");
-        }
-
-        List<User> users = userManager.findAllUsers();
+        User user = userService.findUserByIdService(uid);
+        List<User> users = userService.findAllUsersService();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
-        List<Role> roles = roleManager.getAll();
-        model.addAttribute("listRole", roles);
+
         return "viewUserPage";
     }
-
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String editUserPost(@ModelAttribute User user, Model model) throws ParseException {
@@ -74,24 +68,19 @@ public class UserController {
 //            logger.info("=== No error");
 //
 //        }
-        userManager.saveForEdit(user);
-        List<User> users = userManager.findAllUsers();
+        userService.saveForEditService(user);
+        List<User> users = userService.findAllUsersService();
         model.addAttribute("listUser",users);
         model.addAttribute("user", user);
-        List<Role> roles = roleManager.getAll();
-        model.addAttribute("listRole", roles);
 
         return "viewUserPage";
     }
 
     @RequestMapping(value = "/deleteUser")
-    public String deleteUser(@RequestParam("id") String id, Model model){
+    public String deleteUser(@RequestParam("id") String id) throws UserNotFoundException {
         logger.info("Access deleteUser method !!");
-        try {
-            userManager.deleteUser(userManager.findUserById(id));
-        } catch (UserNotFoundException e) {
-            logger.error("+++++++++++++++++UserNotFoundException+++++++++++++++++");
-        }
+
+        userService.deleteUserService(userService.findUserByIdService(id));
         return "redirect:viewUser";
     }
 }
