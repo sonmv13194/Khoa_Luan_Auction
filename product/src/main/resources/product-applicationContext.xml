@@ -19,23 +19,25 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="${mail.smtp.host}"/>
-        <property name="port" value="${mail.smtp.port}"/>
-        <property name="username" value="${mail.userName}" />
-        <property name="password" value="${mail.password}"/>
+         <property name="host"><value>smtp.gmail.com</value></property>
+        <property name="port"><value>465</value></property>
+        <property name="protocol"><value>smtp</value></property>
+        <property name="username"><value>XXXXX@gmail.com</value></property>
+        <property name="password"><value>XXXX</value></property>
         <property name="javaMailProperties">
             <props>
-                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
-                <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.quitwait">false</prop>
             </props>
         </property>
     </bean>
     <bean id="beanSendEmailOrder" class="vn.smartdev.product.dao.repository.SendEmail">
         <property name="mailSender" ref="mailSender"/>
-        <property name="from" value="${mail.userName}"/>
-        <property name="subjectOrder" value="${mail.subjectEmail.order}"/>
-        <property name="msgOrder" value="${mail.bodyEmail.order}"/>
-        <property name="subjectRegistration" value="${mail.subjectEmail.registration}"/>
-        <property name="msgRegistration" value="${mail.bodyEmail.registration}"/>
+        <property name="from" value="XXXXX@gmail.com"/>
+        <property name="subjectOrder" value="test"/>
+        <property name="msgOrder" value="test"/>
+        <property name="subjectRegistration" value="test"/>
+        <property name="msgRegistration" value="test"/>
     </bean>
 </beans>

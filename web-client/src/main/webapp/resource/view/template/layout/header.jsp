@@ -1,7 +1,7 @@
 <header class="header-style-1"> 
   
   <!-- ============================================== TOP MENU ============================================== -->
-  <div class="top-bar animate-dropdown">
+  <div class="navbar navbar-fixed-top top-bar animate-dropdown">
     <div class="container">
       <div class="header-top-inner">
         <div class="cnt-account">
@@ -48,7 +48,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
           <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="home.html"> <img src="assets/images/logo.png" alt="logo"> </a> </div>
+          <div class="logo"> <a href="home.html"> <img src="resource/view/template/assets/images/logo.png" alt="logo"> </a> </div>
           <!-- /.logo --> 
           <!-- ============================================================= LOGO : END ============================================================= --> </div>
         <!-- /.logo-holder -->
@@ -60,7 +60,7 @@
             <form>
               <div class="control-group">
                 <ul class="categories-filter animate-dropdown">
-                  <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
+                  <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="#">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu" >
                       <li class="menu-header">Computer</li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
@@ -93,7 +93,7 @@
                 <div class="cart-item product-summary">
                   <div class="row">
                     <div class="col-xs-4">
-                      <div class="image"> <a href="detail.html"><img src="assets/images/cart.jpg" alt=""></a> </div>
+                      <div class="image"> <a href="detail.html"><img src="resource/view/template/assets/images/cart.jpg" alt=""></a> </div>
                     </div>
                     <div class="col-xs-7">
                       <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
@@ -202,7 +202,7 @@
                           </div>
                           <!-- /.col -->
                           
-                          <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="assets/images/banners/top-menu-banner.jpg" alt=""> </div>
+                          <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="resource/view/template/assets/images/banners/top-menu-banner.jpg" alt=""> </div>
                           <!-- /.yamm-content --> 
                         </div>
                       </div>
@@ -280,7 +280,7 @@
                               <li><a href="#">Memory Cards</a></li>
                             </ul>
                           </div>
-                          <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="assets/images/banners/banner-side.png"></a> </div>
+                          <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="resource/view/template/assets/images/banners/banner-side.png"></a> </div>
                         </div>
                         <!-- /.row --> 
                       </div>
@@ -299,15 +299,15 @@
                         <div class="row">
                           <div class="col-xs-12 col-menu">
                             <ul class="links">
-                              <li><a href="home.html">Home</a></li>
-                              <li><a href="category.html">Category</a></li>
+                              <li><a href="homePage">Home</a></li>
+                              <li><a href="category">Category</a></li>
                               <li><a href="detail.html">Detail</a></li>
-                              <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>
-                              <li><a href="checkout.html">Checkout</a></li>
+                              <li><a href="shopping-cart">Shopping Cart Summary</a></li>
+                              <li><a href="check	out">Checkout</a></li>
                               <li><a href="blog.html">Blog</a></li>
                               <li><a href="blog-details.html">Blog Detail</a></li>
-                              <li><a href="contact.html">Contact</a></li>
-                              <li><a href="sign-in.html">Sign In</a></li>
+                              <li><a href="contact">Contact</a></li>
+                              <li><a href="sign-in">Sign In</a></li>
                               <li><a href="my-wishlist.html">Wishlist</a></li>
                               <li><a href="terms-conditions.html">Terms and Condition</a></li>
                               <li><a href="track-orders.html">Track Orders</a></li>

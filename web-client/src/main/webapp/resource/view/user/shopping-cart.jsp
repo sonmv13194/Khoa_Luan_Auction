@@ -50,7 +50,7 @@
                                         class="fa fa-trash-o"></i></a></td>
                                 <td class="cart-image">
                                     <a class="entry-thumbnail" href="detail.html">
-                                        <img src="assets/images/products/p1.jpg" alt="">
+                                        <img src="resource/view/template/assets/images/products/p1.jpg" alt="">
                                     </a>
                                 </td>
                                 <td class="cart-product-name-info">
@@ -92,7 +92,7 @@
                                         class="fa fa-trash-o"></i></a></td>
                                 <td class="cart-image">
                                     <a class="entry-thumbnail" href="detail.html">
-                                        <img src="assets/images/products/p2.jpg" alt="">
+                                        <img src="resource/view/template/assets/images/products/p2.jpg" alt="">
                                     </a>
                                 </td>
                                 <td class="cart-product-name-info">

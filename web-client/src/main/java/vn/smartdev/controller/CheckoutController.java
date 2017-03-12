@@ -44,7 +44,7 @@ public class CheckoutController {
 
 	@Autowired
 	InvoiceDetailServices invoiceDetailServices;
-	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/checkout", method = RequestMethod.GET)
 	public String checkout(ModelMap modelMap, HttpSession session) {
 		List<CartModel> cartModels = (List<CartModel>) session.getAttribute("cartSession");
 		if(cartModels.isEmpty()){
@@ -53,7 +53,7 @@ public class CheckoutController {
 			modelMap.addAttribute("invoiceModel", new InvoiceModel());
 			return "checkoutPage";
 		}
-	}
+	}*/
 	@ModelAttribute("categories")
 	public List<Category> listAllCategory() {
 		List<Category> categories = categoryServices.getListCategory();

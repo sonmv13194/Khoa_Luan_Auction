@@ -67,6 +67,11 @@
             <artifactId>invoice</artifactId>
             <version>${project.version}</version>
         </dependency>
+     <!--      <dependency>
+            <groupId>com.java.training</groupId>
+            <artifactId>comment</artifactId>
+            <version>${project.version}</version>
+        </dependency> -->
 
         <!-- Spring -->
         <dependency>

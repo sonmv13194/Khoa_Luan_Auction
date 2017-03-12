@@ -40,7 +40,7 @@ public class ProductDetailModel {
     }
 
     public void setProductDetailName(String productDetailCode) {
-        this.productDetailName = productDetailName;
+        this.productDetailName= productDetailCode;
     }
 
     public float getProductDetailPrice() {

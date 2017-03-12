@@ -14,7 +14,7 @@
     <context:component-scan base-package="vn.smartdev.user.*"/>
     <http use-expressions="true" auto-config="false">
         <csrf/>
-        <intercept-url pattern="/checkout" access="isAuthenticated()" requires-channel="http" />
+        <!-- <intercept-url pattern="/checkout" access="isAuthenticated()" requires-channel="http" /> -->
         <intercept-url pattern="/" access="permitAll()"/>
         <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" requires-channel="http" />
         <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" requires-channel="http" />

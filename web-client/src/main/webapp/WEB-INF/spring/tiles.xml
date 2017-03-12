@@ -17,22 +17,22 @@
 		<put-attribute name="title" value="Detail Page" />
 		<put-attribute name="body" value="/resource/view/user/detail.jsp" />
 	</definition>
-	<definition name="shoppingCart" extends="definition">
+	<definition name="shopping-cart" extends="definition">
 		<put-attribute name="title" value="Shopping Cart Page" />
 		<put-attribute name="body" value="/resource/view/user/shopping-cart.jsp" />
 	</definition>
-	<definition name="signinPage" extends="definition">
+	<definition name="sign-in" extends="definition">
 		<put-attribute name="title" value="Login Page" />
 		<put-attribute name="body" value="/resource/view/user/sign-in.jsp" />
 	</definition>
-	<definition name="registationPage" extends="definition">
+	<definition name="sign-up" extends="definition">
 		<put-attribute name="title" value="Login Page" />
 		<put-attribute name="body" value="/resource/view/user/registration.jsp" />
 	</definition>
-	<definition name="cartPage" extends="definition">
+	<definition name="contact" extends="definition">
 		<put-attribute name="body" value="/resource/view/user/contact.jsp"/>
 	</definition>
-	<definition name="checkoutPage" extends="definition">
+	<definition name="checkout" extends="definition">
 		<put-attribute name="body" value="/resource/view/user/checkout.jsp"/>
 	</definition>
 	<definition name="categoryPage" extends="definition">

@@ -139,6 +139,11 @@
             <artifactId>spring-integration-mail</artifactId>
             <version>4.3.2.RELEASE</version>
         </dependency>
+          <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-mail</artifactId>
+        <version>1.2.6.RELEASE</version>
+    </dependency>
     </dependencies>
     <build>
         <!--<resources>-->
@@ -194,5 +199,6 @@
         <module>security</module>
         <module>logging</module>
         <module>web-client</module>
+        <module>comment</module>
     </modules>
 </project>

@@ -289,4 +289,58 @@
     <changeSet author="Nguyen (generated)" id="1481620089366-34" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
         <addForeignKeyConstraint baseColumnNames="username" baseTableName="user_attempts" constraintName="fk_usat_us" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="username" referencedTableName="user"/>
     </changeSet>
+    <changeSet author="Son(generated)" id="1481620089366-35" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    	<createTable tableName="discount">
+    		<column name="id" type="VARCHAR(45)">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="startDate" type="DATE"></column>
+    		<column name="endDate" type="DATE"></column>
+    		<column name="discount" type="INT(50)"></column>
+    		<column name="created_by" type="VARCHAR(255)"></column>
+    		<column name="last_updated" type="DATE"></column>
+    		<column name="last_updated_by" type="VARCHAR(255)"></column>
+    		<column name="created" type="DATE"></column>
+    		<column name="deleted" type="BIT(1)"></column>
+    		<column name="versionNo" type="INT"></column>
+    		<column name="productId" type="VARCHAR(45)"></column>
+    	</createTable>
+    </changeSet>
+      <changeSet id="1481620089366-36" author="Son(generated)">
+    	<addPrimaryKey columnNames="id" tableName="discount" constraintName="PRIMARY"/>
+    </changeSet>
+    <changeSet id="1481620089366-37" author="Son(generated)">
+    	<createIndex tableName="discount" indexName="fk_product_discount">
+    		<column name="productId"></column>
+    	</createIndex>
+    </changeSet>
+      <changeSet author="Son (generated)" id="1481620089366-38" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="productId" baseTableName="discount" constraintName="fk_product_discount" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet id="1481620089366-39" author="Son(generated)">
+    	<createTable tableName="comment">
+    		<column name="id" type="VARCHAR(45)">
+    		  <constraints nullable="false"/>
+    		</column>
+    		<column name="title" type="NVARCHAR(50)"></column>
+    		<column name="content" type="TEXT"></column>
+    		<column name="productId" type="VARCHAR(45)"></column>
+    		<column name="userId" type="VARCHAR(45)"></column>
+    		<column name="created" type="DATE"></column>
+    		<column name="last_updated" type="DATE"></column>
+    		<column name="created_by" type="VARCHAR(255)"></column>
+    		<column name="deleted" type="BIT(1)"></column>
+    		<column name="versionNo" type="INT"></column>
+    		<column name="last_updated_by" type="VARCHAR(255)"></column>
+    	</createTable>
+    	<createIndex tableName="comment" indexName="fk_product_comment">
+    		<column name="productId"></column>
+    	</createIndex>
+    	<createIndex tableName="comment" indexName="fk_user_comment">
+    		<column name="userID"></column>
+    	</createIndex>
+    	<addPrimaryKey columnNames="id" tableName="comment" constraintName="PRIMARY"/>
+    	<addForeignKeyConstraint constraintName="fk_product_comment" baseColumnNames="productId" baseTableName="comment" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="product"/>
+    	<addForeignKeyConstraint constraintName="fk_user_comment" baseColumnNames="userId" baseTableName="comment" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
 </databaseChangeLog>

@@ -38,13 +38,13 @@
 						<input type="hidden" name="show_private" value="0">
 						<span id="private_label">Hiding</span> private elements 
 							(<a id="private_toggle" href="">toggle</a>)
-						</span>
+<!-- 						</span> -->
 					</div>
 					<div>
 						<input type="hidden" name="show_extended" value="1">
 						<span id="extended_label">Showing</span> extended elements 
 							(<a id="extended_toggle" href="">toggle</a>)
-						</span>
+<!-- 						</span> -->
 					</div>
 				</div>
 
@@ -443,8 +443,8 @@ and returning the type if it is a known type, or null otherwise.
        var Char;
        
        // Check the numeric part
-       for ( i=1 ; i<sData.length ; i++ ) {
-         Char = sData.charAt(i); 
+       for ( i=1 ; i< sData.length ; i++ ) {
+         char = sData.charAt(i); 
          if (sValidChars.indexOf(Char) == -1) {
            return null;
          }
@@ -647,7 +647,7 @@ control's state.
        
        // Loop over each instance of the pager
        var an = oSettings.aanFeatures.p;
-       for ( var i=0, iLen=an.length ; i<iLen ; i++ ) {
+       for ( var i=0, iLen=an.length ; i< iLen ; i++ ) {
          var buttons = an[i].getElementsByTagName('span');
          if ( oSettings._iDisplayStart === 0 ) {
            buttons[0].className = "paginate_disabled_previous";
