@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <tx:annotation-driven/>
+    <context:annotation-config/>
+    <context:component-scan base-package="vn.smartdev.*"/>
+    <context:property-placeholder  location="classpath*:*.properties" order="0" ignore-unresolvable="true" />
+    <jpa:repositories base-package="vn.smartdev.product.dao.repository"/>
+    <jpa:auditing auditor-aware-ref="auditorAwareIml"/>
+    <bean id="auditorAwareIml" class="vn.smartdev.core.jpa.auditing.AuditorAwareImpl"/>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${smtp.host}"/>
+        <property name="port" value="${smtp.port}"/>
+        <property name="username" value="${userName}" />
+        <property name="password" value="${password}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${smtp.auth}</prop>
+                <prop key="mail.smtp.starttls.enable">${smtp.starttls.enable}</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="beanSendEmailOrder" class="vn.smartdev.product.dao.repository.SendEmail">
+        <property name="mailSender" ref="mailSender"/>
+        <property name="from" value="${userName}"/>
+        <property name="subjectOrder" value="${subjectEmail.order}"/>
+        <property name="msgOrder" value="${bodyEmail.order}"/>
+        <property name="subjectRegistration" value="${subjectEmail.registration}"/>
+        <property name="msgRegistration" value="${bodyEmail.registration}"/>
+    </bean>
+</beans>

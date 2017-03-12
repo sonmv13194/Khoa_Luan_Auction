@@ -1,0 +1,10 @@
+mail.smtp.auth=${mail.smtp.auth}
+mail.smtp.host=${smtp.host}
+mail.smtp.port=${smtp.port}
+mail.smtp.starttls.enable=${mail.smtp.starttls.enable}
+mail.userName=${smtp.userName}
+mail.password=${smtp.password}
+mail.subjectEmail.order=${mail.subjectEmail.order}
+mail.subjectEmail.registration=${mail.subjectEmail.registration}
+mail.bodyEmail.order=${mail.bodyEmail.order}
+mail.bodyEmail.registration=${mail.bodyEmail.registration}

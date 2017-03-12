@@ -1,0 +1,79 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- Base Define -->
+	<definition name="definition" template="/resource/view/template/layout/template.jsp">
+		<put-attribute name="header" value="/resource/view/template/layout/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/resource/view/template/layout/footer.jsp" />
+	</definition>
+	<definition name="home" extends="definition">
+		<put-attribute name="title" value="Home Page" />
+		<put-attribute name="body" value="/resource/view/user/home.jsp" />
+	</definition>
+	<definition name="detailPage" extends="definition">
+		<put-attribute name="title" value="Detail Page" />
+		<put-attribute name="body" value="/resource/view/user/detail.jsp" />
+	</definition>
+	<definition name="shoppingCart" extends="definition">
+		<put-attribute name="title" value="Shopping Cart Page" />
+		<put-attribute name="body" value="/resource/view/user/shopping-cart.jsp" />
+	</definition>
+	<definition name="sign-in" extends="definition">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="body" value="/resource/view/user/sign-in.jsp" />
+	</definition>
+	<definition name="registationPage" extends="definition">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="body" value="/resource/view/user/registration.jsp" />
+	</definition>
+	<definition name="cartPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/contact.jsp"/>
+	</definition>
+	<definition name="checkoutPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/checkout.jsp"/>
+	</definition>
+	<definition name="categoryPage" extends="definition">
+		<put-attribute name="body" value="/resource/view/user/category.jsp"/>
+	</definition>
+	<!--Admin Page-->
+	<definition name="definitionAdmin" template="/resource/view/admin/template/template.jsp">
+		<put-attribute name="header" value="/resource/view/admin/template/header.jsp" />
+		<put-attribute name="sidebar" value="/resource/view/admin/template/sidebar.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/resource/view/admin/template/footer.jsp" />
+	</definition>
+	<definition name="viewUserPage" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewUser.jsp" />
+	</definition>
+	<definition name="category" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewCategory.jsp" />
+	</definition>
+	<definition name="viewProduct" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewProduct.jsp"/>
+	</definition>
+	<definition name="createProduct" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/createProduct.jsp" />
+	</definition>
+	<definition name="updateProduct" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/updateProduct.jsp"/>
+	</definition>
+	<definition name="viewProductDetail" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewProductDetail.jsp" />
+	</definition>
+	<definition name="viewProductImages" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewProductImages.jsp"/>
+	</definition>
+	<definition name="adminInvoicePage" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewInvoice.jsp"/>
+	</definition>
+	<definition name="adminInvoiceDetailPage" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewInvoiceDetail.jsp"/>
+	</definition>
+	<definition name="viewDiscountPage" extends="definitionAdmin">
+		<put-attribute name="body" value="/resource/view/admin/view/viewDiscount.jsp"/>
+	</definition>
+
+</tiles-definitions>

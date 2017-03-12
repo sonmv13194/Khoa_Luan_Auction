@@ -1,0 +1,79 @@
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--  CONTENT -->
+<div class="main-content-checkout">
+	<div class="container">
+		<div class="row">
+			<div class="content-register-title">
+				<h2 class="content-paget-title-item">Register</h2>
+			</div>
+			<form class="new-account-form primary-form" action="checkout" method="post">
+			<div class="col-sm-6">
+				<div class="account-information">
+						<h3 class="form-heading">Nhập thông tin cá nhân</h3>
+						<div class="form-content">
+							<div class="form-group primary-form-group">
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="fistname">First Name</label> <input
+											class="form-control input-field" type="text"
+											placeholder="first name" name="firstname">
+									</div>
+									<div class="col-sm-6">
+										<label for="lastname">Last Name</label> <input
+											class="form-control input-field" type="text"
+											placeholder="last name" name="lastname">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<label for="address">Địa chỉ</label> <input
+											class="form-control input-field" name="address">
+									</div>
+								</div>
+								<label for="email">Email</label> <input
+									class="form-control input-field" type="email" name="email">
+								<label for="Phone">Phone</label> <input
+									class="form-control input-field" type="tel" name="phone"> <label
+									for="email">Age</label> <input class="form-control input-field"
+									type="number" name="age">
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="account-information">
+						<h3 class="form-heading">Nhập địa chỉ nhận hàng</h3>
+						<div class="form-content">
+							<div class="form-group primary-form-group">
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="fistname">Tên đường</label> <input
+											class="form-control input-field" type="text"
+											placeholder="">
+									</div>
+									<div class="col-sm-6">
+										<label for="lastname">Số nhà</label> <input
+											class="form-control input-field" type="text"
+											placeholder="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="year">Năm sinh</label> <input
+											class="form-control input-field">
+									</div>
+									<div class="col-sm-6">
+										<label for="year">Thành phố</label> <input
+											class="form-control input-field">
+									</div>
+							</div>
+						</div>
+						</div>
+				</div>
+			</div>
+				</form>
+		</div>
+	</div>
+</div>
+<!-- END CONTENT -->

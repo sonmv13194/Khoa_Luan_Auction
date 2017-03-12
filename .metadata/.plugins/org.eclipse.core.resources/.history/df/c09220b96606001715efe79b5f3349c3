@@ -1,0 +1,318 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Nguyen (generated)" id="1481620089366-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="category">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_name" type="VARCHAR(100)"/>
+            <column name="created" type="date"/>
+            <column name="last_updated" type="date"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="deleted" type="BIT(1)"/>
+            <column name="versionNo" type="INT"/>
+            <column name="last_updated_by" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="invoice">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(45)"/>
+            <column name="email" type="VARCHAR(45)"/>
+            <column name="phone" type="VARCHAR(45)"/>
+            <column name="lastName" type="VARCHAR(45)"/>
+            <column name="firstName" type="VARCHAR(45)"/>
+            <column name="address" type="VARCHAR(45)"/>
+            <column name="city" type="VARCHAR(45)"/>
+            <column name="status" type="VARCHAR(200)"/>
+            <column name="invoice_date" type="datetime(6)"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated_by" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="deleted" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="versionNo" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="invoice_detail">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_detail_id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="invoice_id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="VARCHAR(200)"/>
+            <column name="quantity" type="INT"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated_by" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="deleted" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="versionNo" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="product">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_name" type="VARCHAR(200)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="category_id" type="VARCHAR(45)"/>
+            <column name="created" type="date"/>
+            <column name="last_updated" type="date"/>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column name="deleted" type="BIT(1)"/>
+            <column name="versionNo" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="product_detail">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_detail_name" type="VARCHAR(100)"/>
+            <column name="product_detail_status" type="INT"/>
+            <column name="product_detail_price" type="FLOAT(12)"/>
+            <column name="product_detail_quantity" type="INT"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="supplyer" type="VARCHAR(250)"/>
+            <column name="product_parent_id" type="VARCHAR(45)"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date"/>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column name="deleted" type="BIT(1)"/>
+            <column name="versionNo" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-6" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="product_images">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url" type="MEDIUMTEXT"/>
+            <column name="product_detail_id" type="VARCHAR(45)"/>
+            <column name="created" type="date"/>
+            <column name="last_updated" type="date"/>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column name="deleted" type="BIT(1)"/>
+            <column name="versionNo" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-7" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="role">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_name" type="VARCHAR(45)"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column defaultValueNumeric="1" name="versionNo" type="INT"/>
+            <column defaultValueNumeric="1" name="deleted" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-8" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="role_user">
+            <column name="user_id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-9" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="user">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(45)"/>
+            <column name="password" type="VARCHAR(200)"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="phone" type="VARCHAR(45)"/>
+            <column name="birthday" type="date"/>
+            <column name="address" type="VARCHAR(200)"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column defaultValueNumeric="0" name="enabled" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="account_non_expired" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="account_non_locked" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="versionNo" type="INT"/>
+            <column defaultValueNumeric="1" name="credentials_non_expired" type="BIT(1)"/>
+            <column defaultValueNumeric="1" name="deleted" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-10" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="user_attempts">
+            <column name="id" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attempts" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastModified" type="VARCHAR(45)"/>
+            <column name="created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(250)"/>
+            <column name="last_updated_by" type="VARCHAR(250)"/>
+            <column defaultValueNumeric="1" name="versionNo" type="INT"/>
+            <column defaultValueNumeric="1" name="deleted" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="category"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-12" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="invoice"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-13" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="invoice_detail"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-14" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="product"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="product_detail"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-16" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="product_images"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-17" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="role"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-18" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="user_id, role_id" constraintName="PRIMARY" tableName="role_user"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-19" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="user"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-20" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="email" constraintName="email_UNIQUE" tableName="user"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-21" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="username" constraintName="username_UNIQUE" tableName="user"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-22" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_orderdetail_order_idx" tableName="invoice_detail">
+            <column name="invoice_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-23" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_productimage_productdetail_idx" tableName="product_images">
+            <column name="product_detail_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-24" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_role_idx" tableName="role_user">
+            <column name="role_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-25" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_usat_us_idx" tableName="user_attempts">
+            <column name="username"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-26" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="product_category_idx" tableName="product">
+            <column name="category_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-27" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="product_detail_product_parent_idx" tableName="product_detail">
+            <column name="product_parent_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-28" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_user" constraintName="FK4sxfh9qoye96gyu5vjbfp53e4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-29" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="role_user" constraintName="FK959de75d868p2l5b2wilh9rkg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-30" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product" constraintName="FKexqqeaksnmmku5py194ywp140" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="id" referencedTableName="category"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-31" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="product_detail_id" baseTableName="product_images" constraintName="FKoof4vsh31deithuin7svib6vo" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="id" referencedTableName="product_detail"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-32" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="product_parent_id" baseTableName="product_detail" constraintName="FKpl341cb2v4yc9fxctejr1p8og" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="id" referencedTableName="product"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-33" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="invoice_id" baseTableName="invoice_detail" constraintName="fk_invoicedetail_invoice" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="invoice"/>
+    </changeSet>
+    <changeSet author="Nguyen (generated)" id="1481620089366-34" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="username" baseTableName="user_attempts" constraintName="fk_usat_us" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="CASCADE" referencedColumnNames="username" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Son(generated)" id="1481620089366-35" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+    	<createTable tableName="discount">
+    		<column name="id" type="VARCHAR(45)">
+    			<constraints nullable="false"/>
+    		</column>
+    		<column name="startDate" type="DATE"></column>
+    		<column name="endDate" type="DATE"></column>
+    		<column name="discount" type="INT(50)"></column>
+    		<column name="created_by" type="DATE"></column>
+    		<column name="last_updated" type="DATE"></column>
+    		<column name="last_updated_by" type="DATE"></column>
+    		<column name="created" type="DATE"></column>
+    		<column name="deleted" type="TINYINT(1)"></column>
+    		<column name="versionNo" type="INT(11)"></column>
+    	</createTable>
+    </changeSet>
+      <changeSet id="1481620089366-36" author="Son">
+    	<createIndex tableName="discount" indexName="fk_product_discount">
+    		<column name="productId" type="VARCHAR(50)"></column>
+    	</createIndex>
+    </changeSet>
+    <changeSet id="1481620089366-37" author="Son">
+    	<createIndex tableName="discount" indexName="fk_product_discount">
+    		<column name="productId" type="VARCHAR(50)"></column>
+    	</createIndex>
+    </changeSet>
+</databaseChangeLog>

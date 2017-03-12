@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="detail" key="selection"/>
+		<item value=".header_top ul li a:hover" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value=".header_top ul li a:hover"/>
+			<item value="content"/>
+			<item value="memberpost-infor"/>
+			<item value="status-upload"/>
 			<item value="detail"/>
 			<item value="&lt;%@page contentType=&quot;text/html&quot; pageEncoding=&quot;UTF-8&quot;%&gt;"/>
 			<item value="header_search"/>
 			<item value="hearch_search"/>
-			<item value="tab-descript"/>
-			<item value="-21px"/>
-			<item value="15:00:29"/>
-			<item value="giảm giá"/>
 		</list>
 		<list key="replacehistory">
 		</list>

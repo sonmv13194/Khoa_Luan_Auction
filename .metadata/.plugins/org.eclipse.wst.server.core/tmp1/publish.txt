@@ -1,0 +1,10 @@
+#Tomcat publish data
+#Sun Mar 12 09:33:25 ICT 2017
+org.eclipse.jst.j2ee.server\:core=WEB-INF/lib/core-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:user=WEB-INF/lib/user-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:configuration=WEB-INF/lib/configuration-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:product=WEB-INF/lib/product-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:invoice=WEB-INF/lib/invoice-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\PC\\.m2\\repository\\org\\springframework\\spring-web\\4.3.2.RELEASE\\spring-web-4.3.2.RELEASE.jar=WEB-INF/lib/spring-web-4.3.2.RELEASE.jar
+org.eclipse.jst.j2ee.server\:category=WEB-INF/lib/category-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:security=WEB-INF/lib/security-0.0.1-SNAPSHOT.jar

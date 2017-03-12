@@ -1,6 +1,7 @@
 package hvcntt.org.shoppingweb.controller;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +39,7 @@ public class CommentController {
 //		model.addAttribute("comments",commentService.getAll() );
 //		return "detailpage";
 //	}
-	@RequestMapping(value="/comment/{idproduct}")
+	@RequestMapping(value="/comment/{idproduct}",produces={"application/x-www-form-urlencoded; charset=UTF-8"})
 	public String createComment(Model model, @PathVariable("idproduct")int idproduct,
 			@ModelAttribute CommentDto cm, Principal principal, HttpServletRequest request){
 		Product product= productService.findOne(idproduct);
@@ -49,6 +50,8 @@ public class CommentController {
 		comment.setProduct(product);
 		comment.setTitle(cm.getTitle());
 		comment.setContent(cm.getContent());
+		comment.setCreatedate(new Date());
+		comment.setLastupdate(new Date());
 		commentService.create(comment);
 		List<Image> imgs= imageservice.findByProduct(product);
 		model.addAttribute("image", imgs);

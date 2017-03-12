@@ -17,14 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import hvcntt.org.shoppingweb.model.Customer;
+import hvcntt.org.shoppingweb.model.Information;
 import hvcntt.org.shoppingweb.model.Person;
-import hvcntt.org.shoppingweb.service.CustomerService;
+import hvcntt.org.shoppingweb.service.InformationService;
 
 @Controller
 public class AjaxDemoController {
 	@Autowired
-	CustomerService customerservice;
+	InformationService customerservice;
 	private List<Person> personGroup = new ArrayList<Person>();
 	@RequestMapping(value="/ajax",method = RequestMethod.GET)
 	public ModelAndView ajaxpage(){
@@ -79,14 +79,14 @@ public class AjaxDemoController {
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
-    public Customer saveCustomer(Customer customer) {
+    public Information saveCustomer(Information customer) {
         customerservice.create(customer);
         return customer;
     }
     @RequestMapping(value="getJSon/{firstname}/{lastname}",method=RequestMethod.GET)
     @ResponseBody
-    public Customer findName(@PathVariable("firstname") String firstname,@PathVariable("lastname")String lastname){
-    	Customer customer=customerservice.findByName(firstname, lastname);
+    public Information findName(@PathVariable("firstname") String firstname,@PathVariable("lastname")String lastname){
+    	Information customer=customerservice.findByName(firstname, lastname);
     	return customer;
     }
     @RequestMapping(value="/load",method=RequestMethod.GET)

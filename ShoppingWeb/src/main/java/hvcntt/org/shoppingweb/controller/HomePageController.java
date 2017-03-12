@@ -28,6 +28,5 @@ public class HomePageController {
 		model.addAttribute("message","có "+ productservice.findByNameContaining(name).size()+" sản phẩm được tìm thấy");
 		return "home";
 	}
-	
-
 }
+

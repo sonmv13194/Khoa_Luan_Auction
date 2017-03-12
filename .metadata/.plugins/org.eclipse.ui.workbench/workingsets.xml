@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1489073073993_1" label="java-training" name="java-training">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/java-training" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/invoice" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/configuration" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/security" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/core" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/category" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/product" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/logging" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/user" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/web-client" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/banner" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/comment" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/rating" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1482638723092_0" label="Window Working Set" name="Aggregate for window 1482638723092"/>
 </workingSetManager>

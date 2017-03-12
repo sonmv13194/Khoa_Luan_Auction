@@ -1,0 +1,25 @@
+package hvcntt.org.shoppingweb.controller;
+
+import java.security.Principal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import hvcntt.org.shoppingweb.model.User;
+import hvcntt.org.shoppingweb.service.UserService;
+
+@Controller
+public class CheckoutController {
+	@Autowired
+	UserService userService;
+	@RequestMapping(value="/checkout")
+	public String checkoutPage(Model model,Principal principal){
+		String username=principal.getName();
+		User user= userService.findByUsername(username);
+		
+		return "checkout";
+	}
+}
+ 

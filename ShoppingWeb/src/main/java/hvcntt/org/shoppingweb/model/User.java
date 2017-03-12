@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -24,6 +25,9 @@ public class User {
 	private String passwordConfirm;
 	private Set<Role> roles;
 	private Set<Comment> comments;
+	private Set<PayMent> payments;
+	private AddresShipping addresship;
+	private Information information;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
@@ -65,6 +69,27 @@ public class User {
 	}
 	public void setComments(Set<Comment> comments) {
 		this.comments = comments;
+	}
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy="user")
+	public Set<PayMent> getPayments() {
+		return payments;
+	}
+	public void setPayments(Set<PayMent> payments) {
+		this.payments = payments;
+	}
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy="user")
+	public AddresShipping getAddresship() {
+		return addresship;
+	}
+	public void setAddresship(AddresShipping addresship) {
+		this.addresship = addresship;
+	}
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy="user")
+	public Information getInformation() {
+		return information;
+	}
+	public void setInformation(Information information) {
+		this.information = information;
 	}
 	
 	

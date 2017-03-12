@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <section class="main-content-detail">
 	<div class="container">
@@ -55,6 +56,7 @@
 							<div class="product-detail-view">
 								<label><i class="glyphicon glyphicon-eye-open"></i> Lượt
 									xem : ${singleProduct.view}</label>
+								<p>(Còn lại ${singleProduct.quantity} sản phẩm)</p>
 							</div>
 							<div class="product-detail-price">
 								<h2>
@@ -156,8 +158,7 @@
 												<form:form commandName="CommentDto"
 													action="${pageContext.request.contextPath }/comment/${singleProduct.idproduct }">
 													<form:input class="form-control title-comments"
-														placeholder="Nhận xét tổng quan"
-														path="title"></form:input>
+														placeholder="Nhận xét tổng quan" path="title"></form:input>
 													<form:textarea
 														placeholder="Viết đánh giá nhận xét cho sản phẩm này..."
 														path="content"></form:textarea>
@@ -176,16 +177,25 @@
 							<div class="col-sm-12">
 								<h2 style="font-size: 20px; font-weight: bold;">Nhận xét
 									sản phẩm ${singleProduct.name }</h2>
+								<label>Có ${singleProduct.commentItems.size() } nhận xét</label>
 								<c:forEach var="comment" items="${singleProduct.commentItems }">
 									<div class="comment-items">
-										<label><a href="#">${comment.user.username }</a></label> <label
-											class="memberpost-infor">${comment.title }</label>
-										<p class="memberpost-infor">
-											<fmt:formatDate value="${comment.createdate }"
-												pattern="yyyy-MM-dd" />
-										</p>
-										<div class="content">
-											<p>${comment.content }</p>
+										<img class="img-responsive user-photo"
+											src="resource/images/avatar/avartar-cmt.png"
+											style="width: 31px">
+										<div class="panel panel-default"
+											style="margin-left: 40px; margin-top: -30px;">
+											<div class="panel-heading comment-heading">
+												<label><a href="#">${comment.user.username }</a></label>
+												<p class="memberpost-infor">Đã comment vào 
+												<fmt:formatDate value="${comment.createdate }"
+													pattern="yyyy-MM-dd" />
+												</p>
+											</div>
+											<label class="memberpost-infor">${comment.title }</label>
+											<div class="content-comment">
+												<p>${comment.content }</p>
+											</div>
 										</div>
 									</div>
 								</c:forEach>

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="MobileApp"/>
+<aop-project name="invoice"/>
+<aop-project name="security"/>
+<aop-project name="category"/>
+<aop-project name="core"/>
 <aop-project name="ShoppingWeb"/>
+<aop-project name="logging"/>
+<aop-project name="product"/>
+<aop-project name="user"/>
+<aop-project name="web-client"/>
 </aop-reference-model>

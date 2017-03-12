@@ -1,0 +1,16 @@
+package hvcntt.org.shoppingweb.controller;
+
+import java.security.Principal;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class CheckoutController {
+	@RequestMapping(value="/checkout")
+	public String checkoutPage(Model model,Principal principal){
+		return "checkout";
+	}
+}
+ 
